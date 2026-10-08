@@ -2,6 +2,8 @@
 
 > Read [CONTEXT.md](CONTEXT.md) first. It covers the audience, the slides this exercise accompanies, the exact wording to reuse, and where the styling and code to borrow come from.
 
+> Before implementing the stages, read [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the review findings and recommended design revisions. Use [final-things-to-check.md](final-things-to-check.md) as the standing pre-delivery checklist. The critique records recommendations; the stage descriptions below have not yet been revised to incorporate them.
+
 ## Context
 The explainability & ethics section of the HSMA lambda ML workshop needs a hands-on exercise for senior NHS leaders. They have no ML background beyond what they've been taught that day. The goal is an analogue of the HSMA DES/vidigi playground where learners act as the **approving panel** for a model and must question it before signing it off.
 
