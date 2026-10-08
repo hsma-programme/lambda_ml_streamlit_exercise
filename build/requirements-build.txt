@@ -1,5 +1,7 @@
-pandas
-numpy
-scikit-learn
-xgboost
-shap
+# Offline build only (not shipped to stlite). Versions used for the current exports.
+# Tested on Python 3.14.3 in the slides repo .venv (pyproject there requires >=3.12).
+pandas==3.0.6
+numpy==2.5.3
+scikit-learn==1.9.1
+xgboost==3.4.1
+shap==0.52.0

@@ -45,7 +45,7 @@ pack.py                     # stlitepack build → docs/index.html (pattern from
 requirements.txt            # streamlit, pandas, numpy, plotly==6.0.1 (stlite pin)
 README.md, CLAUDE.md
 ```
-Run `git init` (the folder isn't a git repo yet). Do not commit unless the user asks. See the commit rules in CONTEXT.md.
+The repo is already initialised. Do not commit unless the user asks. See the commit rules in CONTEXT.md.
 
 ## Synthetic data (`build/generate_data.py`)
 - About 20,000 discharges, generated with `numpy.random.default_rng(42)`.
@@ -58,8 +58,8 @@ Run `git init` (the folder isn't a git repo yet). Do not commit unless the user 
   - discharge destination (home / home with care package / care home)
   - lives alone, discharge specialty, discharge day
 - **Planted leakage:** the extract was pulled 30 days *after* discharge. It therefore contains `GP contacts since discharge`, `Outpatient follow-up attended` and `Community nursing visits since discharge`, each generated *from* the outcome.
-- **Planted confounder:** Friday discharges come disproportionately from frail elderly-care wards. Their raw readmission rate is higher, but the difference vanishes once frailty or ward is accounted for. This sets up the trap "ban Friday discharges?".
-- **Fairness hook:** deprivation has a real effect in the data. This sets up "proxy, not cause" and whether an intervention widens or narrows inequality.
+- **Planted confounder:** Friday discharges come disproportionately from frail elderly-care wards. Their raw readmission rate is higher, but the difference is close to zero within specialty (consistent with sampling noise; the generator asserts this) once ward is accounted for. This sets up the trap "ban Friday discharges?".
+- **Fairness hook:** deprivation has a real effect in the data. Deprivation acts directly in this synthetic mechanism, so don't teach it as a pure proxy. This sets up "a predictive association doesn't show which intervention would help" and whether an intervention widens or narrows inequality.
 - **Sanity assertions:** the base rate falls between 11% and 13%, v1 AUC is at least 0.93, and v2 AUC falls between 0.68 and 0.75.
 
 ## Model + SHAP (`build/train_and_explain.py`)
@@ -83,36 +83,40 @@ The stages are guided. Decisions are stored in `st.session_state` and compiled a
 Every page follows the same pattern:
 - It opens with an `st.info("**TASK:** …")` box.
 - It ends with one or two group discussion prompts.
-- Answers are recorded with radio buttons or checkboxes and get immediate `st.success`/`st.warning` feedback. This is the `choice`/`feedback` pattern from the vidigi app's `page_code_reorder_exercise.py`.
+- **Factual questions** (e.g. is this feature known at discharge?) get immediate `st.success`/`st.warning` feedback, using the `choice`/`feedback` pattern from the vidigi app's `page_code_reorder_exercise.py`.
+- **Judgement questions** (capacity, interventions, verdicts) record the group's answer first, then reveal considerations, and allow defensible disagreement. No "correct" banner.
+- **Compulsory vs optional:** one waterfall patient and three intervention examples are compulsory; the rest are optional depth. Pilot with someone unfamiliar with ML and cut to fit about 35 minutes.
 
-0. **Briefing.** The vendor pitches "ReadmitRisk v1" as "**96% accurate, AUC 0.95**", intended to "identify patients for a post-discharge support call". The group is the sign-off panel. **Before investigating**, they record a first-impression verdict (approve / approve with conditions / reject). It is revisited at the end.
+0. **Briefing.** The vendor pitches "ReadmitRisk v1" with headline accuracy and AUC **derived from the exported v1 results** (state the cut-off; the exploratory v1 gave about 98% / 0.99, not the earlier placeholder 96% / 0.95), intended to "identify patients for a post-discharge support call". The group is the sign-off panel. **Before investigating**, they record a first-impression verdict (approve / approve with conditions / reject). It is revisited at the end.
 1. **Is it any good?**
    - Accuracy trap: show a "model" that predicts nobody is readmitted and still scores 88% accurate.
-   - A threshold slider drives a **1,000-patient confusion grid** (an icon array in plotly). The slider is framed as call capacity: "we can phone N patients a week".
+   - A threshold slider drives a **1,000-patient confusion grid** (an icon array in plotly). Decide one control: the learner sets call capacity (the number of highest-risk patients phoned), with the probability cut-off shown as a consequence. State the discharge volume and time period (e.g. per 1,000 discharges) so counts and capacity are interpretable. Describe outcomes as historical readmissions, not readmissions prevented.
    - The grid uses natural-frequency wording: readmissions caught, missed, and calls to people who wouldn't have been readmitted. Mirror the slides' "Who gets a call?" grid: the same four labels adapted to readmission, and the same green / amber / red / grey colours.
    - Keep the explanations short and refer back to the DNA slides ("as with the missed appointments…"), because learners have already seen these ideas once.
    - Link this back to the earlier deck's precision and recall.
-   - Learners pick the trade-off they would accept.
+   - Learners pick the trade-off they would accept; record it, then show considerations (no right answer).
 2. **Too good to be true?**
    - Show the global SHAP bar for v1. Its top features are post-discharge.
    - Exercise: learners tick whether each feature is "known at the moment of discharge?", against a discharge-timeline graphic.
    - Reveal the leakage using the slides' definition: "information it wouldn't have at the moment you actually need the prediction".
    - Switch to v2. Performance drops to a realistic level, and the Stage 1 grid is shown again for v2.
 3. **What will we do with it?**
-   - Learners classify each candidate intervention as acceptable, a fairness concern, or a likely medical device:
+   - For each candidate intervention, the group answers three separate questions: do we support the use; which harms or fairness issues need investigating; does it need medical-device assessment. These overlap (a useful, regulated tool can raise fairness concerns), so don't offer them as one either/or choice. First define what the call involves, who makes it and what follows (MHRA: intended purpose, function and pathway position). Candidates:
      - support phone call
-     - transport or pharmacy review
+     - transport support
+     - pharmacy review
      - a clinician brings forward follow-up or reviews medications
      - delay discharge for high-risk patients
      - deprioritise "frequent readmitters" for elective lists
      - ban Friday discharges
-   - Feedback uses the slides' wording: "intended medical purpose", "**access** to care vs **clinical care**", "a **fairness** question", DCB0129/DCB0160, Clinical Safety Officer.
-   - Show the raw Friday rate, then the rates by ward, to make the point that a prediction is not the effect of an action.
+   - Considerations use the slides' wording, but don't assume the appointment-reminder classifications transfer to readmission; reassess on the readmission intended purpose and recheck against current guidance before delivery: "intended medical purpose", "**access** to care vs **clinical care**", "a **fairness** question", DCB0129/DCB0160, Clinical Safety Officer.
+   - Show the raw Friday rate, then the rates by ward, to make the point that a prediction is not the effect of an action. Show elderly care vs other wards, not all six; small-ward gaps are sampling noise.
 4. **Bringing people with you.**
    - Show three patients (high, median and low predicted risk), each with a plotly waterfall:
      - red pushes towards readmission and blue pushes away
      - values are in percentage points
      - f(x) vs E[f(X)] is labelled as in the slides
+   - Cover limitations, uncertainty and reasons to question the model, not just how to persuade. Explanation doesn't establish causality, fairness or readiness to deploy.
    - Learners choose which statement to give a ward manager or a sceptical consultant. The options mix good statements with causal over-claims, such as "…so reducing their medications will prevent readmission".
    - Contrast the local and global views.
 5. **Sign-off.**
@@ -121,7 +125,8 @@ Every page follows the same pattern:
      - the leakage they found
      - the uses they approved
      - device and governance actions
-     - conditions: local validation, a calibration check, monitoring for drift, an equity audit
+     - conditions: local validation, a calibration check, subgroup/equity checks, monitoring for drift with criteria for pausing, an accountable owner
+     - **evaluating the service**: how to test whether support calls help versus usual care or random allocation of limited calls (high predicted risk doesn't show benefit)
    - The group compares its final verdict with its Stage 0 first impression.
    - `st.download_button` produces a markdown "sign-off memo" for the debrief.
 - **Facilitator page** (last in the nav, low-key): answers, timings (about 5 / 8 / 8 / 8 / 6 minutes) and debrief questions.

@@ -87,7 +87,7 @@ The exercise deliberately uses a *different* scenario so that learners transfer 
   - "You can't get around it by just labelling it 'do not use for clinical purposes'."
   - "It doesn't *need* AI". An if/else risk script can be a device. The same rules printed in "a laminated table" would not be.
   - "**Moving from organising services to guiding individual clinical care?** Check whether medical-device regulation now applies."
-- **"Is it a medical device?" examples for DNA, which map directly onto readmission:**
+- **"Is it a medical device?" examples for DNA (do NOT assume these map onto readmission; reassess on the readmission intended purpose, see PLAN-CRITIQUE.md §5):**
   - A call-list of likely non-attenders: "No - this **wouldn't** be a medical device".
   - Changing **access** ("automatically offering them an online appointment instead", "free patient transport"): "*probably still wouldn't* be". These are "a **fairness** question".
   - Changing **clinical care** ("prioritising based on the predicted **clinical impact on them**", "automatically flagging high-risk non-attenders for a clinician to review or bring forward their follow-up"): "*would* be".

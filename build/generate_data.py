@@ -5,7 +5,9 @@ Planted features:
   * leakage: three columns recorded AFTER discharge, generated from the outcome
   * confounder: Friday discharges come disproportionately from elderly-care wards;
     Friday has NO effect on readmission once ward/frailty is accounted for
-  * fairness hook: deprivation has a genuine effect on readmission
+  * fairness hook: deprivation has a DIRECT effect on readmission in this synthetic
+    mechanism (it is not a pure proxy). Teach "predictive association does not show
+    which intervention would help", not a claim about real-world causes of deprivation
 
 Run:  python build/generate_data.py
 Writes build/out/discharges.csv
@@ -116,10 +118,20 @@ def check(df):
     fri = df.discharge_day == "Friday"
     raw_fri, raw_other = df.readmitted_30d[fri].mean(), df.readmitted_30d[~fri].mean()
     assert raw_fri > raw_other * 1.15, "Friday confounder too weak in raw rates"
-    by_ward = df.groupby(["discharge_specialty", fri.rename("fri")]).readmitted_30d.mean().unstack()
+    grp = df.groupby(["discharge_specialty", fri.rename("fri")]).readmitted_30d.agg(["mean", "count"]).unstack()
+    by_ward = grp["mean"]
     gap = (by_ward[True] - by_ward[False]).abs().max()
     print(f"base rate {rate:.3%}; Friday raw {raw_fri:.2%} vs other {raw_other:.2%}; max within-ward Friday gap {gap:.2%}")
     print(by_ward.round(3))
+
+    # Within-specialty Friday difference should be consistent with sampling noise, not a real effect
+    se = np.sqrt(sum(by_ward[f] * (1 - by_ward[f]) / grp["count"][f] for f in (True, False)))
+    z = ((by_ward[True] - by_ward[False]) / se).abs()
+    assert z.max() < 3.5, f"within-specialty Friday gap larger than sampling noise (max |z|={z.max():.1f})"
+    weights = grp["count"][True]
+    pooled = ((by_ward[True] - by_ward[False]) * weights).sum() / weights.sum()
+    assert abs(pooled) < 0.01, f"pooled within-specialty Friday gap {pooled:.2%} not close to zero"
+    print(f"within-specialty Friday gaps: max |z|={z.max():.1f}, pooled gap {pooled:+.2%}")
 
     # Quick linear sanity check on discharge-time signal vs leakage (the real check is in train_and_explain.py)
     num = pd.get_dummies(df.drop(columns=["readmitted_30d"]), drop_first=True).astype(float)
