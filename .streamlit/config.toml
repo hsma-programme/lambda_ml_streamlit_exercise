@@ -1,0 +1,8 @@
+# Serve files from ./static/ at /app/static/<filename>.
+# Used for the top-navigation banner (static/banner.png) referenced from CSS
+# in streamlit_app.py.
+[server]
+enableStaticServing = true
+
+[theme]
+base="light"
