@@ -24,8 +24,8 @@ OUT = Path(__file__).parent / "out" / "discharges.csv"
 SPECIALTIES = ["Elderly care", "General medicine", "Respiratory", "Cardiology", "General surgery", "Orthopaedics"]
 SPEC_P = [0.20, 0.25, 0.15, 0.12, 0.14, 0.14]
 # Probability of a Friday discharge, by specialty (the confounder)
-FRIDAY_P = {"Elderly care": 0.40, "General medicine": 0.15, "Respiratory": 0.15,
-            "Cardiology": 0.13, "General surgery": 0.13, "Orthopaedics": 0.13}
+FRIDAY_P = {"Elderly care": 0.65, "General medicine": 0.12, "Respiratory": 0.12,
+            "Cardiology": 0.10, "General surgery": 0.10, "Orthopaedics": 0.10}
 OTHER_DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Saturday", "Sunday"]
 SPEC_EFFECT = {"Elderly care": 0.25, "General medicine": 0.05, "Respiratory": 0.30,
                "Cardiology": 0.0, "General surgery": -0.5, "Orthopaedics": -0.6}
