@@ -1,0 +1,2001 @@
+row_id,age,sex,deprivation_decile,long_term_conditions,emergency_admissions_prev_12m,length_of_stay_days,number_of_medications,discharge_destination,lives_alone,discharge_specialty,discharge_day,gp_contacts_since_discharge,outpatient_followup_attended,community_nursing_visits_since_discharge
+1,63,Female,10,0,1,5,3,Care home,0,General medicine,Saturday,1,1,0
+6,61,Female,2,2,4,2,4,Home,0,General surgery,Monday,1,0,2
+44,65,Female,7,1,1,6,2,Home,1,General surgery,Tuesday,2,0,0
+60,76,Female,8,3,1,5,16,Home,0,Cardiology,Thursday,2,0,0
+86,59,Male,3,1,0,1,9,Home,0,General surgery,Friday,1,1,2
+87,86,Female,5,1,0,8,3,Home,1,Respiratory,Friday,1,1,0
+100,72,Female,2,2,0,4,2,Home,1,Orthopaedics,Sunday,3,1,0
+129,48,Female,1,2,2,3,8,Home,1,Respiratory,Thursday,0,1,1
+141,68,Female,5,1,0,5,4,Home with care package,1,Respiratory,Thursday,0,1,1
+159,58,Female,9,3,1,6,5,Home,0,General surgery,Wednesday,2,0,3
+160,86,Male,10,6,3,6,11,Care home,1,Elderly care,Wednesday,3,0,2
+172,60,Female,5,0,0,4,2,Home,0,General medicine,Tuesday,1,1,0
+175,85,Male,4,3,0,6,10,Home,1,Elderly care,Friday,2,0,2
+179,43,Male,8,0,0,8,1,Home,0,General surgery,Tuesday,2,0,0
+184,62,Male,5,4,1,1,7,Home with care package,1,General surgery,Tuesday,2,1,1
+216,100,Male,5,4,0,15,10,Home,1,Elderly care,Friday,2,0,2
+217,82,Male,6,3,0,11,7,Home,1,Elderly care,Friday,2,0,4
+230,100,Female,8,4,1,18,11,Home,1,Elderly care,Friday,2,1,1
+231,80,Female,1,1,0,14,2,Care home,1,General medicine,Saturday,1,1,2
+236,69,Male,9,3,2,3,8,Care home,0,Respiratory,Monday,0,0,0
+244,82,Male,2,4,0,1,3,Home with care package,1,Cardiology,Sunday,1,1,1
+257,88,Female,9,2,0,2,2,Care home,1,Elderly care,Friday,2,1,0
+301,79,Male,5,2,0,12,1,Home,1,Elderly care,Monday,1,0,0
+306,76,Female,5,0,0,3,6,Home,0,General medicine,Thursday,0,1,0
+316,64,Male,3,2,0,3,6,Home with care package,1,General medicine,Monday,2,0,2
+321,67,Male,1,2,2,1,7,Care home,1,Respiratory,Wednesday,1,1,0
+377,79,Female,9,4,1,15,8,Home,0,General medicine,Tuesday,0,0,0
+386,72,Male,3,0,0,3,3,Home,0,Cardiology,Monday,1,1,1
+408,82,Female,3,1,1,2,9,Care home,1,Elderly care,Friday,2,0,0
+413,55,Male,4,2,0,3,6,Home,0,Orthopaedics,Friday,1,1,0
+436,86,Female,10,2,1,15,3,Home,1,Elderly care,Friday,4,0,2
+439,53,Male,3,2,0,1,8,Home,1,Cardiology,Saturday,1,0,0
+460,81,Male,4,0,0,3,4,Home,0,Respiratory,Wednesday,0,0,1
+462,73,Male,6,2,1,6,6,Home,0,Orthopaedics,Saturday,1,0,0
+476,48,Male,10,2,0,1,2,Home,0,General medicine,Saturday,0,1,1
+490,72,Female,7,0,1,4,2,Home,1,Cardiology,Tuesday,1,0,4
+498,100,Female,4,3,0,4,7,Care home,0,General medicine,Thursday,1,0,2
+513,82,Male,10,0,0,1,3,Care home,1,General medicine,Tuesday,0,0,1
+523,74,Male,3,0,1,3,2,Home,0,Cardiology,Monday,0,1,1
+559,77,Male,10,2,0,6,9,Home,0,Respiratory,Monday,1,0,4
+574,66,Male,9,2,1,4,3,Home,0,General surgery,Sunday,0,1,2
+585,71,Female,8,0,1,4,4,Home,1,Cardiology,Friday,0,1,0
+592,62,Female,1,3,0,9,7,Home,1,General medicine,Thursday,3,1,1
+594,65,Male,1,3,1,7,7,Home,1,Elderly care,Sunday,0,1,0
+619,70,Male,8,1,0,1,3,Home,0,Elderly care,Friday,2,0,0
+635,73,Male,1,1,0,11,1,Home with care package,0,Elderly care,Saturday,2,1,1
+644,51,Male,9,0,0,10,3,Home,0,Cardiology,Wednesday,2,1,1
+649,100,Male,9,4,2,13,6,Home with care package,1,Elderly care,Friday,3,0,6
+658,66,Female,7,0,2,9,3,Home,1,Respiratory,Saturday,0,1,0
+666,70,Male,6,3,2,1,11,Home,0,General surgery,Wednesday,0,1,1
+676,79,Female,8,1,0,1,5,Home,1,Orthopaedics,Wednesday,0,1,1
+691,78,Female,3,5,0,3,18,Home,1,Orthopaedics,Tuesday,3,0,7
+694,68,Female,4,2,0,8,4,Home,0,Orthopaedics,Thursday,0,0,0
+697,58,Female,3,0,0,3,3,Home,1,Respiratory,Tuesday,0,0,0
+701,70,Male,10,1,0,5,6,Home,1,General medicine,Tuesday,1,0,0
+720,82,Female,9,1,1,10,3,Home,1,Respiratory,Saturday,1,1,1
+748,81,Male,3,2,0,9,6,Home,0,General surgery,Saturday,5,0,5
+763,69,Female,1,1,1,3,9,Home,0,Elderly care,Saturday,0,0,1
+764,50,Male,5,2,1,1,4,Home,0,Orthopaedics,Sunday,0,0,0
+767,87,Male,8,3,0,4,5,Home,1,Elderly care,Tuesday,3,0,0
+769,64,Male,5,1,1,2,3,Home,0,Cardiology,Wednesday,2,1,0
+790,61,Female,7,2,2,4,4,Home,0,General medicine,Thursday,0,0,0
+793,79,Female,6,3,2,6,4,Home,0,Elderly care,Friday,0,1,0
+796,95,Male,5,3,0,5,7,Home with care package,1,Elderly care,Friday,1,1,2
+798,60,Male,5,1,2,10,2,Home,1,General surgery,Friday,0,1,2
+808,80,Female,9,0,0,2,0,Home,0,Respiratory,Monday,1,0,2
+822,64,Female,6,2,1,1,5,Home with care package,1,General medicine,Thursday,1,0,0
+844,81,Male,6,2,1,8,2,Home,0,Elderly care,Sunday,4,0,5
+856,69,Male,5,1,0,6,5,Care home,0,General surgery,Thursday,2,0,7
+861,83,Male,9,4,3,6,4,Home,0,General surgery,Thursday,4,1,3
+868,100,Male,10,4,1,10,4,Care home,0,Elderly care,Friday,0,0,8
+880,72,Male,5,1,0,2,2,Home,0,General medicine,Sunday,4,0,7
+890,59,Male,10,1,0,2,2,Home with care package,0,General medicine,Monday,0,0,0
+897,81,Female,9,1,2,6,7,Home,1,General medicine,Wednesday,1,1,1
+938,50,Female,6,3,0,1,5,Home,0,Orthopaedics,Friday,3,0,1
+947,76,Male,2,3,0,8,5,Home,0,General surgery,Monday,0,1,0
+954,69,Male,6,2,0,5,6,Home,0,Orthopaedics,Sunday,0,1,0
+974,67,Male,6,0,1,21,2,Home,0,General medicine,Sunday,1,1,0
+986,60,Male,9,2,1,3,5,Home,1,General medicine,Thursday,0,1,0
+1001,45,Female,4,0,1,1,5,Home,0,Respiratory,Wednesday,2,0,1
+1011,59,Female,2,0,1,5,7,Home,1,Respiratory,Sunday,1,0,0
+1031,52,Male,2,0,0,2,0,Home,1,Cardiology,Saturday,0,0,2
+1032,65,Female,7,1,0,4,5,Home with care package,0,Respiratory,Friday,1,0,1
+1039,80,Male,6,4,0,1,6,Care home,0,Elderly care,Friday,1,1,1
+1055,81,Female,10,2,0,10,8,Home,0,Cardiology,Sunday,2,1,0
+1071,60,Male,9,1,0,2,6,Home,0,Cardiology,Saturday,1,1,1
+1079,65,Male,2,5,3,3,11,Home,0,General medicine,Thursday,1,0,1
+1097,53,Male,4,1,1,1,2,Home,0,General surgery,Saturday,2,1,1
+1114,45,Male,2,0,0,2,5,Home,0,Orthopaedics,Thursday,2,0,1
+1122,54,Male,3,1,1,2,1,Home,0,General surgery,Tuesday,0,1,0
+1136,70,Female,5,1,0,1,5,Home,1,Respiratory,Friday,0,0,1
+1143,66,Female,2,1,2,1,7,Home,1,General surgery,Wednesday,1,1,0
+1148,58,Male,2,0,3,7,0,Home,1,Respiratory,Tuesday,0,1,1
+1156,96,Female,3,1,1,32,6,Home,1,Elderly care,Tuesday,1,1,1
+1162,36,Female,8,0,0,1,0,Home,0,General surgery,Monday,4,0,0
+1172,56,Male,7,2,0,1,7,Home,0,General medicine,Wednesday,1,1,0
+1188,73,Female,7,3,0,2,8,Home,1,Elderly care,Friday,0,1,2
+1193,57,Male,7,1,0,1,4,Home,0,Orthopaedics,Saturday,1,1,0
+1217,73,Male,10,1,2,2,6,Home,0,Respiratory,Friday,1,1,1
+1262,79,Male,4,1,1,1,7,Home,0,General medicine,Friday,1,1,2
+1264,64,Male,9,0,1,6,4,Home,0,Respiratory,Sunday,2,1,1
+1294,70,Male,1,1,0,2,2,Home,0,General medicine,Saturday,1,1,1
+1296,84,Female,10,2,0,15,5,Home,0,Elderly care,Friday,0,0,0
+1302,57,Male,10,0,0,3,3,Home,0,General surgery,Thursday,1,1,0
+1304,48,Female,4,0,0,3,3,Home,1,General surgery,Friday,0,1,1
+1315,47,Female,10,1,0,8,4,Home,0,Cardiology,Sunday,1,1,1
+1317,100,Male,6,7,2,19,10,Care home,1,Elderly care,Thursday,5,0,2
+1325,51,Male,8,0,0,2,3,Home with care package,0,Orthopaedics,Thursday,2,1,1
+1332,41,Male,1,2,1,1,3,Home,1,Respiratory,Sunday,3,0,1
+1336,89,Female,3,2,2,1,6,Home,1,Elderly care,Saturday,2,1,2
+1345,60,Female,1,2,0,3,5,Home,0,Cardiology,Saturday,1,1,2
+1355,86,Male,2,1,0,1,8,Care home,1,Elderly care,Friday,1,1,0
+1370,78,Male,6,4,0,3,13,Home with care package,1,Elderly care,Thursday,2,0,2
+1371,67,Female,6,0,1,2,0,Home,0,Orthopaedics,Saturday,0,0,0
+1380,82,Female,9,1,1,4,9,Home,1,General medicine,Friday,0,1,1
+1402,63,Male,7,2,0,4,8,Home,0,Orthopaedics,Sunday,0,1,0
+1414,85,Male,5,4,1,11,12,Home,1,Elderly care,Friday,2,0,2
+1428,50,Male,3,0,1,5,1,Home,1,General surgery,Friday,1,0,0
+1447,62,Female,7,2,0,6,6,Home,0,Respiratory,Wednesday,1,1,1
+1465,58,Female,6,1,0,5,3,Home,0,Cardiology,Friday,1,1,0
+1470,65,Female,10,1,1,6,4,Home,0,Orthopaedics,Tuesday,1,0,0
+1475,71,Male,10,2,1,8,7,Home,0,Respiratory,Thursday,0,1,0
+1489,57,Female,5,0,2,1,2,Home,0,Respiratory,Sunday,2,1,1
+1494,49,Female,2,1,0,1,5,Home,1,General medicine,Thursday,1,1,0
+1501,80,Female,9,2,1,6,7,Home,1,Orthopaedics,Wednesday,0,0,2
+1502,63,Female,6,4,2,2,11,Home,1,General medicine,Monday,0,1,1
+1507,57,Male,8,1,1,1,4,Home,0,Respiratory,Saturday,2,1,1
+1519,87,Female,10,2,2,4,7,Home with care package,0,Elderly care,Friday,0,1,0
+1520,68,Female,7,1,0,3,4,Home,0,General medicine,Tuesday,1,1,1
+1535,71,Female,3,4,1,1,9,Home with care package,0,Respiratory,Thursday,5,0,1
+1540,58,Male,10,0,0,5,2,Home,0,General surgery,Wednesday,2,0,0
+1550,87,Male,3,2,1,6,5,Home,1,Elderly care,Friday,0,0,0
+1565,76,Female,10,1,3,3,4,Home,1,Respiratory,Wednesday,2,1,0
+1576,54,Female,5,1,0,3,1,Home,1,General surgery,Sunday,1,0,1
+1577,56,Male,2,0,1,5,2,Home,0,General surgery,Monday,1,1,2
+1581,71,Male,6,3,0,9,3,Home,1,General medicine,Sunday,2,1,2
+1585,71,Female,10,0,0,12,6,Home,0,Orthopaedics,Tuesday,6,0,3
+1592,64,Female,8,0,0,2,2,Home,0,Orthopaedics,Friday,2,1,0
+1597,95,Female,7,4,0,9,8,Home,0,Elderly care,Friday,0,1,0
+1605,85,Male,10,3,1,8,4,Care home,0,General medicine,Tuesday,1,1,1
+1607,78,Female,8,2,1,3,9,Home,0,General medicine,Wednesday,0,1,0
+1613,64,Male,4,0,0,2,9,Home,0,General medicine,Thursday,1,0,1
+1620,83,Female,9,3,1,6,10,Home,0,General medicine,Tuesday,5,0,7
+1628,73,Male,2,2,0,10,8,Home,0,Elderly care,Friday,6,0,4
+1637,31,Male,1,1,3,2,4,Home,0,Orthopaedics,Tuesday,2,1,2
+1653,61,Female,8,1,0,4,3,Home,1,Elderly care,Friday,1,1,0
+1661,71,Female,7,1,1,2,7,Home,0,Cardiology,Thursday,3,1,0
+1666,20,Male,10,0,0,2,3,Home,0,General surgery,Sunday,1,1,0
+1667,63,Male,8,2,0,2,12,Home,0,General medicine,Sunday,1,0,1
+1671,76,Male,7,0,1,4,4,Home,0,Cardiology,Thursday,5,0,0
+1685,55,Female,9,0,1,1,4,Home,0,General medicine,Tuesday,0,1,0
+1689,59,Male,2,0,1,3,3,Home,1,General medicine,Saturday,1,1,1
+1700,56,Female,3,1,1,2,5,Home,0,Orthopaedics,Wednesday,2,0,2
+1742,87,Female,8,3,0,15,7,Home,1,Elderly care,Thursday,2,0,0
+1748,75,Male,5,4,1,3,6,Home,1,Respiratory,Saturday,2,0,0
+1754,78,Male,7,1,2,6,2,Care home,0,General medicine,Wednesday,3,1,2
+1760,81,Female,4,0,0,6,1,Home,0,General medicine,Tuesday,1,0,0
+1769,68,Female,7,2,0,4,4,Home,0,General surgery,Sunday,2,1,1
+1794,75,Female,6,0,0,4,2,Care home,1,Orthopaedics,Monday,0,1,0
+1798,95,Female,6,2,0,9,7,Home,1,Respiratory,Thursday,0,0,0
+1805,67,Male,1,2,1,6,5,Home,0,Cardiology,Saturday,1,1,2
+1839,41,Female,5,0,0,3,4,Home with care package,1,General surgery,Saturday,0,0,0
+1845,52,Female,9,0,1,2,1,Home,0,Cardiology,Monday,0,1,1
+1855,59,Female,1,0,0,4,5,Home,0,Orthopaedics,Tuesday,1,1,0
+1873,55,Female,10,1,0,3,5,Home,0,Orthopaedics,Friday,0,1,0
+1875,62,Male,7,0,0,4,2,Home,0,General surgery,Sunday,0,0,1
+1891,74,Male,1,3,2,7,7,Care home,1,General surgery,Saturday,1,1,1
+1900,74,Female,4,0,1,3,2,Home,1,Respiratory,Tuesday,2,1,1
+1907,87,Female,7,2,0,8,6,Home,0,Elderly care,Friday,1,1,1
+1922,55,Male,6,1,0,1,3,Home,0,Respiratory,Wednesday,0,1,1
+1941,66,Male,2,2,0,1,9,Home,0,Respiratory,Thursday,0,1,1
+1948,100,Male,2,2,1,6,9,Home,0,Elderly care,Wednesday,4,0,3
+1952,70,Male,10,0,1,14,5,Home,1,General surgery,Monday,0,1,1
+1955,99,Female,1,5,1,9,5,Home with care package,1,Orthopaedics,Thursday,2,1,1
+1962,81,Female,5,1,0,3,5,Home,1,Respiratory,Tuesday,0,1,2
+1980,53,Female,9,3,0,2,12,Care home,0,General surgery,Saturday,1,0,2
+1982,55,Male,3,3,0,1,5,Home,1,General surgery,Thursday,1,1,1
+1984,95,Male,10,3,1,4,3,Home,1,Cardiology,Thursday,3,1,0
+1989,71,Male,7,2,1,5,7,Home,0,Elderly care,Friday,0,1,1
+1992,66,Male,5,3,1,2,3,Home,1,General medicine,Tuesday,0,1,1
+1994,88,Male,9,0,0,3,5,Home,0,Respiratory,Wednesday,0,1,0
+1998,55,Female,1,4,0,3,8,Home,0,General surgery,Tuesday,3,0,3
+2009,59,Female,3,3,1,1,6,Home,0,Cardiology,Saturday,0,1,2
+2052,82,Female,8,0,1,1,5,Home,1,Respiratory,Friday,0,0,2
+2056,35,Female,10,0,0,2,4,Home,0,Orthopaedics,Tuesday,3,1,2
+2065,61,Male,5,1,0,4,7,Home,1,Orthopaedics,Sunday,0,1,1
+2066,66,Female,8,1,0,1,3,Home,1,Respiratory,Thursday,0,1,0
+2067,82,Male,6,1,0,15,8,Home with care package,1,Orthopaedics,Tuesday,2,1,0
+2068,79,Male,5,9,3,13,21,Care home,0,General medicine,Sunday,1,1,1
+2097,75,Female,2,6,0,11,11,Home,0,Respiratory,Tuesday,5,0,6
+2099,79,Female,8,4,2,10,12,Home with care package,1,General medicine,Monday,0,1,1
+2100,74,Male,1,3,0,8,8,Home with care package,0,General surgery,Thursday,3,0,1
+2102,58,Female,10,0,1,1,2,Home,0,General surgery,Thursday,0,1,1
+2107,80,Male,10,1,0,18,5,Home,0,Orthopaedics,Wednesday,2,0,4
+2133,52,Female,2,0,0,8,6,Home,1,Orthopaedics,Saturday,0,1,2
+2136,98,Male,3,4,0,16,8,Care home,1,General medicine,Friday,1,1,0
+2174,66,Male,1,2,1,1,3,Home,1,General medicine,Monday,3,0,4
+2179,57,Male,5,0,3,2,1,Care home,1,Orthopaedics,Wednesday,0,0,1
+2181,71,Female,7,0,0,11,3,Home,1,Orthopaedics,Saturday,4,0,1
+2184,81,Male,1,1,2,2,7,Care home,0,Respiratory,Saturday,0,0,1
+2191,59,Male,7,0,0,2,5,Home,1,Respiratory,Saturday,1,0,0
+2193,84,Male,10,0,0,7,6,Home,1,Elderly care,Sunday,0,0,0
+2194,72,Male,9,0,0,1,1,Home,0,Respiratory,Monday,0,1,0
+2204,47,Male,5,0,0,3,2,Home,0,General medicine,Tuesday,5,1,2
+2226,83,Male,2,4,1,9,5,Home with care package,1,Cardiology,Saturday,0,0,1
+2228,96,Male,2,3,1,4,9,Home,1,Elderly care,Friday,3,0,4
+2229,61,Female,3,1,1,7,5,Home,0,Cardiology,Friday,1,0,1
+2230,64,Female,10,2,0,5,7,Home,0,General medicine,Sunday,0,0,0
+2231,82,Female,1,4,2,2,12,Home,1,Cardiology,Sunday,3,1,0
+2235,61,Female,5,1,0,8,3,Home,1,Orthopaedics,Friday,1,1,1
+2249,88,Male,7,2,1,8,8,Home,0,General medicine,Saturday,4,0,6
+2255,63,Male,7,0,1,1,5,Home,0,Respiratory,Monday,1,1,1
+2268,70,Male,6,2,0,1,5,Home,0,General surgery,Sunday,0,0,2
+2287,41,Male,3,2,0,1,4,Home,1,General surgery,Friday,0,1,0
+2289,48,Female,5,2,1,4,9,Care home,0,General medicine,Saturday,3,1,1
+2309,63,Male,3,2,1,4,3,Care home,1,Orthopaedics,Wednesday,0,0,0
+2328,74,Female,2,1,0,2,4,Home,0,Respiratory,Thursday,1,1,1
+2336,56,Male,3,2,0,3,6,Home,0,Orthopaedics,Thursday,2,1,1
+2347,61,Male,1,0,0,3,2,Home,1,General surgery,Thursday,0,1,0
+2353,58,Male,8,0,2,1,6,Home,0,Respiratory,Saturday,1,1,0
+2354,69,Male,9,0,0,1,2,Home,0,General medicine,Thursday,1,0,0
+2367,58,Female,3,1,1,3,4,Home,0,General medicine,Saturday,2,1,1
+2376,56,Male,3,2,2,5,4,Home,0,Orthopaedics,Tuesday,0,1,1
+2378,87,Male,8,2,0,6,8,Home with care package,1,Elderly care,Friday,0,1,1
+2401,74,Female,9,4,0,4,6,Home,0,General surgery,Sunday,2,0,4
+2408,71,Female,3,0,0,13,2,Home with care package,0,General medicine,Tuesday,1,0,1
+2428,62,Female,9,1,0,4,4,Home,0,Cardiology,Monday,0,1,1
+2450,66,Male,8,0,0,1,8,Home,0,Cardiology,Tuesday,0,0,1
+2451,64,Male,3,1,0,9,4,Home,1,General surgery,Monday,0,1,1
+2453,34,Female,5,1,0,7,8,Home,0,General surgery,Tuesday,1,1,0
+2464,69,Female,7,0,0,8,4,Home,0,General medicine,Sunday,2,1,0
+2471,87,Male,4,3,0,7,5,Home,1,Orthopaedics,Wednesday,1,1,1
+2484,31,Female,5,1,0,1,2,Home,0,General surgery,Saturday,0,1,0
+2486,52,Female,8,0,0,3,7,Home,0,General surgery,Tuesday,0,1,1
+2490,79,Male,1,3,2,5,7,Home,0,Orthopaedics,Tuesday,1,0,0
+2492,91,Male,3,3,0,9,8,Care home,0,Elderly care,Monday,0,1,0
+2498,62,Male,4,0,2,2,4,Home,1,General surgery,Wednesday,0,1,1
+2515,81,Female,2,4,2,11,9,Home,1,General surgery,Wednesday,1,0,0
+2521,73,Male,1,4,0,5,5,Home,0,Respiratory,Friday,0,1,3
+2532,70,Male,8,3,1,1,8,Home,1,Cardiology,Wednesday,1,0,0
+2554,65,Female,2,2,0,3,10,Home with care package,0,General medicine,Thursday,2,1,0
+2561,78,Male,6,0,0,2,3,Care home,1,Cardiology,Thursday,2,1,0
+2603,72,Male,10,1,1,6,3,Home,0,General surgery,Thursday,3,1,0
+2613,52,Female,2,3,1,3,6,Home,1,General surgery,Sunday,1,1,1
+2636,62,Male,2,3,2,8,7,Home,1,Respiratory,Wednesday,0,1,0
+2644,83,Female,5,2,1,3,6,Care home,1,General medicine,Saturday,0,0,5
+2661,50,Male,4,2,0,3,7,Care home,0,General medicine,Saturday,3,1,0
+2663,81,Male,5,1,0,3,6,Home with care package,0,General medicine,Saturday,2,0,3
+2665,43,Female,6,1,1,5,3,Home,0,General surgery,Monday,2,1,0
+2667,89,Male,1,0,1,4,4,Home,1,Elderly care,Sunday,1,1,1
+2671,68,Male,4,1,0,5,6,Care home,0,General medicine,Friday,0,0,0
+2674,79,Female,8,4,2,6,6,Care home,0,Respiratory,Friday,3,0,1
+2685,61,Male,5,2,0,2,2,Home,0,General surgery,Tuesday,0,1,1
+2693,56,Male,1,1,0,1,5,Home,0,Orthopaedics,Friday,1,1,0
+2699,58,Female,1,1,3,5,6,Care home,1,Orthopaedics,Tuesday,1,1,1
+2712,67,Male,10,1,2,8,10,Care home,0,General medicine,Wednesday,1,0,0
+2732,81,Female,3,2,1,13,3,Care home,1,Respiratory,Friday,2,1,1
+2741,53,Female,7,0,0,1,3,Home,0,General surgery,Sunday,1,1,0
+2757,86,Female,7,7,2,17,10,Care home,0,Cardiology,Monday,0,1,1
+2761,61,Male,6,1,0,3,3,Home,0,Orthopaedics,Friday,0,1,0
+2786,62,Male,3,1,2,2,8,Home,1,Cardiology,Thursday,1,1,1
+2792,57,Female,4,0,0,4,1,Home,0,General surgery,Thursday,3,1,0
+2793,59,Female,5,1,0,7,6,Home,1,Orthopaedics,Sunday,1,1,1
+2799,41,Female,2,2,0,3,2,Home,1,General surgery,Monday,1,1,0
+2805,65,Female,9,1,0,1,5,Home,0,General medicine,Friday,0,1,0
+2818,81,Male,5,3,0,5,7,Home,0,General medicine,Wednesday,2,1,0
+2828,52,Female,5,0,0,3,2,Home,0,General surgery,Thursday,1,1,1
+2830,69,Male,9,0,0,2,5,Home,0,General medicine,Sunday,0,0,1
+2831,83,Female,6,2,1,4,6,Care home,1,Respiratory,Wednesday,0,0,1
+2833,72,Male,2,1,1,10,1,Home,0,General surgery,Saturday,1,1,0
+2872,98,Male,9,2,0,7,5,Home,0,Elderly care,Sunday,4,0,4
+2873,77,Male,1,1,1,2,2,Home,1,General medicine,Saturday,3,1,1
+2899,74,Male,7,6,0,6,7,Home,1,General medicine,Sunday,0,1,0
+2903,64,Female,10,0,0,3,2,Home,0,Orthopaedics,Monday,0,1,1
+2917,55,Female,7,2,0,10,6,Home,0,General surgery,Wednesday,3,0,1
+2923,58,Male,5,0,0,6,3,Home,0,Cardiology,Tuesday,0,1,0
+2929,56,Female,8,0,1,2,3,Home,0,Cardiology,Monday,0,0,1
+2946,74,Male,8,2,2,2,4,Home,1,General medicine,Friday,1,1,0
+2957,100,Female,6,2,0,7,8,Care home,1,Elderly care,Friday,1,1,1
+2959,66,Male,10,0,0,1,7,Home,0,Orthopaedics,Tuesday,0,1,0
+3007,89,Male,7,0,0,8,4,Care home,0,Elderly care,Tuesday,1,1,1
+3013,78,Female,3,0,2,6,4,Home,1,Cardiology,Thursday,4,1,0
+3022,64,Female,7,1,0,2,5,Home,0,Respiratory,Friday,3,0,1
+3023,65,Male,1,3,1,4,2,Home,1,Respiratory,Tuesday,0,0,2
+3024,64,Female,10,2,0,6,9,Home,0,General medicine,Sunday,1,1,3
+3030,61,Female,2,0,0,7,3,Home,1,General surgery,Sunday,1,1,1
+3039,64,Female,10,0,2,1,4,Home,0,Cardiology,Thursday,1,0,2
+3041,57,Male,3,1,0,7,8,Home,0,Orthopaedics,Saturday,1,0,4
+3062,84,Male,1,4,1,2,12,Home with care package,1,General medicine,Thursday,0,0,0
+3093,65,Female,5,1,1,11,5,Home,0,Orthopaedics,Sunday,2,1,2
+3108,78,Male,4,1,0,3,5,Home,0,Elderly care,Tuesday,1,1,0
+3113,53,Male,7,1,0,7,3,Home,0,Cardiology,Saturday,1,1,0
+3120,75,Female,8,2,1,5,11,Home,0,Elderly care,Thursday,2,1,3
+3159,56,Female,6,1,1,5,5,Home,1,General medicine,Monday,4,0,0
+3163,62,Male,8,2,0,2,6,Home,0,Cardiology,Thursday,1,0,2
+3177,57,Male,4,1,2,1,7,Home,1,General medicine,Monday,2,1,0
+3190,87,Male,8,4,1,7,6,Home,0,Elderly care,Monday,0,0,1
+3198,84,Male,4,4,1,3,10,Home,1,Elderly care,Friday,0,1,0
+3200,73,Female,1,1,2,3,6,Home,1,General surgery,Wednesday,1,1,0
+3209,90,Male,8,1,1,4,4,Home,1,Elderly care,Sunday,2,1,2
+3214,89,Female,6,1,0,11,4,Home,1,Elderly care,Friday,1,1,0
+3227,67,Male,7,2,1,6,2,Home,0,Elderly care,Friday,0,1,1
+3234,77,Female,3,1,0,1,8,Home with care package,1,Elderly care,Friday,0,1,1
+3238,76,Male,10,4,1,9,8,Care home,1,General medicine,Saturday,0,1,2
+3263,85,Female,1,3,0,8,3,Home with care package,1,Respiratory,Sunday,3,1,0
+3268,78,Female,3,3,1,14,6,Care home,1,Orthopaedics,Saturday,0,1,0
+3286,68,Male,4,1,1,4,5,Home,1,Cardiology,Wednesday,0,0,0
+3290,60,Male,5,0,0,1,4,Home,0,General medicine,Thursday,3,1,0
+3309,92,Female,10,2,0,8,12,Care home,0,Elderly care,Saturday,1,1,0
+3352,68,Female,5,2,0,4,7,Home,0,Elderly care,Friday,1,1,0
+3367,75,Male,3,1,0,8,3,Home,0,Cardiology,Sunday,0,1,1
+3378,66,Male,1,1,0,5,6,Home,0,Respiratory,Tuesday,0,1,1
+3383,55,Male,9,1,0,6,2,Home,0,Respiratory,Tuesday,3,0,0
+3412,48,Male,7,1,0,3,7,Home,0,Respiratory,Thursday,0,1,1
+3413,99,Male,8,3,1,20,9,Home with care package,1,Elderly care,Friday,0,1,0
+3432,68,Female,1,0,0,2,3,Home with care package,1,Orthopaedics,Saturday,1,1,0
+3443,55,Male,7,2,2,3,4,Home,1,General medicine,Tuesday,2,1,1
+3448,65,Female,7,1,0,2,6,Home,0,General medicine,Monday,0,0,0
+3449,67,Male,8,3,3,11,6,Home,1,General surgery,Monday,0,0,0
+3484,69,Female,3,1,0,1,5,Home,0,Cardiology,Sunday,2,1,0
+3502,94,Male,2,3,0,8,7,Home,1,Elderly care,Monday,3,0,3
+3553,71,Female,4,1,0,3,3,Home,0,Respiratory,Monday,2,1,0
+3554,55,Female,3,1,1,3,4,Care home,1,General medicine,Saturday,0,1,1
+3573,79,Female,10,1,0,6,3,Home,0,General medicine,Friday,1,0,1
+3576,65,Male,7,3,0,3,4,Home,0,General surgery,Monday,1,1,1
+3577,59,Female,7,1,0,4,2,Home,0,General medicine,Monday,0,0,1
+3589,64,Male,2,3,1,3,7,Home,0,General medicine,Tuesday,0,1,1
+3598,56,Male,4,3,0,6,5,Home,0,Orthopaedics,Thursday,1,0,0
+3605,63,Male,1,1,1,1,9,Home,0,Elderly care,Thursday,3,0,1
+3622,63,Female,7,0,0,3,2,Home,0,Respiratory,Friday,2,1,0
+3640,64,Male,4,3,0,5,10,Home,1,General medicine,Tuesday,4,0,2
+3646,64,Male,8,0,1,10,3,Home,0,General medicine,Sunday,1,1,1
+3654,64,Male,8,1,0,3,11,Home,0,General medicine,Tuesday,0,0,0
+3662,67,Female,6,1,2,1,3,Home with care package,1,Orthopaedics,Saturday,1,1,1
+3663,69,Male,5,2,0,1,5,Home,1,Cardiology,Wednesday,1,1,0
+3672,56,Male,4,3,2,3,9,Home with care package,1,General medicine,Monday,0,0,0
+3674,32,Male,3,1,4,8,2,Home,0,General surgery,Thursday,1,0,1
+3680,66,Female,2,2,0,2,7,Home,1,General surgery,Saturday,3,0,1
+3682,66,Male,5,3,0,8,9,Home,1,General medicine,Thursday,3,0,4
+3699,79,Male,4,0,0,2,5,Home,0,General medicine,Thursday,1,0,0
+3708,70,Female,9,3,0,4,8,Home,0,General medicine,Friday,1,0,0
+3713,52,Male,8,2,1,5,6,Home with care package,0,General surgery,Thursday,2,0,0
+3741,71,Male,9,2,0,3,8,Home,0,Elderly care,Friday,1,1,0
+3753,69,Female,1,0,0,6,1,Home,1,General surgery,Thursday,0,1,0
+3778,62,Male,10,0,0,2,4,Home,0,General surgery,Wednesday,1,1,0
+3783,53,Male,1,3,2,6,8,Care home,1,General medicine,Sunday,0,0,0
+3805,94,Male,2,4,2,6,5,Care home,0,Elderly care,Saturday,1,0,1
+3815,59,Female,3,1,0,1,6,Home,0,General medicine,Friday,0,1,0
+3816,58,Female,2,5,0,1,8,Home,1,General medicine,Sunday,1,0,4
+3831,54,Female,6,2,1,3,3,Home,0,Cardiology,Thursday,1,0,2
+3837,97,Male,9,1,1,4,2,Home with care package,0,Elderly care,Thursday,1,1,2
+3843,68,Male,4,1,0,1,1,Home,0,Cardiology,Monday,0,0,0
+3847,79,Female,6,3,0,2,10,Home,1,Cardiology,Tuesday,1,1,0
+3852,48,Female,5,0,0,4,1,Home,0,General medicine,Saturday,3,0,2
+3855,58,Female,5,2,0,4,7,Home,0,General medicine,Sunday,1,1,4
+3883,56,Female,4,0,0,1,4,Home with care package,0,Respiratory,Monday,0,1,0
+3885,81,Female,9,1,2,7,5,Home,0,Elderly care,Friday,1,0,1
+3894,64,Male,10,2,2,2,2,Home,0,Orthopaedics,Thursday,0,1,0
+3897,70,Female,10,1,0,8,9,Home,0,General medicine,Friday,2,1,1
+3898,69,Female,6,1,0,2,1,Home,0,Elderly care,Thursday,1,1,1
+3925,87,Male,7,0,0,7,1,Home,0,Respiratory,Thursday,0,1,1
+3926,57,Female,6,0,1,2,2,Home,0,Respiratory,Saturday,1,1,0
+3996,79,Female,6,2,0,6,2,Home,0,Elderly care,Friday,0,0,2
+4016,63,Male,8,1,0,1,2,Care home,0,General medicine,Tuesday,0,1,1
+4034,71,Female,2,6,2,5,8,Home,1,Elderly care,Friday,2,1,1
+4036,82,Male,3,3,1,2,7,Home,0,General medicine,Tuesday,0,1,0
+4052,64,Female,6,3,0,3,2,Home,1,Respiratory,Tuesday,1,1,1
+4067,42,Male,3,1,2,1,1,Home,0,Cardiology,Wednesday,1,1,0
+4070,68,Male,3,0,1,4,6,Home,0,General medicine,Sunday,1,0,0
+4075,64,Male,6,0,0,2,4,Home,0,General medicine,Monday,1,0,1
+4085,67,Female,8,3,1,1,6,Home,1,Orthopaedics,Wednesday,0,1,1
+4099,68,Male,5,0,0,1,3,Care home,0,Orthopaedics,Tuesday,2,0,4
+4105,79,Female,6,1,1,5,8,Home,0,Elderly care,Friday,2,0,0
+4114,56,Female,9,1,0,3,5,Home,0,General surgery,Wednesday,1,1,0
+4116,79,Female,7,2,1,13,3,Home,0,Respiratory,Friday,0,1,2
+4125,83,Female,7,1,0,18,11,Home,0,Elderly care,Tuesday,1,1,0
+4127,40,Male,1,1,0,8,2,Home,0,Respiratory,Sunday,0,0,0
+4143,58,Male,10,1,1,1,5,Home,1,General medicine,Sunday,0,1,0
+4167,61,Male,1,5,1,7,6,Home,0,General medicine,Saturday,0,0,1
+4184,72,Male,1,1,0,1,3,Home,0,Orthopaedics,Tuesday,0,0,0
+4191,37,Male,5,1,0,3,3,Home,0,General surgery,Saturday,0,1,0
+4204,48,Female,2,1,1,1,7,Home,1,General surgery,Monday,1,0,2
+4211,76,Female,10,0,0,26,4,Home with care package,0,General medicine,Monday,1,0,0
+4212,72,Female,2,1,0,3,3,Home,0,General medicine,Wednesday,0,1,2
+4213,73,Female,7,2,1,3,9,Care home,1,Elderly care,Friday,1,1,1
+4217,88,Female,3,2,0,8,7,Home,1,Elderly care,Friday,1,1,0
+4221,86,Male,5,0,0,2,3,Home,1,Elderly care,Tuesday,0,0,0
+4227,78,Male,1,3,1,1,6,Care home,1,Elderly care,Friday,3,0,3
+4229,74,Male,6,3,1,9,4,Home,0,General medicine,Thursday,1,1,1
+4232,58,Female,1,0,0,3,8,Home,0,General surgery,Tuesday,2,1,2
+4239,69,Male,6,3,0,3,4,Home,1,Cardiology,Saturday,0,1,1
+4240,85,Male,1,1,1,4,5,Home,0,General surgery,Friday,1,1,1
+4245,71,Male,9,1,0,2,5,Home,0,General medicine,Monday,2,0,0
+4252,82,Female,9,0,2,2,5,Home,0,Elderly care,Friday,0,0,1
+4253,80,Male,10,0,0,1,3,Home,0,Respiratory,Monday,2,1,1
+4272,61,Male,5,1,0,2,3,Home,0,General surgery,Friday,2,1,0
+4288,74,Male,5,3,0,3,7,Home,0,Orthopaedics,Friday,1,1,0
+4311,48,Male,7,1,0,8,1,Home,1,General surgery,Friday,0,1,1
+4314,62,Male,4,1,2,1,5,Home,0,Elderly care,Friday,6,0,2
+4317,50,Female,7,1,0,4,1,Home,0,General surgery,Thursday,1,0,0
+4326,82,Female,7,2,0,2,9,Care home,0,Elderly care,Friday,0,0,1
+4341,93,Female,7,0,0,11,4,Care home,0,Elderly care,Friday,0,0,0
+4343,66,Male,7,3,2,5,6,Care home,0,General medicine,Friday,0,0,1
+4348,59,Female,2,1,2,6,5,Home,1,Respiratory,Wednesday,2,1,1
+4359,62,Female,8,0,0,5,1,Home with care package,0,General surgery,Tuesday,0,1,0
+4362,48,Male,2,2,1,2,8,Home,1,Cardiology,Saturday,1,1,2
+4388,73,Male,5,1,1,1,4,Care home,0,General surgery,Sunday,1,1,1
+4392,89,Male,8,2,1,8,4,Home,1,Respiratory,Monday,3,1,4
+4410,100,Female,6,3,2,1,5,Care home,0,General medicine,Friday,1,1,5
+4457,68,Female,8,1,1,5,10,Home,0,Respiratory,Monday,3,0,7
+4459,62,Male,9,3,3,2,3,Home,1,General surgery,Saturday,1,0,0
+4463,53,Female,10,0,0,2,1,Home,0,Orthopaedics,Monday,1,0,0
+4469,58,Male,9,0,0,4,9,Home,1,General medicine,Saturday,2,1,0
+4479,68,Female,3,2,2,2,2,Home,0,Orthopaedics,Tuesday,1,0,0
+4507,100,Male,8,2,1,2,8,Care home,1,Elderly care,Friday,0,0,2
+4510,49,Female,9,2,0,3,3,Home,0,Respiratory,Monday,2,0,1
+4517,74,Male,5,4,2,18,6,Home with care package,1,General medicine,Tuesday,0,0,0
+4528,83,Male,9,3,1,2,11,Home,0,General medicine,Saturday,4,0,1
+4551,66,Female,9,1,0,5,2,Home,1,Cardiology,Friday,0,1,0
+4555,50,Male,1,4,0,7,7,Home,0,General surgery,Wednesday,1,1,0
+4567,89,Male,9,3,1,25,8,Home,0,Elderly care,Friday,0,0,0
+4569,51,Female,9,2,0,3,9,Home with care package,0,Respiratory,Tuesday,0,1,0
+4589,88,Male,2,3,2,3,7,Home with care package,1,Orthopaedics,Wednesday,2,1,1
+4619,63,Female,5,0,2,4,4,Home,1,Respiratory,Saturday,3,0,4
+4637,56,Female,3,3,2,8,12,Home,0,Cardiology,Thursday,0,1,0
+4646,63,Male,5,1,0,3,6,Home,1,Orthopaedics,Thursday,1,0,0
+4648,70,Male,1,1,1,4,7,Home,1,General medicine,Saturday,1,1,0
+4667,63,Male,8,1,0,1,6,Home,0,General medicine,Tuesday,0,1,2
+4675,59,Male,9,0,0,4,4,Home,0,Elderly care,Friday,2,0,0
+4693,59,Male,7,1,0,21,6,Home,0,General surgery,Wednesday,0,1,1
+4706,77,Female,3,1,1,4,4,Home,0,Elderly care,Friday,0,1,0
+4710,73,Male,6,1,0,1,7,Home,0,General surgery,Monday,1,1,0
+4716,68,Female,9,1,0,1,5,Home,0,General medicine,Tuesday,2,1,0
+4726,50,Female,10,1,0,2,3,Home,0,General surgery,Monday,3,0,2
+4748,51,Male,10,2,0,2,3,Home,0,Orthopaedics,Thursday,0,1,0
+4752,69,Female,1,2,0,2,5,Home,0,General medicine,Sunday,0,1,2
+4757,54,Female,8,1,1,3,1,Home,0,Orthopaedics,Monday,0,1,2
+4766,80,Male,3,1,1,4,5,Care home,1,Cardiology,Tuesday,2,1,3
+4770,77,Female,1,1,2,4,5,Home,0,Cardiology,Tuesday,1,1,2
+4783,71,Female,2,2,0,10,6,Home,1,Respiratory,Wednesday,3,1,2
+4797,74,Male,2,2,1,8,6,Home,0,Respiratory,Tuesday,0,1,1
+4820,60,Male,4,1,0,4,4,Home,0,Cardiology,Wednesday,2,0,5
+4831,58,Female,7,4,2,4,8,Home,1,General medicine,Saturday,1,1,0
+4835,77,Male,9,1,2,1,2,Care home,0,General surgery,Friday,1,1,0
+4836,85,Male,9,1,0,1,11,Care home,1,Elderly care,Friday,1,1,2
+4840,69,Female,3,0,1,4,4,Home,0,Orthopaedics,Tuesday,1,1,0
+4864,68,Male,3,3,1,8,9,Home,0,Cardiology,Thursday,0,1,1
+4866,53,Female,10,0,0,3,2,Home,1,General medicine,Friday,2,1,2
+4874,81,Male,7,1,0,5,3,Home,1,Respiratory,Monday,1,1,1
+4899,43,Female,5,0,0,2,2,Home,1,General surgery,Thursday,1,1,1
+4912,62,Male,6,0,1,5,7,Home,0,General medicine,Sunday,1,1,2
+4918,48,Female,10,0,1,4,2,Home,0,Orthopaedics,Saturday,0,0,0
+4952,48,Male,7,2,0,3,4,Home,1,General medicine,Saturday,1,0,3
+4955,66,Female,8,1,1,4,3,Home,0,General medicine,Monday,0,1,1
+4961,67,Male,6,1,0,1,2,Home,0,Elderly care,Friday,1,0,0
+4971,88,Female,2,4,0,3,5,Home with care package,0,Elderly care,Friday,1,0,0
+4983,53,Male,8,1,1,3,4,Home,0,Elderly care,Friday,0,0,0
+4998,63,Female,6,0,1,4,4,Home,0,General medicine,Wednesday,0,0,1
+5021,65,Female,3,1,0,6,6,Home,0,General surgery,Friday,5,0,2
+5027,75,Male,9,1,0,7,4,Care home,0,General medicine,Friday,3,0,0
+5028,67,Female,9,2,1,4,6,Home,1,Respiratory,Thursday,1,1,0
+5035,90,Female,4,1,0,5,5,Home,1,Elderly care,Tuesday,0,1,0
+5043,55,Female,4,1,2,6,6,Home,0,General medicine,Friday,0,1,0
+5047,47,Female,4,2,1,2,4,Home,1,General surgery,Tuesday,2,1,0
+5072,72,Male,6,1,1,5,6,Home,0,Respiratory,Thursday,2,1,1
+5077,93,Female,1,5,3,13,10,Care home,1,Elderly care,Friday,1,1,1
+5080,89,Male,7,2,0,17,3,Home,0,Elderly care,Tuesday,1,1,0
+5100,78,Female,10,1,0,12,9,Home,0,Respiratory,Wednesday,1,1,1
+5102,84,Male,9,1,0,2,0,Home,0,Elderly care,Friday,2,1,0
+5103,72,Male,5,0,2,10,7,Home,1,Cardiology,Thursday,0,1,0
+5104,36,Female,7,1,2,3,6,Home,0,General surgery,Saturday,0,0,0
+5107,71,Male,1,0,1,6,3,Home,1,General medicine,Tuesday,0,1,0
+5128,83,Male,8,1,2,5,4,Home,1,Orthopaedics,Saturday,0,1,0
+5153,73,Male,5,2,1,3,4,Home,0,General medicine,Wednesday,0,0,0
+5171,73,Male,3,3,1,1,5,Home,1,Cardiology,Friday,2,0,4
+5174,86,Male,8,1,0,6,3,Home,1,Elderly care,Sunday,0,1,1
+5176,85,Female,5,1,0,2,2,Home with care package,1,Elderly care,Friday,1,1,1
+5191,62,Female,4,3,0,2,4,Home,0,Cardiology,Tuesday,2,1,0
+5201,99,Female,9,2,1,4,5,Home,1,Elderly care,Wednesday,0,1,0
+5226,100,Female,3,5,1,14,11,Home with care package,1,Elderly care,Friday,0,0,0
+5244,75,Male,10,0,0,10,4,Home,0,Respiratory,Tuesday,0,1,1
+5245,45,Male,3,1,1,1,6,Home,0,Cardiology,Sunday,1,1,1
+5257,91,Male,7,3,1,2,6,Home,1,General medicine,Monday,3,0,3
+5261,85,Male,3,2,0,5,7,Home,0,Respiratory,Tuesday,0,1,0
+5273,51,Female,7,0,0,3,2,Home,0,General surgery,Sunday,1,1,1
+5280,67,Female,2,1,2,16,7,Home,0,Orthopaedics,Monday,0,1,0
+5286,50,Female,2,2,3,2,3,Home,0,General surgery,Tuesday,0,1,0
+5288,46,Male,7,3,0,4,1,Home,1,General medicine,Wednesday,0,1,1
+5290,75,Female,8,3,0,1,7,Home,0,General medicine,Tuesday,1,1,0
+5315,70,Male,7,3,1,3,6,Home with care package,1,General medicine,Wednesday,0,1,0
+5317,48,Female,7,0,0,1,4,Home,0,Orthopaedics,Saturday,1,1,0
+5342,61,Male,2,2,1,2,3,Home,0,Orthopaedics,Saturday,0,1,1
+5364,69,Male,2,2,0,9,6,Home,1,Orthopaedics,Monday,0,0,0
+5373,49,Female,6,0,1,6,3,Home,1,Respiratory,Saturday,0,1,0
+5374,68,Female,10,0,0,1,5,Home,0,Cardiology,Saturday,1,1,1
+5378,78,Male,7,4,1,1,6,Home,1,General medicine,Sunday,0,1,0
+5381,63,Female,1,3,2,4,10,Home,1,Cardiology,Sunday,3,0,1
+5388,46,Female,3,3,2,4,10,Home,0,Respiratory,Wednesday,0,1,1
+5411,56,Male,8,3,1,3,10,Home,0,General surgery,Thursday,4,0,3
+5412,97,Male,8,4,1,3,7,Home with care package,0,General medicine,Monday,4,0,3
+5430,74,Male,9,2,0,16,5,Home,0,General medicine,Monday,1,1,0
+5432,51,Female,10,1,0,2,8,Home,0,Cardiology,Sunday,1,0,1
+5435,77,Male,5,4,1,4,7,Care home,0,Elderly care,Sunday,1,1,2
+5449,70,Male,3,2,2,4,10,Care home,1,General medicine,Thursday,3,0,4
+5451,76,Male,10,0,0,5,6,Home,1,Respiratory,Saturday,2,0,0
+5461,64,Male,7,0,1,12,3,Home,1,Elderly care,Tuesday,0,1,2
+5464,89,Male,7,2,0,9,9,Home with care package,0,Elderly care,Friday,4,0,3
+5489,58,Female,5,6,0,14,16,Home,0,General surgery,Friday,1,0,4
+5507,57,Male,8,0,1,4,3,Home,1,General medicine,Sunday,2,1,0
+5524,57,Female,8,1,0,3,6,Home,0,General medicine,Wednesday,0,0,2
+5528,55,Female,10,0,0,4,2,Home,0,Orthopaedics,Wednesday,2,1,1
+5543,69,Female,5,2,0,3,9,Home,0,Respiratory,Tuesday,0,0,0
+5546,48,Female,8,1,0,1,5,Home,1,Orthopaedics,Saturday,0,0,1
+5553,76,Female,6,4,2,5,9,Home,0,Elderly care,Tuesday,0,0,1
+5568,75,Female,5,3,1,3,6,Home,0,Elderly care,Friday,1,1,1
+5579,73,Male,6,4,3,8,8,Home,1,General surgery,Sunday,3,0,1
+5584,59,Female,7,2,1,4,5,Home,0,Cardiology,Saturday,3,1,1
+5587,79,Male,1,2,3,6,4,Home,1,General medicine,Sunday,2,0,1
+5591,44,Male,2,4,2,1,11,Home,1,General surgery,Wednesday,1,0,0
+5593,85,Male,9,2,0,12,6,Home,0,Elderly care,Tuesday,1,1,1
+5623,61,Male,1,0,1,2,0,Home,1,Cardiology,Tuesday,1,0,3
+5624,96,Male,6,3,0,10,7,Home,0,Elderly care,Friday,1,1,0
+5626,55,Female,4,1,1,5,4,Home,0,General surgery,Thursday,0,1,1
+5628,100,Male,7,0,0,8,8,Home with care package,1,Elderly care,Monday,1,1,1
+5637,78,Female,5,6,1,16,5,Home,0,Cardiology,Saturday,2,0,2
+5642,55,Female,4,2,1,5,5,Home,0,General surgery,Thursday,2,1,0
+5644,72,Female,3,1,1,1,2,Home with care package,0,Cardiology,Monday,0,0,1
+5653,55,Male,2,0,0,2,3,Home,0,General medicine,Friday,0,1,0
+5655,75,Male,4,0,0,8,2,Home,1,General medicine,Thursday,1,1,2
+5658,75,Female,8,0,0,4,6,Home,0,Elderly care,Friday,2,0,2
+5684,67,Female,7,1,0,9,9,Home,0,General medicine,Tuesday,5,0,3
+5709,60,Male,10,0,1,5,4,Home,0,Cardiology,Saturday,1,1,1
+5722,78,Male,9,2,1,4,8,Home,0,Elderly care,Sunday,1,1,0
+5736,74,Female,10,3,0,18,8,Care home,0,Cardiology,Monday,1,1,1
+5740,53,Male,7,0,1,2,0,Home,1,Cardiology,Monday,1,0,0
+5776,61,Female,5,0,0,3,3,Home,0,Cardiology,Thursday,1,0,2
+5784,63,Male,6,1,0,4,5,Home,0,General medicine,Sunday,0,1,0
+5785,44,Female,3,1,0,2,4,Home,0,General surgery,Thursday,1,1,1
+5801,84,Female,3,2,2,4,6,Care home,1,Cardiology,Sunday,0,1,0
+5806,69,Female,9,1,0,6,4,Home,0,Cardiology,Sunday,0,1,1
+5809,53,Male,3,0,0,3,5,Home,0,General surgery,Thursday,1,1,0
+5829,60,Male,7,1,1,8,3,Home,0,General surgery,Friday,1,1,0
+5846,73,Female,8,0,0,5,5,Home,0,Orthopaedics,Thursday,1,1,0
+5871,59,Male,7,3,0,3,6,Home,1,General medicine,Saturday,0,0,1
+5872,77,Male,6,7,3,3,9,Home with care package,0,Elderly care,Sunday,6,0,1
+5878,72,Male,6,2,0,12,7,Home,1,Cardiology,Tuesday,0,1,0
+5927,78,Male,7,5,0,10,13,Home,1,General surgery,Wednesday,4,1,0
+5950,75,Male,4,3,1,5,10,Home,1,General medicine,Saturday,2,0,5
+5967,61,Male,9,1,0,6,3,Home,0,General medicine,Thursday,2,1,0
+5976,73,Male,4,1,1,2,10,Care home,0,General surgery,Sunday,1,1,0
+5987,69,Male,9,3,2,2,8,Home,1,General medicine,Wednesday,1,1,1
+6003,96,Male,7,4,2,10,11,Home,1,Elderly care,Friday,4,0,2
+6005,70,Male,1,2,1,5,5,Home,0,Respiratory,Monday,3,0,5
+6012,85,Male,1,2,0,2,8,Care home,0,Elderly care,Friday,1,0,2
+6029,95,Male,8,3,0,9,7,Home,0,Elderly care,Saturday,1,1,0
+6059,85,Female,3,1,1,9,7,Home,0,Orthopaedics,Wednesday,1,0,1
+6077,47,Female,8,1,0,3,3,Home,0,General medicine,Saturday,1,1,1
+6090,72,Male,3,2,1,3,6,Care home,0,Elderly care,Tuesday,1,1,2
+6101,73,Male,4,3,2,2,2,Home,1,Elderly care,Friday,2,1,1
+6114,58,Male,8,0,0,2,7,Home,0,General medicine,Thursday,7,0,1
+6122,67,Male,2,4,1,3,7,Home,1,Cardiology,Monday,3,1,1
+6123,64,Female,7,3,4,2,6,Home,1,General medicine,Monday,2,1,1
+6144,59,Female,1,1,0,5,1,Home,0,Cardiology,Wednesday,0,1,2
+6161,67,Male,1,2,0,14,4,Home,1,Respiratory,Thursday,1,1,0
+6177,81,Female,9,4,1,9,10,Home,0,General medicine,Friday,1,1,2
+6188,68,Female,6,4,1,5,9,Home,0,Cardiology,Sunday,2,1,0
+6189,93,Female,3,2,0,7,8,Home with care package,1,Cardiology,Sunday,1,1,0
+6193,71,Female,4,2,4,4,4,Home,0,Respiratory,Sunday,4,0,4
+6196,64,Female,8,3,1,2,5,Home,0,General surgery,Wednesday,0,1,1
+6200,67,Female,3,1,0,3,6,Home,1,Respiratory,Tuesday,6,0,3
+6210,75,Female,7,1,0,2,3,Home,0,Elderly care,Friday,2,0,1
+6211,74,Female,2,2,0,9,3,Home,0,General surgery,Monday,0,1,2
+6230,68,Female,6,1,0,1,5,Home,0,Orthopaedics,Tuesday,1,1,0
+6238,66,Female,9,1,0,8,6,Home with care package,1,General surgery,Wednesday,1,1,0
+6244,66,Male,7,5,2,1,8,Home with care package,0,Elderly care,Friday,0,1,0
+6248,75,Female,8,0,2,3,4,Home,0,Cardiology,Wednesday,1,0,6
+6259,73,Male,3,0,0,6,2,Home,1,General medicine,Tuesday,0,1,1
+6286,71,Male,1,5,0,10,7,Care home,1,Respiratory,Tuesday,6,0,8
+6308,45,Female,4,2,1,1,1,Home,0,General medicine,Monday,0,0,1
+6310,100,Female,1,4,1,5,4,Home with care package,1,Elderly care,Monday,5,0,5
+6333,92,Female,9,2,1,3,8,Home,1,Respiratory,Sunday,1,1,2
+6336,53,Female,1,1,0,3,3,Home,0,General medicine,Friday,1,0,7
+6346,72,Male,9,2,1,10,6,Home,0,Orthopaedics,Monday,0,1,0
+6349,65,Female,7,1,1,1,7,Care home,0,Cardiology,Saturday,0,0,0
+6351,53,Female,6,1,1,1,7,Care home,0,Orthopaedics,Saturday,0,1,0
+6378,47,Male,9,0,0,4,4,Home,0,General medicine,Wednesday,0,0,2
+6398,43,Female,9,0,0,6,5,Home,0,Respiratory,Friday,2,0,1
+6403,41,Male,9,1,0,2,4,Home,0,Respiratory,Monday,2,1,4
+6413,49,Female,8,0,0,8,2,Home,0,Orthopaedics,Tuesday,1,1,1
+6416,74,Male,6,1,0,15,10,Home,1,General medicine,Tuesday,3,1,2
+6462,56,Female,1,3,0,4,7,Home,0,Cardiology,Tuesday,0,0,1
+6479,67,Female,7,0,0,3,4,Home,0,General medicine,Friday,2,1,0
+6483,64,Male,7,0,0,6,3,Home,1,General surgery,Monday,1,1,1
+6486,63,Male,10,2,0,3,9,Home,0,General medicine,Tuesday,0,1,0
+6492,49,Female,8,3,2,2,5,Home,1,General surgery,Monday,1,0,1
+6497,73,Male,4,2,1,5,3,Home,0,Respiratory,Thursday,0,1,0
+6513,39,Male,10,0,0,1,0,Home,0,General surgery,Thursday,0,0,0
+6543,62,Female,3,0,0,1,7,Home,1,Respiratory,Monday,0,1,0
+6557,86,Female,8,5,2,11,6,Care home,1,Elderly care,Thursday,0,0,0
+6574,77,Male,9,3,1,2,13,Home,1,General medicine,Sunday,1,1,1
+6577,57,Male,4,1,2,4,3,Home,0,General surgery,Monday,1,0,0
+6582,54,Male,1,1,0,6,2,Home,0,General surgery,Monday,0,1,0
+6588,79,Female,8,2,1,9,5,Care home,1,Orthopaedics,Saturday,2,1,2
+6593,68,Female,8,0,0,8,4,Home,0,General surgery,Wednesday,1,1,0
+6599,58,Male,7,0,0,2,4,Home,0,General medicine,Tuesday,1,1,0
+6605,73,Male,1,3,2,12,6,Home with care package,1,Elderly care,Tuesday,0,1,1
+6610,70,Female,5,3,0,4,7,Home,0,Cardiology,Tuesday,1,1,1
+6617,33,Male,5,1,0,3,4,Home,0,General surgery,Monday,1,1,1
+6621,55,Male,2,1,0,2,4,Home,0,General medicine,Thursday,1,1,1
+6630,70,Male,9,2,0,4,6,Home,0,Cardiology,Thursday,0,1,0
+6688,78,Male,9,1,0,12,10,Home,0,Respiratory,Sunday,2,1,0
+6694,78,Male,5,3,1,4,13,Home,1,Respiratory,Monday,1,0,2
+6699,75,Female,2,2,1,4,8,Home,1,Respiratory,Wednesday,2,0,5
+6703,100,Female,7,5,1,4,9,Care home,1,Elderly care,Thursday,2,0,6
+6710,95,Female,3,1,0,9,7,Home with care package,1,Elderly care,Monday,1,0,0
+6718,56,Male,4,0,1,1,4,Home,0,Cardiology,Sunday,1,1,1
+6722,85,Male,10,3,1,6,7,Home,0,General medicine,Friday,1,1,0
+6731,86,Female,1,3,1,11,9,Care home,1,Respiratory,Friday,0,0,0
+6736,99,Male,2,5,1,4,11,Home with care package,0,Elderly care,Tuesday,1,0,2
+6755,87,Female,2,10,3,10,16,Care home,0,Elderly care,Friday,5,1,2
+6763,69,Female,1,0,1,2,3,Home,0,Cardiology,Saturday,0,0,0
+6776,71,Female,2,1,0,6,2,Home,1,General medicine,Monday,0,1,0
+6778,67,Male,8,2,0,1,11,Home,0,General medicine,Sunday,2,1,0
+6798,81,Female,2,3,0,10,7,Home,0,Respiratory,Wednesday,0,1,3
+6810,96,Male,10,1,1,3,1,Care home,1,Elderly care,Monday,0,1,2
+6812,84,Male,4,2,3,4,8,Home,0,General medicine,Tuesday,0,0,0
+6820,73,Male,10,3,0,4,6,Home,1,Cardiology,Saturday,2,1,1
+6824,69,Male,7,1,0,2,5,Home,0,Respiratory,Monday,2,1,1
+6834,71,Male,9,0,0,1,5,Home,0,General medicine,Friday,1,1,0
+6851,70,Male,3,1,1,5,7,Home,0,General medicine,Friday,1,0,0
+6860,74,Male,2,3,1,3,8,Home,0,General medicine,Friday,0,1,1
+6869,67,Female,7,3,0,2,11,Home with care package,0,Respiratory,Friday,2,1,1
+6872,65,Female,3,0,1,5,2,Home,0,General medicine,Thursday,1,1,0
+6892,92,Female,10,1,0,9,2,Home,0,Elderly care,Saturday,0,1,1
+6893,74,Male,2,0,0,1,2,Home,1,General medicine,Thursday,5,0,2
+6898,81,Male,10,5,1,10,11,Home,1,Cardiology,Sunday,0,1,0
+6902,69,Male,1,2,0,12,6,Care home,1,Cardiology,Friday,0,0,0
+6909,89,Male,1,3,0,2,11,Home,0,General medicine,Monday,0,1,0
+6915,63,Female,4,0,0,1,3,Home,0,Orthopaedics,Friday,1,1,0
+6925,70,Female,7,1,3,2,7,Home,0,Elderly care,Tuesday,2,1,0
+6929,72,Female,2,0,0,2,2,Care home,0,Orthopaedics,Monday,0,1,0
+6939,79,Male,3,6,2,4,17,Home with care package,1,General medicine,Saturday,0,1,0
+6942,63,Female,8,0,0,2,4,Home,0,Respiratory,Thursday,0,0,0
+6945,64,Male,4,0,0,13,3,Home,1,General surgery,Monday,1,1,1
+6949,73,Male,10,3,2,5,5,Home,1,Orthopaedics,Thursday,2,1,1
+6951,55,Female,10,1,0,4,5,Home,0,Orthopaedics,Saturday,0,1,1
+6955,76,Female,8,1,1,8,3,Home,0,Respiratory,Sunday,0,1,1
+6967,74,Female,8,1,1,1,3,Home,0,Elderly care,Friday,4,1,5
+6972,49,Female,7,0,0,3,1,Home,0,General medicine,Monday,1,0,3
+6973,57,Male,8,1,1,2,5,Home,0,Orthopaedics,Monday,1,0,1
+6982,69,Female,2,5,0,4,11,Home,1,General medicine,Monday,0,0,5
+6993,58,Male,9,1,2,5,5,Home,0,Respiratory,Wednesday,3,1,1
+7002,92,Female,2,1,1,20,4,Care home,1,Respiratory,Wednesday,1,1,0
+7007,96,Female,10,1,2,12,6,Home,1,Elderly care,Friday,1,1,1
+7013,68,Female,8,1,0,5,6,Home,0,Cardiology,Tuesday,0,0,1
+7018,100,Female,9,2,0,11,3,Care home,0,Elderly care,Friday,2,1,0
+7020,91,Female,10,0,0,1,2,Care home,0,Orthopaedics,Saturday,0,1,0
+7030,61,Male,1,3,2,1,7,Home,0,Elderly care,Tuesday,1,1,0
+7039,77,Male,10,1,0,6,6,Home,1,Orthopaedics,Thursday,0,1,1
+7052,69,Female,6,2,0,4,7,Home,0,General medicine,Tuesday,1,1,1
+7053,71,Male,10,0,0,3,3,Care home,1,General medicine,Monday,0,0,0
+7079,66,Female,5,1,0,1,3,Home,0,Orthopaedics,Thursday,0,0,0
+7084,58,Female,4,3,0,3,5,Home,0,Cardiology,Monday,2,1,4
+7090,68,Female,3,2,0,3,6,Home,0,Respiratory,Monday,0,1,1
+7110,74,Female,10,1,0,2,2,Home,0,Orthopaedics,Monday,0,0,1
+7113,51,Female,8,0,0,5,2,Home,0,Respiratory,Monday,0,1,0
+7117,81,Female,2,2,1,4,4,Home,1,Cardiology,Sunday,1,0,1
+7122,53,Male,6,1,0,3,4,Home,0,Orthopaedics,Wednesday,2,1,0
+7134,47,Male,4,0,1,6,3,Home,0,General medicine,Wednesday,2,1,1
+7137,52,Female,5,0,1,7,1,Home,1,General medicine,Wednesday,0,1,0
+7143,62,Male,8,2,0,8,5,Home,0,Elderly care,Friday,1,1,1
+7146,83,Female,4,1,1,2,3,Home,0,General medicine,Friday,1,1,0
+7150,64,Male,6,0,0,2,4,Home,0,Respiratory,Friday,0,1,0
+7157,64,Male,5,0,1,2,2,Home,1,Orthopaedics,Monday,0,1,1
+7159,72,Female,8,2,0,7,6,Home,0,Elderly care,Friday,2,1,0
+7162,77,Female,2,2,1,3,10,Home,1,Respiratory,Saturday,0,1,0
+7169,100,Male,6,5,1,3,9,Home,0,Elderly care,Friday,1,1,0
+7179,78,Female,4,2,2,12,5,Care home,1,General medicine,Thursday,2,1,0
+7181,76,Female,3,1,0,6,8,Care home,1,General medicine,Tuesday,0,1,0
+7183,60,Male,5,1,2,3,5,Home,0,General medicine,Sunday,1,1,1
+7200,64,Female,7,4,2,2,5,Home,0,General medicine,Wednesday,0,0,0
+7226,83,Male,5,0,0,7,3,Home,1,Elderly care,Wednesday,2,0,0
+7231,87,Female,1,3,0,7,14,Home,0,General medicine,Sunday,1,1,1
+7234,24,Male,9,1,0,2,2,Home,0,Cardiology,Wednesday,0,1,0
+7242,82,Male,7,2,1,1,12,Home,0,Cardiology,Monday,0,1,1
+7244,43,Male,1,2,0,1,3,Home,0,Respiratory,Tuesday,0,0,0
+7249,59,Female,8,0,0,4,3,Home,1,Cardiology,Wednesday,0,1,0
+7258,49,Male,9,1,0,5,9,Home,0,Cardiology,Saturday,1,1,0
+7272,95,Male,5,4,2,1,5,Home,1,Elderly care,Friday,2,0,1
+7287,80,Female,9,1,0,2,4,Home,1,Elderly care,Friday,0,1,1
+7288,67,Female,1,2,4,3,11,Home,1,Respiratory,Wednesday,1,1,0
+7292,20,Male,4,2,1,1,4,Home,0,General surgery,Sunday,0,1,1
+7296,69,Male,6,1,0,1,6,Home,0,Cardiology,Wednesday,0,0,1
+7299,61,Female,2,3,2,1,5,Home,1,Cardiology,Thursday,1,1,1
+7306,88,Male,10,1,0,6,4,Home,0,Elderly care,Friday,1,1,1
+7311,63,Female,1,1,0,3,3,Home,0,General medicine,Thursday,1,1,0
+7324,76,Female,5,2,1,3,4,Home with care package,1,General surgery,Wednesday,3,0,5
+7339,60,Female,8,0,1,2,4,Home,0,Orthopaedics,Tuesday,0,1,0
+7341,95,Female,2,2,1,4,6,Home,1,General medicine,Thursday,1,0,0
+7347,55,Male,8,1,2,2,3,Home,0,Respiratory,Sunday,0,1,2
+7349,74,Female,4,2,0,4,6,Home,0,Elderly care,Friday,1,1,1
+7372,89,Male,7,2,0,3,11,Home,1,Respiratory,Friday,1,0,0
+7378,63,Female,10,0,0,3,4,Home,1,General medicine,Monday,1,0,1
+7382,69,Female,1,3,1,11,4,Home,1,Orthopaedics,Tuesday,1,0,0
+7407,86,Female,3,3,0,3,7,Home,1,Respiratory,Sunday,1,1,1
+7412,78,Male,7,2,0,19,7,Care home,0,Elderly care,Friday,2,0,3
+7427,99,Female,8,3,1,3,13,Home with care package,0,Elderly care,Friday,0,0,1
+7434,73,Male,7,0,0,4,2,Home,1,Elderly care,Friday,2,0,2
+7438,81,Female,10,3,0,5,7,Home,1,General medicine,Tuesday,0,1,0
+7444,58,Male,10,0,1,4,3,Home,0,Elderly care,Saturday,1,1,1
+7449,69,Male,7,0,0,2,1,Home,1,Respiratory,Tuesday,0,1,0
+7454,72,Female,6,5,1,2,7,Home with care package,0,Orthopaedics,Tuesday,1,1,0
+7455,85,Female,4,5,2,2,11,Home with care package,1,Respiratory,Tuesday,8,0,2
+7464,58,Female,2,0,0,2,1,Home,0,Orthopaedics,Monday,0,1,1
+7468,78,Male,10,1,1,3,2,Home with care package,1,General surgery,Friday,0,1,1
+7471,60,Male,5,0,1,7,4,Home with care package,0,General surgery,Thursday,0,1,0
+7480,59,Female,5,2,0,3,4,Care home,0,Respiratory,Wednesday,2,1,1
+7497,94,Male,2,5,0,37,11,Home with care package,1,Respiratory,Saturday,3,0,4
+7498,79,Male,2,0,2,2,10,Home,0,Cardiology,Sunday,0,1,0
+7502,93,Female,9,2,1,1,7,Care home,1,Elderly care,Wednesday,2,1,0
+7508,76,Female,9,0,1,2,7,Home,0,Cardiology,Wednesday,2,0,1
+7512,51,Male,10,1,0,4,6,Home,0,Elderly care,Friday,0,0,1
+7516,76,Male,7,1,0,6,6,Home,0,Orthopaedics,Tuesday,2,0,3
+7518,71,Female,7,2,2,9,4,Home,0,General medicine,Friday,2,1,2
+7519,78,Female,9,7,3,8,17,Care home,0,Elderly care,Wednesday,1,1,0
+7551,73,Male,2,0,0,5,3,Home,1,Cardiology,Saturday,0,1,1
+7576,75,Male,1,3,0,5,9,Home,1,Orthopaedics,Saturday,0,1,2
+7580,60,Male,1,1,0,8,7,Home,1,General medicine,Thursday,4,1,0
+7584,65,Female,7,0,0,2,1,Care home,0,Respiratory,Saturday,1,1,1
+7586,95,Female,10,2,0,13,6,Care home,0,Elderly care,Thursday,0,0,0
+7587,63,Male,5,2,0,6,7,Home,0,Orthopaedics,Wednesday,1,1,0
+7595,51,Female,6,0,1,2,1,Home,0,Orthopaedics,Wednesday,1,1,0
+7598,80,Male,6,4,1,7,5,Home,1,General medicine,Friday,0,0,1
+7620,53,Male,10,0,1,6,2,Home,0,General medicine,Thursday,0,0,1
+7634,83,Male,5,0,0,4,6,Home,1,Elderly care,Friday,0,0,3
+7635,100,Female,8,7,0,26,17,Home,1,Elderly care,Friday,2,0,9
+7645,78,Female,4,5,1,5,12,Home,0,General medicine,Friday,2,1,0
+7667,62,Male,3,0,0,1,6,Home with care package,0,General medicine,Monday,0,1,1
+7674,78,Male,2,4,1,2,11,Home,1,Respiratory,Friday,3,0,1
+7675,44,Female,2,3,1,1,5,Home,0,Respiratory,Monday,2,1,0
+7676,83,Male,9,3,2,2,7,Home,1,General medicine,Tuesday,0,1,2
+7685,42,Female,1,0,0,1,2,Home,1,General surgery,Sunday,0,1,1
+7686,81,Female,8,4,2,7,11,Home,1,Respiratory,Monday,0,1,0
+7690,92,Female,6,1,1,11,7,Home with care package,1,Elderly care,Friday,2,0,0
+7691,54,Female,8,2,1,1,6,Home,1,General medicine,Saturday,0,1,1
+7698,76,Female,10,0,0,8,7,Home,1,Elderly care,Friday,0,0,0
+7718,59,Male,9,0,0,1,2,Home,0,General surgery,Wednesday,1,1,1
+7724,57,Male,5,3,1,19,5,Home,0,General surgery,Saturday,1,0,0
+7749,58,Female,3,2,0,7,9,Home,0,General surgery,Wednesday,1,1,1
+7760,79,Female,4,1,1,1,5,Home,1,General medicine,Saturday,2,1,3
+7762,58,Male,2,2,1,8,4,Care home,1,General medicine,Wednesday,0,0,0
+7769,70,Male,4,3,1,3,9,Home,0,Cardiology,Monday,0,1,0
+7772,84,Male,8,2,0,4,4,Home with care package,1,Elderly care,Friday,0,1,2
+7776,50,Male,1,1,0,1,5,Home,0,General medicine,Tuesday,1,1,3
+7779,65,Female,1,4,3,3,10,Home,0,Cardiology,Wednesday,0,1,0
+7786,98,Female,2,3,2,10,11,Care home,1,Cardiology,Saturday,0,1,0
+7796,44,Male,5,0,0,6,4,Home,0,General medicine,Sunday,0,1,0
+7802,59,Female,10,4,2,3,5,Home,0,General medicine,Wednesday,4,1,3
+7807,69,Male,7,1,3,5,2,Home,1,General medicine,Monday,4,1,1
+7813,90,Male,6,2,0,16,5,Home,1,General medicine,Saturday,0,0,1
+7820,57,Male,7,5,3,2,13,Home,0,Cardiology,Sunday,3,1,2
+7855,58,Female,3,2,2,3,8,Home,0,General surgery,Wednesday,0,1,0
+7870,77,Female,9,3,0,17,5,Home,1,Elderly care,Friday,0,0,3
+7887,67,Female,3,2,0,4,6,Home with care package,0,General medicine,Wednesday,0,0,1
+7893,93,Male,2,3,0,16,7,Home,1,Elderly care,Friday,4,1,5
+7900,67,Female,10,1,0,1,3,Home,0,General medicine,Sunday,2,0,0
+7902,58,Female,5,0,0,4,7,Home,0,Orthopaedics,Saturday,0,1,1
+7911,63,Male,7,2,0,2,4,Home,1,Elderly care,Tuesday,1,1,0
+7933,100,Male,5,4,1,10,10,Care home,1,Elderly care,Friday,1,0,1
+7945,69,Female,4,1,0,2,5,Care home,0,General medicine,Saturday,1,0,0
+7958,90,Male,8,2,0,8,3,Care home,1,Elderly care,Friday,1,0,0
+7976,65,Male,5,0,0,17,1,Home,1,General surgery,Thursday,1,1,0
+7987,85,Female,6,2,0,7,4,Care home,1,Orthopaedics,Sunday,3,0,0
+7994,81,Male,7,2,0,4,6,Home,1,Elderly care,Friday,1,0,0
+7999,61,Female,8,1,0,4,7,Home,1,Orthopaedics,Friday,0,0,1
+8005,56,Male,3,2,0,2,8,Home,0,Cardiology,Wednesday,1,1,0
+8019,91,Female,7,4,3,4,11,Home,0,Cardiology,Monday,1,1,1
+8023,72,Female,3,0,2,5,4,Home,0,General medicine,Saturday,0,1,1
+8034,88,Male,7,1,1,2,9,Home,0,Elderly care,Thursday,1,1,2
+8036,61,Male,9,0,0,2,1,Home,0,General medicine,Saturday,3,0,1
+8058,61,Male,4,1,0,4,2,Home,0,Cardiology,Thursday,0,1,2
+8067,56,Male,2,2,3,1,8,Home,1,General medicine,Wednesday,1,1,1
+8078,67,Female,3,1,0,2,5,Home,0,Orthopaedics,Tuesday,2,1,3
+8083,65,Female,8,1,0,3,5,Home,0,Respiratory,Sunday,1,0,1
+8096,76,Female,9,2,1,2,7,Home with care package,1,Elderly care,Thursday,0,0,0
+8097,69,Female,5,2,2,1,5,Home,0,Respiratory,Friday,0,1,0
+8129,76,Female,3,1,2,7,2,Home,0,General medicine,Tuesday,0,1,2
+8135,31,Male,6,0,0,3,3,Home,0,General medicine,Sunday,1,1,2
+8156,70,Female,7,3,0,1,12,Home,1,Orthopaedics,Thursday,3,0,1
+8158,93,Male,9,2,0,6,6,Home,0,General medicine,Tuesday,0,0,0
+8160,70,Male,8,1,0,10,7,Care home,1,General medicine,Monday,0,0,0
+8162,74,Male,2,0,1,5,1,Home,1,General medicine,Thursday,2,0,2
+8164,58,Female,5,0,0,8,2,Home,0,General medicine,Monday,0,1,3
+8170,57,Male,8,1,1,1,5,Home,0,Orthopaedics,Tuesday,1,1,1
+8171,59,Female,1,1,0,6,0,Home,0,Cardiology,Monday,4,0,2
+8177,70,Female,3,0,0,6,6,Home,1,Respiratory,Wednesday,1,1,0
+8187,87,Female,5,2,1,14,4,Home,0,General medicine,Wednesday,1,0,1
+8199,65,Female,2,0,1,1,8,Home,0,General medicine,Friday,1,1,0
+8202,49,Female,8,2,0,1,8,Home with care package,1,General medicine,Sunday,0,0,0
+8205,74,Male,10,2,0,8,5,Care home,1,General medicine,Tuesday,3,1,0
+8226,98,Male,4,3,0,6,5,Home,1,Cardiology,Wednesday,0,1,0
+8231,42,Female,8,0,0,2,3,Home,1,General medicine,Monday,1,0,1
+8242,60,Male,5,3,2,4,5,Home,0,Orthopaedics,Friday,1,1,0
+8247,66,Male,7,0,0,3,2,Home,0,Elderly care,Friday,2,0,0
+8254,68,Male,4,3,0,2,12,Home,0,Cardiology,Monday,0,0,1
+8256,54,Male,1,0,1,3,2,Home,0,General surgery,Sunday,1,0,1
+8281,55,Female,5,2,1,1,8,Home,0,Respiratory,Saturday,5,0,2
+8286,52,Male,9,0,1,2,3,Home,0,General medicine,Thursday,5,0,2
+8288,65,Female,8,1,2,3,3,Home,0,General medicine,Thursday,1,1,2
+8293,100,Female,6,4,0,4,10,Care home,1,Elderly care,Friday,1,1,0
+8310,58,Female,8,0,0,5,3,Home,0,Orthopaedics,Saturday,0,1,0
+8315,74,Male,2,2,0,2,7,Home,0,Respiratory,Wednesday,1,1,1
+8334,70,Male,7,2,0,16,7,Home,1,General medicine,Friday,4,0,9
+8352,74,Male,4,0,0,3,2,Home,1,General surgery,Monday,0,1,0
+8365,75,Male,10,2,2,5,7,Care home,1,Orthopaedics,Friday,1,1,0
+8368,77,Male,9,3,0,3,4,Home,0,General medicine,Saturday,3,1,0
+8371,55,Female,9,0,0,3,0,Home,0,Respiratory,Saturday,1,0,0
+8377,69,Female,4,0,0,2,3,Care home,0,General surgery,Friday,0,0,0
+8379,75,Female,10,2,0,2,8,Home,0,General medicine,Wednesday,3,0,0
+8381,70,Female,3,3,2,4,6,Care home,1,Respiratory,Wednesday,0,0,1
+8384,71,Female,4,4,0,12,10,Home,1,Elderly care,Saturday,2,1,2
+8408,84,Female,9,1,1,22,5,Home,1,Orthopaedics,Thursday,1,1,1
+8423,65,Female,9,0,1,6,2,Home,0,Orthopaedics,Sunday,0,0,0
+8429,64,Male,5,1,1,1,4,Home,0,Respiratory,Saturday,1,1,2
+8432,57,Female,9,0,1,6,2,Home,0,Orthopaedics,Wednesday,1,1,0
+8434,61,Female,1,2,1,7,7,Home,1,General surgery,Monday,0,1,0
+8454,81,Female,7,1,1,1,7,Home,0,Elderly care,Friday,2,1,0
+8463,75,Female,9,0,0,2,0,Care home,0,General surgery,Saturday,2,1,1
+8470,73,Female,1,1,0,1,5,Home,0,General medicine,Friday,1,1,0
+8478,59,Male,5,3,0,3,5,Home,0,General medicine,Thursday,2,1,1
+8492,59,Female,9,1,0,10,6,Home,0,General medicine,Tuesday,0,1,0
+8502,74,Female,10,1,0,4,3,Home,0,Elderly care,Friday,4,0,5
+8505,70,Male,5,3,0,2,5,Home,0,General medicine,Wednesday,0,1,2
+8522,68,Female,7,5,2,4,9,Home with care package,1,Orthopaedics,Thursday,3,0,6
+8524,93,Female,1,4,0,9,8,Home with care package,1,Elderly care,Friday,1,0,5
+8531,62,Male,8,1,0,3,4,Home,0,Elderly care,Friday,0,1,0
+8584,66,Female,3,3,1,11,6,Home,0,General surgery,Tuesday,1,1,3
+8590,57,Female,1,0,0,8,4,Home,1,Respiratory,Tuesday,5,1,4
+8599,90,Female,3,1,0,9,4,Home,1,General medicine,Saturday,1,1,0
+8603,66,Male,3,2,1,6,6,Home,1,Orthopaedics,Sunday,1,1,1
+8613,95,Female,5,4,0,10,13,Care home,1,Elderly care,Thursday,4,0,2
+8616,74,Female,5,0,0,1,0,Home,0,Respiratory,Saturday,1,1,0
+8620,69,Male,4,2,0,4,4,Home,0,Orthopaedics,Wednesday,0,0,1
+8662,70,Female,5,0,0,10,6,Home with care package,1,Orthopaedics,Saturday,0,1,1
+8663,59,Male,5,1,1,5,2,Home,0,Orthopaedics,Friday,1,0,1
+8666,58,Female,5,0,0,3,1,Home,0,Respiratory,Thursday,2,1,1
+8681,96,Male,1,0,0,3,2,Home,1,Cardiology,Thursday,0,1,0
+8687,45,Female,10,1,1,1,0,Home,0,General medicine,Tuesday,0,0,1
+8689,63,Female,3,1,0,1,4,Home,1,General surgery,Monday,0,0,0
+8691,56,Male,2,1,0,11,2,Home,0,General medicine,Tuesday,2,0,3
+8725,44,Male,9,1,0,1,2,Home,0,Orthopaedics,Sunday,1,0,1
+8732,68,Male,10,0,0,4,4,Care home,1,General medicine,Thursday,3,1,0
+8737,79,Female,2,2,1,2,10,Home,1,General medicine,Thursday,3,0,0
+8759,77,Female,8,0,1,6,2,Home with care package,0,Elderly care,Friday,1,1,0
+8770,97,Male,2,1,2,2,4,Home,0,Elderly care,Friday,4,1,4
+8787,57,Female,5,0,0,1,2,Home,0,Cardiology,Monday,0,1,1
+8789,58,Male,6,1,0,2,5,Home with care package,0,General surgery,Wednesday,0,1,0
+8794,61,Male,6,2,0,6,7,Home,0,Respiratory,Tuesday,1,0,1
+8824,86,Male,10,0,1,5,6,Home,0,Orthopaedics,Tuesday,3,1,2
+8851,93,Female,4,5,1,6,10,Care home,1,Elderly care,Thursday,1,1,0
+8854,64,Female,6,0,0,1,4,Home,0,Respiratory,Friday,0,1,1
+8856,70,Male,10,2,1,8,4,Home,0,Orthopaedics,Wednesday,2,1,0
+8873,46,Female,9,0,1,4,6,Home,0,General surgery,Friday,0,0,2
+8886,76,Female,7,0,0,7,3,Home,0,Elderly care,Friday,1,0,0
+8887,75,Male,2,2,1,8,4,Home,1,Respiratory,Friday,3,1,1
+8896,77,Male,1,4,2,11,15,Care home,1,General medicine,Saturday,2,0,3
+8905,80,Female,4,2,1,3,8,Home,1,General medicine,Thursday,0,1,0
+8916,49,Female,1,0,0,2,2,Home,0,Respiratory,Tuesday,3,1,0
+8927,80,Male,4,4,2,14,6,Home with care package,1,Orthopaedics,Wednesday,4,0,9
+8928,71,Male,3,1,0,4,3,Home,0,General medicine,Thursday,0,1,1
+8940,68,Male,8,0,0,5,3,Home,0,Elderly care,Friday,0,1,1
+8959,48,Female,2,1,1,2,5,Home,1,Cardiology,Saturday,3,1,5
+8964,43,Female,10,1,0,1,1,Home,0,General medicine,Thursday,0,0,1
+9006,96,Male,8,2,0,11,8,Home with care package,1,Elderly care,Friday,0,1,0
+9012,74,Female,5,4,1,8,5,Home,1,Orthopaedics,Thursday,3,1,0
+9013,67,Male,5,2,1,9,6,Home with care package,0,General medicine,Sunday,2,1,0
+9015,32,Female,1,2,1,8,6,Home,1,General surgery,Sunday,0,1,0
+9023,56,Female,5,3,1,8,4,Home,1,Respiratory,Wednesday,0,0,5
+9034,54,Female,9,2,1,1,4,Home,0,Respiratory,Wednesday,0,1,0
+9042,80,Female,1,1,2,13,9,Home,0,General medicine,Wednesday,6,0,6
+9043,66,Female,3,1,0,9,5,Home,0,Cardiology,Wednesday,1,1,1
+9059,62,Male,10,3,4,4,5,Home,0,General surgery,Saturday,1,0,1
+9066,80,Male,1,0,0,7,4,Home,0,General medicine,Thursday,1,1,1
+9078,75,Male,10,1,2,1,7,Home,0,Elderly care,Friday,5,1,3
+9091,64,Female,7,0,2,4,3,Home,1,Respiratory,Wednesday,4,0,2
+9093,64,Female,5,0,1,3,2,Home,0,General medicine,Sunday,2,0,5
+9102,60,Male,3,2,1,2,9,Home,1,Respiratory,Wednesday,1,1,1
+9104,45,Male,2,2,1,1,10,Home,0,General surgery,Thursday,1,0,0
+9109,81,Female,5,3,1,5,10,Home,1,General medicine,Wednesday,1,1,2
+9115,67,Male,5,1,1,7,5,Home,0,General surgery,Wednesday,0,0,1
+9117,80,Female,4,5,1,2,13,Home,0,Respiratory,Wednesday,2,1,0
+9121,44,Female,5,1,1,2,1,Home,0,Orthopaedics,Thursday,0,0,1
+9130,79,Male,7,1,0,4,8,Home,0,Elderly care,Saturday,0,0,0
+9132,61,Female,8,2,3,9,3,Home,0,General medicine,Monday,1,0,0
+9148,57,Female,6,0,0,1,8,Home,0,General medicine,Wednesday,1,0,1
+9176,61,Female,10,0,0,3,3,Home,0,Respiratory,Thursday,1,1,3
+9178,80,Male,10,1,0,4,10,Home,0,General surgery,Wednesday,0,0,0
+9185,78,Female,7,2,0,4,6,Home,1,Orthopaedics,Thursday,2,1,8
+9190,68,Female,7,1,0,4,8,Home with care package,1,Respiratory,Saturday,1,1,1
+9210,46,Male,10,1,0,1,3,Home,0,Orthopaedics,Tuesday,2,1,0
+9213,83,Female,1,5,0,14,10,Care home,1,Elderly care,Monday,5,0,5
+9221,41,Male,3,0,0,1,2,Home,0,General medicine,Friday,1,1,1
+9223,52,Male,1,4,0,6,8,Care home,0,Cardiology,Monday,1,0,1
+9232,60,Female,9,1,1,2,3,Home,0,Respiratory,Friday,0,1,1
+9241,69,Male,5,1,0,3,4,Home,1,Respiratory,Thursday,2,0,0
+9251,65,Female,4,3,1,13,3,Home with care package,1,General medicine,Friday,3,0,0
+9256,68,Male,10,1,0,14,2,Home,1,Respiratory,Thursday,2,1,0
+9264,78,Female,5,0,0,8,0,Home,0,Elderly care,Sunday,5,0,3
+9267,53,Male,9,1,0,3,7,Home,0,General surgery,Tuesday,0,1,1
+9277,84,Male,8,0,0,1,1,Home,0,Elderly care,Tuesday,1,1,1
+9296,67,Male,3,2,1,1,7,Home,0,Elderly care,Friday,0,1,0
+9303,73,Female,9,1,1,3,5,Care home,0,Respiratory,Monday,0,0,0
+9311,62,Male,4,1,0,3,7,Home,1,Respiratory,Wednesday,1,1,0
+9322,86,Female,1,0,1,6,3,Home,0,Elderly care,Saturday,2,1,0
+9323,74,Male,6,1,0,7,2,Home,0,Cardiology,Thursday,1,1,2
+9324,76,Male,1,3,2,3,4,Home,1,Respiratory,Thursday,0,0,2
+9325,68,Female,5,1,0,1,5,Care home,0,Respiratory,Tuesday,1,1,0
+9329,68,Female,3,1,0,3,4,Home,0,Cardiology,Monday,0,0,2
+9334,62,Male,3,1,1,11,2,Home,0,Cardiology,Saturday,1,1,0
+9349,78,Male,4,2,0,4,6,Home,0,Elderly care,Friday,5,0,5
+9356,74,Female,1,3,0,11,9,Home,1,Orthopaedics,Wednesday,3,1,0
+9365,68,Male,5,0,0,10,3,Home,0,General medicine,Thursday,1,0,0
+9369,44,Male,4,1,0,1,6,Home,0,General surgery,Thursday,1,0,0
+9370,66,Male,6,3,2,2,9,Home,1,Orthopaedics,Thursday,1,1,0
+9385,84,Female,7,1,0,4,2,Home,0,Respiratory,Saturday,0,1,1
+9391,51,Female,10,0,2,1,4,Home,0,General surgery,Thursday,1,1,1
+9417,43,Male,8,1,0,2,3,Home,1,General surgery,Monday,1,1,0
+9424,56,Male,2,0,1,1,3,Home,1,Cardiology,Friday,1,1,0
+9426,78,Female,9,1,1,7,3,Home,0,Elderly care,Friday,2,1,2
+9436,80,Male,1,1,0,3,10,Home with care package,0,General medicine,Tuesday,2,1,1
+9438,86,Female,10,2,0,13,2,Home,1,Respiratory,Sunday,1,0,0
+9469,83,Male,7,2,0,3,2,Home,0,General medicine,Saturday,1,1,0
+9484,64,Male,3,1,1,4,3,Home,1,General surgery,Saturday,1,0,0
+9495,61,Male,1,2,0,3,5,Home,0,Elderly care,Friday,4,0,0
+9504,51,Female,1,1,0,4,2,Home,0,Respiratory,Friday,1,1,0
+9513,59,Female,1,0,0,2,1,Home,1,General surgery,Friday,1,0,0
+9522,55,Male,8,0,1,1,2,Home,0,Elderly care,Friday,0,0,0
+9526,58,Female,10,1,0,2,6,Home,0,Respiratory,Saturday,0,0,1
+9528,47,Male,5,5,2,2,13,Home,0,General surgery,Sunday,4,0,5
+9553,88,Male,8,3,1,5,5,Home,1,Elderly care,Saturday,1,1,0
+9562,79,Female,7,2,1,10,7,Home with care package,1,Elderly care,Friday,1,0,4
+9567,50,Female,2,2,1,3,4,Home,0,General surgery,Wednesday,1,1,1
+9594,76,Female,1,1,1,5,3,Home,1,Respiratory,Saturday,4,0,1
+9608,61,Male,5,2,0,6,2,Home,0,Orthopaedics,Friday,2,1,2
+9609,83,Male,3,2,0,1,11,Home,0,General medicine,Tuesday,2,0,1
+9613,78,Male,3,4,1,6,8,Home with care package,1,General medicine,Wednesday,1,0,0
+9617,63,Male,4,2,0,4,5,Home,1,Elderly care,Friday,1,1,0
+9622,75,Female,6,0,0,2,2,Care home,0,Orthopaedics,Saturday,0,1,1
+9626,76,Male,3,0,0,7,0,Home,1,General medicine,Monday,1,0,1
+9632,71,Male,5,2,2,2,3,Home,0,General medicine,Friday,0,1,0
+9634,84,Female,6,2,0,1,11,Care home,0,Cardiology,Saturday,4,0,4
+9638,66,Female,4,3,2,13,7,Care home,0,Cardiology,Wednesday,3,1,0
+9653,55,Male,10,0,0,10,2,Home,0,Cardiology,Friday,1,1,0
+9686,44,Male,5,2,0,3,3,Home,0,General surgery,Saturday,2,1,0
+9693,82,Female,4,2,0,7,5,Care home,1,Elderly care,Friday,2,0,2
+9705,63,Female,6,0,0,7,4,Home,0,Elderly care,Friday,1,1,1
+9712,74,Female,9,0,1,7,0,Care home,0,General surgery,Friday,1,1,2
+9749,83,Male,10,0,0,9,2,Home,0,Elderly care,Friday,0,0,1
+9750,57,Female,2,0,0,2,7,Home,0,Orthopaedics,Saturday,0,1,0
+9751,78,Female,2,0,1,2,4,Home,1,Orthopaedics,Saturday,1,1,1
+9753,70,Male,6,1,1,4,5,Home,0,Elderly care,Friday,0,1,1
+9755,87,Female,4,2,0,5,5,Home,1,General medicine,Wednesday,1,1,0
+9757,65,Male,2,0,0,1,2,Home,0,Respiratory,Friday,2,0,1
+9759,65,Female,7,1,0,1,5,Home,1,General medicine,Sunday,1,1,3
+9762,52,Male,9,1,0,4,2,Home,0,General surgery,Monday,3,1,1
+9766,45,Female,10,1,0,1,0,Home,0,General medicine,Monday,0,1,0
+9771,61,Male,7,0,0,6,1,Home,0,General surgery,Tuesday,0,0,0
+9772,56,Female,6,0,1,2,4,Home,0,General surgery,Tuesday,0,0,0
+9774,54,Female,7,0,1,1,5,Home,0,General surgery,Monday,3,1,0
+9783,97,Female,10,3,1,4,10,Home with care package,1,General medicine,Tuesday,1,0,0
+9797,72,Female,6,3,1,5,5,Home,0,General medicine,Thursday,2,1,1
+9803,57,Male,8,1,1,1,3,Care home,0,General surgery,Monday,2,0,1
+9807,82,Male,6,2,1,3,9,Home,0,Elderly care,Thursday,0,1,0
+9809,49,Male,10,1,1,1,6,Care home,0,General surgery,Monday,1,1,0
+9830,61,Male,7,0,0,3,6,Home,0,General surgery,Wednesday,1,0,1
+9845,64,Female,1,4,3,1,5,Home,0,Respiratory,Friday,0,0,0
+9862,89,Female,7,0,0,2,5,Home,0,Elderly care,Friday,3,1,0
+9873,74,Male,8,0,1,2,1,Home,0,General medicine,Thursday,2,1,2
+9877,82,Female,4,2,1,6,6,Home,0,Orthopaedics,Sunday,6,0,4
+9885,27,Female,1,4,0,6,7,Home,0,Orthopaedics,Friday,3,0,1
+9892,92,Female,10,4,0,9,10,Care home,1,Elderly care,Monday,3,0,2
+9902,73,Female,7,4,1,3,6,Home,1,Cardiology,Thursday,0,1,0
+9912,56,Female,3,1,0,7,7,Home,0,Orthopaedics,Monday,0,1,0
+9925,40,Male,5,1,2,12,4,Home,0,Orthopaedics,Thursday,1,1,2
+9928,69,Female,1,1,3,12,12,Home,1,General surgery,Sunday,3,1,1
+9929,77,Male,8,0,0,5,2,Home,1,Respiratory,Wednesday,0,1,0
+9941,54,Male,9,2,0,3,8,Home,0,General medicine,Saturday,0,1,0
+9942,76,Male,2,3,1,8,7,Home,0,General surgery,Wednesday,2,1,0
+9964,100,Male,8,4,0,7,9,Home,1,Elderly care,Friday,2,0,2
+9965,82,Female,7,5,2,10,4,Home,0,Elderly care,Friday,1,1,0
+9970,57,Male,9,0,1,2,6,Home,0,General surgery,Tuesday,2,0,2
+10002,60,Female,9,1,1,12,6,Home,1,General medicine,Thursday,0,1,0
+10020,98,Male,7,5,1,6,13,Home,0,Elderly care,Tuesday,0,1,0
+10032,51,Female,8,0,0,1,2,Home,1,General surgery,Monday,0,0,1
+10070,75,Male,10,0,1,1,2,Home,0,Respiratory,Wednesday,4,0,0
+10084,65,Female,7,0,0,3,1,Home,0,Cardiology,Monday,2,1,1
+10092,52,Female,8,2,0,2,7,Home,0,Elderly care,Friday,1,1,0
+10102,66,Female,8,1,0,4,4,Home,0,Orthopaedics,Monday,1,1,0
+10103,58,Male,8,0,0,4,2,Home,0,General surgery,Sunday,1,1,0
+10144,65,Male,8,0,0,1,2,Home,0,Respiratory,Saturday,1,0,1
+10157,64,Male,4,0,0,1,4,Home,1,General surgery,Tuesday,1,1,1
+10167,71,Male,6,3,2,13,8,Care home,0,General surgery,Friday,0,1,0
+10180,52,Female,1,1,1,7,1,Home,0,Orthopaedics,Thursday,1,0,0
+10191,77,Female,6,2,2,2,4,Care home,0,Elderly care,Monday,3,0,1
+10200,71,Male,2,1,1,5,1,Home,0,Cardiology,Wednesday,1,1,1
+10208,89,Male,8,5,1,18,6,Home,0,General medicine,Friday,0,1,1
+10224,33,Female,3,1,1,11,7,Home,0,General surgery,Monday,1,1,1
+10242,71,Female,5,0,0,1,3,Care home,0,General medicine,Wednesday,1,1,0
+10245,51,Male,8,4,0,6,9,Home,0,General surgery,Saturday,0,1,0
+10246,77,Female,5,3,0,8,5,Home with care package,1,Elderly care,Wednesday,1,1,2
+10256,48,Male,10,0,0,5,5,Home,1,Orthopaedics,Monday,1,1,2
+10267,44,Male,3,1,2,1,2,Home,0,General medicine,Monday,0,1,0
+10271,55,Male,2,1,0,3,1,Home,1,General surgery,Thursday,1,1,1
+10272,92,Male,5,3,1,8,10,Home,1,Cardiology,Sunday,0,0,0
+10273,51,Female,8,1,1,2,5,Home,0,General medicine,Monday,0,1,1
+10292,58,Male,9,2,1,1,2,Home,0,General surgery,Wednesday,1,0,3
+10294,100,Female,1,7,0,2,11,Home,1,Elderly care,Friday,2,0,2
+10297,87,Male,10,2,0,2,6,Home,1,General medicine,Thursday,0,0,0
+10313,56,Female,8,0,0,5,3,Home,1,Orthopaedics,Saturday,0,1,1
+10334,67,Female,4,0,0,2,2,Home,1,Elderly care,Friday,0,1,0
+10336,53,Male,9,0,0,1,4,Home,0,Cardiology,Thursday,0,1,1
+10345,49,Male,8,0,0,5,1,Home,0,General surgery,Saturday,1,0,1
+10347,70,Female,5,2,0,2,5,Home,0,Respiratory,Saturday,0,0,0
+10363,60,Female,6,1,1,2,6,Care home,0,Cardiology,Thursday,0,1,0
+10366,45,Female,6,1,1,4,6,Home,0,General surgery,Tuesday,1,1,0
+10373,79,Female,3,4,1,2,8,Care home,1,General medicine,Monday,0,1,1
+10381,65,Female,3,2,2,8,5,Home,0,Cardiology,Friday,2,1,1
+10384,37,Male,2,0,1,8,4,Home,0,General surgery,Saturday,0,0,2
+10404,81,Male,1,4,1,6,4,Home,1,General medicine,Sunday,1,1,0
+10427,58,Female,5,1,0,7,4,Home,0,General surgery,Friday,0,1,0
+10430,88,Female,10,1,0,10,10,Home,0,Elderly care,Tuesday,2,1,1
+10455,80,Male,6,1,1,5,8,Home,1,General surgery,Tuesday,4,0,4
+10463,71,Male,8,0,0,6,5,Home,0,Cardiology,Saturday,2,0,1
+10477,67,Female,9,4,0,3,6,Home,0,General medicine,Monday,7,0,4
+10489,90,Female,9,2,1,3,6,Home,1,Cardiology,Sunday,1,1,1
+10492,67,Male,10,0,0,2,5,Home,0,Orthopaedics,Sunday,0,1,0
+10493,65,Male,8,0,0,4,1,Home,0,General medicine,Saturday,0,1,1
+10504,55,Male,1,1,2,1,2,Home,0,General surgery,Sunday,0,1,0
+10507,72,Male,3,1,0,4,4,Care home,1,Elderly care,Sunday,0,0,2
+10513,46,Male,7,0,0,1,7,Home,0,General medicine,Wednesday,2,0,2
+10529,62,Female,1,3,1,3,5,Home,1,Respiratory,Thursday,1,1,0
+10536,76,Female,7,6,3,1,11,Home,0,Cardiology,Thursday,1,1,0
+10545,65,Female,4,3,0,7,9,Home,0,General surgery,Wednesday,1,1,0
+10559,60,Female,9,0,0,4,1,Home,0,General surgery,Wednesday,0,1,1
+10578,63,Male,6,6,4,12,13,Home,1,General medicine,Monday,2,0,5
+10602,58,Male,10,2,1,9,7,Home,0,Orthopaedics,Tuesday,0,1,2
+10606,64,Male,1,4,0,2,10,Home,1,General medicine,Tuesday,0,0,1
+10633,76,Male,7,1,0,3,6,Home,1,Cardiology,Wednesday,3,0,1
+10634,77,Female,9,1,0,3,9,Home,0,Cardiology,Friday,0,1,1
+10641,52,Female,6,3,0,5,5,Home,0,General surgery,Friday,0,1,1
+10648,66,Male,10,2,0,1,8,Home,1,General medicine,Tuesday,3,1,1
+10670,85,Male,4,4,0,2,5,Home with care package,1,Elderly care,Friday,0,0,4
+10680,75,Female,1,2,0,2,3,Home,0,Respiratory,Monday,1,1,0
+10685,70,Female,4,1,0,7,5,Home,1,Respiratory,Wednesday,1,0,1
+10715,54,Female,6,2,2,6,10,Home,1,General medicine,Tuesday,2,1,0
+10721,75,Female,5,3,2,16,5,Home,0,General medicine,Sunday,1,1,0
+10741,61,Male,7,2,1,3,2,Home,1,General surgery,Thursday,0,1,0
+10747,52,Female,9,1,2,5,7,Home,0,General surgery,Saturday,0,1,0
+10752,79,Male,9,2,2,9,7,Home,0,Cardiology,Wednesday,1,1,1
+10754,69,Female,9,1,1,1,4,Home,0,Cardiology,Saturday,3,1,2
+10758,60,Female,7,1,3,2,2,Home,0,Orthopaedics,Monday,4,1,0
+10771,83,Female,7,2,1,17,7,Care home,1,General medicine,Wednesday,0,1,0
+10772,65,Male,9,3,2,6,4,Home,1,General medicine,Friday,4,1,6
+10787,97,Male,1,4,0,10,10,Home,1,Elderly care,Wednesday,0,1,0
+10806,76,Female,6,6,1,13,6,Home,0,General medicine,Sunday,0,1,0
+10812,81,Female,4,1,1,3,6,Home,0,General medicine,Wednesday,8,0,2
+10827,61,Female,9,0,0,2,5,Care home,1,Respiratory,Saturday,1,1,1
+10829,62,Male,6,2,2,1,4,Home,0,General medicine,Sunday,1,0,0
+10833,65,Male,7,0,0,3,4,Home,0,Cardiology,Saturday,0,0,1
+10837,63,Male,6,0,0,2,5,Home,1,Cardiology,Wednesday,2,0,0
+10844,64,Female,1,0,0,1,3,Home,1,General medicine,Friday,0,1,0
+10850,76,Male,9,3,0,8,11,Home,0,Respiratory,Saturday,2,1,0
+10852,77,Male,1,1,0,3,1,Home,0,Cardiology,Monday,2,1,0
+10858,59,Female,2,0,1,4,1,Care home,1,Cardiology,Saturday,0,1,1
+10862,72,Female,4,4,2,1,8,Home,1,General medicine,Sunday,0,1,3
+10878,72,Female,2,1,1,8,2,Home,0,General medicine,Wednesday,1,1,1
+10890,42,Male,1,1,0,2,1,Care home,0,General medicine,Saturday,2,0,6
+10898,90,Female,9,0,1,7,4,Care home,0,Elderly care,Friday,0,1,1
+10899,87,Male,6,5,0,9,15,Home with care package,0,Elderly care,Friday,1,1,1
+10912,66,Female,2,1,0,2,7,Home,0,Cardiology,Tuesday,1,1,2
+10924,73,Female,9,3,3,5,4,Home,1,General medicine,Sunday,2,1,0
+10941,51,Male,4,0,1,5,2,Home,0,Orthopaedics,Saturday,2,1,0
+10945,52,Female,4,0,0,4,3,Home,0,Orthopaedics,Thursday,3,1,0
+10948,76,Female,6,2,3,6,4,Home,1,Respiratory,Thursday,1,0,3
+10961,82,Male,8,1,0,8,7,Home,0,Elderly care,Wednesday,4,1,0
+10983,75,Male,7,1,0,9,8,Home,0,Elderly care,Friday,0,1,0
+10991,61,Male,10,0,0,3,5,Care home,0,Cardiology,Wednesday,0,0,1
+11001,65,Female,3,3,0,1,7,Home,0,Elderly care,Wednesday,1,1,1
+11005,82,Male,6,3,0,8,6,Home,0,Elderly care,Friday,1,1,1
+11009,83,Male,7,3,0,8,7,Home with care package,1,Orthopaedics,Thursday,1,0,2
+11012,69,Male,4,2,1,1,8,Home,1,Cardiology,Monday,7,0,3
+11020,56,Male,5,0,0,1,4,Home,0,General medicine,Monday,0,0,2
+11064,46,Female,1,1,1,4,6,Home,0,General medicine,Tuesday,0,1,1
+11102,53,Female,8,1,0,4,4,Home,0,Cardiology,Thursday,0,1,1
+11109,61,Male,1,0,1,4,3,Home,0,General medicine,Tuesday,0,0,1
+11111,50,Female,2,2,1,5,5,Care home,0,Respiratory,Tuesday,5,0,5
+11113,100,Male,8,6,0,15,8,Home,1,General medicine,Sunday,4,0,5
+11119,72,Male,4,1,0,3,2,Care home,0,Cardiology,Wednesday,1,1,1
+11127,48,Male,2,1,1,6,3,Home,0,General medicine,Friday,2,1,0
+11130,64,Female,2,0,1,1,3,Home,0,General medicine,Saturday,0,1,1
+11167,52,Female,5,4,2,1,13,Home,0,Orthopaedics,Tuesday,1,1,1
+11187,70,Male,6,3,1,3,16,Home,0,Respiratory,Friday,0,1,0
+11189,37,Male,3,0,0,1,1,Home,0,General medicine,Wednesday,0,0,3
+11194,78,Male,7,0,0,3,5,Home,0,Cardiology,Monday,3,1,1
+11196,75,Male,6,1,0,12,2,Home,0,Elderly care,Tuesday,1,0,5
+11206,70,Male,4,1,1,8,2,Home,0,Respiratory,Monday,0,1,0
+11212,75,Male,10,0,1,1,7,Home,0,General medicine,Thursday,1,0,0
+11244,67,Female,4,2,0,1,3,Home,0,General surgery,Saturday,0,1,2
+11250,74,Female,5,1,0,2,8,Home,1,Respiratory,Saturday,1,1,1
+11270,61,Female,6,0,0,7,4,Home,0,General medicine,Wednesday,1,1,0
+11275,56,Male,6,2,0,2,8,Home with care package,0,General medicine,Saturday,1,0,0
+11280,81,Female,3,2,1,1,7,Care home,0,Elderly care,Friday,1,1,0
+11299,90,Male,3,8,1,6,12,Home,0,Cardiology,Thursday,2,0,4
+11303,45,Female,4,1,0,2,8,Home,0,General surgery,Friday,1,1,2
+11308,70,Male,4,3,1,2,8,Home,1,Elderly care,Friday,4,0,2
+11312,92,Male,8,3,1,9,2,Home with care package,1,Respiratory,Sunday,0,1,0
+11314,77,Female,6,1,0,5,5,Home with care package,0,Elderly care,Thursday,2,1,1
+11316,77,Male,10,0,0,7,2,Home,0,General medicine,Wednesday,1,1,0
+11344,42,Female,10,0,0,5,1,Home,0,Cardiology,Tuesday,0,1,1
+11373,42,Male,9,0,0,1,4,Home,0,Orthopaedics,Wednesday,1,1,0
+11403,72,Male,9,2,1,2,7,Home,0,Elderly care,Friday,2,1,0
+11411,70,Male,10,1,0,1,5,Home with care package,1,Elderly care,Tuesday,1,0,0
+11422,66,Female,3,3,0,10,7,Home,1,Cardiology,Tuesday,1,1,3
+11437,75,Female,9,4,2,1,9,Home,0,General medicine,Tuesday,0,0,0
+11449,71,Male,2,3,0,2,8,Home,0,Respiratory,Monday,0,0,0
+11457,86,Female,9,2,1,2,5,Home,0,Elderly care,Monday,0,1,1
+11471,84,Male,2,1,1,5,4,Home,0,General medicine,Friday,1,1,1
+11495,86,Male,9,4,0,6,9,Home,0,General medicine,Thursday,1,1,0
+11496,95,Female,1,1,0,4,6,Home,0,Elderly care,Friday,2,1,0
+11502,59,Male,2,0,0,2,3,Home,0,Respiratory,Thursday,1,0,2
+11505,70,Female,6,1,0,2,1,Home,0,General medicine,Friday,0,1,1
+11516,64,Female,10,0,0,6,4,Home with care package,0,Orthopaedics,Friday,0,1,2
+11517,59,Male,10,2,1,1,5,Home,0,General medicine,Tuesday,0,1,0
+11553,82,Female,5,2,0,12,6,Home with care package,1,Elderly care,Friday,0,1,0
+11559,53,Female,6,0,0,5,1,Home,0,Respiratory,Friday,0,1,0
+11564,65,Female,2,2,0,4,4,Home,0,Elderly care,Friday,1,1,2
+11569,75,Female,1,2,1,5,3,Home,1,Respiratory,Tuesday,2,1,1
+11574,66,Female,7,0,1,4,4,Home,0,General surgery,Wednesday,0,1,1
+11577,61,Male,6,2,2,4,10,Home,0,General medicine,Friday,1,0,3
+11596,59,Female,8,1,0,2,4,Home,0,General medicine,Saturday,1,1,0
+11610,87,Male,7,6,4,1,14,Home,0,Elderly care,Friday,0,1,0
+11611,67,Female,1,1,1,2,3,Home,1,Respiratory,Wednesday,0,0,0
+11615,90,Male,10,2,2,2,6,Care home,1,Elderly care,Friday,5,1,3
+11620,46,Female,1,3,0,3,5,Home,0,General surgery,Tuesday,3,1,0
+11624,67,Male,10,1,1,3,2,Home,0,General surgery,Wednesday,2,0,0
+11629,93,Female,9,3,1,1,8,Home with care package,0,Cardiology,Friday,0,1,2
+11638,44,Male,6,2,1,4,4,Home,0,Orthopaedics,Saturday,1,1,2
+11645,84,Female,8,2,1,1,3,Care home,1,Elderly care,Friday,4,0,0
+11648,65,Female,10,1,0,1,10,Home,0,General medicine,Tuesday,3,1,0
+11650,77,Male,3,0,0,10,3,Home,1,General medicine,Monday,2,1,2
+11670,80,Female,5,5,1,7,6,Care home,1,General medicine,Thursday,1,0,0
+11672,70,Female,6,1,0,5,6,Home,0,Respiratory,Saturday,1,0,0
+11687,70,Female,9,2,0,3,6,Home with care package,0,General medicine,Sunday,2,1,0
+11689,73,Male,2,1,0,5,2,Home,0,Cardiology,Saturday,1,0,1
+11700,59,Female,9,1,0,2,4,Home,0,General medicine,Friday,0,0,1
+11716,64,Female,7,3,4,4,3,Home,0,General medicine,Friday,0,1,1
+11733,55,Male,3,1,1,4,11,Home,0,Elderly care,Friday,1,1,1
+11740,91,Female,4,1,0,9,1,Home,0,Respiratory,Monday,0,1,1
+11741,73,Female,8,1,0,4,9,Home,0,General medicine,Thursday,1,0,1
+11791,63,Male,6,0,1,2,4,Home,0,Cardiology,Wednesday,2,1,0
+11797,64,Male,10,1,3,4,8,Home with care package,0,General medicine,Sunday,1,1,0
+11811,91,Male,4,5,1,6,7,Care home,1,Respiratory,Saturday,0,1,0
+11822,50,Female,10,1,0,4,3,Home,0,General surgery,Sunday,1,1,2
+11837,59,Male,10,0,0,3,5,Home,0,Orthopaedics,Friday,0,0,0
+11839,97,Female,3,2,0,14,3,Home,0,Elderly care,Friday,1,1,2
+11843,64,Male,3,1,0,1,2,Home,0,Respiratory,Wednesday,0,1,0
+11854,51,Female,8,1,1,4,0,Home,0,General medicine,Sunday,0,1,0
+11863,62,Male,3,2,2,2,8,Home,0,General surgery,Saturday,1,1,1
+11865,84,Female,2,5,0,16,8,Home,1,Respiratory,Thursday,6,1,5
+11871,51,Female,5,0,1,1,1,Home,0,Cardiology,Thursday,1,1,1
+11873,82,Female,3,3,1,7,6,Care home,0,Elderly care,Friday,0,0,1
+11885,72,Female,4,0,0,2,2,Care home,1,General medicine,Wednesday,1,1,1
+11889,74,Male,9,0,0,4,4,Home,1,Elderly care,Friday,2,0,0
+11898,70,Male,4,2,2,2,4,Home,1,General medicine,Tuesday,2,0,1
+11909,72,Female,5,6,1,1,6,Home,1,Cardiology,Thursday,4,0,3
+11916,58,Female,8,1,0,1,4,Care home,0,General surgery,Sunday,1,0,0
+11923,79,Male,7,5,2,18,7,Care home,1,General surgery,Saturday,4,0,4
+11929,53,Female,2,2,1,3,7,Home,1,General surgery,Thursday,2,1,0
+11932,71,Female,10,2,0,7,11,Home,0,Elderly care,Sunday,4,0,1
+11949,50,Male,5,1,2,1,10,Home,0,General medicine,Wednesday,2,0,0
+11951,73,Female,6,2,0,5,2,Home,1,General medicine,Friday,3,0,2
+11954,56,Male,4,2,1,5,3,Home,0,General surgery,Sunday,0,0,0
+11958,62,Male,3,4,0,2,2,Care home,1,General surgery,Wednesday,1,0,6
+11960,79,Male,2,1,0,7,7,Home,1,Respiratory,Saturday,0,1,1
+11962,67,Male,1,2,1,4,8,Home,1,General surgery,Wednesday,0,1,1
+11990,81,Male,7,1,0,15,6,Home,0,Orthopaedics,Saturday,0,1,1
+12002,77,Male,5,5,3,5,13,Home,0,Elderly care,Friday,0,1,0
+12022,59,Female,4,2,0,1,4,Care home,0,General medicine,Friday,0,1,0
+12023,97,Female,3,2,2,6,8,Care home,1,Elderly care,Friday,5,0,6
+12040,100,Female,8,1,1,18,6,Home,1,Elderly care,Saturday,2,1,1
+12045,76,Male,7,1,1,8,5,Home,0,Cardiology,Thursday,3,0,1
+12054,90,Male,8,3,2,29,7,Care home,0,Orthopaedics,Saturday,2,1,0
+12057,65,Female,2,4,2,9,2,Home,1,Orthopaedics,Thursday,0,1,0
+12080,42,Male,7,0,2,1,6,Home,0,Orthopaedics,Monday,2,0,0
+12088,90,Female,5,2,0,5,3,Home with care package,0,Elderly care,Friday,3,1,1
+12105,60,Female,7,1,0,1,3,Home,1,Cardiology,Sunday,1,1,0
+12107,93,Female,4,6,0,22,8,Home with care package,0,Elderly care,Sunday,0,0,7
+12108,57,Female,1,5,2,6,11,Home,0,General medicine,Monday,1,1,1
+12109,75,Male,9,5,1,5,10,Home with care package,1,Elderly care,Friday,0,1,1
+12113,91,Male,7,1,0,2,3,Home with care package,1,Elderly care,Tuesday,0,1,2
+12120,45,Female,8,0,0,3,2,Home,0,General medicine,Friday,0,0,0
+12127,70,Male,5,3,0,4,8,Home,0,Cardiology,Friday,1,0,0
+12129,66,Male,3,1,0,3,3,Home,1,Orthopaedics,Monday,0,1,1
+12152,64,Female,8,1,0,1,5,Home,1,General surgery,Saturday,0,0,0
+12159,45,Female,5,1,1,12,3,Home,0,Orthopaedics,Wednesday,2,1,1
+12182,54,Female,10,1,0,7,4,Home,0,Orthopaedics,Saturday,2,1,0
+12192,93,Female,4,3,3,8,8,Home,1,Elderly care,Friday,1,1,0
+12193,63,Male,3,1,0,5,8,Home,1,General medicine,Wednesday,0,1,0
+12194,49,Female,2,0,0,3,4,Home,0,General medicine,Wednesday,3,0,6
+12201,60,Female,3,1,1,4,3,Home,1,General surgery,Thursday,1,1,0
+12210,54,Female,5,0,0,1,3,Home,0,General surgery,Thursday,2,1,0
+12220,64,Female,6,3,3,1,5,Home,0,General surgery,Monday,0,1,1
+12221,80,Male,6,3,0,3,7,Care home,1,Respiratory,Monday,1,1,0
+12223,41,Female,4,1,0,10,2,Home,0,General surgery,Monday,0,1,0
+12224,76,Male,8,4,1,9,9,Home,0,Elderly care,Friday,1,1,0
+12234,65,Male,5,2,1,1,10,Home,1,Orthopaedics,Sunday,1,0,2
+12238,58,Male,8,0,0,1,6,Home,1,Orthopaedics,Sunday,3,0,1
+12243,44,Female,1,1,1,1,2,Home,1,General surgery,Monday,0,1,0
+12261,58,Female,5,1,0,3,6,Home,0,Respiratory,Sunday,0,1,1
+12268,97,Female,7,0,0,10,6,Home with care package,1,Elderly care,Friday,1,1,0
+12283,83,Female,3,0,2,4,2,Home,0,General medicine,Wednesday,4,0,2
+12286,67,Female,1,1,0,1,3,Home,0,Respiratory,Monday,0,1,0
+12296,59,Male,3,2,1,3,5,Home,0,Orthopaedics,Tuesday,1,1,1
+12305,65,Female,1,2,2,4,8,Home,0,General medicine,Wednesday,1,1,0
+12313,54,Female,2,2,1,1,5,Home,1,Respiratory,Thursday,0,1,1
+12318,91,Female,9,3,0,3,2,Home with care package,0,Respiratory,Monday,2,0,0
+12336,84,Male,5,3,0,1,7,Care home,0,Elderly care,Saturday,1,0,1
+12341,83,Female,6,0,1,1,1,Home,1,Orthopaedics,Thursday,1,0,0
+12342,69,Male,5,1,0,2,3,Home,0,Elderly care,Friday,0,0,0
+12343,64,Male,10,1,0,2,7,Home with care package,0,Orthopaedics,Wednesday,2,1,0
+12351,60,Female,5,1,1,1,4,Home,0,Respiratory,Wednesday,3,0,1
+12359,72,Male,5,0,0,5,3,Home,0,Orthopaedics,Thursday,1,1,0
+12363,57,Female,9,0,2,3,4,Home,0,Cardiology,Thursday,0,1,2
+12368,53,Male,7,1,1,2,1,Home,1,Respiratory,Sunday,2,1,0
+12405,60,Male,1,0,2,3,6,Home,0,General surgery,Wednesday,1,0,1
+12419,100,Female,3,4,1,5,12,Home with care package,1,Elderly care,Friday,1,1,0
+12421,72,Male,3,1,1,6,6,Home,0,General medicine,Wednesday,1,1,0
+12433,74,Male,3,0,1,4,6,Home,1,Orthopaedics,Saturday,1,1,2
+12438,72,Female,9,0,0,7,2,Home,0,Respiratory,Friday,1,0,1
+12442,57,Male,3,0,0,1,4,Home,1,General medicine,Sunday,2,0,0
+12458,45,Female,3,0,1,1,0,Home,1,General surgery,Monday,1,0,0
+12481,58,Male,4,2,0,1,4,Home,0,Cardiology,Friday,0,1,2
+12493,41,Female,2,2,0,4,3,Home,0,General surgery,Saturday,2,1,1
+12514,67,Female,9,4,1,4,4,Home,1,Respiratory,Wednesday,1,1,1
+12535,61,Male,6,2,0,3,5,Home,1,Orthopaedics,Monday,1,1,2
+12548,83,Female,6,2,0,4,7,Home,1,Elderly care,Friday,0,0,1
+12564,76,Female,5,1,0,10,13,Home,0,General medicine,Saturday,4,1,0
+12567,62,Male,9,1,0,3,6,Care home,0,General medicine,Wednesday,2,0,1
+12576,67,Female,3,3,2,6,3,Home,1,General medicine,Saturday,1,1,0
+12583,68,Female,7,3,3,8,3,Home with care package,1,General surgery,Sunday,0,0,0
+12590,43,Male,2,2,1,2,6,Home,0,Cardiology,Monday,1,1,0
+12621,40,Female,6,2,1,8,6,Home,1,General surgery,Saturday,1,1,1
+12627,69,Male,3,2,0,5,6,Home,0,General medicine,Friday,2,0,2
+12645,55,Female,1,2,0,2,5,Home,0,Orthopaedics,Tuesday,1,1,0
+12658,95,Male,4,5,3,3,6,Home,1,Orthopaedics,Friday,1,1,0
+12664,95,Female,8,2,1,1,4,Home,0,Elderly care,Monday,1,0,0
+12673,53,Female,9,0,0,5,2,Home,0,Cardiology,Tuesday,0,0,1
+12682,73,Male,10,2,2,5,4,Home,1,Elderly care,Friday,0,1,0
+12684,90,Male,2,4,0,2,7,Home,1,Elderly care,Wednesday,4,0,3
+12697,59,Female,6,0,2,1,4,Home,1,General surgery,Friday,0,1,2
+12702,63,Male,6,0,0,3,2,Home,0,Cardiology,Saturday,1,0,3
+12714,79,Female,2,1,1,5,2,Home,0,Elderly care,Friday,2,1,1
+12718,60,Male,6,1,0,7,5,Care home,0,General medicine,Monday,1,1,0
+12719,68,Male,5,3,1,2,5,Home,0,General medicine,Sunday,0,0,0
+12730,64,Male,7,3,0,4,8,Home,1,Orthopaedics,Saturday,2,1,0
+12734,60,Male,9,1,1,2,4,Home with care package,0,General surgery,Wednesday,0,0,1
+12735,70,Male,2,7,0,4,12,Home,1,Orthopaedics,Sunday,1,0,1
+12768,70,Male,3,2,0,7,5,Home,1,Cardiology,Thursday,2,0,1
+12775,100,Male,6,2,0,6,10,Home with care package,1,Elderly care,Friday,0,1,2
+12791,85,Male,10,0,0,2,8,Home,1,Elderly care,Friday,2,0,1
+12793,74,Male,2,3,1,4,3,Home,0,Elderly care,Tuesday,4,0,1
+12796,55,Male,8,0,0,5,2,Home,1,Orthopaedics,Tuesday,0,1,1
+12802,75,Male,10,0,0,7,0,Home,0,Elderly care,Friday,0,1,0
+12810,50,Male,7,1,0,1,4,Home,0,Cardiology,Wednesday,0,1,0
+12811,65,Female,6,4,1,7,9,Home,0,Cardiology,Thursday,0,1,0
+12820,75,Female,10,0,0,1,4,Home with care package,1,Elderly care,Friday,1,1,0
+12835,80,Male,9,1,1,15,2,Home,0,Elderly care,Friday,4,1,6
+12858,72,Male,2,3,2,5,8,Home,0,General surgery,Saturday,0,1,0
+12866,79,Male,2,5,3,2,7,Home,0,General medicine,Monday,0,1,0
+12878,50,Male,6,1,1,2,1,Care home,0,Cardiology,Sunday,1,1,0
+12880,73,Female,3,1,0,9,2,Home,0,Elderly care,Friday,0,1,1
+12897,70,Female,4,3,1,1,4,Care home,1,Respiratory,Sunday,0,1,0
+12898,46,Male,2,0,0,4,2,Home,0,General surgery,Thursday,0,1,0
+12909,95,Male,2,2,0,7,7,Home with care package,0,Elderly care,Friday,0,0,0
+12914,81,Male,9,0,1,16,4,Home,0,Elderly care,Friday,2,1,0
+12920,71,Female,2,3,0,1,6,Home,1,Respiratory,Monday,3,1,0
+12924,80,Male,10,3,0,4,6,Care home,0,Orthopaedics,Tuesday,3,1,2
+12939,46,Female,10,1,1,2,2,Home,0,General medicine,Friday,0,0,1
+12946,65,Male,8,0,0,3,6,Home,0,General medicine,Sunday,2,1,2
+12956,77,Male,10,1,0,4,10,Home,0,General medicine,Sunday,3,0,2
+12961,72,Female,1,3,0,8,11,Home,1,Cardiology,Thursday,0,0,1
+12962,63,Female,2,2,1,7,4,Home,0,General surgery,Monday,3,1,3
+12987,74,Male,4,2,2,25,6,Home,1,Elderly care,Wednesday,2,0,0
+13005,82,Female,10,2,0,1,11,Home,0,Respiratory,Wednesday,1,0,0
+13011,68,Male,7,2,3,2,9,Home,0,Cardiology,Tuesday,1,1,1
+13035,76,Female,7,2,0,10,6,Home,1,Cardiology,Monday,2,0,1
+13044,27,Male,4,1,1,1,6,Home,0,Orthopaedics,Monday,1,1,0
+13051,84,Male,4,0,2,5,3,Home with care package,1,General surgery,Monday,1,0,0
+13054,90,Female,7,4,1,3,8,Care home,0,General medicine,Wednesday,1,1,1
+13070,77,Female,1,0,0,8,3,Home,1,Cardiology,Saturday,1,1,2
+13085,57,Male,6,3,0,1,3,Home,0,General surgery,Monday,3,0,6
+13104,63,Male,10,0,1,1,4,Home,0,General medicine,Saturday,0,0,0
+13105,61,Male,9,3,0,4,7,Home,0,General surgery,Sunday,0,0,1
+13118,60,Male,8,2,1,5,9,Home,0,Respiratory,Wednesday,2,1,0
+13121,39,Female,9,0,0,1,2,Home,1,Respiratory,Monday,1,1,0
+13122,60,Female,7,1,1,1,8,Home,0,General medicine,Sunday,2,1,1
+13140,82,Male,6,1,2,2,5,Home with care package,1,Cardiology,Tuesday,3,0,6
+13143,66,Female,6,3,0,8,9,Care home,0,General surgery,Wednesday,1,0,0
+13156,64,Female,8,0,0,1,3,Home,0,General medicine,Friday,1,1,0
+13157,80,Female,8,2,0,4,8,Home,0,General medicine,Monday,1,0,2
+13159,91,Male,3,4,1,5,7,Care home,1,Elderly care,Friday,1,0,2
+13171,74,Male,2,3,3,3,7,Home,0,Elderly care,Friday,0,1,0
+13188,79,Female,4,0,0,4,6,Home,0,Elderly care,Wednesday,0,1,1
+13201,84,Male,1,4,2,6,9,Home,1,Elderly care,Friday,3,1,5
+13202,63,Male,4,1,1,6,6,Home,0,Respiratory,Friday,2,1,1
+13215,74,Male,4,2,0,6,8,Home,0,Elderly care,Friday,0,1,2
+13255,76,Male,1,0,0,4,1,Home,0,Elderly care,Friday,0,1,0
+13261,100,Male,9,3,2,4,11,Home with care package,0,Elderly care,Friday,2,1,1
+13263,76,Female,5,2,1,8,8,Home,0,General medicine,Sunday,2,1,0
+13269,53,Male,6,3,0,1,7,Home,0,General surgery,Monday,1,1,0
+13286,49,Male,5,0,1,2,3,Home,0,Orthopaedics,Wednesday,1,1,0
+13306,47,Female,9,0,0,1,6,Home,0,Orthopaedics,Monday,2,1,1
+13314,86,Female,9,3,2,3,8,Home,0,Elderly care,Friday,1,1,0
+13317,89,Female,1,2,0,18,4,Home,0,General medicine,Friday,5,0,7
+13331,64,Female,5,1,0,1,5,Home,0,Respiratory,Monday,0,0,2
+13332,65,Female,1,2,0,2,4,Home,1,Respiratory,Monday,0,0,0
+13333,62,Female,8,0,0,1,2,Home,0,General medicine,Wednesday,0,1,0
+13338,77,Female,5,2,2,3,3,Home,0,Cardiology,Friday,1,0,0
+13363,63,Male,10,2,1,2,7,Home,0,Orthopaedics,Saturday,3,0,2
+13377,37,Female,5,1,0,2,5,Home,1,General surgery,Wednesday,0,0,0
+13379,62,Male,5,0,0,4,2,Home,1,Orthopaedics,Sunday,2,1,0
+13382,69,Male,1,2,2,4,6,Home with care package,1,General medicine,Thursday,1,1,0
+13394,100,Male,5,10,0,8,15,Home with care package,1,Elderly care,Friday,5,0,2
+13399,58,Male,6,0,0,1,3,Home,0,General medicine,Friday,0,1,1
+13400,75,Male,4,3,2,8,7,Home,0,General medicine,Thursday,0,1,1
+13407,48,Female,2,1,1,2,3,Home,0,Cardiology,Sunday,2,0,1
+13410,75,Male,4,2,0,3,10,Home,0,General surgery,Monday,0,1,1
+13412,71,Female,8,1,1,4,4,Home,1,General surgery,Friday,1,1,3
+13413,61,Female,8,1,0,5,1,Home,0,General medicine,Sunday,0,0,0
+13424,78,Male,8,0,2,1,1,Home,0,Respiratory,Sunday,3,1,1
+13429,53,Male,10,2,0,1,8,Home,0,Orthopaedics,Saturday,0,1,1
+13449,93,Female,2,1,2,3,7,Home with care package,1,Elderly care,Friday,5,1,4
+13452,73,Female,4,1,0,1,6,Home,1,General medicine,Thursday,2,1,1
+13453,59,Male,3,2,2,2,8,Home,1,Respiratory,Saturday,0,1,0
+13461,71,Male,4,1,0,2,5,Home,0,Respiratory,Thursday,5,0,2
+13465,63,Female,5,1,1,4,6,Home,0,Elderly care,Friday,1,0,0
+13468,90,Male,5,0,1,3,4,Home,0,Elderly care,Friday,1,0,2
+13478,62,Male,4,2,1,11,2,Home,0,General surgery,Thursday,2,1,0
+13479,34,Male,8,0,0,5,4,Home,0,Orthopaedics,Tuesday,1,1,0
+13495,73,Male,2,1,2,3,3,Home,1,General medicine,Thursday,1,1,1
+13497,40,Female,3,1,0,5,0,Home,0,General medicine,Wednesday,0,0,0
+13499,85,Female,4,3,1,2,6,Home,0,Cardiology,Thursday,0,0,9
+13513,57,Female,10,0,0,7,1,Home,0,Respiratory,Sunday,0,1,1
+13517,69,Male,1,1,0,7,4,Home,0,Elderly care,Friday,0,0,0
+13521,83,Male,5,4,0,6,4,Home with care package,0,General surgery,Sunday,2,1,1
+13523,71,Female,5,1,0,2,4,Home,1,General medicine,Wednesday,1,1,0
+13537,41,Male,8,2,1,3,10,Home,0,Orthopaedics,Saturday,1,1,1
+13541,63,Female,10,3,0,18,10,Home with care package,0,Orthopaedics,Sunday,1,0,2
+13542,93,Female,5,2,1,2,4,Care home,0,Elderly care,Friday,3,0,5
+13548,75,Female,8,3,0,6,8,Home,1,General medicine,Wednesday,0,1,1
+13551,55,Male,8,2,1,6,6,Home,0,General surgery,Saturday,2,1,2
+13565,64,Female,1,1,1,5,5,Home,1,General surgery,Monday,0,1,1
+13573,64,Female,9,2,3,7,7,Home,0,Cardiology,Wednesday,2,0,1
+13577,71,Female,5,2,0,1,5,Home,0,Orthopaedics,Monday,1,1,2
+13580,70,Male,5,5,1,3,12,Home,1,General medicine,Wednesday,0,0,0
+13583,40,Male,5,0,0,1,4,Home,0,Cardiology,Saturday,1,1,1
+13585,76,Male,5,2,1,1,10,Home with care package,1,Orthopaedics,Thursday,1,1,1
+13593,99,Female,5,3,2,6,8,Home,0,Elderly care,Tuesday,6,1,2
+13595,49,Female,7,2,0,2,3,Home,1,Respiratory,Thursday,0,0,1
+13596,53,Male,3,0,2,1,3,Home,0,General medicine,Thursday,0,1,2
+13607,80,Male,8,2,1,1,5,Home,1,Orthopaedics,Friday,0,0,2
+13609,62,Male,5,3,1,2,5,Home,0,General medicine,Friday,0,1,0
+13610,77,Male,8,0,0,5,1,Home,1,Orthopaedics,Thursday,1,0,1
+13613,63,Female,6,2,0,3,8,Home,0,Cardiology,Monday,4,0,5
+13624,77,Male,7,0,1,2,3,Home,0,Elderly care,Wednesday,0,1,0
+13630,75,Female,8,0,1,2,3,Home,0,Elderly care,Friday,2,1,2
+13641,60,Male,3,2,2,5,5,Home,0,General surgery,Saturday,1,0,0
+13649,70,Female,7,1,0,3,3,Home,0,Respiratory,Friday,0,0,0
+13653,64,Female,2,0,0,5,4,Home,0,General medicine,Monday,1,0,1
+13663,57,Male,8,0,0,6,1,Home,0,General medicine,Monday,1,1,0
+13684,67,Female,6,4,3,3,5,Home,1,General medicine,Tuesday,0,1,0
+13705,61,Male,8,0,0,1,2,Home,0,General surgery,Friday,1,1,1
+13719,74,Male,5,0,0,8,3,Home,0,Elderly care,Friday,0,0,1
+13725,63,Male,4,0,2,3,1,Home,0,Orthopaedics,Thursday,1,0,0
+13734,65,Female,7,0,0,4,4,Home,0,General surgery,Tuesday,0,1,4
+13747,81,Male,9,3,1,14,6,Home with care package,1,General medicine,Friday,1,1,2
+13748,89,Male,9,2,0,5,8,Home,0,Elderly care,Friday,4,1,5
+13753,94,Female,3,3,2,12,10,Home with care package,0,Elderly care,Friday,3,1,5
+13762,77,Female,5,3,1,5,6,Care home,1,General medicine,Saturday,1,1,0
+13763,52,Female,6,1,3,4,4,Home,0,General medicine,Tuesday,0,0,1
+13767,64,Female,8,1,0,1,5,Care home,1,General medicine,Wednesday,0,0,1
+13773,78,Male,7,1,3,1,2,Home,1,Respiratory,Friday,0,0,1
+13775,67,Male,5,1,0,3,3,Home,0,General medicine,Wednesday,3,1,1
+13789,44,Male,10,1,0,2,0,Home,1,Cardiology,Thursday,1,0,0
+13793,73,Male,3,2,1,7,7,Home,0,Cardiology,Monday,1,0,0
+13813,62,Female,2,1,0,7,6,Home,0,Cardiology,Monday,2,1,1
+13829,83,Female,6,2,0,1,7,Home,1,Elderly care,Friday,1,0,0
+13831,72,Male,1,1,1,4,4,Home,1,Elderly care,Monday,1,1,0
+13853,68,Female,6,3,0,10,10,Home with care package,1,General medicine,Thursday,3,0,2
+13885,67,Female,5,2,2,6,6,Home,1,Respiratory,Saturday,2,0,5
+13888,83,Female,8,1,3,4,2,Care home,0,Cardiology,Sunday,1,0,1
+13899,79,Male,1,3,0,8,4,Home,1,Respiratory,Monday,1,1,0
+13929,74,Female,5,4,4,2,12,Home,0,Respiratory,Friday,1,1,1
+13935,84,Female,5,3,1,5,12,Home,1,General medicine,Wednesday,0,1,2
+13951,66,Female,4,2,1,1,2,Home,1,General surgery,Tuesday,1,1,0
+13954,62,Male,3,0,1,1,2,Home,0,Orthopaedics,Saturday,0,1,0
+13978,64,Female,4,3,1,3,8,Home,0,Orthopaedics,Wednesday,1,1,1
+13984,56,Male,5,0,0,4,3,Care home,0,Orthopaedics,Saturday,1,0,0
+13994,71,Female,7,0,0,1,2,Home,0,General medicine,Monday,1,1,1
+14005,57,Female,8,1,1,3,3,Home,1,General surgery,Wednesday,0,1,1
+14006,69,Female,10,0,0,2,4,Home,0,Orthopaedics,Wednesday,1,1,2
+14018,57,Male,5,1,0,4,7,Home,0,General medicine,Saturday,2,0,1
+14030,87,Male,2,4,2,1,6,Home,0,General medicine,Tuesday,2,1,2
+14036,79,Female,9,3,1,4,10,Home,0,Orthopaedics,Thursday,0,1,1
+14044,61,Male,4,3,1,5,5,Home,0,General surgery,Monday,0,0,1
+14050,42,Male,7,0,0,5,2,Home,1,General medicine,Friday,2,1,0
+14053,52,Female,4,2,0,2,8,Home,1,General surgery,Wednesday,2,1,1
+14063,68,Female,1,2,0,3,6,Home,1,General medicine,Friday,1,1,1
+14084,66,Female,6,1,0,4,2,Home,0,Cardiology,Tuesday,1,0,0
+14085,48,Male,6,1,0,3,3,Home,0,General medicine,Saturday,0,1,0
+14094,88,Male,7,2,0,3,6,Care home,0,Elderly care,Friday,0,1,0
+14131,86,Male,10,5,0,5,7,Care home,0,Orthopaedics,Friday,0,1,0
+14134,47,Female,1,4,2,3,9,Home,0,General surgery,Monday,0,0,1
+14141,97,Male,8,2,3,1,8,Care home,0,Elderly care,Friday,0,1,0
+14147,52,Female,1,2,0,4,3,Home,1,Orthopaedics,Wednesday,0,1,1
+14165,73,Female,3,1,2,1,0,Home,0,General medicine,Saturday,1,1,0
+14182,65,Female,2,0,0,7,5,Home,0,Respiratory,Tuesday,1,1,2
+14198,51,Male,8,1,1,5,4,Home,0,Orthopaedics,Friday,2,1,0
+14218,59,Male,9,1,1,3,3,Home,0,General surgery,Sunday,0,1,0
+14221,56,Female,7,1,0,4,2,Home,0,General medicine,Monday,0,1,0
+14234,86,Female,8,4,1,7,8,Home,1,Elderly care,Sunday,1,1,2
+14255,63,Male,2,3,4,4,6,Home,1,Orthopaedics,Sunday,1,0,1
+14283,80,Female,4,0,0,5,2,Care home,0,Cardiology,Monday,0,0,3
+14288,77,Male,8,2,2,3,3,Care home,0,General medicine,Sunday,0,0,2
+14325,64,Female,8,1,0,3,3,Home,0,Cardiology,Saturday,0,1,3
+14329,90,Male,7,4,0,14,8,Care home,1,Elderly care,Friday,1,0,3
+14330,64,Female,4,3,2,2,2,Home,1,General medicine,Wednesday,1,0,1
+14340,66,Female,7,3,0,2,3,Home,0,Cardiology,Monday,0,1,0
+14366,74,Female,9,1,0,7,5,Home,1,Orthopaedics,Wednesday,0,1,1
+14393,61,Male,1,4,2,1,5,Home,0,Orthopaedics,Thursday,3,1,0
+14395,79,Female,2,4,1,2,6,Care home,1,General medicine,Thursday,2,1,0
+14414,73,Male,9,0,1,1,1,Home,0,Elderly care,Thursday,0,0,0
+14423,47,Male,10,0,0,6,3,Home,0,Orthopaedics,Friday,1,1,2
+14435,54,Female,8,0,0,1,3,Home,0,General surgery,Saturday,2,0,1
+14438,73,Male,8,1,0,4,8,Home,0,General medicine,Thursday,0,1,1
+14464,79,Female,10,1,0,7,5,Home,0,General surgery,Monday,0,0,1
+14469,78,Female,1,4,0,7,11,Home,1,Orthopaedics,Saturday,0,1,1
+14485,68,Male,1,0,0,4,2,Home,1,Cardiology,Monday,0,1,1
+14488,86,Female,2,1,0,2,6,Home,0,General medicine,Friday,0,1,1
+14511,76,Female,5,3,0,6,6,Home,0,Orthopaedics,Sunday,1,1,1
+14517,93,Male,4,1,0,5,5,Home,0,Elderly care,Friday,0,1,1
+14519,69,Male,2,2,0,3,7,Home with care package,1,Cardiology,Monday,0,0,0
+14526,60,Male,1,1,0,7,3,Home,1,Orthopaedics,Friday,1,1,0
+14529,82,Female,9,0,0,2,3,Home,0,Elderly care,Tuesday,2,1,0
+14531,87,Male,5,0,0,4,3,Home with care package,0,Elderly care,Friday,1,0,3
+14536,64,Male,8,2,0,1,5,Home with care package,0,General medicine,Sunday,0,1,2
+14548,100,Male,7,3,0,8,9,Home,1,Elderly care,Friday,0,1,0
+14588,59,Female,6,2,0,3,3,Home,0,Cardiology,Sunday,0,0,2
+14593,68,Male,8,2,0,5,8,Home,1,Orthopaedics,Wednesday,0,1,1
+14628,83,Female,9,2,0,4,7,Home,0,Cardiology,Monday,3,1,1
+14631,85,Male,6,4,3,6,5,Home,1,Elderly care,Friday,1,1,1
+14636,68,Male,7,1,1,3,9,Home,0,General surgery,Tuesday,0,0,2
+14654,100,Female,6,2,2,3,2,Home with care package,1,Elderly care,Friday,0,1,0
+14661,88,Female,2,1,0,2,4,Home,1,Respiratory,Friday,3,0,7
+14673,64,Female,10,0,0,3,3,Home,1,Respiratory,Friday,1,1,0
+14680,64,Male,5,1,1,9,5,Home,0,Orthopaedics,Wednesday,2,1,0
+14684,60,Female,7,0,1,6,4,Home,0,General medicine,Saturday,0,1,0
+14692,46,Male,2,2,0,3,3,Home,0,General surgery,Saturday,1,1,1
+14714,69,Female,9,1,0,3,10,Home,0,Cardiology,Sunday,1,1,0
+14721,51,Female,8,1,0,4,4,Home,0,General medicine,Saturday,2,0,0
+14746,73,Female,10,0,0,2,3,Home,0,General medicine,Tuesday,2,1,0
+14748,65,Female,6,0,1,3,3,Home,0,Orthopaedics,Monday,2,1,1
+14759,78,Female,9,1,2,6,2,Home,0,General medicine,Friday,0,0,1
+14762,99,Female,9,3,0,7,7,Care home,0,Respiratory,Saturday,2,0,5
+14764,75,Male,4,3,0,3,6,Home,0,General medicine,Thursday,1,1,0
+14774,47,Female,10,1,1,2,2,Home,0,General surgery,Saturday,0,1,0
+14823,65,Female,9,0,0,3,2,Home,0,Orthopaedics,Monday,0,1,0
+14827,66,Female,2,1,0,3,2,Home,1,Elderly care,Friday,1,1,0
+14833,92,Female,1,4,0,15,10,Home,1,General medicine,Monday,1,1,0
+14850,97,Female,7,4,0,3,8,Care home,0,Respiratory,Saturday,2,0,0
+14851,41,Female,10,0,1,1,4,Home,0,General surgery,Friday,0,1,1
+14855,59,Male,8,1,0,15,4,Home,0,Cardiology,Monday,2,1,1
+14862,48,Male,2,2,0,4,2,Care home,1,General medicine,Thursday,0,0,1
+14869,70,Male,1,4,0,4,11,Care home,1,General medicine,Sunday,0,1,1
+14896,78,Male,8,2,0,1,7,Home,0,Elderly care,Sunday,0,0,1
+14900,51,Male,6,1,0,4,3,Home,0,General surgery,Thursday,4,1,1
+14925,63,Male,1,3,1,5,6,Home,0,Cardiology,Thursday,1,0,0
+14942,64,Male,7,2,2,9,5,Home,0,Cardiology,Wednesday,2,0,2
+14947,80,Male,6,0,0,2,1,Home,1,Respiratory,Monday,0,1,1
+14950,51,Male,3,1,0,11,5,Home,0,General surgery,Thursday,0,1,0
+14968,58,Male,7,0,0,5,2,Home,0,General surgery,Sunday,1,1,1
+14985,58,Male,5,2,1,4,4,Home,1,General surgery,Wednesday,0,1,1
+15009,71,Male,3,3,1,1,5,Home,0,General medicine,Tuesday,4,0,5
+15021,39,Female,10,0,0,4,4,Home,0,Orthopaedics,Thursday,0,1,1
+15028,57,Female,9,1,0,8,5,Home,0,Cardiology,Saturday,1,0,0
+15029,72,Female,1,1,1,7,6,Home,1,Respiratory,Sunday,4,1,7
+15041,68,Male,1,3,0,2,10,Home,0,General surgery,Thursday,0,0,0
+15042,79,Female,1,2,0,1,6,Care home,1,Elderly care,Saturday,1,1,0
+15046,70,Female,7,0,0,3,4,Care home,1,Elderly care,Friday,1,1,1
+15087,62,Female,6,1,3,5,3,Home,1,General surgery,Sunday,2,1,2
+15099,72,Female,9,2,1,5,16,Home,0,General medicine,Thursday,0,1,0
+15100,73,Male,6,3,0,10,5,Care home,0,Cardiology,Monday,2,1,0
+15102,80,Female,8,2,0,3,7,Home,0,General surgery,Saturday,2,1,0
+15107,51,Male,9,1,0,5,3,Home,0,General medicine,Monday,0,1,1
+15113,77,Female,6,0,0,15,4,Home,1,Orthopaedics,Tuesday,2,1,0
+15123,64,Female,5,2,0,2,5,Home,0,General surgery,Monday,1,1,1
+15145,74,Male,8,1,1,4,6,Home,0,Elderly care,Friday,1,1,0
+15174,93,Female,6,1,1,8,6,Home,0,Elderly care,Friday,2,0,1
+15182,61,Female,1,0,0,1,3,Home,1,General surgery,Wednesday,0,0,0
+15188,100,Female,3,5,0,3,16,Care home,1,General medicine,Tuesday,3,1,0
+15192,65,Male,5,0,0,5,3,Home,1,General medicine,Thursday,2,0,1
+15194,69,Male,4,2,0,3,8,Home,0,Respiratory,Sunday,0,1,0
+15203,58,Female,3,4,2,5,8,Home,1,General surgery,Wednesday,0,1,0
+15204,64,Male,6,3,0,2,6,Home,0,General medicine,Wednesday,0,1,1
+15207,91,Female,6,5,1,2,10,Care home,1,General surgery,Friday,0,0,0
+15224,80,Female,10,1,1,11,4,Home,0,Respiratory,Saturday,0,1,0
+15235,70,Female,3,3,1,5,9,Home,1,Orthopaedics,Saturday,0,1,1
+15237,66,Male,6,1,0,3,5,Home,0,Cardiology,Saturday,1,0,4
+15240,69,Female,8,0,0,1,6,Home,0,Cardiology,Sunday,0,1,0
+15257,100,Male,5,1,1,1,6,Home with care package,1,Elderly care,Friday,2,1,0
+15261,67,Male,5,1,1,4,6,Home,0,Orthopaedics,Saturday,0,0,0
+15263,75,Female,5,0,0,1,3,Home,0,General medicine,Saturday,1,1,0
+15310,69,Female,6,0,0,3,5,Home,1,Respiratory,Wednesday,0,1,0
+15311,76,Female,6,4,1,8,9,Home,0,Orthopaedics,Wednesday,4,0,4
+15312,74,Male,9,0,0,1,2,Home with care package,0,General medicine,Monday,5,0,7
+15319,82,Female,4,6,1,6,14,Home,0,Elderly care,Friday,3,1,1
+15330,70,Female,3,4,0,4,9,Home,0,General surgery,Saturday,1,1,1
+15331,87,Female,4,0,0,4,5,Home with care package,0,Cardiology,Wednesday,4,1,0
+15335,88,Female,6,1,0,8,7,Care home,0,Elderly care,Friday,2,1,2
+15341,56,Male,8,2,0,2,4,Home,0,Orthopaedics,Thursday,1,1,1
+15344,70,Female,5,2,0,6,5,Home,1,Respiratory,Saturday,1,0,0
+15360,54,Male,7,1,0,1,1,Home,0,General surgery,Tuesday,0,1,1
+15375,87,Female,9,1,0,6,5,Home,0,General medicine,Monday,3,0,3
+15382,63,Male,9,1,0,7,3,Home,1,Orthopaedics,Tuesday,0,1,0
+15391,71,Female,6,1,0,2,1,Home,0,General medicine,Tuesday,0,0,0
+15393,92,Female,9,2,1,11,13,Care home,0,Respiratory,Wednesday,0,1,0
+15396,50,Female,1,1,0,5,6,Home,0,General surgery,Sunday,0,1,1
+15411,46,Female,2,1,1,2,1,Home,0,Cardiology,Thursday,0,0,2
+15412,82,Male,8,4,1,3,6,Care home,0,General surgery,Tuesday,3,1,4
+15413,65,Female,6,1,1,3,4,Home,0,General surgery,Saturday,0,1,0
+15417,72,Female,6,2,0,9,7,Home,1,General surgery,Sunday,1,1,0
+15458,72,Female,7,2,0,2,4,Home,0,General medicine,Thursday,1,0,2
+15486,87,Female,4,0,2,1,4,Home with care package,1,Elderly care,Friday,0,1,1
+15490,56,Male,5,0,1,6,3,Home,0,Cardiology,Friday,0,1,1
+15578,44,Female,6,0,0,1,2,Home,1,Respiratory,Tuesday,1,1,0
+15579,67,Female,1,1,2,3,4,Home,0,Respiratory,Sunday,1,1,0
+15599,78,Male,5,2,1,1,11,Home,0,Cardiology,Monday,0,1,0
+15601,53,Female,6,1,0,1,3,Home,0,General medicine,Friday,3,0,0
+15607,56,Female,6,0,0,5,5,Home,0,Respiratory,Thursday,1,1,0
+15626,73,Male,1,2,1,2,2,Home,0,Respiratory,Wednesday,0,1,0
+15642,98,Male,9,3,1,2,6,Care home,1,General medicine,Saturday,1,1,0
+15646,81,Male,9,6,2,6,13,Home,0,Respiratory,Monday,6,0,1
+15647,57,Male,8,3,1,2,10,Home,0,General surgery,Monday,1,1,2
+15652,30,Male,5,2,0,3,4,Home,0,General surgery,Friday,0,1,0
+15670,69,Female,4,3,1,1,9,Home,1,General surgery,Friday,0,1,0
+15684,77,Male,8,0,0,1,6,Home,1,Elderly care,Friday,2,1,0
+15693,37,Male,7,1,0,2,3,Home,0,General surgery,Friday,0,1,0
+15711,67,Female,9,1,0,4,5,Home,0,General medicine,Monday,0,1,3
+15714,74,Female,2,1,1,6,4,Home,0,Cardiology,Tuesday,0,1,2
+15718,95,Male,9,0,1,9,4,Home,0,Respiratory,Monday,3,1,2
+15721,85,Male,4,2,0,6,8,Home,0,Elderly care,Wednesday,0,0,0
+15750,99,Male,1,5,2,3,10,Home,1,Elderly care,Friday,0,0,0
+15756,88,Female,8,5,1,9,9,Care home,0,General medicine,Sunday,2,1,6
+15779,85,Male,5,2,1,14,3,Home,0,General medicine,Monday,0,1,1
+15786,64,Male,4,1,1,2,3,Home,0,Orthopaedics,Tuesday,3,1,1
+15794,69,Female,9,3,1,2,7,Home,0,General medicine,Sunday,0,1,0
+15810,39,Male,6,0,0,3,0,Home,0,Cardiology,Tuesday,0,1,1
+15819,45,Female,2,2,0,1,4,Home,0,General surgery,Wednesday,1,1,2
+15831,81,Female,4,4,0,5,10,Home,1,General medicine,Saturday,0,1,0
+15850,69,Male,5,4,0,11,7,Home,0,General medicine,Tuesday,2,0,0
+15855,72,Female,4,2,0,5,6,Home,0,Orthopaedics,Saturday,2,0,0
+15865,83,Male,8,5,0,2,13,Care home,0,Elderly care,Friday,1,1,2
+15866,67,Female,2,4,1,10,7,Home,1,Respiratory,Monday,0,0,0
+15876,73,Female,7,2,0,1,13,Home,1,Orthopaedics,Tuesday,1,1,0
+15878,75,Male,10,2,1,7,4,Home,1,Cardiology,Thursday,1,0,1
+15889,86,Female,7,2,0,10,5,Home,0,Elderly care,Friday,2,0,3
+15896,95,Female,9,8,2,8,9,Care home,1,Elderly care,Friday,1,0,4
+15899,46,Female,1,1,0,4,3,Home with care package,1,Respiratory,Sunday,0,0,1
+15905,71,Male,9,0,0,2,4,Home,0,Elderly care,Friday,2,1,1
+15906,58,Male,5,2,0,3,2,Home,1,Respiratory,Thursday,0,1,0
+15929,77,Male,10,1,0,1,4,Home,0,Elderly care,Monday,1,0,4
+15937,77,Female,6,0,0,1,6,Home,0,Respiratory,Tuesday,0,0,0
+15939,90,Male,8,5,1,7,14,Home with care package,1,Elderly care,Thursday,2,0,3
+15969,70,Female,3,4,0,2,5,Home,0,Cardiology,Sunday,0,1,1
+15974,70,Female,2,3,1,4,9,Home,1,Respiratory,Wednesday,0,1,0
+15979,47,Male,6,1,0,1,5,Home,1,Orthopaedics,Tuesday,3,0,0
+15989,72,Female,2,2,0,12,6,Home,0,Respiratory,Wednesday,0,1,0
+15990,50,Male,8,1,0,2,5,Home,0,General medicine,Monday,2,0,0
+15996,76,Female,1,3,3,3,8,Home,0,Orthopaedics,Saturday,3,1,0
+16018,79,Female,5,0,0,9,7,Home with care package,1,Cardiology,Sunday,3,1,2
+16020,97,Female,8,1,0,18,6,Home,0,Elderly care,Saturday,3,1,0
+16030,84,Female,6,0,0,6,7,Home,1,Orthopaedics,Saturday,0,1,0
+16031,54,Female,10,2,0,7,6,Home,0,General surgery,Monday,1,1,0
+16040,81,Male,3,3,1,1,7,Home,1,Orthopaedics,Wednesday,0,0,2
+16041,89,Female,8,1,0,10,8,Home,1,Respiratory,Saturday,2,1,7
+16139,64,Female,1,2,1,4,3,Home,0,Orthopaedics,Friday,1,1,1
+16150,52,Female,8,0,0,1,6,Home,1,General medicine,Friday,1,1,0
+16156,73,Male,10,1,0,5,4,Home,0,General medicine,Tuesday,1,1,1
+16167,54,Male,10,0,0,1,3,Home with care package,1,General surgery,Sunday,1,0,0
+16172,55,Male,8,2,0,15,3,Home,0,General medicine,Wednesday,2,1,1
+16179,69,Female,4,3,1,8,10,Home,1,Orthopaedics,Thursday,0,0,0
+16181,49,Female,8,0,1,1,2,Home,0,General surgery,Saturday,0,0,2
+16188,82,Male,4,0,0,6,7,Home,1,Orthopaedics,Saturday,0,1,0
+16191,91,Female,1,2,1,10,8,Home,1,Elderly care,Friday,2,0,4
+16203,70,Male,4,0,1,9,1,Home,0,General surgery,Monday,0,0,1
+16225,37,Female,1,0,0,3,1,Home,1,General medicine,Saturday,0,0,1
+16226,60,Female,5,1,1,3,9,Home,0,Orthopaedics,Monday,0,1,1
+16233,72,Female,6,2,2,4,7,Home,0,General medicine,Sunday,0,0,0
+16241,68,Male,9,1,1,3,5,Home,0,Orthopaedics,Monday,0,1,0
+16243,63,Female,10,0,0,2,6,Home,0,Elderly care,Sunday,0,0,0
+16252,84,Male,6,1,0,5,3,Care home,1,Respiratory,Thursday,1,1,9
+16258,46,Female,6,1,1,4,2,Home,0,General surgery,Saturday,1,0,0
+16322,55,Female,8,1,0,2,1,Home,0,General medicine,Sunday,2,0,2
+16326,77,Female,4,4,0,10,10,Home,1,Respiratory,Monday,1,1,1
+16332,81,Male,1,3,1,9,4,Home,1,Orthopaedics,Friday,2,1,1
+16335,56,Female,7,0,1,4,1,Care home,0,General medicine,Sunday,1,0,0
+16344,73,Male,2,2,0,1,3,Home,0,Cardiology,Friday,1,1,1
+16356,75,Male,3,3,1,6,11,Home,0,General surgery,Thursday,0,1,0
+16358,90,Male,10,1,1,7,4,Home with care package,0,Respiratory,Wednesday,1,0,1
+16363,69,Male,3,2,0,5,6,Home,0,Respiratory,Friday,1,1,0
+16374,65,Female,5,3,2,1,6,Home,0,Cardiology,Tuesday,4,1,2
+16382,47,Female,9,0,2,1,0,Home,1,General surgery,Thursday,1,1,0
+16386,34,Male,7,0,0,3,2,Home,0,General medicine,Monday,3,1,1
+16395,81,Female,5,1,1,19,9,Home with care package,0,General medicine,Friday,0,1,1
+16398,79,Male,8,2,0,4,5,Home,1,Respiratory,Tuesday,0,1,2
+16401,71,Male,5,4,0,7,8,Home,0,General medicine,Friday,1,1,3
+16402,54,Female,9,1,0,4,6,Home,0,General surgery,Thursday,3,0,0
+16408,54,Female,5,1,0,8,7,Home,0,General surgery,Monday,7,0,3
+16409,84,Male,9,2,2,8,6,Home,1,Respiratory,Tuesday,1,0,2
+16423,68,Male,10,0,0,2,5,Home,0,Respiratory,Wednesday,1,1,0
+16431,64,Female,4,3,1,3,7,Home,0,General medicine,Friday,0,1,2
+16432,46,Female,4,3,2,3,5,Care home,0,General surgery,Monday,0,1,2
+16449,79,Male,10,4,0,7,8,Home,1,General medicine,Wednesday,1,1,1
+16457,57,Female,7,1,0,1,6,Home,0,Orthopaedics,Monday,0,1,2
+16465,61,Female,6,1,1,4,5,Home,0,General surgery,Saturday,2,1,1
+16467,89,Female,6,2,0,9,10,Care home,0,Orthopaedics,Sunday,2,1,2
+16483,71,Male,1,5,1,4,6,Home,0,General medicine,Sunday,0,0,0
+16513,66,Male,4,1,0,2,4,Home,1,General surgery,Sunday,0,1,0
+16529,83,Female,10,0,1,1,4,Home with care package,1,Elderly care,Friday,1,0,3
+16534,77,Male,6,5,1,1,13,Home,0,General medicine,Saturday,3,1,0
+16539,94,Male,2,0,0,5,5,Home,1,Elderly care,Friday,0,1,0
+16549,73,Female,7,1,0,4,5,Home,0,Respiratory,Monday,2,1,0
+16556,66,Female,2,2,0,7,9,Home,1,General medicine,Friday,0,0,0
+16564,66,Female,5,0,0,1,4,Home,0,Orthopaedics,Thursday,1,1,0
+16584,67,Male,4,2,0,3,2,Home,0,Orthopaedics,Thursday,1,0,0
+16589,77,Female,8,4,2,12,7,Home with care package,0,Respiratory,Thursday,0,1,0
+16594,58,Female,6,3,0,1,2,Home,1,Respiratory,Wednesday,0,1,1
+16599,54,Female,7,1,0,5,6,Home,0,Cardiology,Saturday,0,1,0
+16616,58,Male,3,1,0,2,6,Home,0,Cardiology,Tuesday,1,1,0
+16629,54,Female,5,4,1,1,10,Home,0,Elderly care,Wednesday,1,1,0
+16630,82,Female,7,1,0,16,6,Home,1,Elderly care,Friday,3,1,2
+16650,47,Female,8,0,0,2,4,Home,0,General medicine,Saturday,0,1,0
+16670,71,Male,10,1,0,10,15,Home,0,Orthopaedics,Friday,0,1,1
+16672,99,Male,3,1,0,4,6,Home,1,Elderly care,Friday,0,0,1
+16688,67,Male,3,2,3,2,7,Home,1,Respiratory,Thursday,0,1,0
+16711,74,Female,9,2,0,1,7,Home with care package,0,Respiratory,Saturday,2,0,0
+16728,53,Female,8,2,0,1,5,Home,1,Orthopaedics,Thursday,2,1,1
+16729,62,Female,6,1,2,9,1,Home,1,General surgery,Monday,6,0,1
+16731,59,Female,7,0,1,2,3,Home,0,Respiratory,Saturday,4,0,5
+16737,63,Male,3,0,0,3,5,Home,0,Orthopaedics,Tuesday,1,1,1
+16749,94,Female,7,6,2,2,13,Home with care package,0,Respiratory,Friday,0,1,0
+16753,56,Female,6,1,1,6,3,Care home,0,Cardiology,Sunday,0,0,2
+16758,90,Male,3,1,0,7,4,Home with care package,1,Respiratory,Tuesday,2,0,1
+16760,79,Male,8,4,0,18,6,Home with care package,0,Orthopaedics,Saturday,1,0,0
+16792,86,Male,9,3,1,22,8,Home with care package,1,General medicine,Tuesday,1,1,0
+16795,77,Male,1,3,2,1,7,Care home,0,Respiratory,Tuesday,0,0,0
+16808,50,Male,9,0,1,1,6,Home,1,Cardiology,Sunday,0,1,1
+16812,58,Male,4,1,1,7,5,Care home,1,General surgery,Monday,1,1,1
+16814,42,Male,10,0,0,8,1,Home,1,Orthopaedics,Saturday,0,0,0
+16818,68,Female,9,0,0,1,2,Home,0,Orthopaedics,Sunday,1,1,1
+16826,80,Male,9,2,1,4,5,Home,0,Cardiology,Sunday,1,1,0
+16829,72,Female,3,4,0,19,5,Home,1,Cardiology,Wednesday,1,1,1
+16847,78,Male,9,0,0,10,3,Home,0,Elderly care,Friday,3,1,0
+16855,51,Male,9,0,0,1,4,Home,0,General medicine,Monday,0,1,1
+16860,74,Male,6,2,2,4,4,Care home,0,General surgery,Thursday,2,0,3
+16865,62,Male,10,1,0,4,0,Home,0,Respiratory,Thursday,2,1,1
+16876,71,Female,6,0,2,3,3,Home,0,Cardiology,Saturday,1,1,0
+16884,61,Male,5,2,1,5,7,Home,0,Respiratory,Wednesday,2,1,1
+16903,59,Male,7,1,1,4,9,Home,0,Orthopaedics,Wednesday,2,1,0
+16905,81,Male,6,0,1,7,4,Home,0,Elderly care,Sunday,0,1,0
+16909,70,Female,10,1,0,3,4,Home,1,General surgery,Tuesday,0,0,1
+16912,39,Male,6,0,1,1,1,Home,1,General medicine,Friday,0,0,1
+16925,48,Male,5,0,1,3,3,Home,1,Orthopaedics,Saturday,1,0,1
+16928,82,Female,1,2,2,10,4,Home,0,Elderly care,Friday,1,0,1
+16947,53,Female,4,2,0,7,5,Home,1,General medicine,Sunday,0,0,0
+16965,51,Male,4,3,2,3,6,Home,1,General surgery,Wednesday,0,0,0
+16979,68,Male,8,0,0,4,3,Home,0,Orthopaedics,Saturday,2,1,1
+16980,64,Female,10,1,0,3,4,Home,0,General surgery,Thursday,0,1,0
+16986,91,Female,3,2,1,3,12,Home,1,Elderly care,Friday,4,0,2
+16995,84,Female,7,5,2,8,19,Home with care package,1,Elderly care,Saturday,0,0,1
+16997,76,Male,2,3,0,6,6,Home,1,General surgery,Wednesday,1,1,1
+17001,53,Female,8,0,0,1,2,Home,0,Elderly care,Wednesday,0,1,0
+17034,70,Female,8,1,0,2,3,Home,0,General medicine,Wednesday,0,1,0
+17042,86,Male,7,2,0,9,1,Home with care package,1,Elderly care,Saturday,1,0,0
+17081,86,Male,1,0,1,7,5,Home,1,General medicine,Sunday,0,1,3
+17082,80,Male,9,3,3,7,8,Care home,1,General medicine,Saturday,1,1,1
+17085,57,Female,4,0,0,3,2,Home,1,General medicine,Thursday,1,0,0
+17122,87,Female,6,1,1,3,5,Home,1,Respiratory,Sunday,2,1,1
+17127,65,Female,2,1,0,3,8,Home,0,Cardiology,Tuesday,1,0,2
+17131,88,Female,4,1,0,3,8,Home with care package,1,Elderly care,Friday,2,1,1
+17141,70,Female,1,3,0,6,8,Home,0,Elderly care,Friday,1,1,1
+17148,70,Female,8,1,0,4,6,Home,0,General medicine,Tuesday,0,0,0
+17153,43,Male,4,1,1,2,6,Home,0,General medicine,Friday,0,0,0
+17154,57,Male,6,1,0,6,4,Home,0,Orthopaedics,Sunday,0,1,1
+17157,69,Female,6,4,1,3,8,Home,1,Orthopaedics,Thursday,0,0,2
+17168,40,Female,7,0,0,3,3,Home,0,General surgery,Tuesday,0,0,0
+17172,51,Female,8,0,0,1,2,Home,0,General medicine,Sunday,0,1,0
+17184,73,Male,3,2,2,12,4,Care home,0,Respiratory,Saturday,1,1,0
+17189,83,Female,5,4,1,4,7,Home,1,Elderly care,Friday,2,1,2
+17192,83,Male,1,2,1,10,6,Home,1,General medicine,Tuesday,2,1,0
+17204,90,Male,2,3,4,7,13,Home,0,General medicine,Monday,1,1,0
+17211,80,Female,7,0,0,3,3,Home,0,General surgery,Sunday,1,1,1
+17215,74,Male,5,1,0,2,10,Home,0,Respiratory,Tuesday,0,1,1
+17224,54,Female,8,0,1,3,2,Home,0,Cardiology,Monday,3,1,5
+17230,80,Male,7,1,0,7,6,Home,0,Elderly care,Sunday,2,0,0
+17232,69,Female,6,2,1,6,6,Home with care package,0,General surgery,Sunday,0,1,2
+17245,63,Female,5,1,0,4,7,Home,0,General medicine,Friday,0,0,1
+17246,95,Male,7,2,1,7,5,Care home,1,Elderly care,Friday,0,1,1
+17247,62,Female,10,1,1,1,4,Home,0,Elderly care,Wednesday,1,1,0
+17256,70,Female,8,1,0,3,6,Home,1,Respiratory,Thursday,0,0,1
+17263,83,Male,10,2,1,4,5,Home,0,Respiratory,Wednesday,0,1,0
+17272,68,Female,5,2,1,1,7,Home,0,General medicine,Tuesday,1,1,1
+17286,58,Female,1,2,1,1,7,Home,0,Respiratory,Sunday,0,1,0
+17290,64,Female,8,2,1,2,6,Home,1,Cardiology,Thursday,2,1,4
+17297,69,Female,7,3,0,3,8,Home,1,General medicine,Thursday,2,1,0
+17304,84,Female,1,3,2,8,7,Home,1,Orthopaedics,Saturday,0,0,0
+17312,67,Female,4,2,1,4,12,Home,0,Elderly care,Friday,2,1,1
+17321,72,Female,10,0,0,2,5,Home,1,Cardiology,Saturday,2,1,0
+17342,78,Female,5,1,1,3,6,Home,0,General medicine,Tuesday,0,0,1
+17344,100,Male,6,2,3,7,9,Home,0,Elderly care,Friday,0,0,1
+17347,64,Female,10,0,0,1,4,Home,0,Respiratory,Tuesday,1,1,1
+17349,93,Female,3,3,1,2,7,Home,0,Elderly care,Friday,2,1,1
+17350,55,Female,9,0,0,2,3,Home,0,General medicine,Saturday,2,0,0
+17354,84,Male,6,2,0,4,5,Care home,1,Cardiology,Friday,2,0,0
+17364,54,Female,2,0,3,2,1,Home,0,General surgery,Thursday,1,0,0
+17395,58,Male,1,2,1,1,6,Home,0,Orthopaedics,Thursday,2,0,2
+17405,59,Female,10,0,1,9,0,Home with care package,1,Cardiology,Thursday,4,0,4
+17417,42,Male,8,0,0,6,2,Home,0,General surgery,Friday,1,1,0
+17429,64,Female,8,0,0,7,3,Home,0,General medicine,Tuesday,1,0,0
+17434,72,Male,9,0,0,2,4,Home,0,General medicine,Saturday,0,0,0
+17438,59,Female,10,1,0,1,5,Home,1,Elderly care,Friday,3,1,1
+17442,58,Male,5,1,0,6,3,Home,1,Cardiology,Saturday,2,1,1
+17443,80,Male,3,4,0,4,12,Care home,0,Cardiology,Tuesday,2,1,0
+17446,49,Female,1,3,0,3,5,Home,0,General medicine,Sunday,0,1,0
+17453,91,Female,9,4,3,7,9,Home,1,Elderly care,Tuesday,7,0,1
+17471,69,Female,7,0,0,21,3,Home,0,General medicine,Friday,2,0,0
+17472,67,Male,7,1,0,7,7,Home,0,Cardiology,Friday,0,0,0
+17487,70,Female,8,1,0,2,3,Home,0,General medicine,Wednesday,0,1,1
+17500,64,Male,4,0,0,1,4,Home,1,Respiratory,Saturday,1,1,0
+17511,73,Female,10,0,0,12,4,Home,1,General medicine,Thursday,1,0,0
+17514,63,Female,3,0,0,2,3,Home,0,Cardiology,Wednesday,2,0,1
+17525,59,Male,4,0,0,3,1,Home,1,General medicine,Wednesday,2,1,0
+17534,76,Male,10,3,2,4,9,Home,1,Elderly care,Friday,2,1,4
+17541,100,Male,4,5,1,2,12,Home,0,Elderly care,Friday,4,0,4
+17544,61,Female,10,3,0,3,10,Home,0,Cardiology,Sunday,1,1,0
+17558,77,Male,10,1,0,8,3,Home,1,Elderly care,Thursday,1,1,0
+17587,81,Male,3,3,0,20,4,Care home,1,Elderly care,Friday,1,0,1
+17600,76,Female,7,0,0,2,6,Home,0,Respiratory,Tuesday,0,1,0
+17628,82,Male,6,1,2,1,7,Home,1,Orthopaedics,Wednesday,2,1,0
+17629,47,Male,3,2,0,2,3,Home,0,General surgery,Thursday,0,0,0
+17641,52,Male,1,4,1,10,6,Home,0,Orthopaedics,Sunday,0,1,2
+17645,88,Female,8,3,0,14,5,Home,0,Elderly care,Friday,0,0,4
+17659,88,Female,5,2,0,5,8,Home,0,Elderly care,Tuesday,1,0,0
+17662,68,Male,8,0,2,4,2,Home,0,Elderly care,Friday,0,1,0
+17666,68,Female,6,2,1,9,9,Home,0,General medicine,Monday,2,0,3
+17668,74,Male,9,2,1,10,3,Home,0,Respiratory,Sunday,1,0,0
+17691,80,Female,3,1,1,6,3,Home with care package,1,Elderly care,Friday,4,0,3
+17692,38,Female,7,0,0,4,2,Home,0,Orthopaedics,Friday,0,1,3
+17694,78,Male,6,3,2,3,7,Care home,0,Respiratory,Monday,1,0,6
+17716,81,Female,9,4,1,4,9,Home,0,Respiratory,Thursday,0,0,3
+17723,55,Female,3,2,1,4,2,Home,0,General medicine,Saturday,1,1,1
+17731,78,Male,7,3,2,4,8,Home,1,Elderly care,Friday,1,0,1
+17771,69,Male,9,1,0,1,4,Home with care package,0,General medicine,Monday,0,1,1
+17788,60,Male,7,0,1,4,3,Home,0,General surgery,Saturday,2,0,0
+17789,84,Female,8,2,0,5,3,Home,0,Elderly care,Friday,1,1,0
+17790,55,Female,8,1,1,3,6,Home,0,Orthopaedics,Saturday,0,1,0
+17791,84,Male,9,1,1,1,6,Home,0,Elderly care,Saturday,0,0,0
+17792,60,Male,10,1,0,2,2,Home,0,General medicine,Thursday,7,1,0
+17799,56,Female,6,1,0,2,6,Home,0,General surgery,Wednesday,2,0,0
+17818,80,Male,7,3,2,5,7,Home,1,General medicine,Thursday,0,1,2
+17848,85,Male,6,2,2,1,7,Home,0,Elderly care,Friday,1,0,0
+17871,63,Male,5,0,1,2,4,Home,1,Orthopaedics,Monday,2,1,0
+17872,75,Female,7,0,0,2,3,Home,1,General medicine,Thursday,0,1,1
+17881,72,Male,4,1,0,1,1,Home,0,General medicine,Wednesday,3,1,1
+17882,63,Male,5,0,1,6,1,Home,1,Respiratory,Thursday,0,1,2
+17901,80,Male,3,2,0,1,8,Care home,0,Respiratory,Friday,1,0,0
+17903,68,Male,8,7,1,2,8,Care home,0,Elderly care,Friday,1,1,3
+17930,64,Female,5,2,0,1,7,Care home,1,General medicine,Friday,0,1,0
+17951,48,Female,3,2,1,2,3,Home,0,General surgery,Wednesday,1,1,1
+17952,56,Male,1,0,1,2,4,Care home,0,Elderly care,Friday,1,0,1
+17959,57,Male,6,1,1,2,5,Home with care package,1,Cardiology,Monday,0,1,0
+17985,52,Male,5,2,0,1,4,Care home,1,General medicine,Wednesday,3,1,1
+17992,65,Male,3,2,3,3,5,Home,1,Cardiology,Tuesday,1,0,0
+18004,63,Male,5,3,0,11,5,Home,0,Orthopaedics,Wednesday,2,0,0
+18007,74,Female,8,0,0,1,4,Home,1,General medicine,Tuesday,0,1,0
+18034,54,Female,10,2,0,2,6,Home,1,General medicine,Saturday,0,1,3
+18038,64,Female,3,1,0,1,4,Home with care package,1,Orthopaedics,Monday,0,1,2
+18042,92,Female,10,1,2,13,8,Home with care package,0,Respiratory,Thursday,1,1,0
+18057,61,Female,4,1,1,8,5,Home,1,General medicine,Tuesday,2,1,0
+18060,46,Female,4,2,0,4,4,Home,1,General surgery,Tuesday,0,0,1
+18078,76,Male,9,0,0,1,6,Home,0,General medicine,Tuesday,1,1,1
+18087,57,Male,2,0,1,2,3,Home,1,Orthopaedics,Thursday,1,1,2
+18090,50,Male,5,2,0,2,4,Home,0,General surgery,Tuesday,1,0,0
+18105,71,Male,4,0,0,3,0,Home,1,Cardiology,Sunday,1,0,2
+18118,76,Female,4,4,0,2,12,Home,0,General medicine,Saturday,0,1,0
+18122,70,Female,3,4,0,8,9,Home,0,Respiratory,Friday,2,1,0
+18145,69,Male,7,1,0,2,4,Care home,1,General medicine,Thursday,0,1,0
+18155,66,Female,3,1,0,2,5,Home,0,General medicine,Sunday,0,1,0
+18169,72,Male,5,2,1,4,6,Home,0,General surgery,Saturday,0,1,1
+18174,53,Female,4,4,0,8,8,Home,0,General medicine,Saturday,1,0,0
+18181,74,Female,10,0,0,5,4,Home,0,General medicine,Saturday,3,1,1
+18195,99,Female,7,1,0,3,5,Home,0,General medicine,Sunday,0,0,0
+18204,84,Female,9,2,0,3,4,Home,1,Elderly care,Friday,1,1,1
+18217,79,Female,3,1,1,2,5,Home,1,Elderly care,Thursday,0,0,0
+18230,85,Female,10,1,0,5,7,Home,0,Elderly care,Friday,1,0,0
+18233,51,Female,2,1,1,2,1,Home,1,General surgery,Saturday,0,1,1
+18242,63,Female,6,1,0,3,4,Home,0,Respiratory,Thursday,5,1,3
+18269,94,Male,1,1,2,2,3,Care home,1,Cardiology,Sunday,0,0,5
+18286,65,Female,2,3,1,1,5,Home,1,General medicine,Wednesday,1,1,2
+18290,75,Female,10,0,0,2,4,Home,0,Respiratory,Tuesday,1,1,0
+18302,76,Male,3,3,0,1,8,Home,0,General medicine,Tuesday,0,1,0
+18307,53,Female,2,1,0,2,5,Home,1,General medicine,Sunday,2,0,0
+18310,55,Male,9,1,0,4,5,Home,0,General medicine,Tuesday,0,0,1
+18314,70,Female,3,3,1,7,8,Home,0,Elderly care,Friday,0,1,1
+18316,83,Female,5,1,1,3,5,Home,1,Elderly care,Friday,0,1,0
+18319,70,Male,5,0,1,2,3,Home,1,Elderly care,Sunday,0,0,0
+18328,77,Male,7,1,0,7,4,Care home,0,General medicine,Monday,2,0,0
+18343,80,Male,1,1,0,20,1,Care home,0,Respiratory,Thursday,1,0,3
+18370,68,Male,7,4,0,6,3,Home,1,Cardiology,Wednesday,5,1,0
+18376,70,Female,6,1,0,4,6,Home,0,Cardiology,Sunday,3,0,3
+18391,77,Female,6,2,1,4,5,Care home,1,General medicine,Saturday,0,1,0
+18394,64,Male,10,2,1,6,4,Home,0,General medicine,Monday,0,1,2
+18402,80,Female,7,2,4,2,8,Home,0,Elderly care,Saturday,3,0,2
+18410,70,Male,5,2,0,5,7,Home,0,General surgery,Friday,1,1,1
+18429,68,Female,8,0,0,4,2,Home,0,Respiratory,Wednesday,1,0,0
+18436,78,Female,1,1,1,12,6,Home,1,Elderly care,Friday,1,1,2
+18437,53,Male,4,2,1,1,9,Home,0,Orthopaedics,Tuesday,3,1,0
+18439,94,Male,10,5,2,9,6,Care home,1,Elderly care,Friday,3,0,4
+18442,54,Male,7,0,0,2,2,Home,0,Elderly care,Friday,2,1,0
+18460,89,Female,2,1,0,21,5,Care home,1,General medicine,Saturday,0,1,2
+18466,85,Male,3,3,2,4,10,Home,1,General medicine,Wednesday,0,1,0
+18467,70,Male,2,2,0,3,2,Home,0,Elderly care,Friday,0,1,0
+18474,72,Male,3,1,0,4,2,Home with care package,1,Cardiology,Tuesday,0,1,0
+18480,37,Female,4,0,0,2,6,Home,0,Cardiology,Tuesday,1,1,1
+18482,68,Female,8,4,1,11,11,Home,0,Respiratory,Monday,1,0,1
+18488,76,Female,8,4,1,5,8,Home with care package,1,Respiratory,Sunday,0,1,1
+18492,100,Male,3,3,0,3,7,Home with care package,1,Elderly care,Friday,0,1,0
+18496,99,Female,3,2,0,13,10,Home,1,Elderly care,Friday,1,1,1
+18509,69,Female,9,0,0,1,2,Home,0,Orthopaedics,Sunday,1,0,1
+18526,94,Male,5,0,0,8,4,Home,1,Elderly care,Friday,1,1,0
+18532,75,Female,7,4,2,5,6,Home,1,Elderly care,Friday,0,0,4
+18538,53,Female,6,1,2,3,2,Home with care package,1,Cardiology,Tuesday,0,0,1
+18547,41,Male,10,0,1,1,1,Home,0,General surgery,Monday,3,1,0
+18557,58,Female,4,0,0,2,3,Home,0,General medicine,Sunday,2,1,1
+18576,47,Female,10,0,0,1,3,Home,0,Cardiology,Wednesday,1,1,0
+18604,73,Female,7,1,3,1,3,Home,0,Respiratory,Sunday,0,0,1
+18609,52,Male,3,1,0,1,6,Home,0,Orthopaedics,Tuesday,0,1,0
+18610,76,Female,7,0,0,3,3,Home,0,Respiratory,Monday,0,0,1
+18611,72,Female,7,3,1,22,11,Care home,1,Cardiology,Sunday,1,1,2
+18615,69,Male,5,2,1,6,1,Home,0,General medicine,Monday,1,1,0
+18620,68,Female,1,0,1,7,1,Home,1,Elderly care,Friday,4,0,1
+18630,84,Female,10,0,0,14,6,Home,0,General medicine,Tuesday,0,1,1
+18635,73,Male,7,3,0,4,12,Home,0,General surgery,Monday,2,1,0
+18639,49,Male,2,0,0,1,1,Home,0,Orthopaedics,Monday,0,0,1
+18641,70,Male,8,0,0,3,3,Home,0,Elderly care,Friday,2,0,1
+18650,52,Female,6,1,0,4,7,Home,1,Cardiology,Thursday,0,1,0
+18652,63,Male,8,0,1,1,1,Home,0,General surgery,Tuesday,1,1,0
+18694,53,Male,5,1,1,7,5,Home,0,Respiratory,Wednesday,0,1,2
+18698,62,Male,6,2,1,1,7,Home,0,General medicine,Wednesday,1,0,1
+18708,44,Male,5,2,0,5,6,Home,1,Orthopaedics,Monday,1,1,2
+18714,79,Female,2,0,0,5,4,Home with care package,0,Respiratory,Friday,0,1,4
+18724,86,Male,7,3,2,8,6,Home,1,Elderly care,Thursday,2,0,1
+18726,63,Female,10,1,0,1,2,Home,0,Cardiology,Sunday,1,1,1
+18729,71,Male,4,3,0,2,14,Home,1,Cardiology,Wednesday,0,1,0
+18730,35,Male,2,2,2,2,6,Home,0,Orthopaedics,Friday,0,1,0
+18740,74,Female,1,1,0,2,3,Home,1,General surgery,Friday,1,1,3
+18745,81,Female,7,4,1,8,9,Care home,0,Orthopaedics,Monday,2,0,1
+18761,96,Female,3,4,1,6,7,Home,0,Elderly care,Wednesday,0,1,0
+18766,69,Female,10,1,0,11,2,Home,1,General medicine,Sunday,1,1,0
+18771,64,Male,5,1,0,2,5,Home,0,General medicine,Wednesday,0,1,1
+18796,63,Female,6,3,1,3,5,Home,1,Elderly care,Tuesday,1,0,2
+18820,64,Male,8,2,0,3,5,Home,0,General medicine,Friday,0,1,0
+18844,87,Female,5,5,2,1,10,Home,1,General medicine,Wednesday,0,0,1
+18846,70,Male,9,0,0,1,3,Home,0,Orthopaedics,Sunday,0,1,1
+18861,85,Female,10,1,0,8,5,Care home,0,Elderly care,Friday,0,1,0
+18864,29,Male,3,1,0,4,1,Home,0,General surgery,Monday,1,1,0
+18866,74,Male,9,1,0,2,4,Home,0,Elderly care,Friday,5,0,3
+18870,68,Male,9,1,1,4,2,Home,0,General medicine,Monday,0,1,2
+18877,96,Female,5,3,2,5,5,Care home,1,Elderly care,Sunday,2,0,4
+18879,65,Female,9,5,1,8,7,Home,0,Respiratory,Sunday,1,1,0
+18882,77,Female,2,1,1,2,4,Home,0,General medicine,Tuesday,1,1,0
+18898,60,Male,6,0,0,1,3,Home with care package,0,Orthopaedics,Monday,1,0,0
+18905,51,Female,7,1,0,2,5,Home,0,General surgery,Saturday,0,1,1
+18906,90,Male,4,2,0,2,9,Home,1,Elderly care,Friday,3,1,0
+18912,51,Female,8,0,0,8,5,Home,0,Orthopaedics,Saturday,1,1,1
+18989,100,Female,5,3,1,9,2,Home with care package,0,Elderly care,Friday,5,0,4
+18992,71,Male,2,1,0,2,3,Home,0,Cardiology,Sunday,1,1,1
+19023,48,Female,5,3,0,2,6,Home,1,Respiratory,Wednesday,2,1,3
+19033,76,Female,1,3,1,3,9,Home,0,General surgery,Saturday,0,0,0
+19054,78,Male,1,5,1,1,10,Home,0,Elderly care,Friday,0,1,0
+19056,79,Female,8,3,0,9,7,Home,0,Respiratory,Friday,2,0,7
+19065,67,Male,3,3,1,5,6,Home,0,Cardiology,Friday,1,1,0
+19090,35,Female,9,1,0,4,6,Home,1,General surgery,Sunday,1,1,3
+19094,74,Female,4,2,0,15,7,Care home,1,Elderly care,Monday,3,0,4
+19162,57,Male,6,1,1,2,6,Home,1,General medicine,Saturday,0,0,0
+19163,95,Female,7,4,1,3,7,Home,0,Elderly care,Monday,4,0,1
+19178,64,Female,2,3,0,6,7,Home,0,General surgery,Saturday,1,1,0
+19179,81,Male,1,5,1,3,8,Home,1,General medicine,Tuesday,1,1,0
+19186,69,Male,3,2,3,4,4,Home,0,Orthopaedics,Sunday,0,1,0
+19190,43,Male,5,2,0,10,4,Home,0,Orthopaedics,Tuesday,2,0,0
+19199,41,Female,8,1,0,2,2,Home,0,General medicine,Friday,0,1,1
+19203,58,Male,7,0,1,5,1,Home,1,Cardiology,Monday,3,1,0
+19209,53,Male,7,0,0,9,5,Home,0,Orthopaedics,Friday,3,1,1
+19216,74,Female,1,3,1,5,10,Home,0,Orthopaedics,Thursday,1,0,3
+19233,68,Female,5,1,0,3,2,Home,0,Orthopaedics,Friday,0,1,2
+19234,76,Male,3,2,0,2,8,Care home,0,Orthopaedics,Monday,1,1,0
+19237,81,Male,8,3,0,4,6,Care home,0,General medicine,Friday,2,0,2
+19243,65,Female,5,1,0,2,7,Home,0,General surgery,Thursday,1,0,0
+19258,60,Male,4,2,1,4,9,Home,0,Orthopaedics,Wednesday,3,0,0
+19268,73,Male,6,3,1,12,9,Home,0,Respiratory,Friday,1,0,6
+19272,44,Male,9,1,0,2,2,Home,1,General surgery,Friday,1,0,0
+19290,56,Male,4,2,1,1,4,Home,1,Elderly care,Friday,1,1,1
+19334,62,Female,3,1,1,4,4,Home,1,General surgery,Saturday,1,1,1
+19359,75,Female,5,2,1,13,3,Home,0,Respiratory,Saturday,1,1,1
+19369,55,Male,8,1,0,1,4,Home,1,Cardiology,Monday,2,1,0
+19376,67,Male,1,1,0,5,10,Home,0,General medicine,Tuesday,0,0,0
+19385,66,Female,4,1,2,2,3,Home,0,Orthopaedics,Thursday,1,1,1
+19410,80,Male,2,2,2,10,11,Home,0,General surgery,Thursday,2,0,0
+19414,90,Male,6,2,1,6,5,Home,1,General medicine,Wednesday,2,0,0
+19420,56,Female,7,1,0,2,2,Home,0,Orthopaedics,Monday,2,1,0
+19424,62,Female,4,0,0,3,4,Home,0,Respiratory,Monday,0,0,0
+19433,94,Male,10,4,1,16,12,Home with care package,1,Elderly care,Friday,0,1,2
+19434,61,Male,3,5,1,3,15,Home,1,Orthopaedics,Monday,2,1,1
+19440,86,Male,10,3,2,3,9,Home,0,Elderly care,Friday,0,1,1
+19442,70,Female,9,0,0,3,2,Home,0,General medicine,Friday,1,1,2
+19451,81,Female,5,5,1,2,11,Home,1,Elderly care,Friday,2,0,2
+19461,51,Female,1,4,0,5,9,Home,0,General surgery,Sunday,2,1,0
+19466,65,Male,10,1,1,3,2,Home,0,General medicine,Friday,0,1,0
+19476,75,Female,10,0,0,1,4,Home,1,Cardiology,Wednesday,1,1,0
+19481,64,Female,7,0,1,1,1,Home,0,Elderly care,Monday,1,1,0
+19503,81,Male,4,0,1,3,6,Home,0,Orthopaedics,Friday,0,1,0
+19505,73,Female,1,1,0,10,3,Home,1,Respiratory,Thursday,3,1,2
+19507,50,Male,7,0,0,1,2,Home,0,Cardiology,Monday,3,1,1
+19521,63,Female,10,1,0,1,4,Home,1,Orthopaedics,Saturday,2,0,0
+19524,63,Male,9,3,0,2,8,Home,0,General surgery,Monday,1,0,1
+19533,30,Female,7,1,0,2,4,Home,1,General surgery,Thursday,1,0,0
+19561,71,Male,5,2,2,4,8,Home,0,General surgery,Tuesday,2,1,0
+19566,66,Male,1,1,0,2,1,Home,0,Orthopaedics,Sunday,0,0,1
+19569,58,Female,7,1,0,2,6,Home,0,Orthopaedics,Saturday,0,1,0
+19588,71,Male,6,0,0,1,4,Care home,1,General medicine,Sunday,1,1,1
+19589,53,Female,7,1,1,2,3,Home,0,General medicine,Thursday,0,1,1
+19595,53,Male,5,2,1,3,7,Care home,1,General surgery,Wednesday,1,1,0
+19599,67,Male,7,0,0,5,5,Home,0,Respiratory,Saturday,1,1,2
+19600,54,Male,9,3,0,5,7,Home,0,General medicine,Tuesday,0,0,2
+19609,84,Male,1,3,0,10,4,Care home,0,Elderly care,Friday,0,0,0
+19616,53,Female,9,0,0,2,3,Home,0,Orthopaedics,Wednesday,1,1,0
+19631,74,Female,2,3,0,4,8,Home,1,Orthopaedics,Monday,2,1,1
+19641,55,Female,2,1,1,4,7,Home,0,General medicine,Saturday,0,1,0
+19646,56,Male,5,0,0,2,2,Home,1,Orthopaedics,Thursday,0,1,1
+19655,68,Male,1,1,3,7,3,Home,0,Cardiology,Tuesday,3,0,1
+19664,49,Male,5,2,2,2,2,Home,1,General medicine,Saturday,2,0,1
+19665,64,Male,9,3,3,5,7,Home,0,General medicine,Thursday,0,1,1
+19699,57,Male,9,0,0,1,5,Home,0,Cardiology,Sunday,0,0,0
+19709,68,Female,6,3,0,4,7,Home,0,General surgery,Tuesday,1,1,0
+19710,70,Male,8,0,0,1,5,Home,0,General medicine,Tuesday,0,0,1
+19732,60,Female,9,0,3,5,0,Home,0,General medicine,Sunday,1,0,0
+19734,65,Male,7,1,1,1,4,Home,0,Cardiology,Thursday,0,1,0
+19739,68,Male,6,1,1,4,7,Home,0,General medicine,Friday,0,1,0
+19743,65,Female,8,2,2,7,9,Home,0,General medicine,Friday,3,0,2
+19744,82,Male,6,2,0,2,6,Home,0,General medicine,Thursday,0,1,0
+19752,59,Female,6,0,0,8,2,Home,0,General medicine,Thursday,0,1,0
+19765,57,Male,9,1,2,2,3,Care home,0,Orthopaedics,Thursday,0,1,1
+19767,73,Male,5,3,2,1,7,Care home,1,General medicine,Tuesday,0,1,1
+19783,51,Female,2,1,0,4,2,Home,1,General medicine,Tuesday,4,0,5
+19787,78,Female,9,1,1,3,5,Care home,0,Orthopaedics,Sunday,1,1,0
+19795,67,Female,4,0,0,1,1,Home,0,Elderly care,Friday,0,1,0
+19800,79,Male,8,5,2,2,14,Care home,1,Respiratory,Thursday,1,0,0
+19801,54,Male,10,1,0,4,4,Home,0,Cardiology,Monday,2,0,1
+19833,83,Female,3,1,0,3,8,Home,0,General medicine,Monday,2,1,2
+19843,74,Male,9,0,0,3,1,Home,0,Respiratory,Thursday,0,0,1
+19853,65,Female,4,0,0,6,8,Home,1,General surgery,Monday,4,1,0
+19866,48,Male,4,1,0,1,6,Home,1,Orthopaedics,Monday,1,0,1
+19867,72,Female,9,2,0,1,7,Care home,1,General medicine,Wednesday,0,1,0
+19874,94,Male,5,2,2,5,11,Home,1,Elderly care,Friday,8,0,1
+19881,87,Male,8,3,0,1,7,Home with care package,1,General medicine,Saturday,0,1,0
+19886,65,Male,8,2,0,2,3,Home,0,General medicine,Thursday,0,0,1
+19898,78,Male,8,3,0,2,6,Care home,0,Elderly care,Friday,1,1,2
+19901,68,Female,8,0,0,2,3,Home,1,General medicine,Sunday,1,1,0
+19902,63,Male,6,2,2,3,2,Home,0,Orthopaedics,Saturday,1,1,2
+19907,73,Female,8,2,0,3,8,Home,0,General medicine,Monday,0,1,0
+19923,67,Female,8,2,1,3,9,Home,0,Respiratory,Tuesday,0,0,0
+19938,70,Male,8,1,1,12,1,Home,0,General medicine,Saturday,1,1,1
+19941,75,Female,7,0,0,12,2,Home,0,Cardiology,Sunday,0,0,0
+19944,62,Male,6,0,3,9,2,Home,1,Elderly care,Friday,1,0,1
+19957,78,Male,7,3,1,8,6,Home with care package,1,General medicine,Tuesday,4,0,3
+19960,73,Male,5,0,1,9,3,Home with care package,0,Cardiology,Friday,3,1,0
+19976,56,Male,3,4,1,1,8,Home,0,Cardiology,Monday,0,0,1
+19977,60,Male,7,2,0,6,4,Home,0,General medicine,Sunday,2,1,0
+19981,60,Male,2,4,1,9,13,Home,0,Respiratory,Wednesday,0,0,0
+19992,62,Female,4,0,2,11,2,Home,1,Cardiology,Friday,0,1,1

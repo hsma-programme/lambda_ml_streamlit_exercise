@@ -1,0 +1,72 @@
+{
+  "age": {
+    "display": "Age",
+    "known_at_discharge": true,
+    "description": "Patient's age in years at discharge."
+  },
+  "sex": {
+    "display": "Sex",
+    "known_at_discharge": true,
+    "description": "Recorded sex (male = 1)."
+  },
+  "deprivation_decile": {
+    "display": "Deprivation decile",
+    "known_at_discharge": true,
+    "description": "Area deprivation of the patient's home, 1 = most deprived, 10 = least."
+  },
+  "long_term_conditions": {
+    "display": "Long-term conditions",
+    "known_at_discharge": true,
+    "description": "Number of long-term conditions on the record."
+  },
+  "emergency_admissions_prev_12m": {
+    "display": "Emergency admissions in previous 12 months",
+    "known_at_discharge": true,
+    "description": "Emergency admissions in the year before this one."
+  },
+  "length_of_stay_days": {
+    "display": "Length of stay (days)",
+    "known_at_discharge": true,
+    "description": "Days in hospital for this admission."
+  },
+  "number_of_medications": {
+    "display": "Number of medications",
+    "known_at_discharge": true,
+    "description": "Medicines the patient is discharged on."
+  },
+  "discharge_destination": {
+    "display": "Discharge destination",
+    "known_at_discharge": true,
+    "description": "Home, home with a care package, or care home."
+  },
+  "lives_alone": {
+    "display": "Lives alone",
+    "known_at_discharge": true,
+    "description": "Whether the patient lives alone."
+  },
+  "discharge_specialty": {
+    "display": "Discharge specialty",
+    "known_at_discharge": true,
+    "description": "The specialty the patient was discharged from."
+  },
+  "discharge_day": {
+    "display": "Discharge day",
+    "known_at_discharge": true,
+    "description": "Day of the week of discharge."
+  },
+  "gp_contacts_since_discharge": {
+    "display": "GP contacts since discharge",
+    "known_at_discharge": false,
+    "description": "GP contacts in the 30 days after discharge. Only known once those 30 days have passed."
+  },
+  "outpatient_followup_attended": {
+    "display": "Outpatient follow-up attended",
+    "known_at_discharge": false,
+    "description": "Whether an outpatient follow-up was attended. Only known afterwards."
+  },
+  "community_nursing_visits_since_discharge": {
+    "display": "Community nursing visits since discharge",
+    "known_at_discharge": false,
+    "description": "Community nursing visits in the 30 days after discharge. Only known afterwards."
+  }
+}

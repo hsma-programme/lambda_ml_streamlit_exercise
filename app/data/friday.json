@@ -1,0 +1,38 @@
+{
+  "friday": {
+    "n": 4369,
+    "readmitted": 692,
+    "rate": 0.15838864728770885
+  },
+  "other_days": {
+    "n": 15631,
+    "readmitted": 1718,
+    "rate": 0.10990979463885868
+  },
+  "share_of_friday_discharges_elderly_care": 0.6026550698100251,
+  "share_of_other_day_discharges_elderly_care": 0.0880941718380142,
+  "elderly_care": {
+    "friday": {
+      "n": 2633,
+      "readmitted": 525,
+      "rate": 0.1993923281428029
+    },
+    "other_days": {
+      "n": 1377,
+      "readmitted": 274,
+      "rate": 0.19898329702251272
+    }
+  },
+  "other_wards": {
+    "friday": {
+      "n": 1736,
+      "readmitted": 167,
+      "rate": 0.09619815668202765
+    },
+    "other_days": {
+      "n": 14254,
+      "readmitted": 1444,
+      "rate": 0.10130489687105373
+    }
+  }
+}

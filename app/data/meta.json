@@ -1,0 +1,32 @@
+{
+  "seed": 42,
+  "n_total": 20000,
+  "n_test": 3000,
+  "n_shap": 2000,
+  "base_rate_all": 0.1205,
+  "base_rate_test": 0.12033333333333333,
+  "baseline_accuracy_nobody_readmitted_test": 0.8796666666666667,
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "shap": "0.52.0"
+  },
+  "models": {
+    "v1": {
+      "auc_test": 0.9899294515781286,
+      "accuracy_at_50pct": 0.9763333333333334,
+      "n_flagged_at_50pct": 344,
+      "best_iteration": 156,
+      "shap_additivity_max_error_pp": 2.2738531214372415e-05
+    },
+    "v2": {
+      "auc_test": 0.6985516632569837,
+      "accuracy_at_50pct": 0.8803333333333333,
+      "n_flagged_at_50pct": 16,
+      "best_iteration": 70,
+      "shap_additivity_max_error_pp": 1.784696455686685e-05
+    }
+  }
+}
