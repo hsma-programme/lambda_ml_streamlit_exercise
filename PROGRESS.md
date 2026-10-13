@@ -25,6 +25,12 @@ These are review findings and implementation concerns, not changes to completion
 
 ## Chunk 4: what exists
 
+**Stage 2 factor list varied (2026-10-13):** the three post-discharge columns were near-duplicates (same 30-day window), so the exercise now asks five of the eight factors on the chart, one of each kind: before admission (age, emergency admissions in the previous 12 months), **built up during the stay so available at discharge but not at admission** (length of stay), and after discharge (GP contacts; outpatient follow-up attended, whose "Covers" note now refers to the appointment itself a few weeks after discharge). Community nursing visits stay on the chart but aren't asked. The length-of-stay explanation makes the point that the moment the model is run decides what counts (at admission it would be leakage). 3 "yes" and 2 "no", so "yes to everything" scores 3 of 5.
+
+**Stage 2 exercise made fair (2026-10-13):** the "known at discharge?" question gave its own answer away: the feature names ended "since discharge" and the descriptions said "only known afterwards". Names and descriptions are now neutral (e.g. "GP contacts", "Number of contacts with the patient's GP practice recorded in the extract"), the page states that the extract was produced 30 days after discharge (the fact learners need to reason from) with an optional hint. A first neutral version was too vague ("GP contacts" could be read as all prior contacts, a general frailty marker), so each factor now also shows a data-dictionary style **Covers** note (e.g. "the 30 days beginning on the day of discharge" vs "the 12 months before this admission"); learners still have to compare that with the moment of prediction. The two answer options were also reworded from "known at discharge" / "only known later" to "Yes: the model would have this when it is run on a real patient" / "No: this wouldn't exist yet when the model is run on a real patient", and the question now says the model would be run as the patient leaves hospital, and the explanation of each answer (`why` in `features.json`) is shown only after the learner answers.
+
+**SHAP background bug fixed (2026-10-13):** shap silently subsamples a background set to 100 rows (warning: "Background dataset has 500 samples but max_samples=100"), so the earlier "500 background" note was wrong; the improved base values came from a different 100-row draw. `explain()` now passes a masker with `max_samples` raised, so 500 rows are really used. SHAP exports regenerated: base values are now 12.5% (v1) and 12.8% (v2) against a true average of about 12%; AUCs and predictions are unchanged; v2's third and fourth features swapped places (deprivation now ahead of discharge specialty).
+
 **Label wording, second pass (2026-10-13):** grid labels now read "Model would recommend a call, and in reality they were readmitted" (and the three other combinations), with the same "model would recommend" / "in reality" framing in the thought-experiment box, caption, cut-off note and Stage 2 text. The icon-array legend is now vertical (the labels are long) and the chart a little taller.
 
 **Cut-off made prominent (2026-10-13):** Stage 1 now shows two large figures above the grid (calls per 1,000, and "phone anyone with a predicted risk of at least X%") with a note that the cut-off follows from capacity and the change in percentage points each time the slider moves. **Bug fixed along the way:** the slider's default was passed as a changing `value=`, which changes the widget's identity on every move and could reset it; it is now a keyed widget seeded once from the plain `capacity_choice` key. The bug was in the committed chunk 4 version.
@@ -34,7 +40,7 @@ These are review findings and implementation concerns, not changes to completion
 - [app/metrics.py](app/metrics.py): `call_outcomes(p, y, calls_per_1000)` (the slides' method: scale held-out test set to 1,000, round so the four counts sum to exactly 1,000, stable sort for ties) and `baseline_accuracy`. numpy only.
 - [app/charts.py](app/charts.py): `icon_array` (1,000 markers, 40 x 25, four groups with different marker shapes) and `importance_bar` (mean |SHAP| in percentage points, one navy hue).
 - [app/app_pages/is_it_any_good.py](app/app_pages/is_it_any_good.py): Stage 1 on v1. Accuracy check (88% for "nobody" vs 97.6%), capacity slider (20 to 300 per 1,000), icon array, precision/recall in plain English, a table view, then the recorded trade-off decision followed by things to weigh.
-- [app/app_pages/too_good.py](app/app_pages/too_good.py): Stage 2. v1 importance bar, discharge timeline, six "known at discharge?" questions with immediate feedback (the only categorical feedback), leakage reveal gated on all six, v1 to v2 rebuild with side-by-side metrics and icon arrays at the group's capacity, v2 importance, then a recorded "has this changed your view?" (`stage2_verdict`).
+- [app/app_pages/too_good.py](app/app_pages/too_good.py): Stage 2. v1 importance bar, discharge timeline, five "could the model use this on a real patient?" questions with immediate feedback (the only categorical feedback), leakage reveal gated on all six, v1 to v2 rebuild with side-by-side metrics and icon arrays at the group's capacity, v2 importance, then a recorded "has this changed your view?" (`stage2_verdict`).
 - `ui.py` gained `factual_check`, `load_shap_summary` and `capacity`.
 
 Numbers shown (held-out, per 1,000 discharges, 100 calls):
@@ -47,13 +53,13 @@ Numbers shown (held-out, per 1,000 discharges, 100 calls):
 | Model would not recommend a call; not readmitted | 877 | 813 |
 | Precision / recall | 97% / 81% | 33% / 28% (random calling about 12%) |
 
-Verification done: unit checks that the four counts sum to 1,000 for every capacity 0 to 1,000 and that precision at 100 per 1,000 matches an independent calculation; `AppTest` walkthrough (slider changes counts, decision recorded, factual feedback fires, reveal gated until all six answered, v2 view renders, state survives navigation); the dataviz palette validator was run on the icon-array colours.
+Verification done: unit checks that the four counts sum to 1,000 for every capacity 0 to 1,000 and that precision at 100 per 1,000 matches an independent calculation; `AppTest` walkthrough (slider changes counts, decision recorded, factual feedback fires, reveal gated until all five answered, v2 view renders, state survives navigation); the dataviz palette validator was run on the icon-array colours.
 
 Palette validation: light-mode green / amber / red / grey pass lightness, CVD separation (worst adjacent 8.2) and normal-vision floors. The grey fails the chroma floor and is below 3:1 contrast. This is intentional (it is the large "nothing happens" group and should recede), relieved by a distinct marker shape, a labelled legend with counts, hover text and the table view. The app is light-theme only, so dark mode was not validated (the amber and red steps would need re-stepping for a dark surface).
 
 Notes and caveats:
 - **v1 really does beat the "nobody" baseline** (97.6% vs 88%), so the accuracy trap is gentler than in the DNA slides; the page leans on base rate and precision/recall, and Stage 2 explains why v1 is so good.
-- Answers to the six factual questions are kept under a plain session key so they survive navigation.
+- Answers to the five factual questions are kept under a plain session key so they survive navigation.
 - Per-1,000 counts are scaled from 3,000 test patients and can be out by a few patients; the page says so.
 - Not covered by `AppTest`: how the charts actually look in a browser.
 
@@ -89,7 +95,7 @@ Deviations and notes:
 | Patients flagged at 50% | 344 | 16 | |
 | Trees after early stopping | 156 | 70 | |
 | SHAP additivity max error | 0.0000 pp | 0.0000 pp | base + contributions = predicted risk |
-| Explainer base value E[f(X)] | 11.5% | 11.7% | Close to the 12% base rate |
+| Explainer base value E[f(X)] | 12.5% | 12.8% | Close to the 12% base rate |
 
 Top features: v1 is led by the three post-discharge columns (community nursing visits, GP contacts, outpatient follow-up), then age; v2 is led by long-term conditions, age, discharge specialty and deprivation decile.
 
@@ -103,7 +109,7 @@ Exports in `app/data/`:
 - `meta.json`: seed, library versions, split sizes, base rates, metrics.
 
 Notes and deviations:
-- **Background sample is 500, not the slides' 100.** With 100 the v2 base value came out at 13.9% against a true 12% average, which would confuse the "E[f(X)] is the average across all patients" explanation. 500 gives 11.7%.
+- **Background sample is 500, not the slides' 100.** With 100 the v2 base value came out at 13.9% against a true 12% average, which would confuse the "E[f(X)] is the average across all patients" explanation. (Originally this note claimed 500 gave 11.7%, but shap was still subsampling to 100; fixed on 2026-10-13, base values are now 12.5% / 12.8%.)
 - **v2 at the 50% cut-off flags only 16 of 3,000** and is 88.0% accurate, about the same as predicting nobody (88.0% of the test set is not readmitted). This mirrors the slides' DNA story, but Stage 1 must work through a capacity-based cut-off, not 50%.
 - **v2 AUC is 0.699**, near the lower end of the 0.68–0.75 band, in line with the DNA model's 0.64 in the slides. The assertion holds, but if the dataset is regenerated with a different seed, check it.
 - Friday (whole extract): 15.8% vs 11.0% overall; elderly care 19.9% Friday vs 19.9% other days; other wards 9.6% vs 10.1%. 60% of Friday discharges are elderly care vs 9% of other days.
