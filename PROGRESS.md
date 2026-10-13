@@ -2,22 +2,34 @@
 
 Tracks work against [PLAN.md](PLAN.md). Last updated 2026-10-08.
 
+## Framing change (2026-10-13)
+
+The model is now presented as built **in-house by analysts and data scientists**, with the group as the panel deciding whether it goes into use (previously a vendor's model the organisation was considering buying). Updated: Briefing and Stage 1–2 wording (no vendor; "ask the analytics team"; a line that responsibility for safety sits with the organisation), PLAN.md, CONTEXT.md (DCB0129 manufacturer is us), the build script docstring and the checklist wording. Leakage is framed as an easy mistake that sign-off exists to catch. PLAN-CRITIQUE.md is a dated review and was left as written; its "vendor" references predate this change.
+
+Consequences to carry into chunk 5: the in-house case makes DCB0129 and the Health Institution Exemption directly relevant to Stage 3 (check the exact conditions against current guidance before delivery), and the "accountable owner" sign-off condition is now about a named internal owner.
+
 ## Status
 
 | Chunk | Description | Status | Issues identified / points to address |
 |---|---|---|---|
 | 1 | Scaffold + synthetic data generation | Done (committed) | **Addressed:** generator now asserts within-specialty Friday gaps are consistent with sampling noise (max abs z below 3.5, pooled gap under 1 point; current max z 1.3, pooled -0.22%); deprivation wording in PLAN.md and the generator docstring now says it has a direct effect; build dependencies pinned in `requirements-build.txt` (still run via the slides repo's `.venv`, Python 3.14.3; a standalone venv and README instructions remain for chunk 6). |
 | 2 | XGBoost v1/v2, SHAP, export to `app/data/` | Done (committed) | **Addressed:** AUC assertions are now on the held-out test split; headline figures are in `meta.json`; row alignment and SHAP additivity (in probability units) are asserted. Still to do in the app: read displayed metrics from the exports rather than hard-coding. |
-| 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (committed) | **Addressed:** vendor figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
+| 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (committed) | **Addressed:** headline figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
 | 4 | Stages 1–2 (is it any good? / too good to be true?) | Done (uncommitted) | **Addressed:** capacity is one control (patients phoned per 1,000 discharges) with the risk cut-off shown as a consequence; counts always sum to 1,000; outcomes described as historical readmissions; the trade-off decision is recorded before considerations are shown, with no right answer. **Still open:** discharge volume and time period are left to the facilitator; visual/screenshot and keyboard/contrast checks not done. |
 | 5 | Stages 3–4 (interventions / bringing people with you) | Not started | Acceptability, fairness and medical-device categories overlap; assess them separately and split transport from pharmacy review. Do not assume appointment-reminder classifications transfer to readmission. Distinguish prediction from intervention benefit, explain residual Friday variation, and use SHAP to support scrutiny. Reduce compulsory examples to fit the time available. |
 | 6 | Stage 5, facilitator page, `pack.py`, README | Not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
 
-Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on 2026-10-08 to separate acceptability / harms / device assessment, add intervention evaluation to sign-off, record judgement answers before feedback, define capacity as number called, derive vendor figures from exports, and mark compulsory vs optional content. Timings, the deck position, the support call's intended purpose and the deployment URL still need decisions from the course lead.
+Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on 2026-10-08 to separate acceptability / harms / device assessment, add intervention evaluation to sign-off, record judgement answers before feedback, define capacity as number called, derive headline figures from exports, and mark compulsory vs optional content. Timings, the deck position, the support call's intended purpose and the deployment URL still need decisions from the course lead.
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
 
 ## Chunk 4: what exists
+
+**Label wording, second pass (2026-10-13):** grid labels now read "Model would recommend a call, and in reality they were readmitted" (and the three other combinations), with the same "model would recommend" / "in reality" framing in the thought-experiment box, caption, cut-off note and Stage 2 text. The icon-array legend is now vertical (the labels are long) and the chart a little taller.
+
+**Cut-off made prominent (2026-10-13):** Stage 1 now shows two large figures above the grid (calls per 1,000, and "phone anyone with a predicted risk of at least X%") with a note that the cut-off follows from capacity and the change in percentage points each time the slider moves. **Bug fixed along the way:** the slider's default was passed as a changing `value=`, which changes the widget's identity on every move and could reset it; it is now a keyed widget seeded once from the plain `capacity_choice` key. The bug was in the committed chunk 4 version.
+
+**Wording fix (2026-10-13):** the grid labels used "Called", which read as calls that had actually happened. They are now "Would be called …" (the model's list, applied retrospectively; no calls were made) with "was readmitted" as the real outcome. Stage 1 also has a "thought experiment" box stating that nobody was actually phoned, and the precision/recall text uses "would" throughout.
 
 - [app/metrics.py](app/metrics.py): `call_outcomes(p, y, calls_per_1000)` (the slides' method: scale held-out test set to 1,000, round so the four counts sum to exactly 1,000, stable sort for ties) and `baseline_accuracy`. numpy only.
 - [app/charts.py](app/charts.py): `icon_array` (1,000 markers, 40 x 25, four groups with different marker shapes) and `importance_bar` (mean |SHAP| in percentage points, one navy hue).
@@ -29,10 +41,10 @@ Numbers shown (held-out, per 1,000 discharges, 100 calls):
 
 | | v1 | v2 |
 |---|---|---|
-| Called and readmitted | 97 | 33 |
-| Called, not readmitted | 3 | 67 |
-| Not called, readmitted | 23 | 87 |
-| Not called, not readmitted | 877 | 813 |
+| Model would recommend a call; readmitted | 97 | 33 |
+| Model would recommend a call; not readmitted | 3 | 67 |
+| Model would not recommend a call; readmitted | 23 | 87 |
+| Model would not recommend a call; not readmitted | 877 | 813 |
 | Precision / recall | 97% / 81% | 33% / 28% (random calling about 12%) |
 
 Verification done: unit checks that the four counts sum to 1,000 for every capacity 0 to 1,000 and that precision at 100 per 1,000 matches an independent calculation; `AppTest` walkthrough (slider changes counts, decision recorded, factual feedback fires, reveal gated until all six answered, v2 view renders, state survives navigation); the dataviz palette validator was run on the icon-array colours.
@@ -52,7 +64,7 @@ Run from the repo root: `streamlit run app/streamlit_app.py` (root `.streamlit/c
 - [app/streamlit_app.py](app/streamlit_app.py): page config, banner and top-bar CSS (from the vidigi app), `st.navigation(position="top")` over seven pages, shared state init. Only the hsma.co.uk icon is linked; the GitHub icon waits for a repository URL.
 - [app/styles.css](app/styles.css): vidigi stylesheet trimmed (Lexend, navy, tab styling, block container); dead `st-emotion-cache-*` and exercise-specific rules dropped.
 - [app/ui.py](app/ui.py): `load_css`, `init_state`, `record_decision`/`get_decision`, cached loaders for `meta.json`, `features.json`, `test_predictions.csv`, `task_box`, `stage_header`, `synthetic_notice`, `stub`.
-- [app/app_pages/briefing.py](app/app_pages/briefing.py): vendor pitch (97.6% accurate, AUC 0.99, from `meta.json`, 50% cut-off stated), AUC explained once, panel role, draft call description, synthetic notice, first-impression radio (no default) with optional reason and a "Record" button. Once recorded it is shown read-only and not overwritten.
+- [app/app_pages/briefing.py](app/app_pages/briefing.py): analytics team's summary (97.6% accurate, AUC 0.99, from `meta.json`, 50% cut-off stated), AUC explained once, panel role, draft call description, synthetic notice, first-impression radio (no default) with optional reason and a "Record" button. Once recorded it is shown read-only and not overwritten.
 - Stub pages for stages 1–5 and the facilitator page, so navigation and state persistence can be exercised.
 - [requirements.txt](requirements.txt): streamlit, pandas, numpy, plotly==6.0.1.
 
