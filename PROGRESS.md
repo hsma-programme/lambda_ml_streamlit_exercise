@@ -7,8 +7,8 @@ Tracks work against [PLAN.md](PLAN.md). Last updated 2026-10-08.
 | Chunk | Description | Status | Issues identified / points to address |
 |---|---|---|---|
 | 1 | Scaffold + synthetic data generation | Done (committed) | **Addressed:** generator now asserts within-specialty Friday gaps are consistent with sampling noise (max abs z below 3.5, pooled gap under 1 point; current max z 1.3, pooled -0.22%); deprivation wording in PLAN.md and the generator docstring now says it has a direct effect; build dependencies pinned in `requirements-build.txt` (still run via the slides repo's `.venv`, Python 3.14.3; a standalone venv and README instructions remain for chunk 6). |
-| 2 | XGBoost v1/v2, SHAP, export to `app/data/` | Done (uncommitted) | **Addressed:** AUC assertions are now on the held-out test split; headline figures are in `meta.json`; row alignment and SHAP additivity (in probability units) are asserted. Still to do in the app: read displayed metrics from the exports rather than hard-coding. |
-| 3 | App shell, shared helpers, Stage 0 (Briefing) | Not started | Hard-coded vendor figures may disagree with final results. Define the support call's intended purpose and fix the exercise's position in the deck. Preserve the initial verdict before reveals; distinguish factual feedback from feedback on judgment. Accessibility and navigation/state persistence remain untested. |
+| 2 | XGBoost v1/v2, SHAP, export to `app/data/` | Done (committed) | **Addressed:** AUC assertions are now on the held-out test split; headline figures are in `meta.json`; row alignment and SHAP additivity (in probability units) are asserted. Still to do in the app: read displayed metrics from the exports rather than hard-coding. |
+| 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (uncommitted) | **Addressed:** vendor figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
 | 4 | Stages 1–2 (is it any good? / too good to be true?) | Not started | Probability cut-off and call-capacity controls are conflated; define the selection rule, denominator and time period. Make counts out of 1,000 consistent and describe historical readmissions, not prevented readmissions. Capacity choices should allow reasoned disagreement. |
 | 5 | Stages 3–4 (interventions / bringing people with you) | Not started | Acceptability, fairness and medical-device categories overlap; assess them separately and split transport from pharmacy review. Do not assume appointment-reminder classifications transfer to readmission. Distinguish prediction from intervention benefit, explain residual Friday variation, and use SHAP to support scrutiny. Reduce compulsory examples to fit the time available. |
 | 6 | Stage 5, facilitator page, `pack.py`, README | Not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
@@ -16,6 +16,27 @@ Tracks work against [PLAN.md](PLAN.md). Last updated 2026-10-08.
 Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on 2026-10-08 to separate acceptability / harms / device assessment, add intervention evaluation to sign-off, record judgement answers before feedback, define capacity as number called, derive vendor figures from exports, and mark compulsory vs optional content. Timings, the deck position, the support call's intended purpose and the deployment URL still need decisions from the course lead.
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
+
+## Chunk 3: what exists
+
+Run from the repo root: `streamlit run app/streamlit_app.py` (root `.streamlit/config.toml` enables static serving for the banner).
+
+- [app/streamlit_app.py](app/streamlit_app.py): page config, banner and top-bar CSS (from the vidigi app), `st.navigation(position="top")` over seven pages, shared state init. Only the hsma.co.uk icon is linked; the GitHub icon waits for a repository URL.
+- [app/styles.css](app/styles.css): vidigi stylesheet trimmed (Lexend, navy, tab styling, block container); dead `st-emotion-cache-*` and exercise-specific rules dropped.
+- [app/ui.py](app/ui.py): `load_css`, `init_state`, `record_decision`/`get_decision`, cached loaders for `meta.json`, `features.json`, `test_predictions.csv`, `task_box`, `stage_header`, `synthetic_notice`, `stub`.
+- [app/app_pages/briefing.py](app/app_pages/briefing.py): vendor pitch (97.6% accurate, AUC 0.99, from `meta.json`, 50% cut-off stated), AUC explained once, panel role, draft call description, synthetic notice, first-impression radio (no default) with optional reason and a "Record" button. Once recorded it is shown read-only and not overwritten.
+- Stub pages for stages 1–5 and the facilitator page, so navigation and state persistence can be exercised.
+- [requirements.txt](requirements.txt): streamlit, pandas, numpy, plotly==6.0.1.
+
+Verification done: `AppTest` run (no exceptions; verdict recorded; persists across a page switch; widget replaced by read-only message), and a headless `streamlit run` returning 200 for health and the banner. Not done: visual screenshot, keyboard/contrast checks.
+
+Deviations and notes:
+- **Pages folder is `app/app_pages/`, not `app/pages/`.** Streamlit's guidance is that `pages/` conflicts with legacy auto-discovery. PLAN.md's layout should be read accordingly.
+- **`charts.py` is deferred to chunk 4**, where the first chart is built.
+- **Plotly vs Streamlit's guidance:** Streamlit's bundled guidance prefers Vega-based charts, but PLAN.md specifies plotly (icon array, waterfall) and the stlite pin is already set. Keep plotly; revisit if a chart is awkward.
+- **`persist_state` not used.** It exists in newer Streamlit but isn't guaranteed in the stlite-bundled 1.57. Plain session-state keys are used instead.
+- The stlite banner URL points at the vidigi repo's raw file as a placeholder (flagged with a TODO).
+- The Briefing AUC explanation says the figure is quoted at a 50% cut-off. Stage 1 will show that at this cut-off v2 flags only 16 of 3,000 patients.
 
 ## Chunk 2: what exists
 
@@ -84,4 +105,4 @@ The AUCs are from a quick logistic check inside the generator. The binding AUC a
 
 ## Next
 
-Chunk 3: app shell and shared helpers (`streamlit_app.py`, `styles.css`, `ui.py`, `charts.py`, `requirements.txt`) and the Stage 0 Briefing page with the first-impression verdict. Before building Stage 1, decide the call-capacity framing (number called per 1,000 discharges) and check the Friday-specific SHAP values.
+Chunk 4: Stages 1–2. Load the `dataviz` skill, add `charts.py` (1,000-patient icon array, SHAP global bar), build the accuracy trap and call-capacity grid (learner sets how many highest-risk patients are phoned per 1,000 discharges), then the leakage exercise and v1 to v2 reveal. Needs the course lead's confirmation of the call's intended purpose before Stage 3.
