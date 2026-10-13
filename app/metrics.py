@@ -2,11 +2,13 @@
 import numpy as np
 
 # Outcome labels, adapted from the slides' "Who gets a call?" grid to readmission.
+# Nobody in the test data was actually phoned: "would recommend a call" is the model's
+# list, built after the event, and "in reality" is what actually happened to that patient.
 GROUPS = [
-    ("called_readmitted", "Called, and was readmitted"),
-    ("called_not", "Called, but was not readmitted"),
-    ("not_called_readmitted", "Not called, and was readmitted"),
-    ("not_called_not", "Not called, and was not readmitted"),
+    ("called_readmitted", "Model would recommend a call, and in reality they were readmitted"),
+    ("called_not", "Model would recommend a call, but in reality they were not readmitted"),
+    ("not_called_readmitted", "Model would not recommend a call, but in reality they were readmitted"),
+    ("not_called_not", "Model would not recommend a call, and in reality they were not readmitted"),
 ]
 
 
