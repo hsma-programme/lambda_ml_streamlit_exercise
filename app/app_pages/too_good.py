@@ -6,7 +6,8 @@ import metrics
 import ui
 
 VERDICTS = ["Approve", "Approve with conditions", "Reject"]
-YES, NO = "Yes, known at discharge", "No, only known later"
+YES = "Yes: the model would have this when it is run on a real patient"
+NO = "No: this wouldn't exist yet when the model is run on a real patient"
 
 meta = ui.load_meta()
 features = ui.load_features()
@@ -37,9 +38,31 @@ with t2.container(border=True):
 with t3.container(border=True):
     st.markdown("**30 days later**\n\nWe find out who was readmitted.")
 
-st.subheader("Known at the moment of discharge?")
-st.markdown("For each of the six factors the model relies on most, would that information exist when the patient leaves?")
-top6 = list(imp_v1)[:6]
+st.subheader("Could the model use this on a real patient?")
+st.markdown(
+    "This is the model's training data: **an extract produced 30 days after each patient left hospital**. "
+    "In real use, the model would be run on a patient as they leave hospital, to decide who to phone. "
+    "For each of these five factors from the chart, could the model actually be given that "
+    "information at that point?"
+)
+with st.expander("Need a hint?"):
+    st.markdown(
+        "Ask: *if I were looking at this patient's record on the day they went home, could I fill this in?* "
+        "Each factor says what period it **covers**. Compare that with the moment we need the prediction. "
+        "The extract was produced a month later, so a column being in the data doesn't mean it was "
+        "available when the patient left."
+    )
+# Five of the eight factors on the chart, chosen to cover each case: known before admission,
+# built up during the stay (so available at discharge but not at admission), and recorded only
+# after discharge. The three post-discharge columns are near-duplicates, so only two are asked.
+EXERCISE = [
+    "gp_contacts_since_discharge",
+    "age",
+    "length_of_stay_days",
+    "outpatient_followup_attended",
+    "emergency_admissions_prev_12m",
+]
+top6 = EXERCISE
 # Widget keys are dropped when the page isn't rendered, so keep answers under a plain key.
 stored = st.session_state.setdefault("known_answers", {})
 answers = {}
@@ -47,7 +70,7 @@ for key in top6:
     f = features[key]
     options = [YES, NO]
     ans = st.radio(
-        f"**{f['display']}**: {f['description']}",
+        f"**{f['display']}**: {f['description']} *(Covers: {f['covers']}.)*",
         options,
         index=options.index(stored[key]) if key in stored else None,
         horizontal=True,
@@ -56,11 +79,7 @@ for key in top6:
     if ans is not None:
         stored[key] = ans
     answers[key] = ans
-    ui.factual_check(
-        ans,
-        YES if f["known_at_discharge"] else NO,
-        "We would have this at discharge." if f["known_at_discharge"] else "We would only have this after discharge.",
-    )
+    ui.factual_check(ans, YES if f["known_at_discharge"] else NO, f["why"])
 
 if not all(a is not None for a in answers.values()):
     st.stop()
