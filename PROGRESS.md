@@ -16,12 +16,32 @@ Consequences to carry into chunk 5: the in-house case makes DCB0129 and the Heal
 | 2 | XGBoost v1/v2, SHAP, export to `app/data/` | Done (committed) | **Addressed:** AUC assertions are now on the held-out test split; headline figures are in `meta.json`; row alignment and SHAP additivity (in probability units) are asserted. Still to do in the app: read displayed metrics from the exports rather than hard-coding. |
 | 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (committed) | **Addressed:** headline figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
 | 4 | Stages 1–2 (is it any good? / too good to be true?) | Done (uncommitted) | **Addressed:** capacity is one control (patients phoned per 1,000 discharges) with the risk cut-off shown as a consequence; counts always sum to 1,000; outcomes described as historical readmissions; the trade-off decision is recorded before considerations are shown, with no right answer. **Still open:** discharge volume and time period are left to the facilitator; visual/screenshot and keyboard/contrast checks not done. |
-| 5 | Stages 3–4 (interventions / bringing people with you) | Not started | Acceptability, fairness and medical-device categories overlap; assess them separately and split transport from pharmacy review. Do not assume appointment-reminder classifications transfer to readmission. Distinguish prediction from intervention benefit, explain residual Friday variation, and use SHAP to support scrutiny. Reduce compulsory examples to fit the time available. |
+| 5 | Stages 3–4 (interventions / bringing people with you) | Stage 3 done (uncommitted); Stage 4 not started | Acceptability, fairness and medical-device categories overlap; assess them separately and split transport from pharmacy review. Do not assume appointment-reminder classifications transfer to readmission. Distinguish prediction from intervention benefit, explain residual Friday variation, and use SHAP to support scrutiny. Reduce compulsory examples to fit the time available. |
 | 6 | Stage 5, facilitator page, `pack.py`, README | Not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
 
 Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on 2026-10-08 to separate acceptability / harms / device assessment, add intervention evaluation to sign-off, record judgement answers before feedback, define capacity as number called, derive headline figures from exports, and mark compulsory vs optional content. Timings, the deck position, the support call's intended purpose and the deployment URL still need decisions from the course lead.
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
+
+## Chunk 5, Stage 3: what exists
+
+[app/app_pages/what_will_we_do.py](app/app_pages/what_will_we_do.py), with content in [app/interventions.py](app/interventions.py) and `friday_bars` in `charts.py`.
+
+- Seven candidate uses of the list: **compulsory** support phone call, clinician brings forward follow-up / reviews medication, and delay discharge for high-risk patients; **optional** (in an expander) transport support, pharmacist medicines review (split from transport, as the review asked), ban Friday discharges (with the data reveal), and deprioritise "frequent readmitters" for elective care. (Friday was originally compulsory and was swapped for delay discharge at your request; the pedagogical trade-off is noted below.)
+- A banner says the app won't mark answers right or wrong at this stage. Where relevant (follow-up/medication review, transport, pharmacist review, delay discharge) the considerations note that the model could be rebuilt to predict earlier, e.g. the day before discharge, with the cost that it could use less information and would need re-testing.
+- For each, three separate questions (support? harms to investigate? likely a medical device?), recorded before any considerations are shown, with no correct/incorrect banner. Considerations give a device reading, harms/fairness and "does it help?", plus a caveat to check current MHRA guidance and the Clinical Safety Officer. Answers can be changed.
+- Friday: after the group records its answers, a grouped bar chart and text show Friday vs other days overall (15.8% vs 11.0%), the elderly-care share of Friday discharges (60% vs 9%), and the near-equal rates within elderly care (19.9% vs 19.9%) and other wards (9.6% vs 10.1%), with the slides' "prediction is not the effect of an action" point and a caveat that the figures can't prove a ban would have no effect.
+- "Because we built it ourselves": DCB0129 / DCB0160 and the Clinical Safety Officer, plus an expander on the Health Institution Exemption (conditions as listed in the slides).
+- Decisions are held in `st.session_state["interventions"]` (a plain dict keyed by use) for the Stage 5 summary.
+
+Verification: `AppTest` walkthrough (page renders; three compulsory uses recorded; Friday section appears; progress reads 3 of 3; answers persist across navigation; no exceptions).
+
+Open points for review:
+- **The device readings are mine**, applied from the slides' framework to a readmission use. They need your (and ideally a Clinical Safety Officer's) review, especially "support phone call: depends on intended purpose", and the exemption wording, before delivery. Several readings depend on the intended purpose of the call, which is still my draft.
+- Wording avoids claims about what "most groups" conclude.
+- **Pedagogical trade-off of the Friday swap:** the Friday item is the only place the causal-confounding lesson is shown with data, and with it optional many groups will skip it. Delay discharge and the follow-up item are both "clinical care, likely a device", so the compulsory set now has two similar answers and no causal-reading example. Alternative: make Friday compulsory and move follow-up to optional.
+- Whether three compulsory uses fit the time available is untested; the optional four may be too many.
+- Not checked in a browser; keyboard/contrast checks outstanding.
 
 ## Chunk 4: what exists
 
@@ -151,4 +171,4 @@ The AUCs are from a quick logistic check inside the generator. The binding AUC a
 
 ## Next
 
-Chunk 5: Stages 3–4. Needs the course lead's confirmation of the support call's intended purpose before the device wording is finalised. Stage 3: three separate questions per intervention (support, harms to investigate, device assessment), Friday-rate reveal (raw, then elderly care vs other wards); Stage 4: one compulsory waterfall plus statement choice, covering limitations and scrutiny.
+Stage 4 ("Bringing people with you"): one compulsory waterfall patient plus the statement-choice exercise, covering limitations, uncertainty and reasons to scrutinise the model, then Stage 5 sign-off, the facilitator page and the pack. Needs your review of Stage 3's device readings and the call's intended purpose first.
