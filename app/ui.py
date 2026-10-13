@@ -94,3 +94,8 @@ def load_shap_summary() -> dict:
 def capacity() -> int:
     """The call capacity (patients phoned per 1,000 discharges) the group has chosen."""
     return int(st.session_state.get("capacity_choice") or 100)
+
+
+@st.cache_data
+def load_friday() -> dict:
+    return json.loads((DATA_DIR / "friday.json").read_text(encoding="utf-8"))

@@ -76,3 +76,39 @@ def importance_bar(importance: dict, features: dict, top: int = 10, title: str |
         bargap=0.45,
     )
     return fig
+
+
+def friday_bars(friday: dict) -> go.Figure:
+    """Readmission rate, Friday vs other days: all patients, then within elderly care / other wards."""
+    groups = [
+        ("All patients", friday["friday"]["rate"], friday["other_days"]["rate"]),
+        ("Elderly care wards", friday["elderly_care"]["friday"]["rate"], friday["elderly_care"]["other_days"]["rate"]),
+        ("All other wards", friday["other_wards"]["friday"]["rate"], friday["other_wards"]["other_days"]["rate"]),
+    ]
+    names = [g[0] for g in groups]
+    fig = go.Figure()
+    for label, idx, colour in (("Discharged on a Friday", 1, "#2a78d6"), ("Discharged on another day", 2, "#eb6834")):
+        vals = [g[idx] * 100 for g in groups]
+        fig.add_trace(
+            go.Bar(
+                x=names,
+                y=vals,
+                name=label,
+                marker_color=colour,
+                text=[f"{v:.1f}%" for v in vals],
+                textposition="outside",
+                hovertemplate="%{x}, " + label.lower() + ": %{y:.1f}%<extra></extra>",
+            )
+        )
+    fig.update_layout(
+        barmode="group",
+        height=360,
+        margin=dict(l=0, r=0, t=10, b=0),
+        yaxis=dict(title="Readmitted within 30 days (%)", rangemode="tozero"),
+        legend=dict(orientation="h", yanchor="bottom", y=1.0, x=0),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(family="Lexend, sans-serif", color=NAVY),
+        bargap=0.35,
+    )
+    return fig
