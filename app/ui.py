@@ -74,3 +74,23 @@ def stub(title: str, built_in: str) -> None:
     stage_header(title)
     st.info(f"This stage is still being built ({built_in}).")
     synthetic_notice()
+
+
+def factual_check(answer: str | None, correct: str, explanation: str) -> None:
+    """Immediate feedback for an objectively answerable question (not for judgement calls)."""
+    if answer is None:
+        return
+    if answer == correct:
+        st.success(f"Correct. {explanation}")
+    else:
+        st.warning(f"Not quite. {explanation}")
+
+
+@st.cache_data
+def load_shap_summary() -> dict:
+    return json.loads((DATA_DIR / "shap_summary.json").read_text(encoding="utf-8"))
+
+
+def capacity() -> int:
+    """The call capacity (patients phoned per 1,000 discharges) the group has chosen."""
+    return int(st.session_state.get("capacity_choice") or 100)

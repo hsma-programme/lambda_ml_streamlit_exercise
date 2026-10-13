@@ -8,14 +8,42 @@ Tracks work against [PLAN.md](PLAN.md). Last updated 2026-10-08.
 |---|---|---|---|
 | 1 | Scaffold + synthetic data generation | Done (committed) | **Addressed:** generator now asserts within-specialty Friday gaps are consistent with sampling noise (max abs z below 3.5, pooled gap under 1 point; current max z 1.3, pooled -0.22%); deprivation wording in PLAN.md and the generator docstring now says it has a direct effect; build dependencies pinned in `requirements-build.txt` (still run via the slides repo's `.venv`, Python 3.14.3; a standalone venv and README instructions remain for chunk 6). |
 | 2 | XGBoost v1/v2, SHAP, export to `app/data/` | Done (committed) | **Addressed:** AUC assertions are now on the held-out test split; headline figures are in `meta.json`; row alignment and SHAP additivity (in probability units) are asserted. Still to do in the app: read displayed metrics from the exports rather than hard-coding. |
-| 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (uncommitted) | **Addressed:** vendor figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
-| 4 | Stages 1–2 (is it any good? / too good to be true?) | Not started | Probability cut-off and call-capacity controls are conflated; define the selection rule, denominator and time period. Make counts out of 1,000 consistent and describe historical readmissions, not prevented readmissions. Capacity choices should allow reasoned disagreement. |
+| 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (committed) | **Addressed:** vendor figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
+| 4 | Stages 1–2 (is it any good? / too good to be true?) | Done (uncommitted) | **Addressed:** capacity is one control (patients phoned per 1,000 discharges) with the risk cut-off shown as a consequence; counts always sum to 1,000; outcomes described as historical readmissions; the trade-off decision is recorded before considerations are shown, with no right answer. **Still open:** discharge volume and time period are left to the facilitator; visual/screenshot and keyboard/contrast checks not done. |
 | 5 | Stages 3–4 (interventions / bringing people with you) | Not started | Acceptability, fairness and medical-device categories overlap; assess them separately and split transport from pharmacy review. Do not assume appointment-reminder classifications transfer to readmission. Distinguish prediction from intervention benefit, explain residual Friday variation, and use SHAP to support scrutiny. Reduce compulsory examples to fit the time available. |
 | 6 | Stage 5, facilitator page, `pack.py`, README | Not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
 
 Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on 2026-10-08 to separate acceptability / harms / device assessment, add intervention evaluation to sign-off, record judgement answers before feedback, define capacity as number called, derive vendor figures from exports, and mark compulsory vs optional content. Timings, the deck position, the support call's intended purpose and the deployment URL still need decisions from the course lead.
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
+
+## Chunk 4: what exists
+
+- [app/metrics.py](app/metrics.py): `call_outcomes(p, y, calls_per_1000)` (the slides' method: scale held-out test set to 1,000, round so the four counts sum to exactly 1,000, stable sort for ties) and `baseline_accuracy`. numpy only.
+- [app/charts.py](app/charts.py): `icon_array` (1,000 markers, 40 x 25, four groups with different marker shapes) and `importance_bar` (mean |SHAP| in percentage points, one navy hue).
+- [app/app_pages/is_it_any_good.py](app/app_pages/is_it_any_good.py): Stage 1 on v1. Accuracy check (88% for "nobody" vs 97.6%), capacity slider (20 to 300 per 1,000), icon array, precision/recall in plain English, a table view, then the recorded trade-off decision followed by things to weigh.
+- [app/app_pages/too_good.py](app/app_pages/too_good.py): Stage 2. v1 importance bar, discharge timeline, six "known at discharge?" questions with immediate feedback (the only categorical feedback), leakage reveal gated on all six, v1 to v2 rebuild with side-by-side metrics and icon arrays at the group's capacity, v2 importance, then a recorded "has this changed your view?" (`stage2_verdict`).
+- `ui.py` gained `factual_check`, `load_shap_summary` and `capacity`.
+
+Numbers shown (held-out, per 1,000 discharges, 100 calls):
+
+| | v1 | v2 |
+|---|---|---|
+| Called and readmitted | 97 | 33 |
+| Called, not readmitted | 3 | 67 |
+| Not called, readmitted | 23 | 87 |
+| Not called, not readmitted | 877 | 813 |
+| Precision / recall | 97% / 81% | 33% / 28% (random calling about 12%) |
+
+Verification done: unit checks that the four counts sum to 1,000 for every capacity 0 to 1,000 and that precision at 100 per 1,000 matches an independent calculation; `AppTest` walkthrough (slider changes counts, decision recorded, factual feedback fires, reveal gated until all six answered, v2 view renders, state survives navigation); the dataviz palette validator was run on the icon-array colours.
+
+Palette validation: light-mode green / amber / red / grey pass lightness, CVD separation (worst adjacent 8.2) and normal-vision floors. The grey fails the chroma floor and is below 3:1 contrast. This is intentional (it is the large "nothing happens" group and should recede), relieved by a distinct marker shape, a labelled legend with counts, hover text and the table view. The app is light-theme only, so dark mode was not validated (the amber and red steps would need re-stepping for a dark surface).
+
+Notes and caveats:
+- **v1 really does beat the "nobody" baseline** (97.6% vs 88%), so the accuracy trap is gentler than in the DNA slides; the page leans on base rate and precision/recall, and Stage 2 explains why v1 is so good.
+- Answers to the six factual questions are kept under a plain session key so they survive navigation.
+- Per-1,000 counts are scaled from 3,000 test patients and can be out by a few patients; the page says so.
+- Not covered by `AppTest`: how the charts actually look in a browser.
 
 ## Chunk 3: what exists
 
@@ -105,4 +133,4 @@ The AUCs are from a quick logistic check inside the generator. The binding AUC a
 
 ## Next
 
-Chunk 4: Stages 1–2. Load the `dataviz` skill, add `charts.py` (1,000-patient icon array, SHAP global bar), build the accuracy trap and call-capacity grid (learner sets how many highest-risk patients are phoned per 1,000 discharges), then the leakage exercise and v1 to v2 reveal. Needs the course lead's confirmation of the call's intended purpose before Stage 3.
+Chunk 5: Stages 3–4. Needs the course lead's confirmation of the support call's intended purpose before the device wording is finalised. Stage 3: three separate questions per intervention (support, harms to investigate, device assessment), Friday-rate reveal (raw, then elderly care vs other wards); Stage 4: one compulsory waterfall plus statement choice, covering limitations and scrutiny.
