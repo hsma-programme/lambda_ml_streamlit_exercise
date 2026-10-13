@@ -19,14 +19,14 @@
       "accuracy_at_50pct": 0.9763333333333334,
       "n_flagged_at_50pct": 344,
       "best_iteration": 156,
-      "shap_additivity_max_error_pp": 2.2738531214372415e-05
+      "shap_additivity_max_error_pp": 2.2790574803366326e-05
     },
     "v2": {
       "auc_test": 0.6985516632569837,
       "accuracy_at_50pct": 0.8803333333333333,
       "n_flagged_at_50pct": 16,
       "best_iteration": 70,
-      "shap_additivity_max_error_pp": 1.784696455686685e-05
+      "shap_additivity_max_error_pp": 1.7845207638700344e-05
     }
   }
 }

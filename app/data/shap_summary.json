@@ -1,37 +1,37 @@
 {
   "base_value_pp": {
-    "v1": 11.454743022379304,
-    "v2": 11.704707509157657
+    "v1": 12.478016086517444,
+    "v2": 12.778135330192342
   },
   "mean_abs_shap_pp": {
     "v1": {
-      "community_nursing_visits_since_discharge": 9.7195,
-      "gp_contacts_since_discharge": 5.5665,
-      "outpatient_followup_attended": 3.6642,
-      "age": 1.0875,
-      "long_term_conditions": 0.6904,
-      "deprivation_decile": 0.4191,
-      "emergency_admissions_prev_12m": 0.3283,
-      "number_of_medications": 0.311,
-      "discharge_specialty": 0.2987,
-      "length_of_stay_days": 0.2948,
-      "discharge_day": 0.2585,
-      "discharge_destination": 0.2455,
-      "lives_alone": 0.1488,
-      "sex": 0.1134
+      "community_nursing_visits_since_discharge": 10.4256,
+      "gp_contacts_since_discharge": 5.7027,
+      "outpatient_followup_attended": 3.523,
+      "age": 0.9938,
+      "long_term_conditions": 0.6269,
+      "deprivation_decile": 0.3742,
+      "emergency_admissions_prev_12m": 0.3216,
+      "length_of_stay_days": 0.3066,
+      "discharge_specialty": 0.2936,
+      "number_of_medications": 0.2633,
+      "discharge_destination": 0.2567,
+      "discharge_day": 0.239,
+      "lives_alone": 0.1421,
+      "sex": 0.1012
     },
     "v2": {
-      "long_term_conditions": 2.7314,
-      "age": 2.3806,
-      "discharge_specialty": 1.3237,
-      "deprivation_decile": 1.3148,
-      "emergency_admissions_prev_12m": 1.1083,
-      "lives_alone": 0.9239,
-      "length_of_stay_days": 0.8064,
-      "number_of_medications": 0.7446,
-      "discharge_destination": 0.7096,
-      "discharge_day": 0.3343,
-      "sex": 0.0667
+      "long_term_conditions": 2.8069,
+      "age": 2.5054,
+      "deprivation_decile": 1.3379,
+      "discharge_specialty": 1.2984,
+      "emergency_admissions_prev_12m": 1.1489,
+      "lives_alone": 0.9279,
+      "length_of_stay_days": 0.8634,
+      "number_of_medications": 0.7412,
+      "discharge_destination": 0.73,
+      "discharge_day": 0.3309,
+      "sex": 0.0673
     }
   }
 }

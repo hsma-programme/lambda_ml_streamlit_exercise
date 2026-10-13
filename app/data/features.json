@@ -2,71 +2,99 @@
   "age": {
     "display": "Age",
     "known_at_discharge": true,
-    "description": "Patient's age in years at discharge."
+    "description": "Patient's age in years.",
+    "covers": "the patient's age at admission",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "sex": {
     "display": "Sex",
     "known_at_discharge": true,
-    "description": "Recorded sex (male = 1)."
+    "description": "Recorded sex (male = 1).",
+    "covers": "the patient's record",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "deprivation_decile": {
     "display": "Deprivation decile",
     "known_at_discharge": true,
-    "description": "Area deprivation of the patient's home, 1 = most deprived, 10 = least."
+    "description": "Deprivation of the area the patient lives in (1 = most deprived, 10 = least).",
+    "covers": "the patient's home address",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "long_term_conditions": {
     "display": "Long-term conditions",
     "known_at_discharge": true,
-    "description": "Number of long-term conditions on the record."
+    "description": "Number of long-term conditions on the patient's record.",
+    "covers": "the patient's record up to admission",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "emergency_admissions_prev_12m": {
     "display": "Emergency admissions in previous 12 months",
     "known_at_discharge": true,
-    "description": "Emergency admissions in the year before this one."
+    "description": "Emergency admissions in the year before this one.",
+    "covers": "the 12 months before this admission",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "length_of_stay_days": {
     "display": "Length of stay (days)",
     "known_at_discharge": true,
-    "description": "Days in hospital for this admission."
+    "description": "Days in hospital for this admission.",
+    "covers": "this admission",
+    "why": "A stay isn't over until the patient leaves, so you couldn't know this at admission. But the model is run as the patient leaves, and by then we do have it. The moment the model is run decides what counts."
   },
   "number_of_medications": {
     "display": "Number of medications",
     "known_at_discharge": true,
-    "description": "Medicines the patient is discharged on."
+    "description": "Medicines the patient is discharged on.",
+    "covers": "the medicines prescribed on discharge",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "discharge_destination": {
     "display": "Discharge destination",
     "known_at_discharge": true,
-    "description": "Home, home with a care package, or care home."
+    "description": "Home, home with a care package, or care home.",
+    "covers": "the plan made for discharge",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "lives_alone": {
     "display": "Lives alone",
     "known_at_discharge": true,
-    "description": "Whether the patient lives alone."
+    "description": "Whether the patient lives alone.",
+    "covers": "the patient's circumstances during the admission",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "discharge_specialty": {
     "display": "Discharge specialty",
     "known_at_discharge": true,
-    "description": "The specialty the patient was discharged from."
+    "description": "The specialty the patient was discharged from.",
+    "covers": "this admission",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "discharge_day": {
     "display": "Discharge day",
     "known_at_discharge": true,
-    "description": "Day of the week of discharge."
+    "description": "Day of the week of discharge.",
+    "covers": "the day of discharge",
+    "why": "This is recorded during the admission, so we have it at the moment of discharge."
   },
   "gp_contacts_since_discharge": {
-    "display": "GP contacts since discharge",
+    "display": "GP contacts",
     "known_at_discharge": false,
-    "description": "GP contacts in the 30 days after discharge. Only known once those 30 days have passed."
+    "description": "Number of contacts with the patient's GP practice.",
+    "covers": "the 30 days beginning on the day of discharge",
+    "why": "This counts GP contacts in the 30 days after the patient left hospital, so it doesn't exist at discharge. Patients who go on to be readmitted tend to have more of them."
   },
   "outpatient_followup_attended": {
     "display": "Outpatient follow-up attended",
     "known_at_discharge": false,
-    "description": "Whether an outpatient follow-up was attended. Only known afterwards."
+    "description": "Whether the patient attended an outpatient follow-up appointment.",
+    "covers": "the follow-up appointment itself, which is a few weeks after discharge",
+    "why": "Whether a follow-up was attended can only be recorded once the appointment date has passed, which is after discharge."
   },
   "community_nursing_visits_since_discharge": {
-    "display": "Community nursing visits since discharge",
+    "display": "Community nursing visits",
     "known_at_discharge": false,
-    "description": "Community nursing visits in the 30 days after discharge. Only known afterwards."
+    "description": "Number of community nursing visits to the patient.",
+    "covers": "the 30 days beginning on the day of discharge",
+    "why": "This counts visits made after the patient left hospital, so it can't be known at discharge. Readmitted patients tend to have had more."
   }
 }

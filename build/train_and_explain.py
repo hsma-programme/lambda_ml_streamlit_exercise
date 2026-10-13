@@ -31,10 +31,10 @@ OUT = ROOT.parent / "app" / "data"
 
 # group -> (display name, known at discharge?, plain-English description)
 FEATURES = {
-    "age": ("Age", True, "Patient's age in years at discharge."),
+    "age": ("Age", True, "Patient's age in years."),
     "sex": ("Sex", True, "Recorded sex (male = 1)."),
-    "deprivation_decile": ("Deprivation decile", True, "Area deprivation of the patient's home, 1 = most deprived, 10 = least."),
-    "long_term_conditions": ("Long-term conditions", True, "Number of long-term conditions on the record."),
+    "deprivation_decile": ("Deprivation decile", True, "Deprivation of the area the patient lives in (1 = most deprived, 10 = least)."),
+    "long_term_conditions": ("Long-term conditions", True, "Number of long-term conditions on the patient's record."),
     "emergency_admissions_prev_12m": ("Emergency admissions in previous 12 months", True, "Emergency admissions in the year before this one."),
     "length_of_stay_days": ("Length of stay (days)", True, "Days in hospital for this admission."),
     "number_of_medications": ("Number of medications", True, "Medicines the patient is discharged on."),
@@ -42,10 +42,42 @@ FEATURES = {
     "lives_alone": ("Lives alone", True, "Whether the patient lives alone."),
     "discharge_specialty": ("Discharge specialty", True, "The specialty the patient was discharged from."),
     "discharge_day": ("Discharge day", True, "Day of the week of discharge."),
-    "gp_contacts_since_discharge": ("GP contacts since discharge", False, "GP contacts in the 30 days after discharge. Only known once those 30 days have passed."),
-    "outpatient_followup_attended": ("Outpatient follow-up attended", False, "Whether an outpatient follow-up was attended. Only known afterwards."),
-    "community_nursing_visits_since_discharge": ("Community nursing visits since discharge", False, "Community nursing visits in the 30 days after discharge. Only known afterwards."),
+    "gp_contacts_since_discharge": ("GP contacts", False, "Number of contacts with the patient's GP practice."),
+    "outpatient_followup_attended": ("Outpatient follow-up attended", False, "Whether the patient attended an outpatient follow-up appointment."),
+    "community_nursing_visits_since_discharge": ("Community nursing visits", False, "Number of community nursing visits to the patient."),
 }
+# The period each column covers, shown with the description like a data dictionary entry.
+# It is a fact about the column, not an answer: learners still have to work out that a
+# window starting on the day of discharge isn't available at the moment of discharge.
+COVERS = {
+    "age": "the patient's age at admission",
+    "sex": "the patient's record",
+    "deprivation_decile": "the patient's home address",
+    "long_term_conditions": "the patient's record up to admission",
+    "emergency_admissions_prev_12m": "the 12 months before this admission",
+    "length_of_stay_days": "this admission",
+    "number_of_medications": "the medicines prescribed on discharge",
+    "discharge_destination": "the plan made for discharge",
+    "lives_alone": "the patient's circumstances during the admission",
+    "discharge_specialty": "this admission",
+    "discharge_day": "the day of discharge",
+    "gp_contacts_since_discharge": "the 30 days beginning on the day of discharge",
+    "outpatient_followup_attended": "the follow-up appointment itself, which is a few weeks after discharge",
+    "community_nursing_visits_since_discharge": "the 30 days beginning on the day of discharge",
+}
+
+# Shown to learners only AFTER they answer "known at the moment of discharge?", so the
+# display names and descriptions above must not give the answer away.
+WHY = {
+    "gp_contacts_since_discharge": "This counts GP contacts in the 30 days after the patient left hospital, so it doesn't exist at discharge. Patients who go on to be readmitted tend to have more of them.",
+    "outpatient_followup_attended": "Whether a follow-up was attended can only be recorded once the appointment date has passed, which is after discharge.",
+    "community_nursing_visits_since_discharge": "This counts visits made after the patient left hospital, so it can't be known at discharge. Readmitted patients tend to have had more.",
+}
+WHY["length_of_stay_days"] = (
+    "A stay isn't over until the patient leaves, so you couldn't know this at admission. But the model is run "
+    "as the patient leaves, and by then we do have it. The moment the model is run decides what counts."
+)
+WHY_DEFAULT = "This is recorded during the admission, so we have it at the moment of discharge."
 CATEGORICAL = ["discharge_destination", "discharge_specialty", "discharge_day"]
 
 
@@ -70,7 +102,12 @@ def train(X_train, y_train, X_val, y_val):
 
 
 def explain(model, X_train, X_sample, group):
-    explainer = shap.TreeExplainer(model, data=shap.sample(X_train, N_BACKGROUND, random_state=SEED),
+    # shap silently subsamples a background set to 100 rows unless the masker's max_samples is
+    # raised, so pass an explicit masker to really use N_BACKGROUND rows.
+    background = shap.maskers.Independent(
+        shap.sample(X_train, N_BACKGROUND, random_state=SEED), max_samples=N_BACKGROUND
+    )
+    explainer = shap.TreeExplainer(model, data=background,
                                    model_output="probability", feature_perturbation="interventional")
     ex = explainer(X_sample)
     vals = pd.DataFrame(ex.values * 100, columns=X_sample.columns, index=X_sample.index)
@@ -152,7 +189,8 @@ def main():
     (OUT / "friday.json").write_text(json.dumps(friday, indent=2))
 
     (OUT / "features.json").write_text(json.dumps(
-        {k: {"display": d, "known_at_discharge": kd, "description": desc} for k, (d, kd, desc) in FEATURES.items()}, indent=2))
+        {k: {"display": d, "known_at_discharge": kd, "description": desc, "covers": COVERS[k], "why": WHY.get(k, WHY_DEFAULT)}
+         for k, (d, kd, desc) in FEATURES.items()}, indent=2))
     (OUT / "shap_summary.json").write_text(json.dumps({"base_value_pp": shap_base, "mean_abs_shap_pp": importance}, indent=2))
     (OUT / "meta.json").write_text(json.dumps(meta, indent=2))
     print("v1 top features:", list(importance["v1"])[:4])
