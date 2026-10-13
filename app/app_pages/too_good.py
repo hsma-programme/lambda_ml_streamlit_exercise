@@ -71,7 +71,8 @@ st.markdown(
     "The model is using **information it wouldn't have at the moment you actually need the prediction**. "
     "Here, the extract was pulled 30 days *after* discharge, so it includes what happened next: GP contacts, "
     "whether a follow-up was attended and nursing visits. Those are partly a *consequence* of being readmitted, "
-    "so they give the answer away. That is why v1 looked so good."
+    "so they give the answer away. That is why v1 looked so good. It is an easy mistake for a careful team to make, "
+    "and catching it is exactly what a sign-off review is for."
 )
 
 st.subheader("Take away the leaked information")
@@ -108,13 +109,13 @@ with a:
 with b:
     st.plotly_chart(charts.icon_array(o2, title="v2 (discharge-time information only)"), width="stretch")
 st.markdown(
-    f"- v1 reached **{o1['called_readmitted']}** of the {o1['readmitted_total']} patients who were readmitted; "
-    f"v2 reaches **{o2['called_readmitted']}** ({o2['recall']:.0%}).\n"
-    f"- **{o2['precision']:.0%}** of v2's calls reach someone who was readmitted, against about "
+    f"- Following v1's recommendations would have reached **{o1['called_readmitted']}** of the "
+    f"{o1['readmitted_total']} patients who were readmitted; following v2's would reach **{o2['called_readmitted']}** ({o2['recall']:.0%}).\n"
+    f"- **{o2['precision']:.0%}** of v2's calls would reach someone who was readmitted, against about "
     f"**{o2['random_precision']:.0%}** for calling at random."
 )
 st.info(
-    "v2 is much more modest, and it is the honest picture. It still beats random calling, but you would need to "
+    "v2 is much more modest, and it is the honest picture. It would still beat random calling, but you would need to "
     "test it against random calling in your own hospital, because ranking by risk is not the same as knowing a "
     "call will help."
 )
