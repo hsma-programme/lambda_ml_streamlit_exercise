@@ -16,7 +16,9 @@ The exercise practises:
 
 It uses a fresh scenario, so the DNA example from the slides transfers rather than repeats.
 
-The session brief asks for an exercise where learners "interpret outputs from a ML model and say what decisions they might make as a result, perhaps gradually giving them more information to get them to make questionable decisions initially". The staged design below does exactly that. Learners record a first-impression verdict on the vendor's headline claims, then revisit it as information is revealed.
+The session brief asks for an exercise where learners "interpret outputs from a ML model and say what decisions they might make as a result, perhaps gradually giving them more information to get them to make questionable decisions initially". The staged design below does exactly that. Learners record a first-impression verdict on the team's headline claims, then revisit it as information is revealed.
+
+**Framing (changed 2026-10-13):** the model has been built by an **in-house team of analysts and data scientists**, not bought from a vendor. The group is the panel deciding whether it goes into use. This keeps the commissioning/governance role but means the organisation is the manufacturer, with direct responsibility for safety, and that the panel can put questions to the people who built it. Leakage is presented as an easy mistake that sign-off exists to catch, not as incompetence.
 
 **Decisions already made with the course lead (Sammi Rosser):**
 - Scenario: **30-day emergency readmission**.
@@ -67,7 +69,7 @@ Reuse the slides' pipeline pattern (setup cell of `_SECTION_shap_demo.qmd`, line
 - Model: `XGBClassifier(n_estimators=1000, learning_rate=0.05, early_stopping_rounds=50, eval_metric="logloss", random_state=42)`, with a 75/10/15 train/validation/test split.
 - Explainer: `shap.TreeExplainer(model, data=shap.sample(X_train, 100, random_state=42), model_output="probability", feature_perturbation="interventional")`. Multiply the values by 100 so they're in **percentage points**, matching the slides.
 - Train two versions:
-  - **v1** uses all columns. This is what the vendor submits.
+  - **v1** uses all columns. This is what the in-house team submits for sign-off.
   - **v2** uses discharge-time features only.
 - Export for each model:
   - test-set predicted probabilities and outcomes
@@ -87,7 +89,7 @@ Every page follows the same pattern:
 - **Judgement questions** (capacity, interventions, verdicts) record the group's answer first, then reveal considerations, and allow defensible disagreement. No "correct" banner.
 - **Compulsory vs optional:** one waterfall patient and three intervention examples are compulsory; the rest are optional depth. Pilot with someone unfamiliar with ML and cut to fit about 35 minutes.
 
-0. **Briefing.** The vendor pitches "ReadmitRisk v1" with headline accuracy and AUC **derived from the exported v1 results** (state the cut-off; the exploratory v1 gave about 98% / 0.99, not the earlier placeholder 96% / 0.95), intended to "identify patients for a post-discharge support call". The group is the sign-off panel. **Before investigating**, they record a first-impression verdict (approve / approve with conditions / reject). It is revisited at the end.
+0. **Briefing.** The in-house analytics team (analysts and data scientists) summarises "ReadmitRisk v1", which they built and want to put into use, with headline accuracy and AUC **derived from the exported v1 results** (state the cut-off; the exploratory v1 gave about 98% / 0.99, not the earlier placeholder 96% / 0.95), intended to "identify patients for a post-discharge support call". The group is the sign-off panel. Because the model is built in-house there is no supplier: the organisation is the manufacturer, which is why DCB0129 (and possibly the Health Institution Exemption) is directly relevant in Stage 3. **Before investigating**, they record a first-impression verdict (approve / approve with conditions / reject). It is revisited at the end.
 1. **Is it any good?**
    - Accuracy trap: show a "model" that predicts nobody is readmitted and still scores 88% accurate.
    - A threshold slider drives a **1,000-patient confusion grid** (an icon array in plotly). Decide one control: the learner sets call capacity (the number of highest-risk patients phoned), with the probability cut-off shown as a consequence. State the discharge volume and time period (e.g. per 1,000 discharges) so counts and capacity are interpretable. Describe outcomes as historical readmissions, not readmissions prevented.

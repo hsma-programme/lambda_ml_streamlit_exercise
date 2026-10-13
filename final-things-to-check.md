@@ -21,7 +21,7 @@ Use this checklist before delivering the Model Sign-off exercise. The design con
 - [ ] Clearly label all data as synthetic in the briefing, relevant charts and downloaded memo. Check that no real patient data has been included.
 - [ ] Regenerate the data and final model exports using the documented environment. Record dependency versions and seed so the build can be reproduced.
 - [ ] Verify the base rate is 11–13%, leaky v1 AUC is at least 0.93 and clean v2 AUC is 0.68–0.75 on held-out data. Do not present the generator's training-set AUC as validation evidence.
-- [ ] Derive vendor headline figures, baseline accuracy and all displayed metrics from the exported evidence. State the cut-off or call capacity associated with accuracy, precision and recall.
+- [ ] Derive the analytics team's headline figures, baseline accuracy and all displayed metrics from the exported evidence. State the cut-off or call capacity associated with accuracy, precision and recall.
 - [ ] Define call capacity against a clear discharge volume and time period. Check that changing capacity selects the intended number of patients and that ties and extreme settings behave sensibly.
 - [ ] Ensure the four confusion-grid counts add to 1,000, using an explicit and consistent sampling or rounding method. Match the green/amber/red/grey labels to the slides.
 - [ ] Describe confusion-grid outcomes as historical readmissions. Do not label correctly flagged patients as readmissions prevented by a call.

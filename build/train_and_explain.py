@@ -1,6 +1,6 @@
 """Train the two readmission models, explain them with SHAP and export for the app (offline build step).
 
-v1 = every column in the extract (what the vendor submits; includes post-discharge leakage)
+v1 = every column in the extract (what the team submits for sign-off; includes post-discharge leakage)
 v2 = discharge-time columns only
 
 Pipeline follows the slides' SHAP demo (_SECTION_shap_demo.qmd): XGBoost with early stopping,

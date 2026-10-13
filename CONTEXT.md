@@ -93,11 +93,11 @@ The exercise deliberately uses a *different* scenario so that learners transfer 
   - Changing **clinical care** ("prioritising based on the predicted **clinical impact on them**", "automatically flagging high-risk non-attenders for a clinician to review or bring forward their follow-up"): "*would* be".
 - **Health Institution Exemption:** applies only if the software is not transferred, is used on the same premises, follows leading practice, and has a designated responsible officer.
 - **Clinical safety standards:**
-  - "**DCB0129** - for whoever builds it (the manufacturer, which could be you)"
+  - "**DCB0129** - for whoever builds it (the manufacturer, which could be you)". In this exercise the model is built in-house, so it *is* you.
   - "**DCB0160** - for the organisation deploying it"
   - both need "a named **Clinical Safety Officer**, a hazard log and a safety case"
 - **Also covered:** DPIA, DTAC, UK GDPR Article 6/9, data minimisation, and "**Fairness and non-discrimination are legal obligations too.**"
-- **Sharing or receiving a trained model:** "validate locally", "check calibration - do predicted risks match observed rates? Recalibrate if not", "revisit decision thresholds for their setting", and monitor drift. These become the sign-off conditions in Stage 5.
+- **Sharing or receiving a trained model** (relevant here as local validation, since the data the model was built on may differ from live data): "validate locally", "check calibration - do predicted risks match observed rates? Recalibrate if not", "revisit decision thresholds for their setting", and monitor drift. These become the sign-off conditions in Stage 5.
 - The slides never use the term "SaMD", so stick to "medical device".
 
 ## 6. Styling source: `C:\Users\Sammi\nhs_oa_vidigi_streamlit`

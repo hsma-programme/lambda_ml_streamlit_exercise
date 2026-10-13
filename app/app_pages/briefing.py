@@ -9,7 +9,8 @@ v1 = meta["models"]["v1"]
 
 ui.stage_header("Model sign-off: ReadmitRisk v1")
 ui.task_box(
-    "You are the approval panel for a new risk model. Read the vendor's pitch, then "
+    "You are the sign-off panel for a new risk model that our own analytics team has built. "
+    "Read the team's summary, then "
     "record your group's **first impression** before you investigate anything. "
     "You will come back to it at the end."
 )
@@ -17,7 +18,7 @@ ui.task_box(
 left, right = st.columns([0.55, 0.45], gap="large")
 
 with left:
-    st.subheader("The vendor's pitch")
+    st.subheader("The analytics team's summary")
     st.markdown(
         f"""
 **ReadmitRisk v1** predicts which patients will have an unplanned emergency
@@ -27,7 +28,7 @@ readmission within 30 days of leaving hospital.
 - **AUC {v1['auc_test']:.2f}**
 - Tested on {meta['n_test']:,} patients the model had not seen during training
 
-*"Use it to identify patients for a post-discharge support call."*
+*"We propose using it to identify patients for a post-discharge support call."*
 """
     )
     with st.expander("What does AUC mean?"):
@@ -42,12 +43,16 @@ with right:
     st.subheader("Your role")
     st.markdown(
         """
-The organisation is considering buying this model. Your group must decide whether to
+Our in-house analytics team (analysts and data scientists) has built this model and wants
+to put it into use. Your group must decide whether to
 **approve** it, **approve with conditions**, or **reject** it.
 
 **What the support call involves (working assumption):** a member of the community
 discharge team phones flagged patients within two working days of discharge to check how
 they are coping and arrange any support they need. The software only produces the list.
+
+Because we built it ourselves, there is no supplier to hold to account. If it goes into use,
+responsibility for it, and for its safety, sits with us.
 """
     )
     st.caption(
