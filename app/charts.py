@@ -112,3 +112,40 @@ def friday_bars(friday: dict) -> go.Figure:
         bargap=0.35,
     )
     return fig
+
+
+def waterfall(expl: dict) -> go.Figure:
+    """SHAP waterfall in percentage points. Red pushes towards readmission, blue away."""
+    steps = list(expl["shown"])
+    if expl["other"]:
+        steps.append(expl["other"])
+    labels = ["Average patient"] + [s["label"] for s in steps] + ["This patient"]
+    values = [expl["base"]] + [s["value"] for s in steps] + [expl["fx"]]
+    measure = ["absolute"] + ["relative"] * len(steps) + ["total"]
+    texts = [f"{expl['base']:.1f}%"] + [f"{s['value']:+.1f}" for s in steps] + [f"{expl['fx']:.1f}%"]
+    fig = go.Figure(
+        go.Waterfall(
+            orientation="h",
+            y=labels,
+            x=values,
+            measure=measure,
+            text=texts,
+            textposition="outside",
+            increasing=dict(marker=dict(color="#c0392b")),
+            decreasing=dict(marker=dict(color="#2a78d6")),
+            totals=dict(marker=dict(color=NAVY)),
+            connector=dict(line=dict(color="#8a95a5", width=1)),
+            hovertemplate="%{y}: %{text}<extra></extra>",
+        )
+    )
+    fig.update_layout(
+        height=120 + 38 * len(labels),
+        margin=dict(l=0, r=40, t=10, b=40),
+        yaxis=dict(autorange="reversed"),
+        xaxis=dict(title="Predicted risk of readmission (%). Red raises it, blue lowers it. Changes in percentage points."),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(family="Lexend, sans-serif", color=NAVY),
+        showlegend=False,
+    )
+    return fig

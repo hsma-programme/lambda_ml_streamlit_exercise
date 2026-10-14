@@ -99,3 +99,13 @@ def capacity() -> int:
 @st.cache_data
 def load_friday() -> dict:
     return json.loads((DATA_DIR / "friday.json").read_text(encoding="utf-8"))
+
+
+@st.cache_data
+def load_shap(model: str = "v2") -> pd.DataFrame:
+    return pd.read_csv(DATA_DIR / f"shap_{model}.csv")
+
+
+@st.cache_data
+def load_patient_values() -> pd.DataFrame:
+    return pd.read_csv(DATA_DIR / "shap_patient_values.csv")
