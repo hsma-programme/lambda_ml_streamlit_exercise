@@ -34,16 +34,22 @@ INTERVENTIONS = [
         "compulsory": True,
         "what": (
             "A member of the community discharge team phones each flagged patient within two working days "
-            "of discharge, to check how they are coping and arrange any support they ask for. "
+            "of discharge for a wellbeing check only. The call is limited to signposting the patient to support "
+            "and recording the conversation, with no clinical assessment. "
             "The software only produces the list, prioritising those flagged by the model as being at highest "
             "risk of being readmitted, based on the likelihood threshold we choose."
         ),
-        "device_lean": "It depends on the intended purpose",
+        "device_lean": "Probably not a medical device, as described",
         "device": (
-            "If the software only produces a list for a team to contact, that is organising a service, and it is "
-            "less likely to be a medical device. If the score is used to decide *clinical* matters for an individual "
-            "patient (for example, who gets assessed for deterioration), the picture changes. Calling it 'not for "
-            "clinical use' does not get round the definition: what counts is the intended purpose."
+            "As described, the software only produces a list for a team to contact, and the call is a wellbeing "
+            "check with signposting and recording. That is organising a service, so it is less likely to be a "
+            "medical device. This reading depends on the description: if the call grew to include clinical "
+            "assessment, or the score were used to decide *clinical* matters for an individual patient (for "
+            "example, who gets assessed for deterioration), the picture would change. Calling it 'not for "
+            "clinical use' does not get round the definition: what counts is the intended purpose. The test is "
+            "about what the *software's output* is intended to inform. Notes a call-taker makes are a separate "
+            "matter from the model's score, but if the score were shown to a clinician to help decide care, "
+            "that would be a different use."
         ),
         "harms": (
             "A list built from past use of services may under-represent people who use them less. Some patients "

@@ -21,6 +21,11 @@ st.info(
     "and to see what you might have missed."
 )
 
+st.caption(
+    "'Clinician' here means any registered health professional involved in a patient's care, such as a nurse, "
+    "doctor, pharmacist or therapist."
+)
+
 st.markdown(
     "**The model's output is a ranked list of patients.** Phoning the people on it is the use that the analysts "
     "were originally asked to build the model for, but now that it's ready, there are conversations happening "
@@ -162,6 +167,13 @@ with st.expander("In-house models and the Health Institution Exemption"):
         "Treat this as something to check with your Clinical Safety Officer and current guidance, not as a way "
         "round assessment."
     )
+
+st.markdown(
+    "**Watch for drift.** Each answer above describes a use *as designed*. In practice a list that is easy to "
+    "act on tends to get used for more over time. If the use changes, the assessment has to be revisited: a "
+    "documented intended purpose, and someone accountable for noticing when it is being stretched, are part of "
+    "the safeguard."
+)
 
 st.markdown(
     "**Discuss:** which use would you be most comfortable going ahead with first, and what would you need to "

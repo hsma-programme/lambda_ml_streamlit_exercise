@@ -25,6 +25,8 @@ These are review findings and implementation concerns, not changes to completion
 
 ## Chunk 5, Stage 3: what exists
 
+**Intended purpose confirmed (2026-10-13):** the call is a wellbeing check only, limited to signposting and recording, with no clinical assessment, made by a member of the community discharge team within two working days of discharge; the software only produces the prioritised list. The Briefing and Stage 3's phone-call item use this wording, and the device reading for the phone call changed from "depends on the intended purpose" to "probably not a medical device, as described", with the caveat about what would change it. The Briefing now says the caller could be a nurse or a care coordinator and the call stays a wellbeing check either way. Stage 3 defines "clinician" (any registered health professional, including nurses) and has a "watch for drift" note: a use is assessed as designed, and function creep needs a documented intended purpose and someone accountable for noticing it.
+
 [app/app_pages/what_will_we_do.py](app/app_pages/what_will_we_do.py), with content in [app/interventions.py](app/interventions.py) and `friday_bars` in `charts.py`.
 
 - Seven candidate uses of the list: **compulsory** support phone call, clinician brings forward follow-up / reviews medication, and delay discharge for high-risk patients; **optional** (in an expander) transport support, pharmacist medicines review (split from transport, as the review asked), ban Friday discharges (with the data reveal), and deprioritise "frequent readmitters" for elective care. (Friday was originally compulsory and was swapped for delay discharge at your request; the pedagogical trade-off is noted below.)
@@ -37,7 +39,7 @@ These are review findings and implementation concerns, not changes to completion
 Verification: `AppTest` walkthrough (page renders; three compulsory uses recorded; Friday section appears; progress reads 3 of 3; answers persist across navigation; no exceptions).
 
 Open points for review:
-- **The device readings are mine**, applied from the slides' framework to a readmission use. They need your (and ideally a Clinical Safety Officer's) review, especially "support phone call: depends on intended purpose", and the exemption wording, before delivery. Several readings depend on the intended purpose of the call, which is still my draft.
+- **The device readings are mine**, applied from the slides' framework to a readmission use. They need your (and ideally a Clinical Safety Officer's) review, especially "support phone call: depends on intended purpose", and the exemption wording, before delivery. The phone-call reading rests on the confirmed wellbeing-check description above.
 - Wording avoids claims about what "most groups" conclude.
 - **Pedagogical trade-off of the Friday swap:** the Friday item is the only place the causal-confounding lesson is shown with data, and with it optional many groups will skip it. Delay discharge and the follow-up item are both "clinical care, likely a device", so the compulsory set now has two similar answers and no causal-reading example. Alternative: make Friday compulsory and move follow-up to optional.
 - Whether three compulsory uses fit the time available is untested; the optional four may be too many.

@@ -48,10 +48,12 @@ to put it into use. Your group must decide whether to
 **approve** it, **approve with conditions**, or **reject** it.
 
 **What the support call involves (working assumption):** a member of the community
-discharge team phones flagged patients within two working days of discharge to check how
-they are coping and arrange any support they need. The software only produces the list, prioritising
-those flagged by the model as being at highest risk of being readmitted, based on the likelihood
-threshold we choose.
+discharge team (this could be a nurse or a care coordinator; the call stays a wellbeing check either
+way) phones flagged patients within two working days of discharge for a **wellbeing
+check only**. The call is limited to **signposting** the patient to support and **recording** the
+conversation: it does not include any clinical assessment. The software only produces the list,
+prioritising those flagged by the model as being at highest risk of being readmitted, based on the
+likelihood threshold we choose.
 
 Because we built it ourselves, there is no supplier to hold to account. If it goes into use,
 responsibility for it, and for its safety, sits with us.
