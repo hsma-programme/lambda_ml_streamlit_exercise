@@ -90,7 +90,7 @@ st.markdown(
     f"sceptical of the model. **For each statement, would your group be happy to say it?**"
 )
 
-a, b = expl["shown"][0]["label"], expl["shown"][1]["label"]
+a, b = expl["shown"][0], expl["shown"][1]
 dep = next(i["value"] for i in expl["all"] if i["feature"] == "deprivation_decile")
 STATEMENTS = [
     {
@@ -105,9 +105,11 @@ STATEMENTS = [
     {
         "id": "describe",
         "text": f"The model predicts about a {expl['fx']:.0f}% risk of readmission for this patient, compared with "
-        f"about {expl['base']:.0f}% for the average patient, and it is basing that mostly on {a} and {b}.",
+        f"about {expl['base']:.0f}% for the average patient. The biggest contributions come from {a['label']} "
+        f"({a['value']:+.1f} points) and {b['label']} ({b['value']:+.1f} points).",
         "ok": True,
-        "why": "Supported. It says what the model predicts and what it is basing that on, without claiming more.",
+        "why": "Supported. It says what the model predicts and which factors contributed most, without claiming "
+        "that those factors are the whole story or that they cause the outcome.",
     },
     {
         "id": "fair",
