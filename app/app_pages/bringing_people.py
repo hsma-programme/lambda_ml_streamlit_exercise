@@ -14,6 +14,7 @@ base = summary["base_value_pp"]["v2"]
 auc = meta["models"]["v2"]["auc_test"]
 
 PATIENT_LABELS = {
+    "elevated": "Elevated predicted risk",
     "high": "Highest predicted risk",
     "typical": "A typical patient (optional)",
     "low": "Lowest predicted risk (optional)",
@@ -34,8 +35,9 @@ st.markdown(
 )
 
 picks = explain.pick_patients(preds, shap)
-# One patient is enough for the exercise. The other two (and the picker) are kept, switched
-# off: set SHOW_OTHER_PATIENTS = True to bring them back.
+# One patient is enough for the exercise: one with a clearly elevated risk (about 45%) and a
+# strong factor pushing it down, so both red and blue bars show. The others (and the picker)
+# are kept, switched off: set SHOW_OTHER_PATIENTS = True to bring them back.
 SHOW_OTHER_PATIENTS = False
 if SHOW_OTHER_PATIENTS:
     choice = st.radio(
@@ -46,7 +48,7 @@ if SHOW_OTHER_PATIENTS:
         key="patient_pick",
     )
 else:
-    choice = "high"
+    choice = "elevated"
 expl = explain.patient_explanation(picks[choice], preds, shap, values, features, base)
 
 local_tab, global_tab = st.tabs(["This patient (local)", "All patients (global)"])

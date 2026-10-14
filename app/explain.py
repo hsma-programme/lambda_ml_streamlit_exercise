@@ -14,15 +14,22 @@ def display_value(feature: str, value) -> str:
 
 
 def pick_patients(preds: pd.DataFrame, shap: pd.DataFrame) -> dict:
-    """High / typical / low-risk patients from the SHAP sample, following the slides' choices:
+    """Example patients from the SHAP sample. high / typical / low follow the slides' choices:
     the highest predicted risk, the one closest to the median, and the lowest predicted risk
-    among patients who were not readmitted."""
+    among patients who were not readmitted. elevated is the one used in the exercise (see below)."""
     d = preds.set_index("row_id").loc[shap["row_id"]]
     p = d["p_v2"]
     high = int(p.idxmax())
     low = int(p[d["readmitted_30d"] == 0].idxmin())
     mid = int((p - p.median()).abs().idxmin())
-    return {"high": high, "typical": mid, "low": low}
+    # A patient with a clearly elevated risk (40-50%) who was not readmitted and has at least one
+    # strong factor pushing risk down, so the waterfall shows both red and blue bars.
+    # Chosen as the one with the largest single downward contribution.
+    contribs = shap.set_index("row_id").drop(columns=[c for c in shap.columns if c == "row_id"], errors="ignore")
+    biggest_down = contribs.min(axis=1)
+    mask = (p >= 0.40) & (p <= 0.50) & (d["readmitted_30d"] == 0)
+    elevated = int(biggest_down[mask.to_numpy()].idxmin())
+    return {"elevated": elevated, "high": high, "typical": mid, "low": low}
 
 
 def patient_explanation(row_id: int, preds, shap, values, features, base_pp: float, top: int = 6) -> dict:
