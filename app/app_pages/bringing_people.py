@@ -14,7 +14,7 @@ base = summary["base_value_pp"]["v2"]
 auc = meta["models"]["v2"]["auc_test"]
 
 PATIENT_LABELS = {
-    "high": "Highest predicted risk (start here)",
+    "high": "Highest predicted risk",
     "typical": "A typical patient (optional)",
     "low": "Lowest predicted risk (optional)",
 }
@@ -34,13 +34,19 @@ st.markdown(
 )
 
 picks = explain.pick_patients(preds, shap)
-choice = st.radio(
-    "Which patient would you like to look at?",
-    list(PATIENT_LABELS),
-    format_func=PATIENT_LABELS.get,
-    horizontal=True,
-    key="patient_pick",
-)
+# One patient is enough for the exercise. The other two (and the picker) are kept, switched
+# off: set SHOW_OTHER_PATIENTS = True to bring them back.
+SHOW_OTHER_PATIENTS = False
+if SHOW_OTHER_PATIENTS:
+    choice = st.radio(
+        "Which patient would you like to look at?",
+        list(PATIENT_LABELS),
+        format_func=PATIENT_LABELS.get,
+        horizontal=True,
+        key="patient_pick",
+    )
+else:
+    choice = "high"
 expl = explain.patient_explanation(picks[choice], preds, shap, values, features, base)
 
 local_tab, global_tab = st.tabs(["This patient (local)", "All patients (global)"])
