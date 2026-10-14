@@ -14,6 +14,11 @@ ui.task_box(
     "record your group's **first impression** before you investigate anything. "
     "You will come back to it at the end."
 )
+st.info(
+    "**There is no right or wrong answer on this page.** Your first impression is just a starting point, and "
+    "you will compare it with your final verdict at the end. Most of this exercise is judgement calls like this "
+    "one, and the app won't mark them. A few questions later on do have clearer answers, and they will say so."
+)
 
 left, right = st.columns([0.55, 0.45], gap="large")
 
@@ -75,10 +80,7 @@ if locked:
     reason = ui.get_decision("initial_reason")
     if reason:
         st.markdown(f"Reason given: *{reason}*")
-    st.caption(
-        "This is kept as it is, and compared with your final verdict at sign-off. "
-        "Move on to Stage 1 when your group is ready."
-    )
+    st.caption("This is kept as it is, and compared with your final verdict at sign-off.")
 else:
     verdict = st.radio(
         "On the pitch alone, what would your group do?",
@@ -96,3 +98,10 @@ else:
         ui.record_decision("initial_verdict", verdict)
         ui.record_decision("initial_reason", reason.strip() or None)
         st.rerun()
+
+ui.next_stage(
+    "app_pages/is_it_any_good.py",
+    "1. Is it any good?",
+    ui.get_decision("initial_verdict") is not None,
+    "Record your first impression, and a button to the next stage will appear here.",
+)

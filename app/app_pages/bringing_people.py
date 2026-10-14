@@ -220,4 +220,10 @@ st.markdown(
     "**Discuss:** what is the most useful question a sceptical consultant could ask about this model, and "
     "what evidence would you want before answering it?"
 )
+ui.next_stage(
+    "app_pages/sign_off.py",
+    "5. Sign-off",
+    st.session_state.get("stage4_statements") is not None,
+    "Check your answers to the six statements above, and a button to the next stage will appear here.",
+)
 ui.synthetic_notice()

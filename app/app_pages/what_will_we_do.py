@@ -179,4 +179,10 @@ st.markdown(
     "**Discuss:** which use would you be most comfortable going ahead with first, and what would you need to "
     "see before you allowed a use that guides individual clinical care?"
 )
+ui.next_stage(
+    "app_pages/bringing_people.py",
+    "4. Bringing people with you",
+    all(i["key"] in records for i in compulsory),
+    f"Record your answers for the {len(compulsory)} compulsory uses above, and a button to the next stage will appear here.",
+)
 ui.synthetic_notice()

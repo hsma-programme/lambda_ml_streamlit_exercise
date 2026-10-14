@@ -169,4 +169,10 @@ st.markdown(
     "**Discuss:** v2 can still find some readmissions. Is that enough to justify a service, "
     "and what else would you need to know?"
 )
+ui.next_stage(
+    "app_pages/what_will_we_do.py",
+    "3. What will we do with it?",
+    ui.get_decision("stage2_verdict") is not None,
+    "Record your group's view above, and a button to the next stage will appear here.",
+)
 ui.synthetic_notice()

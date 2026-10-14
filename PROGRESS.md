@@ -23,6 +23,14 @@ Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
 
+## Review round after Stage 5 (2026-10-14)
+
+- **Briefing:** a prominent note says there is no right or wrong answer on that page, that most of the exercise is unmarked judgement calls, and that a few later questions have clearer answers and will say so.
+- **Moving between stages:** each stage now ends with a "Next: ..." button (`ui.next_stage`, built on `st.page_link`) that appears when the stage's required decision has been recorded, plus a line saying the top navigation bar also works. Until then a caption says what is still to do. Stages: Briefing (first impression recorded), 1 (trade-off recorded), 2 (view after v2 recorded), 3 (all compulsory uses recorded), 4 (statements checked). Stage 5 is the last.
+- **Stage 1 headline accuracy:** the model's accuracy comes first; then "someone on the panel asks how accurate a model would be if it simply predicted nobody would be readmitted", with a predict-then-reveal guess (four options) before the 88% appears. This is the "do" for the section; the guess isn't marked.
+- **Stage 1 trade-off options** reworded because "stay within what the team can actually phone" was already settled by the slider: now (a) reach as many readmissions as we can, accepting more wasted calls, (b) make sure most calls reach someone who'd be readmitted, accepting we miss more, (c) we can't settle this until we know whether the calls actually help. The considerations list gained "Do the calls help at all?".
+- Open: whether the guess step is the right "do"; an alternative would be to let the group set the "nobody readmitted" threshold themselves.
+
 ## Chunk 6, Stage 5: what exists
 
 [app/app_pages/sign_off.py](app/app_pages/sign_off.py), with `app/memo.py` (gathering and the memo builder, no Streamlit) and `explain.STATEMENT_SUPPORTED`.

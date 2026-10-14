@@ -112,3 +112,14 @@ def load_shap(model: str = "v2") -> pd.DataFrame:
 @st.cache_data
 def load_patient_values() -> pd.DataFrame:
     return pd.read_csv(DATA_DIR / "shap_patient_values.csv")
+
+
+def next_stage(path: str, title: str, ready: bool, waiting: str) -> None:
+    """Show a button to the next stage once this one is done, and say how else to get there."""
+    st.divider()
+    if ready:
+        st.success("You have done everything you need to on this page.")
+        st.page_link(path, label=f"Next: {title}", icon=":material/arrow_forward:")
+        st.caption("You can also move on by clicking the next stage in the navigation bar at the top of the page.")
+    else:
+        st.caption(waiting)

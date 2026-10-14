@@ -5,10 +5,17 @@ import charts
 import metrics
 import ui
 
+GUESSES = [
+    "About half (50%)",
+    "About three quarters (75%)",
+    "About nine in ten (90%)",
+    "About the same as the model (97%)",
+]
+
 TRADEOFFS = [
-    "Reach as many readmissions as we can, even if more calls are wasted",
-    "Keep wasted calls low, even if we miss more readmissions",
-    "Stay within what the team can actually phone, whatever the numbers say",
+    "Reach as many of the patients who would be readmitted as we can, accepting more wasted calls",
+    "Make sure most calls reach someone who would be readmitted, accepting that we miss more patients",
+    "We can't settle this until we know whether the calls actually help",
 ]
 
 meta = ui.load_meta()
@@ -26,18 +33,24 @@ ui.task_box(
 )
 
 st.subheader("The headline accuracy")
-c1, c2 = st.columns(2)
-with c1:
+with st.container(border=True):
+    st.metric("ReadmitRisk v1 at the usual 50% cut-off", f"{v1['accuracy_at_50pct']:.1%} accurate")
+    st.caption(
+        f"It flags {v1['n_flagged_at_50pct']} of {meta['n_test']:,} patients "
+        "(a patient is flagged if their predicted risk is 50% or more)."
+    )
+st.markdown(
+    "Someone on the panel asks: **\"How accurate would a model be if it simply predicted that nobody "
+    "would be readmitted?\"**"
+)
+if st.session_state.get("baseline_guess"):
+    st.session_state.setdefault("guess_widget", st.session_state["baseline_guess"])
+guess = st.radio("What would your group guess?", GUESSES, index=None, key="guess_widget")
+if guess:
+    st.session_state["baseline_guess"] = guess
     with st.container(border=True):
         st.metric("A 'model' that predicts *nobody* is readmitted", f"{base:.0%} accurate")
         st.caption("It never finds a single readmission, and still scores this well.")
-with c2:
-    with st.container(border=True):
-        st.metric("ReadmitRisk v1 at the usual 50% cut-off", f"{v1['accuracy_at_50pct']:.1%} accurate")
-        st.caption(
-            f"It flags {v1['n_flagged_at_50pct']} of {meta['n_test']:,} patients "
-            "(a patient is flagged if their predicted risk is 50% or more)."
-        )
 st.markdown(
     f"Only about **{meta['base_rate_test']:.0%}** of patients are readmitted, so doing nothing already scores "
     f"{base:.0%}. When what you are predicting is rare, **accuracy mostly tells you how rare it is**. "
@@ -142,6 +155,7 @@ if locked:
     st.markdown(
         """
 - **Staff time:** each call takes time away from something else. Is the team's real capacity the number you chose?
+- **Do the calls help at all?** Everything above is about who the model would pick, not whether a call changes what happens next. That is a separate question, and it comes back at sign-off.
 - **Wasted calls:** a call to someone who would have been fine still costs time, and may worry them.
 - **Missed readmissions:** patients who were readmitted but never phoned are the ones a service like this exists for.
 - **Who does the model recommend?** A list built from past use of services may under-represent people who use them less.
@@ -155,4 +169,10 @@ else:
         st.rerun()
 
 st.markdown("**Discuss:** the numbers look very strong. What would you want to ask the analytics team before signing this off?")
+ui.next_stage(
+    "app_pages/too_good.py",
+    "2. Too good to be true?",
+    ui.get_decision("tradeoff_choice") is not None,
+    "Record your group's decision above, and a button to the next stage will appear here.",
+)
 ui.synthetic_notice()
