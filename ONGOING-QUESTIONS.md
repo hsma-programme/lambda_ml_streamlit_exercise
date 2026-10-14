@@ -6,7 +6,7 @@ Open design questions that haven't been settled. Add new items at the top, and m
 
 ### Does the Stage 4 closing discussion prompt work as written?
 
-**Where:** [app/app_pages/bringing_people.py](app/app_pages/bringing_people.py), the closing "Discuss" prompt:
+**Where:** this was the closing "Discuss" prompt on [app/app_pages/bringing_people.py](app/app_pages/bringing_people.py). On 2026-10-14 all the stage-page discussion prompts were moved to an "Extension" expander at the end of the sign-off page (`DISCUSSION` in `app/ui.py`), so this is now an optional extension rather than part of the main route. The prompt:
 
 > What is the most useful question a sceptical consultant could ask about this model, and what evidence would you want before answering it?
 

@@ -23,6 +23,26 @@ Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
 
+## Discussion prompts and time badges (2026-10-14)
+
+- **Discussion prompts moved to an extension.** The five closing "Discuss:" prompts were removed from the stage pages (concern: they could derail groups) and gathered, unchanged in meaning, in `ui.DISCUSSION`. They appear in an "Extension: more to discuss if you have time" expander at the end of the sign-off page, labelled as not part of the main route and not timed. The Stage 1 line "Discuss, then record where your group lands" stays: it is part of the task.
+- **Time badges.** Each page shows a grey badge under its title, "About N minutes", from `ui.STAGE_MINUTES`: Briefing 3, Stage 1 7, Stage 2 8, Stage 3 10, Stage 4 7, Stage 5 5 (total 40). Unpiloted estimates, excluding debrief and the extension; the facilitator page should read from the same dictionary.
+
+## 35-minute cut (2026-10-14)
+
+Decided after a timing discussion (the full build was estimated at about 47 to 53 minutes for novices, unpiloted). Cuts made, with the removed content kept in comments or switched off so it can be reinstated:
+
+| Stage | Before | Now | Where the reserve lives |
+|---|---|---|---|
+| 2 | 5 "could the model use this?" questions | 3, one of each kind: GP contacts (after discharge: no), age (known before admission: yes), length of stay (built up during the stay, available at discharge: yes) | `explain.LEAKAGE_QUESTIONS`: outpatient follow-up and emergency admissions kept as comments |
+| 3 | 3 compulsory uses (phone call, follow-up, delay discharge) | 3 compulsory (phone call, delay discharge, **Friday discharges, reinstated as compulsory**); follow-up/medication review moved to optional | `compulsory` flag in `interventions.py` |
+| 4 | 6 statements (3 supported, 3 over-claims) | 4 (2 supported, 2 over-claims: describe, uncertainty, causal, fairness); "explainable means safe" and "what the model relied on" removed | commented out in `bringing_people.py` and `explain.STATEMENT_SUPPORTED` |
+
+Notes:
+- "All with a different answer" for the Stage 2 questions was read as one question of each *kind* (different reasoning) rather than three different answers, since there are only two answers. Easy to change.
+- The memo, the sign-off missing-decisions list and the Stage 4 page now derive their counts from `explain.LEAKAGE_QUESTIONS` and `explain.STATEMENT_SUPPORTED`; the Stage 4 page asserts its statement list matches the map exactly.
+- **Friday reinstated as compulsory (2026-10-14).** The "prediction is not the effect of an action" lesson, the only one shown with data, was judged too important to leave optional. The recommended duration is therefore set at **40 minutes** (estimate about 39 to 43 plus debrief; unpiloted) and the compulsory Stage 3 set is phone call (organising a service, probably not a device), delay discharge (clinical care, likely a device) and Friday discharges (misreading a pattern as a cause). Only follow-up/medication review, transport, pharmacist review and deprioritising are optional.
+
 ## Review round after Stage 5 (2026-10-14)
 
 - **Briefing:** a prominent note says there is no right or wrong answer on that page, that most of the exercise is unmarked judgement calls, and that a few later questions have clearer answers and will say so.
