@@ -146,6 +146,8 @@ STATEMENTS = [
     },
 ]
 
+assert all(s["ok"] == explain.STATEMENT_SUPPORTED[s["id"]] for s in STATEMENTS), "keep explain.STATEMENT_SUPPORTED in sync"
+
 st.caption(
     "Unlike the earlier judgement calls, this one has clearer answers: it is about what an explanation can and "
     "cannot support."

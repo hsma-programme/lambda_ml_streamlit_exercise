@@ -1,6 +1,17 @@
 """Per-patient explanations from the exported SHAP values (pandas only; no Streamlit)."""
 import pandas as pd
 
+# Which Stage 4 statements the explanation genuinely supports. The page asserts its own
+# statement list agrees with this, so the memo and the page cannot drift apart.
+STATEMENT_SUPPORTED = {
+    "causal": False,
+    "describe": True,
+    "fair": False,
+    "uncertain": True,
+    "safe": False,
+    "relied": True,
+}
+
 YES_NO = {0: "No", 1: "Yes"}
 DAY_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 

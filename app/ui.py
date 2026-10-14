@@ -15,6 +15,9 @@ DECISION_KEYS = [
     "initial_reason",
     "final_verdict",
     "final_reason",
+    "conditions",
+    "owner",
+    "pause_criteria",
 ]
 
 

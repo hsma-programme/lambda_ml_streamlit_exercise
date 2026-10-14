@@ -17,11 +17,29 @@ Consequences to carry into chunk 5: the in-house case makes DCB0129 and the Heal
 | 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (committed) | **Addressed:** headline figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
 | 4 | Stages 1–2 (is it any good? / too good to be true?) | Done (uncommitted) | **Addressed:** capacity is one control (patients phoned per 1,000 discharges) with the risk cut-off shown as a consequence; counts always sum to 1,000; outcomes described as historical readmissions; the trade-off decision is recorded before considerations are shown, with no right answer. **Still open:** discharge volume and time period are left to the facilitator; visual/screenshot and keyboard/contrast checks not done. |
 | 5 | Stages 3–4 (interventions / bringing people with you) | Stages 3 and 4 done (Stage 4 uncommitted) | Acceptability, fairness and medical-device categories overlap; assess them separately and split transport from pharmacy review. Do not assume appointment-reminder classifications transfer to readmission. Distinguish prediction from intervention benefit, explain residual Friday variation, and use SHAP to support scrutiny. Reduce compulsory examples to fit the time available. |
-| 6 | Stage 5, facilitator page, `pack.py`, README | Not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
+| 6 | Stage 5, facilitator page, `pack.py`, README | Stage 5 done (uncommitted); facilitator page, `pack.py`, README not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
 
 Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on 2026-10-08 to separate acceptability / harms / device assessment, add intervention evaluation to sign-off, record judgement answers before feedback, define capacity as number called, derive headline figures from exports, and mark compulsory vs optional content. Timings, the deck position, the support call's intended purpose and the deployment URL still need decisions from the course lead.
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
+
+## Chunk 6, Stage 5: what exists
+
+[app/app_pages/sign_off.py](app/app_pages/sign_off.py), with `app/memo.py` (gathering and the memo builder, no Streamlit) and `explain.STATEMENT_SUPPORTED`.
+
+- **Summary of what the group found:** held-out v1 and v2 results, the capacity and trade-off, how many "could the model use this?" questions were right, how many Stage 4 statements were judged correctly, and a table of the uses reviewed (support, harms, device).
+- **Missing decisions are listed first** (a warning naming each stage), so a partial journey is visible. The memo repeats them under "Decisions not yet made".
+- **Verdict journey:** first impression (Stage 0), view after v2 (Stage 2) and final verdict, with a prompt about what changed. This box is filled after the widgets update so it never lags by one interaction.
+- **Final verdict and conditions:** radio (approve / with conditions / reject), optional reason, a multiselect of ten concrete conditions (local validation, calibration, equity check, evaluating whether calls help, written intended purpose with reassessment, clinical safety management, accountable owner, monitoring with pause criteria, staff can see and overrule, review of cut-off), an optional owner role and an optional pause/stop criteria. Gentle notes (not marking) appear for approving with no conditions, "with conditions" with none listed, or rejecting with conditions.
+- **Memo:** markdown download (`readmitrisk-sign-off-memo.md`) with a prominent synthetic-exercise label, the verdict journey, findings, uses table, conditions, owner and pause criteria, and missing decisions; also previewed in an expander.
+- Answers persist across navigation (keyed widgets are seeded from plain session keys).
+
+Verification: `AppTest` full journey (state primed through all stages, verdict and conditions set through the real widgets, memo preview and download button present, verdict and conditions persist after navigating away and back), plus an empty journey that lists six missing items; earlier Stage 0 to 4 walkthroughs re-run and pass.
+
+Notes:
+- The `STATEMENT_SUPPORTED` map duplicates which Stage 4 statements are supported; the Stage 4 page asserts its own list matches, so they cannot drift silently.
+- The memo is plain markdown. It has not been opened in Word or a viewer; the download itself was not exercised in a browser.
+- Conditions are my wording and worth your review. "Accountable owner, by role" assumes an internal owner, consistent with the in-house framing.
 
 ## Chunk 5, Stage 4: what exists
 
@@ -188,4 +206,4 @@ The AUCs are from a quick logistic check inside the generator. The binding AUC a
 
 ## Next
 
-Chunk 6: Stage 5 sign-off (summary of the group's decisions, comparison of final verdict with the first impression and the Stage 2 view, concrete conditions including intervention evaluation and a named internal owner, markdown memo download), the facilitator page (answers, timings, debrief), `pack.py`, README. Still to decide: deployment URL, deck position, timings, and a pilot with someone unfamiliar with ML.
+Facilitator page (answers, timings, debrief, what groups tend to say; see ONGOING-QUESTIONS.md), `pack.py` (stlitepack, plotly 6.0.1), README with reproducible build/run instructions, then a browser/stlite walkthrough. Decisions still needed: timings, deck position, deployment URL, whether the Stage 4 closing prompt becomes a shortlist.
