@@ -24,6 +24,7 @@ ui.stage_header(
     "4. Bringing people with you",
     "To use a model, other people have to understand it well enough to trust it where it deserves trust, "
     "and to question it where it doesn't.",
+    minutes="stage4",
 )
 ui.task_box(
     "Look at how the model reached its prediction for one patient, then decide which statements your group "
@@ -94,6 +95,9 @@ st.markdown(
 
 a, b = expl["shown"][0], expl["shown"][1]
 dep = next(i["value"] for i in expl["all"] if i["feature"] == "deprivation_decile")
+# Four statements: two the explanation supports and two that go further than it. Two reserve
+# statements ("safe", "relied") are kept below as comments, removed to fit the 35-minute route.
+# To reinstate, uncomment them and the matching entries in explain.STATEMENT_SUPPORTED.
 STATEMENTS = [
     {
         "id": "causal",
@@ -130,23 +134,23 @@ STATEMENTS = [
         "why": "Supported, and worth saying. An AUC around 0.7 means the model separates readmitted from "
         "not-readmitted patients only moderately well. Being open about that helps people use it sensibly.",
     },
-    {
-        "id": "safe",
-        "text": "Because we can see why the model predicts what it does, it is safe to put into use.",
-        "ok": False,
-        "why": "Goes further than the explanation. Being able to explain a model is not evidence that it is "
-        "accurate, well calibrated, safe or fair in your setting. That takes local validation and governance.",
-    },
-    {
-        "id": "relied",
-        "text": "These bars describe what the model relied on to reach its prediction for this patient. They do not "
-        "show what would happen if we changed one of the factors.",
-        "ok": True,
-        "why": "Supported. This is the careful way to describe an explanation.",
-    },
+    # {
+    #     "id": "safe",
+    #     "text": "Because we can see why the model predicts what it does, it is safe to put into use.",
+    #     "ok": False,
+    #     "why": "Goes further than the explanation. Being able to explain a model is not evidence that it is "
+    #     "accurate, well calibrated, safe or fair in your setting. That takes local validation and governance.",
+    # },
+    # {
+    #     "id": "relied",
+    #     "text": "These bars describe what the model relied on to reach its prediction for this patient. They do not "
+    #     "show what would happen if we changed one of the factors.",
+    #     "ok": True,
+    #     "why": "Supported. This is the careful way to describe an explanation.",
+    # },
 ]
 
-assert all(s["ok"] == explain.STATEMENT_SUPPORTED[s["id"]] for s in STATEMENTS), "keep explain.STATEMENT_SUPPORTED in sync"
+assert {s["id"]: s["ok"] for s in STATEMENTS} == explain.STATEMENT_SUPPORTED, "keep explain.STATEMENT_SUPPORTED in sync"
 
 st.caption(
     "Unlike the earlier judgement calls, this one has clearer answers: it is about what an explanation can and "
@@ -174,7 +178,7 @@ if locked is None:
         st.session_state["stage4_statements"] = {k: v == YES_SAY for k, v in answers.items()}
         st.rerun()
     if not ready:
-        st.caption("Answer all six to see how they compare with the evidence.")
+        st.caption(f"Answer all {len(STATEMENTS)} to see how they compare with the evidence.")
 else:
     n_ok = sum(1 for s in STATEMENTS if locked[s["id"]] == s["ok"])
     st.info(
@@ -216,14 +220,10 @@ st.markdown(
   information did in Stage 2.
 """
 )
-st.markdown(
-    "**Discuss:** what is the most useful question a sceptical consultant could ask about this model, and "
-    "what evidence would you want before answering it?"
-)
 ui.next_stage(
     "app_pages/sign_off.py",
     "5. Sign-off",
     st.session_state.get("stage4_statements") is not None,
-    "Check your answers to the six statements above, and a button to the next stage will appear here.",
+    "Check your answers to the statements above, and a button to the next stage will appear here.",
 )
 ui.synthetic_notice()

@@ -64,7 +64,7 @@ INTERVENTIONS = [
     {
         "key": "followup",
         "title": "A clinician brings forward follow-up, or reviews medication, for flagged patients",
-        "compulsory": True,
+        "compulsory": False,
         "what": (
             "For flagged patients, a clinician reviews the notes and may bring their follow-up appointment "
             "forward or review their medicines."
@@ -94,7 +94,7 @@ INTERVENTIONS = [
     {
         "key": "friday",
         "title": "Ban Friday discharges",
-        "compulsory": False,
+        "compulsory": True,
         "what": "Stop discharging patients on Fridays, because Friday discharges are readmitted more often.",
         "device_lean": "Probably not on its own",
         "device": (

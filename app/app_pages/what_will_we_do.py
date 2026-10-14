@@ -8,6 +8,7 @@ ui.stage_header(
     "3. What will we do with it?",
     "A list of patients is only useful if someone acts on it. What we do with the list changes everything "
     "about how it should be governed.",
+    minutes="stage3",
 )
 ui.task_box(
     "For each proposed use of the list, answer three **separate** questions: would we support it, what harms "
@@ -175,10 +176,6 @@ st.markdown(
     "the safeguard."
 )
 
-st.markdown(
-    "**Discuss:** which use would you be most comfortable going ahead with first, and what would you need to "
-    "see before you allowed a use that guides individual clinical care?"
-)
 ui.next_stage(
     "app_pages/bringing_people.py",
     "4. Bringing people with you",

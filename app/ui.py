@@ -59,8 +59,32 @@ def task_box(text: str) -> None:
     st.info(f"**TASK:** {text}")
 
 
-def stage_header(title: str, subtitle: str | None = None) -> None:
+# Rough minutes for a small group on each page, shown as a badge. Unpiloted estimates for a
+# 40-minute session (debrief and the extension are extra). Keep in step with the facilitator page.
+STAGE_MINUTES = {
+    "briefing": 3,
+    "stage1": 7,
+    "stage2": 8,
+    "stage3": 10,
+    "stage4": 7,
+    "stage5": 5,
+}
+
+# Discussion prompts, moved off the stage pages to an extension at the end of the sign-off page
+# so they don't derail the core route. (stage, prompt)
+DISCUSSION = [
+    ("1. Is it any good?", "The numbers look very strong. What would you want to ask the analytics team before signing this off?"),
+    ("2. Too good to be true?", "v2 can still find some readmissions. Is that enough to justify a service, and what else would you need to know?"),
+    ("3. What will we do with it?", "Which use would you be most comfortable going ahead with first, and what would you need to see before you allowed a use that guides individual clinical care?"),
+    ("4. Bringing people with you", "What is the most useful question a sceptical consultant could ask about this model, and what evidence would you want before answering it?"),
+    ("5. Sign-off", "What changed your group's mind between your first impression and your final verdict, and which one condition would you most want to see in place?"),
+]
+
+
+def stage_header(title: str, subtitle: str | None = None, minutes: str | None = None) -> None:
     st.title(title)
+    if minutes:
+        st.markdown(f":gray-badge[:material/schedule: About {STAGE_MINUTES[minutes]} minutes]")
     if subtitle:
         st.markdown(subtitle)
 

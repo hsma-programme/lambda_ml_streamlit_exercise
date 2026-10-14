@@ -7,7 +7,7 @@ VERDICTS = ["Approve", "Approve with conditions", "Reject"]
 meta = ui.load_meta()
 v1 = meta["models"]["v1"]
 
-ui.stage_header("Model sign-off: ReadmitRisk v1")
+ui.stage_header("Model sign-off: ReadmitRisk v1", minutes="briefing")
 ui.task_box(
     "You are the sign-off panel for a new risk model that our own analytics team has built. "
     "Read the team's summary, then "

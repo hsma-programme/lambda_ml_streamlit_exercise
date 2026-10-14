@@ -14,6 +14,7 @@ ui.stage_header(
     "5. Sign-off",
     "Time to decide. Your group's earlier answers are gathered below, so you can see what you have "
     "found before you commit.",
+    minutes="stage5",
 )
 ui.task_box(
     "Review what your group decided, record your final verdict and the conditions you would attach, "
@@ -163,8 +164,13 @@ st.download_button(
 with st.expander("Preview the memo"):
     st.markdown(text)
 
-st.markdown(
-    "**Discuss:** what changed your group's mind between your first impression and your final verdict, and "
-    "which one condition would you most want to see in place?"
-)
+st.divider()
+with st.expander("Extension: more to discuss if you have time"):
+    st.markdown(
+        "These are not part of the main route and are not timed. Pick the one or two your group would "
+        "most like to talk about."
+    )
+    for stage, prompt in ui.DISCUSSION:
+        st.markdown(f"**{stage}**\n\n{prompt}")
+
 ui.synthetic_notice()

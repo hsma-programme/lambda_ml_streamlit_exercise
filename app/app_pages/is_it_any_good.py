@@ -26,6 +26,7 @@ base = metrics.baseline_accuracy(preds["readmitted_30d"])
 ui.stage_header(
     "1. Is it any good?",
     "We are testing our analytics team's model, ReadmitRisk v1, on patients it never saw during training.",
+    minutes="stage1",
 )
 ui.task_box(
     "Check the headline number in the team's summary, then decide how many patients per 1,000 discharges "
@@ -168,7 +169,6 @@ else:
         ui.record_decision("capacity_recorded", cap)
         st.rerun()
 
-st.markdown("**Discuss:** the numbers look very strong. What would you want to ask the analytics team before signing this off?")
 ui.next_stage(
     "app_pages/too_good.py",
     "2. Too good to be true?",

@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 
 import charts
+import explain
 import metrics
 import ui
 
@@ -16,7 +17,7 @@ preds = ui.load_predictions()
 imp_v1 = shap_summary["mean_abs_shap_pp"]["v1"]
 imp_v2 = shap_summary["mean_abs_shap_pp"]["v2"]
 
-ui.stage_header("2. Too good to be true?", "What is the model actually relying on?")
+ui.stage_header("2. Too good to be true?", "What is the model actually relying on?", minutes="stage2")
 ui.task_box(
     "Look at what ReadmitRisk v1 leans on most, and decide for each factor whether we would "
     "really know it at the moment a patient leaves hospital."
@@ -42,7 +43,7 @@ st.subheader("Could the model use this on a real patient?")
 st.markdown(
     "This is the model's training data: **an extract produced 30 days after each patient left hospital**. "
     "In real use, the model would be run on a patient as they leave hospital, to decide who to phone. "
-    "For each of these five factors from the chart, could the model actually be given that "
+    "For each of these factors from the chart, could the model actually be given that "
     "information at that point?"
 )
 with st.expander("Need a hint?"):
@@ -52,17 +53,9 @@ with st.expander("Need a hint?"):
         "The extract was produced a month later, so a column being in the data doesn't mean it was "
         "available when the patient left."
     )
-# Five of the eight factors on the chart, chosen to cover each case: known before admission,
-# built up during the stay (so available at discharge but not at admission), and recorded only
-# after discharge. The three post-discharge columns are near-duplicates, so only two are asked.
-EXERCISE = [
-    "gp_contacts_since_discharge",
-    "age",
-    "length_of_stay_days",
-    "outpatient_followup_attended",
-    "emergency_admissions_prev_12m",
-]
-top6 = EXERCISE
+# The questions asked are listed in explain.LEAKAGE_QUESTIONS (one of each kind; the reserve
+# questions are kept there as comments).
+top6 = explain.LEAKAGE_QUESTIONS
 # Widget keys are dropped when the page isn't rendered, so keep answers under a plain key.
 stored = st.session_state.setdefault("known_answers", {})
 answers = {}
@@ -165,10 +158,6 @@ else:
         ui.record_decision("stage2_verdict", verdict)
         st.rerun()
 
-st.markdown(
-    "**Discuss:** v2 can still find some readmissions. Is that enough to justify a service, "
-    "and what else would you need to know?"
-)
 ui.next_stage(
     "app_pages/what_will_we_do.py",
     "3. What will we do with it?",

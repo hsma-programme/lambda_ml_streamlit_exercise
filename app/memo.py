@@ -20,7 +20,7 @@ VERDICTS = ["Approve", "Approve with conditions", "Reject"]
 
 def gather(state, features: dict) -> dict:
     """Pull the group's decisions out of session state into one plain dict."""
-    known = state.get("known_answers") or {}
+    known = {k: v for k, v in (state.get("known_answers") or {}).items() if k in explain.LEAKAGE_QUESTIONS}
     leakage_total = len(known)
     leakage_right = sum(
         1 for k, a in known.items() if k in features and a.startswith("Yes") == features[k]["known_at_discharge"]
@@ -34,7 +34,7 @@ def gather(state, features: dict) -> dict:
         missing.append("Stage 0: your first impression")
     if not state.get("tradeoff_choice"):
         missing.append("Stage 1: the call capacity trade-off")
-    if leakage_total < 5:
+    if leakage_total < len(explain.LEAKAGE_QUESTIONS):
         missing.append("Stage 2: the 'could the model use this?' questions")
     if not state.get("stage2_verdict"):
         missing.append("Stage 2: your view after seeing v2")
