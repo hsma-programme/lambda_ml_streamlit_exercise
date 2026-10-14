@@ -81,7 +81,7 @@ st.divider()
 st.subheader("What would we say?")
 st.markdown(
     f"Imagine you are explaining this patient's prediction to a ward manager, or to a consultant who is "
-    f"sceptical of the model. **Which of these would your group be comfortable saying?** Choose as many as you like."
+    f"sceptical of the model. **For each statement, would your group be happy to say it?**"
 )
 
 a, b = expl["shown"][0]["label"], expl["shown"][1]["label"]
@@ -140,27 +140,42 @@ st.caption(
     "Unlike the earlier judgement calls, this one has clearer answers: it is about what an explanation can and "
     "cannot support."
 )
+YES_SAY = "Yes, we'd be happy to say this"
+NO_SAY = "No, we wouldn't say this"
+# group's answers, kept under a plain key (widget state is dropped when the page isn't rendered)
 locked = st.session_state.get("stage4_statements")
+
 if locked is None:
-    picked = st.multiselect(
-        "We would be comfortable saying:",
-        [s["id"] for s in STATEMENTS],
-        format_func=lambda i: next(s["text"] for s in STATEMENTS if s["id"] == i),
-        key="statements_widget",
-    )
-    if st.button("Check our choices", type="primary"):
-        st.session_state["stage4_statements"] = picked
+    answers = {}
+    for n, s in enumerate(STATEMENTS, start=1):
+        with st.container(border=True):
+            st.markdown(f"**Statement {n}**\n\n> {s['text']}")
+            answers[s["id"]] = st.radio(
+                "Would we be happy to say this?",
+                [YES_SAY, NO_SAY],
+                index=None,
+                horizontal=True,
+                key=f"say_{s['id']}",
+            )
+    ready = all(a is not None for a in answers.values())
+    if st.button("Check our answers", type="primary", disabled=not ready):
+        st.session_state["stage4_statements"] = {k: v == YES_SAY for k, v in answers.items()}
         st.rerun()
+    if not ready:
+        st.caption("Answer all six to see how they compare with the evidence.")
 else:
-    for s in STATEMENTS:
-        chosen = s["id"] in locked
+    for n, s in enumerate(STATEMENTS, start=1):
+        said_yes = locked[s["id"]]
         icon = ":material/check_circle:" if s["ok"] else ":material/cancel:"
         verdict = "Supported by the explanation" if s["ok"] else "Goes further than the evidence"
-        group = "You chose this" if chosen else "You did not choose this"
-        st.markdown(f"{icon} **{verdict}** ({group})\n\n> {s['text']}\n\n{s['why']}")
-    n_ok = sum(1 for s in STATEMENTS if (s["id"] in locked) == s["ok"])
-    st.caption(f"Your choices matched the evidence on {n_ok} of {len(STATEMENTS)} statements.")
-    if st.button("Change our choices"):
+        group = "You said you'd be happy to say this" if said_yes else "You said you wouldn't say this"
+        with st.container(border=True):
+            st.markdown(
+                f"**Statement {n}**\n\n> {s['text']}\n\n{icon} **{verdict}.** *{group}.*\n\n{s['why']}"
+            )
+    n_ok = sum(1 for s in STATEMENTS if locked[s["id"]] == s["ok"])
+    st.caption(f"Your answers matched the evidence on {n_ok} of {len(STATEMENTS)} statements.")
+    if st.button("Change our answers"):
         st.session_state["stage4_statements"] = None
         st.rerun()
 
