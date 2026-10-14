@@ -164,17 +164,29 @@ if locked is None:
     if not ready:
         st.caption("Answer all six to see how they compare with the evidence.")
 else:
+    n_ok = sum(1 for s in STATEMENTS if locked[s["id"]] == s["ok"])
+    st.info(
+        f"**Your group got {n_ok} of {len(STATEMENTS)} right.** A statement is right to say only if the "
+        "explanation really supports it."
+    )
     for n, s in enumerate(STATEMENTS, start=1):
         said_yes = locked[s["id"]]
-        icon = ":material/check_circle:" if s["ok"] else ":material/cancel:"
-        verdict = "Supported by the explanation" if s["ok"] else "Goes further than the evidence"
-        group = "You said you'd be happy to say this" if said_yes else "You said you wouldn't say this"
+        correct = said_yes == s["ok"]
+        said = "you'd be happy to say this" if said_yes else "you wouldn't say this"
+        if s["ok"]:
+            badge = ":green-badge[:material/check: Supported by the explanation]"
+            detail = "and the explanation does support it" if said_yes else "but the explanation does support it"
+        else:
+            badge = ":red-badge[:material/close: Goes further than the evidence]"
+            detail = "but it goes further than the evidence" if said_yes else "and it goes further than the evidence"
         with st.container(border=True):
-            st.markdown(
-                f"**Statement {n}**\n\n> {s['text']}\n\n{icon} **{verdict}.** *{group}.*\n\n{s['why']}"
-            )
-    n_ok = sum(1 for s in STATEMENTS if locked[s["id"]] == s["ok"])
-    st.caption(f"Your answers matched the evidence on {n_ok} of {len(STATEMENTS)} statements.")
+            st.markdown(f"**Statement {n}**\n\n> {s['text']}")
+            st.markdown(f"**The statement itself:** {badge}")
+            if correct:
+                st.success(f"**Your answer: correct.** You said {said}, {detail}.")
+            else:
+                st.error(f"**Your answer: not quite.** You said {said}, {detail}.")
+            st.markdown(s["why"])
     if st.button("Change our answers"):
         st.session_state["stage4_statements"] = None
         st.rerun()
