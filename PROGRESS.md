@@ -17,11 +17,23 @@ Consequences to carry into chunk 5: the in-house case makes DCB0129 and the Heal
 | 3 | App shell, shared helpers, Stage 0 (Briefing) | Done (committed) | **Addressed:** headline figures read from `meta.json`; initial verdict stored under plain session-state keys, locked once recorded, and no right/wrong feedback; state persistence across pages tested with `AppTest`. **Still open:** the call's intended purpose is a draft needing the course lead's confirmation; position in the deck undecided; accessibility (keyboard, contrast, zoom) and the visual check not done; stlite run is chunk 6. |
 | 4 | Stages 1–2 (is it any good? / too good to be true?) | Done (uncommitted) | **Addressed:** capacity is one control (patients phoned per 1,000 discharges) with the risk cut-off shown as a consequence; counts always sum to 1,000; outcomes described as historical readmissions; the trade-off decision is recorded before considerations are shown, with no right answer. **Still open:** discharge volume and time period are left to the facilitator; visual/screenshot and keyboard/contrast checks not done. |
 | 5 | Stages 3–4 (interventions / bringing people with you) | Stages 3 and 4 done (Stage 4 uncommitted) | Acceptability, fairness and medical-device categories overlap; assess them separately and split transport from pharmacy review. Do not assume appointment-reminder classifications transfer to readmission. Distinguish prediction from intervention benefit, explain residual Friday variation, and use SHAP to support scrutiny. Reduce compulsory examples to fit the time available. |
-| 6 | Stage 5, facilitator page, `pack.py`, README | Stage 5 done (uncommitted); facilitator page, `pack.py`, README not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
+| 6 | Stage 5, facilitator page, `pack.py`, README | Stage 5 and facilitator page done (facilitator page uncommitted); `pack.py`, README not started | Sign-off needs explicit intervention evaluation and concrete ownership/monitoring conditions. Timings do not clearly cover all six stages and transitions; pilot with a novice and allocate debrief time separately. Browser delivery, memo download and accessibility remain unverified; deployment URL, reproducible instructions and workshop fallback are outstanding. |
 
 Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on 2026-10-08 to separate acceptability / harms / device assessment, add intervention evaluation to sign-off, record judgement answers before feedback, define capacity as number called, derive headline figures from exports, and mark compulsory vs optional content. Timings, the deck position, the support call's intended purpose and the deployment URL still need decisions from the course lead.
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
+
+## Facilitator page (2026-10-14)
+
+[app/app_pages/facilitator.py](app/app_pages/facilitator.py), last in the navigation and headed "not part of the learner route". Five tabs:
+
+- **Timings:** the 40-minute route from `ui.STAGE_MINUTES` with cumulative "should be finished by" times, debrief 10 to 15 minutes, extension untimed, and an ordered "if a group is behind" list (and what not to cut: the Stage 2 reveal and the Friday data).
+- **Before you run it:** have the device readings reviewed and recheck regulatory wording; confirm the call's definition; groups of three to five; prior teaching assumed; fallback for network trouble; tell groups most of it isn't marked.
+- **Stage by stage:** aim, numbers, answers, what to draw out and common misreadings for each stage. All figures are computed from the exports (held-out metrics, 100-calls outcomes for v1 and v2, the Friday rates, and the shown patient's contributions), so they cannot drift from the learner pages.
+- **Debrief:** the five prompts from the extension plus four more, and the table of what groups tend to say to the sceptical-consultant question.
+- **Reserve material:** what was removed or switched off and how to restore it, plus things to be open about with learners.
+
+Verification: renders with no exceptions; the answers, patient contributions and Friday figures appear as expected. The page is still reachable by anyone using the navigation, so a facilitator-only gate (e.g. hiding it from the nav unless a URL parameter is set) is an open option.
 
 ## Discussion prompts and time badges (2026-10-14)
 
