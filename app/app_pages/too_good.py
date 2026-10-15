@@ -74,89 +74,89 @@ for key in top6:
     answers[key] = ans
     ui.factual_check(ans, YES if f["known_at_discharge"] else NO, f["why"])
 
-if not all(a is not None for a in answers.values()):
-    st.stop()
-
-st.divider()
-st.subheader("What this is called: data leakage")
-st.markdown(
-    "The model is using **information it wouldn't have at the moment you actually need the prediction**. "
-    "Here, the extract was pulled 30 days *after* discharge, so it includes what happened next: GP contacts, "
-    "whether a follow-up was attended and nursing visits. Those are partly a *consequence* of being readmitted, "
-    "so they give the answer away. That is why v1 looked so good. It is an easy mistake for a careful team to make, "
-    "and catching it is exactly what a sign-off review is for."
-)
-
-st.subheader("Take away the leaked information")
-if not st.session_state.get("v2_shown"):
-    if st.button("Rebuild the model without those factors (v2)", type="primary"):
-        st.session_state["v2_shown"] = True
-        st.rerun()
-    st.stop()
-
-v1, v2 = meta["models"]["v1"], meta["models"]["v2"]
-st.markdown("**v2** uses only what we know at discharge. Same test patients, same method.")
-m1, m2, m3 = st.columns(3)
-m1.metric("AUC (1.0 perfect, 0.5 coin toss)", f"{v2['auc_test']:.2f}", f"{v2['auc_test'] - v1['auc_test']:+.2f} vs v1", delta_color="off")
-m2.metric(
-    "Accuracy at 50% cut-off",
-    f"{v2['accuracy_at_50pct']:.1%}",
-    f"{v2['accuracy_at_50pct'] - v1['accuracy_at_50pct']:+.1%} vs v1",
-    delta_color="off",
-)
-m3.metric(
-    "Patients flagged at 50%",
-    f"{v2['n_flagged_at_50pct']}",
-    f"{v2['n_flagged_at_50pct'] - v1['n_flagged_at_50pct']:+d} vs v1",
-    delta_color="off",
-)
-
-cap = ui.capacity()
-o1 = metrics.call_outcomes(preds["p_v1"], preds["readmitted_30d"], cap)
-o2 = metrics.call_outcomes(preds["p_v2"], preds["readmitted_30d"], cap)
-st.markdown(f"**At your chosen capacity of {cap} calls per 1,000 discharges:**")
-a, b = st.columns(2)
-with a:
-    st.plotly_chart(charts.icon_array(o1, title="v1 (with leaked information)"), width="stretch")
-with b:
-    st.plotly_chart(charts.icon_array(o2, title="v2 (discharge-time information only)"), width="stretch")
-st.markdown(
-    f"- Following v1's recommendations would have reached **{o1['called_readmitted']}** of the "
-    f"{o1['readmitted_total']} patients who were readmitted; following v2's would reach **{o2['called_readmitted']}** ({o2['recall']:.0%}).\n"
-    f"- **{o2['precision']:.0%}** of v2's calls would reach someone who was readmitted, against about "
-    f"**{o2['random_precision']:.0%}** for calling at random."
-)
-st.info(
-    "v2 is much more modest, and it is the honest picture. It would still beat random calling, but you would need to "
-    "test it against random calling in your own hospital, because ranking by risk is not the same as knowing a "
-    "call will help."
-)
-with st.expander("What v2 relies on"):
-    st.plotly_chart(charts.importance_bar(imp_v2, features, top=8), width="stretch")
-with st.expander("Show the v1 and v2 counts as a table"):
-    st.dataframe(
-        pd.DataFrame(
-            {
-                "Group": [label for _, label in metrics.GROUPS],
-                "v1 per 1,000": [o1[k] for k, _ in metrics.GROUPS],
-                "v2 per 1,000": [o2[k] for k, _ in metrics.GROUPS],
-            }
-        ),
-        hide_index=True,
-        width="stretch",
+# Kept as nested blocks rather than st.stop(), so the progress save at the end of the entry
+# script still runs while this stage is unfinished.
+all_answered = all(a is not None for a in answers.values())
+if all_answered:
+    st.divider()
+    st.subheader("What this is called: data leakage")
+    st.markdown(
+        "The model is using **information it wouldn't have at the moment you actually need the prediction**. "
+        "Here, the extract was pulled 30 days *after* discharge, so it includes what happened next: GP contacts, "
+        "whether a follow-up was attended and nursing visits. Those are partly a *consequence* of being readmitted, "
+        "so they give the answer away. That is why v1 looked so good. It is an easy mistake for a careful team to make, "
+        "and catching it is exactly what a sign-off review is for."
     )
 
-st.divider()
-st.subheader("Has this changed your view?")
-locked = ui.get_decision("stage2_verdict")
-if locked:
-    initial = ui.get_decision("initial_verdict")
-    st.success(f"Recorded: **{locked}**" + (f" (your first impression was: {initial})" if initial else ""))
-else:
-    verdict = st.radio("Having seen v2, what would your group do?", VERDICTS, index=None, key="stage2_widget")
-    if st.button("Record our view", disabled=verdict is None, type="primary"):
-        ui.record_decision("stage2_verdict", verdict)
-        st.rerun()
+    st.subheader("Take away the leaked information")
+    if not st.session_state.get("v2_shown"):
+        if st.button("Rebuild the model without those factors (v2)", type="primary"):
+            st.session_state["v2_shown"] = True
+            st.rerun()
+    else:
+        v1, v2 = meta["models"]["v1"], meta["models"]["v2"]
+        st.markdown("**v2** uses only what we know at discharge. Same test patients, same method.")
+        m1, m2, m3 = st.columns(3)
+        m1.metric("AUC (1.0 perfect, 0.5 coin toss)", f"{v2['auc_test']:.2f}", f"{v2['auc_test'] - v1['auc_test']:+.2f} vs v1", delta_color="off")
+        m2.metric(
+            "Accuracy at 50% cut-off",
+            f"{v2['accuracy_at_50pct']:.1%}",
+            f"{v2['accuracy_at_50pct'] - v1['accuracy_at_50pct']:+.1%} vs v1",
+            delta_color="off",
+        )
+        m3.metric(
+            "Patients flagged at 50%",
+            f"{v2['n_flagged_at_50pct']}",
+            f"{v2['n_flagged_at_50pct'] - v1['n_flagged_at_50pct']:+d} vs v1",
+            delta_color="off",
+        )
+
+        cap = ui.capacity()
+        o1 = metrics.call_outcomes(preds["p_v1"], preds["readmitted_30d"], cap)
+        o2 = metrics.call_outcomes(preds["p_v2"], preds["readmitted_30d"], cap)
+        st.markdown(f"**At your chosen capacity of {cap} calls per 1,000 discharges:**")
+        a, b = st.columns(2)
+        with a:
+            st.plotly_chart(charts.icon_array(o1, title="v1 (with leaked information)"), width="stretch")
+        with b:
+            st.plotly_chart(charts.icon_array(o2, title="v2 (discharge-time information only)"), width="stretch")
+        st.markdown(
+            f"- Following v1's recommendations would have reached **{o1['called_readmitted']}** of the "
+            f"{o1['readmitted_total']} patients who were readmitted; following v2's would reach **{o2['called_readmitted']}** ({o2['recall']:.0%}).\n"
+            f"- **{o2['precision']:.0%}** of v2's calls would reach someone who was readmitted, against about "
+            f"**{o2['random_precision']:.0%}** for calling at random."
+        )
+        st.info(
+            "v2 is much more modest, and it is the honest picture. It would still beat random calling, but you would need to "
+            "test it against random calling in your own hospital, because ranking by risk is not the same as knowing a "
+            "call will help."
+        )
+        with st.expander("What v2 relies on"):
+            st.plotly_chart(charts.importance_bar(imp_v2, features, top=8), width="stretch")
+        with st.expander("Show the v1 and v2 counts as a table"):
+            st.dataframe(
+                pd.DataFrame(
+                    {
+                        "Group": [label for _, label in metrics.GROUPS],
+                        "v1 per 1,000": [o1[k] for k, _ in metrics.GROUPS],
+                        "v2 per 1,000": [o2[k] for k, _ in metrics.GROUPS],
+                    }
+                ),
+                hide_index=True,
+                width="stretch",
+            )
+
+        st.divider()
+        st.subheader("Has this changed your view?")
+        locked = ui.get_decision("stage2_verdict")
+        if locked:
+            initial = ui.get_decision("initial_verdict")
+            st.success(f"Recorded: **{locked}**" + (f" (your first impression was: {initial})" if initial else ""))
+        else:
+            verdict = st.radio("Having seen v2, what would your group do?", VERDICTS, index=None, key="stage2_widget")
+            if st.button("Record our view", disabled=verdict is None, type="primary"):
+                ui.record_decision("stage2_verdict", verdict)
+                st.rerun()
 
 ui.next_stage(
     "app_pages/what_will_we_do.py",

@@ -140,6 +140,7 @@ The app has no helper module and no palette. Its look comes from the following:
   - `feedback(checks)`: shows `st.warning(hint)` for the first wrong answer, otherwise `st.success("Correct — well done!")`.
 - **Charts:** plotly via `st.plotly_chart(fig, width="stretch")`, with no custom template.
 - **stlite build:** `pack.py` uses `stlitepack` to produce `docs/index.html` (stlite 1.8.1, bundling Streamlit 1.57.0). It **pins `plotly==6.0.1`** because newer versions fail under stlite (see the comment at `pack.py:27-32`). It vendors a component rather than installing a wheel that needs Streamlit 1.58 or later. Copy this approach.
+- **Update (2026-10-15, user-reported, unverified):** stlite 1.10.0 (React release) reportedly bundles Streamlit up to 1.65, which would relax the 1.57 limit below. Check when packing. Hosting on Streamlit Community Cloud is now the main plan, with stlite as a fallback.
 - **Local environment there:** Streamlit 1.63 on Python 3.13. Target features that exist in Streamlit 1.57 so that stlite works:
   - `st.navigation(position="top")`
   - `st.container(key=...)`, which produces `.st-key-*` classes

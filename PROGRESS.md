@@ -23,6 +23,24 @@ Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
 
+## Saved progress in the browser (2026-10-15)
+
+Prompted by the plan to host on Streamlit Community Cloud for two or three groups. Community Cloud has **no persistent server storage** (the container's disk is wiped on restart), so progress is kept in each browser's `localStorage`, following the approach in `C:\geographic_or_ds_playgroundpp\persistence.py`.
+
+- [app/persistence.py](app/persistence.py): ported. `progress_keys()` lists the plain session keys that hold every decision (Stages 0 to 5, plus the current page). `ProgressStore` / `NullStore` / `BrowserStore`, two-run hydration, save only when changed and never before hydration, return to the last page after a refresh, and a confirm-gated **Start over** popover at the top right of every page (clears answers *and* widget values, erases the browser copy, returns to the Briefing).
+- [app/streamlit_app.py](app/streamlit_app.py): `get_store()` then `init_state()` then `load_into_session()`, navigation, page restore, the reset control, `pg.run()`, then `save()`. A CSS rule collapses the component's invisible iframes.
+- [app/app_pages/too_good.py](app/app_pages/too_good.py): the two `st.stop()` gates became nested blocks, because `st.stop()` would skip the save at the end of the entry script and lose partial Stage 2 answers.
+- `requirements.txt`: `streamlit-local-storage==0.0.25` (pinned, see below).
+
+Differences from the geo app, and why:
+- **No busy-wait.** The library's `LocalStorage()` class loops until the browser answers. With the component installed it hung every AppTest run, and the same would freeze the live app if a locked-down browser ever blocked the component. `BrowserStore` calls the library's component function (`_st_local_storage`) directly with `default=None`, and the existing two-run hydration absorbs the delay. Because that function is private, the package is pinned to 0.0.25.
+- **Reset really erases.** The library's `deleteItem` only changes the stored default; `eraseItem` removes the item. The geo app uses `deleteItem`, so its reset may leave the saved copy in the browser. Not changed there; worth checking.
+- **stlite guard.** `get_store()` returns `NullStore` under stlite (`sys.platform == "emscripten"`) as well as when the package isn't installed, so the stlite fallback still works, just without saved progress.
+
+Verified: a unit check with a fake store (round trip of every key through JSON, two-run hydration, change detection including in-place dict edits, reset clearing progress and widget keys, single page restore, the stlite guard); the existing walkthroughs with and without the component installed. **Not verified:** that the browser actually stores and restores (no browser automation here). That needs a manual check: make choices, refresh mid-Stage 2, close and reopen the tab, use Start over and refresh, and try a second browser.
+
+The user reports that stlite 1.10.0 (React release) bundles Streamlit up to 1.65. Unverified; check when doing `pack.py`.
+
 ## Facilitator page (2026-10-14)
 
 [app/app_pages/facilitator.py](app/app_pages/facilitator.py), last in the navigation and headed "not part of the learner route". Five tabs:

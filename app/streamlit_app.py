@@ -2,6 +2,7 @@ import sys
 
 import streamlit as st
 
+import persistence
 import ui
 
 st.set_page_config(page_title="Model sign-off exercise", layout="wide")
@@ -66,6 +67,13 @@ st.html(
         background: rgba(255, 255, 255, 0.26);
         font-weight: 700;
     }
+    /* The localStorage component renders invisible iframes; don't let them take up space. */
+    .element-container:has(iframe[title*="st_local_storage"]),
+    [data-testid="stElementContainer"]:has(iframe[title*="st_local_storage"]) {
+        height: 0 !important;
+        margin: 0 !important;
+        overflow: hidden;
+    }
     .top-bar-links {
         position: fixed;
         top: 0;
@@ -114,21 +122,34 @@ st.html(
     """
 )
 
-# Per-user state shared across pages: plain keys, not widget keys (widget state is
-# dropped when its page isn't rendered).
-ui.init_state()
+# Browser-local persistence, so a refresh, dropped connection or app restart doesn't wipe a
+# group's answers. The store renders a hidden component once per run; if the component isn't
+# installed, or we're under stlite, it's a no-op.
+progress_store = persistence.get_store()
 
-pg = st.navigation(
-    [
-        st.Page("app_pages/briefing.py", title="0. Briefing", icon=":material/assignment:", default=True),
-        st.Page("app_pages/is_it_any_good.py", title="1. Is it any good?", icon=":material/query_stats:"),
-        st.Page("app_pages/too_good.py", title="2. Too good to be true?", icon=":material/search_check:"),
-        st.Page("app_pages/what_will_we_do.py", title="3. What will we do with it?", icon=":material/call:"),
-        st.Page("app_pages/bringing_people.py", title="4. Bringing people with you", icon=":material/groups:"),
-        st.Page("app_pages/sign_off.py", title="5. Sign-off", icon=":material/task_alt:"),
-        st.Page("app_pages/facilitator.py", title="Facilitator", icon=":material/info:"),
-    ],
-    position="top",
-)
+# Per-user state shared across pages: plain keys, not widget keys (widget state is
+# dropped when its page isn't rendered). Saved progress is then layered on top.
+ui.init_state()
+persistence.load_into_session(progress_store)
+
+pages = [
+    st.Page("app_pages/briefing.py", title="0. Briefing", icon=":material/assignment:", default=True),
+    st.Page("app_pages/is_it_any_good.py", title="1. Is it any good?", icon=":material/query_stats:"),
+    st.Page("app_pages/too_good.py", title="2. Too good to be true?", icon=":material/search_check:"),
+    st.Page("app_pages/what_will_we_do.py", title="3. What will we do with it?", icon=":material/call:"),
+    st.Page("app_pages/bringing_people.py", title="4. Bringing people with you", icon=":material/groups:"),
+    st.Page("app_pages/sign_off.py", title="5. Sign-off", icon=":material/task_alt:"),
+    st.Page("app_pages/facilitator.py", title="Facilitator", icon=":material/info:"),
+]
+pg = st.navigation(pages, position="top")
+
+# After a refresh, return the group to the page they were on, then remember where they are now.
+persistence.maybe_restore_page(pg, {p.url_path: p for p in pages})
+persistence.record_current_page(pg)
+
+persistence.render_reset_button()
 
 pg.run()
+
+# Save any changes made during this run (only writes when something changed).
+persistence.save(progress_store)
