@@ -60,7 +60,7 @@ def task_box(text: str) -> None:
 
 
 # Rough minutes for a small group on each page, shown as a badge. Unpiloted estimates for a
-# 40-minute session (debrief and the extension are extra). Keep in step with the facilitator page.
+# 40-minute session (debrief and the extension are extra). Keep in step with the timings table in README.md.
 STAGE_MINUTES = {
     "briefing": 3,
     "stage1": 7,

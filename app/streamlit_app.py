@@ -139,7 +139,6 @@ pages = [
     st.Page("app_pages/what_will_we_do.py", title="3. What will we do with it?", icon=":material/call:"),
     st.Page("app_pages/bringing_people.py", title="4. Bringing people with you", icon=":material/groups:"),
     st.Page("app_pages/sign_off.py", title="5. Sign-off", icon=":material/task_alt:"),
-    st.Page("app_pages/facilitator.py", title="Facilitator", icon=":material/info:"),
 ]
 pg = st.navigation(pages, position="top")
 

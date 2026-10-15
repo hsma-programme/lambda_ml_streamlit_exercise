@@ -12,7 +12,7 @@ Open design questions that haven't been settled. Add new items at the top, and m
 
 **The uncertainty:** it is not yet clear that this works for the audience (senior NHS leaders with no ML background, at the end of a long session). It asks learners to generate a question from scratch *and* say what evidence would answer it, which is probably the hardest kind of task in the exercise. Some groups may produce one generic question and stall. It hasn't been tried with anyone yet; a pilot with someone unfamiliar with ML would settle most of this.
 
-**What we might expect groups to come up with** (not yet written into the facilitator page):
+**What we might expect groups to come up with** (now also in the facilitator notes in README.md):
 
 | Likely answer | What it is really asking | Evidence they might name |
 |---|---|---|
@@ -33,12 +33,12 @@ The first six threads come from the exercise itself; "has anything leaked" is St
 
 **Options for changing it:**
 
-1. **Keep the open prompt.** Best if the debrief is time-rich and the groups are confident. Rely on the facilitator page's table above to prompt and probe.
+1. **Keep the open prompt.** Best if the debrief is time-rich and the groups are confident. Rely on the table above (also in the README's facilitator notes) to prompt and probe.
 2. **Offer a shortlist** (suggested). Give six or seven candidate questions (the table above) and ask the group to pick the one a sceptical consultant would find most persuasive, and to say what evidence would settle it. Then ask "what would you add?". This keeps the conversation and makes the evidence step concrete.
 3. **Split it in two.** First "what would you want to ask?", then, as a separate step with the shortlist revealed, "what evidence would answer it?".
 
 **Related follow-ups:**
-- Add the "what groups tend to say" table to the facilitator page when it is built (chunk 6).
+- ~~Add the "what groups tend to say" table to the facilitator page.~~ Done; it is in the facilitator notes in README.md.
 - If the shortlist version is chosen, the candidate questions can be reused in the Stage 5 sign-off conditions (local validation, calibration, equity checks, intervention evaluation, accountable owner, monitoring).
 
 ## Resolved

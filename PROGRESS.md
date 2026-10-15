@@ -41,9 +41,13 @@ Verified: a unit check with a fake store (round trip of every key through JSON, 
 
 The user reports that stlite 1.10.0 (React release) bundles Streamlit up to 1.65. Unverified; check when doing `pack.py`.
 
-## Facilitator page (2026-10-14)
+## Facilitator notes moved to README (2026-10-15)
 
-[app/app_pages/facilitator.py](app/app_pages/facilitator.py), last in the navigation and headed "not part of the learner route". Five tabs:
+The facilitator page has been removed from the app, and its content is now the "Facilitator notes" section of [README.md](README.md). That keeps the answers out of the learners' navigation (previously anyone could open the page). The trade-off: the page computed its figures from the exports, so they couldn't drift, whereas the README has them written in. They match the current exports and must be rechecked if the data is rebuilt or `ui.STAGE_MINUTES` changes. The facilitator notes also cover saved progress: Start over between groups, one tab per group, and waking the app before the session.
+
+## Facilitator page (2026-10-14, since moved to README)
+
+Was `app/app_pages/facilitator.py`, last in the navigation and headed "not part of the learner route". Five tabs:
 
 - **Timings:** the 40-minute route from `ui.STAGE_MINUTES` with cumulative "should be finished by" times, debrief 10 to 15 minutes, extension untimed, and an ordered "if a group is behind" list (and what not to cut: the Stage 2 reveal and the Friday data).
 - **Before you run it:** have the device readings reviewed and recheck regulatory wording; confirm the call's definition; groups of three to five; prior teaching assumed; fallback for network trouble; tell groups most of it isn't marked.
