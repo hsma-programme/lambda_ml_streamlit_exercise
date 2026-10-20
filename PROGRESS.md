@@ -184,7 +184,7 @@ Notes and caveats:
 
 Run from the repo root: `streamlit run app/streamlit_app.py` (root `.streamlit/config.toml` enables static serving for the banner).
 
-- [app/streamlit_app.py](app/streamlit_app.py): page config, banner and top-bar CSS (from the vidigi app), `st.navigation(position="top")` over seven pages, shared state init. Only the hsma.co.uk icon is linked; the GitHub icon waits for a repository URL.
+- [app/streamlit_app.py](app/streamlit_app.py): page config, banner and top-bar CSS (from the vidigi app), `st.navigation(position="top")` over seven pages, shared state init. The hsma.co.uk icon link was removed (it overlapped Streamlit's toolbar buttons).
 - [app/styles.css](app/styles.css): vidigi stylesheet trimmed (Lexend, navy, tab styling, block container); dead `st-emotion-cache-*` and exercise-specific rules dropped.
 - [app/ui.py](app/ui.py): `load_css`, `init_state`, `record_decision`/`get_decision`, cached loaders for `meta.json`, `features.json`, `test_predictions.csv`, `task_box`, `stage_header`, `synthetic_notice`, `stub`.
 - [app/app_pages/briefing.py](app/app_pages/briefing.py): analytics team's summary (97.6% accurate, AUC 0.99, from `meta.json`, 50% cut-off stated), AUC explained once, panel role, draft call description, synthetic notice, first-impression radio (no default) with optional reason and a "Record" button. Once recorded it is shown read-only and not overwritten.
