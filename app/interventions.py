@@ -30,6 +30,7 @@ DEVICE_OPTIONS = [
 INTERVENTIONS = [
     {
         "key": "phone_call",
+        "icon": ":material/call:",
         "title": "A support phone call",
         "compulsory": True,
         "what": (
@@ -63,6 +64,7 @@ INTERVENTIONS = [
     },
     {
         "key": "followup",
+        "icon": ":material/stethoscope:",
         "title": "A clinician brings forward follow-up, or reviews medication, for flagged patients",
         "compulsory": False,
         "what": (
@@ -93,6 +95,7 @@ INTERVENTIONS = [
     },
     {
         "key": "friday",
+        "icon": ":material/event_busy:",
         "title": "Ban Friday discharges",
         "compulsory": True,
         "what": "Stop discharging patients on Fridays, because Friday discharges are readmitted more often.",
@@ -112,6 +115,7 @@ INTERVENTIONS = [
     },
     {
         "key": "transport",
+        "icon": ":material/directions_bus:",
         "title": "Transport support to follow-up appointments",
         "compulsory": False,
         "what": "Offer flagged patients free transport so they can get to their follow-up appointment.",
@@ -132,6 +136,7 @@ INTERVENTIONS = [
     },
     {
         "key": "pharmacy",
+        "icon": ":material/medication:",
         "title": "A pharmacist medicines review for flagged patients",
         "compulsory": False,
         "what": "Offer flagged patients a pharmacist review of their medicines shortly after discharge.",
@@ -152,6 +157,7 @@ INTERVENTIONS = [
     },
     {
         "key": "delay_discharge",
+        "icon": ":material/bed:",
         "title": "Delay discharge for high-risk patients",
         "compulsory": True,
         "what": "Keep patients with a high predicted risk in hospital for longer before they go home.",
@@ -175,6 +181,7 @@ INTERVENTIONS = [
     },
     {
         "key": "deprioritise",
+        "icon": ":material/low_priority:",
         "title": "Deprioritise 'frequent readmitters' for planned operations",
         "compulsory": False,
         "what": "Move patients with a high predicted readmission risk down waiting lists for planned (elective) care.",

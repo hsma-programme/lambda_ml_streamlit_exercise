@@ -43,8 +43,9 @@ records = st.session_state.setdefault("interventions", {})
 
 def render(item: dict) -> None:
     key = item["key"]
-    with st.container(border=True):
-        st.subheader(item["title"])
+    # The key gives the box a .st-key-use_* class, which styles.css shades.
+    with st.container(border=True, key=f"use_{key}"):
+        st.subheader(f"{item['icon']} {item['title']}")
         st.markdown(item["what"])
         rec = records.get(key)
 

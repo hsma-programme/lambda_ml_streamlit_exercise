@@ -54,6 +54,11 @@ h1 {
     outline-offset: 2px;
 }
 
+/* Stage 4 use cases: a subtle shade to set each box off from the white page. */
+[class*="st-key-use_"] {
+    background-color: #f4f7fc;
+}
+
 .block-container {
     width: 100%;
     padding: 4rem 2rem 2rem;
