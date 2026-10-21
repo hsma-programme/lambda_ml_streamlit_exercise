@@ -56,7 +56,7 @@ h1 {
 
 /* Stage 4 use cases: a subtle shade to set each box off from the white page. */
 [class*="st-key-use_"] {
-    background-color: #f4f7fc;
+    background-color: #e9eef7;
 }
 
 .block-container {

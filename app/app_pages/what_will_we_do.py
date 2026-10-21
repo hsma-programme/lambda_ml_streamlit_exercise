@@ -154,22 +154,6 @@ with st.expander(f"More uses to consider (optional, {len(optional)})"):
         render(item)
 
 st.divider()
-st.subheader("Because we built it ourselves")
-st.markdown(
-    "When a model is bought, the supplier carries the manufacturer's responsibilities. Here **we** are the "
-    "manufacturer. If the model is used in the delivery of care, clinical safety standards are likely to apply "
-    "to us as the builder (**DCB0129**) and as the organisation deploying it (**DCB0160**). Both expect a "
-    "named **Clinical Safety Officer**, a hazard log and a safety case."
-)
-with st.expander("In-house models and the Health Institution Exemption"):
-    st.markdown(
-        "Software built and used within a health institution may be covered by an exemption from some "
-        "medical-device requirements, **only if** it is not transferred to another organisation, is used on "
-        "the same premises, follows leading practice, and has a designated responsible officer. "
-        "Treat this as something to check with your Clinical Safety Officer and current guidance, not as a way "
-        "round assessment."
-    )
-
 st.markdown(
     "**Watch for drift.** Each answer above describes a use *as designed*. In practice a list that is easy to "
     "act on tends to get used for more over time. If the use changes, the assessment has to be revisited: a "

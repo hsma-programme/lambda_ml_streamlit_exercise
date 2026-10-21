@@ -44,7 +44,8 @@ def icon_array(outcomes: dict, title: str | None = None) -> go.Figure:
         margin=dict(l=0, r=0, t=40 if title else 10, b=0),
         xaxis=dict(visible=False, range=[-1, _COLS]),
         yaxis=dict(visible=False, scaleanchor="x", range=[-25, 1]),
-        legend=dict(orientation="v", yanchor="top", y=-0.02, x=0),
+        # Above the grid, so the key is read before the markers. The labels are too long for the side.
+        legend=dict(orientation="v", yanchor="bottom", y=1.01, x=0),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         font=dict(family="Lexend, sans-serif", color=NAVY),

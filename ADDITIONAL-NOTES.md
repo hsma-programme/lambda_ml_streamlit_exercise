@@ -85,6 +85,12 @@ Stage 5 shows one patient: a 46% predicted-risk patient who was not readmitted, 
 
 The "When is the prediction made?" note appears only for the follow-up, transport, pharmacy and delay-discharge items. With follow-up optional, only delay discharge shows it on the compulsory route.
 
+### Stage 4: "Because we built it ourselves" removed
+
+Removed on 2026-10-21 to shorten the page. The section said that, as an in-house build, we are the manufacturer, so DCB0129 (builder) and DCB0160 (deployer) are likely to apply if the model is used in care, with a named Clinical Safety Officer, a hazard log and a safety case. An expander covered the Health Institution Exemption and its conditions: not transferred, same premises, leading practice, a designated responsible officer. The Briefing still says responsibility for safety sits with us. The clinician follow-up use (optional) still names DCB0129/DCB0160. "Watch for drift" was kept.
+
+**Where it lives:** git history (the commit that removed it). Restore it above "Watch for drift" in [app/app_pages/what_will_we_do.py](app/app_pages/what_will_we_do.py).
+
 ## Ideas mentioned but not built
 
 - **Stage 1:** a shortlist or "set the threshold yourself" variant of the "how accurate would a model be if it predicted nobody was readmitted?" guess. The current predict-then-reveal is the only "do" in that section.
