@@ -11,10 +11,10 @@ state = st.session_state
 g = memo.gather(state, features)
 
 ui.stage_header(
-    "5. Sign-off",
+    "6. Sign-off: Do we put it into use?",
     "Time to decide. Your group's earlier answers are gathered below, so you can see what you have "
     "found before you commit.",
-    minutes="stage5",
+    minutes="stage6",
 )
 ui.task_box(
     "Review what your group decided, record your final verdict and the conditions you would attach, "
@@ -121,7 +121,7 @@ state["pause_criteria"] = pause.strip() or None
 
 if verdict == "Approve" and not conditions:
     st.info(
-        "Your group has approved with no conditions. Is that what you intend? The questions raised in Stages 2 to 4 "
+        "Your group has approved with no conditions. Is that what you intend? The questions raised in Stages 3 to 5 "
         "would normally become conditions."
     )
 elif verdict == "Approve with conditions" and not conditions:
@@ -137,7 +137,7 @@ with state_box:
     j1, j2, j3 = st.columns(3)
     for col, label, value in (
         (j1, "First impression (Stage 0)", g["initial_verdict"]),
-        (j2, "After seeing v2 (Stage 2)", g["stage2_verdict"]),
+        (j2, "After seeing v2 (Stage 3)", g["stage2_verdict"]),
         (j3, "Final verdict (now)", g["final_verdict"]),
     ):
         with col.container(border=True):

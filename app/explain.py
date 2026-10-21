@@ -1,7 +1,7 @@
 """Per-patient explanations from the exported SHAP values (pandas only; no Streamlit)."""
 import pandas as pd
 
-# Which Stage 4 statements the explanation genuinely supports. The page asserts its own
+# Which Stage 5 statements the explanation genuinely supports. The page asserts its own
 # statement list agrees with this, so the memo and the page cannot drift apart.
 STATEMENT_SUPPORTED = {
     "causal": False,
@@ -14,7 +14,7 @@ STATEMENT_SUPPORTED = {
     # "relied": True,
 }
 
-# The Stage 2 "could the model use this on a real patient?" questions, one of each kind:
+# The Stage 3 "could the model use this on a real patient?" questions, one of each kind:
 # known before admission, built up during the stay (so available at discharge), and recorded
 # only after discharge.
 LEAKAGE_QUESTIONS = [

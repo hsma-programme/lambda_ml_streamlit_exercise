@@ -60,24 +60,26 @@ def task_box(text: str) -> None:
 
 
 # Rough minutes for a small group on each page, shown as a badge. Unpiloted estimates for a
-# 40-minute session (debrief and the extension are extra). Keep in step with the timings table in README.md.
+# 42-minute session (debrief and the extension are extra). Keep in step with the timings table in README.md.
 STAGE_MINUTES = {
     "briefing": 3,
-    "stage1": 7,
-    "stage2": 8,
-    "stage3": 10,
-    "stage4": 7,
-    "stage5": 5,
+    "stage1": 4,
+    "stage2": 5,
+    "stage3": 8,
+    "stage4": 10,
+    "stage5": 7,
+    "stage6": 5,
 }
 
 # Discussion prompts, moved off the stage pages to an extension at the end of the sign-off page
 # so they don't derail the core route. (stage, prompt)
 DISCUSSION = [
-    ("1. Is it any good?", "The numbers look very strong. What would you want to ask the analytics team before signing this off?"),
-    ("2. Too good to be true?", "v2 can still find some readmissions. Is that enough to justify a service, and what else would you need to know?"),
-    ("3. What will we do with it?", "Which use would you be most comfortable going ahead with first, and what would you need to see before you allowed a use that guides individual clinical care?"),
-    ("4. Bringing people with you", "What is the most useful question a sceptical consultant could ask about this model, and what evidence would you want before answering it?"),
-    ("5. Sign-off", "What changed your group's mind between your first impression and your final verdict, and which one condition would you most want to see in place?"),
+    ("1. Performance: Is it any good?", "The numbers look very strong. What would you want to ask the analytics team before signing this off?"),
+    ("2. Tradeoffs: Who would we phone?", "How would you find out how many calls the team can really make, and who should decide what the number is?"),
+    ("3. Issues: Too good to be true?", "v2 can still find some readmissions. Is that enough to justify a service, and what else would you need to know?"),
+    ("4. Usage: What will we do with it?", "Which use would you be most comfortable going ahead with first, and what would you need to see before you allowed a use that guides individual clinical care?"),
+    ("5. Communication: Bringing people with you", "What is the most useful question a sceptical consultant could ask about this model, and what evidence would you want before answering it?"),
+    ("6. Sign-off: Do we put it into use?", "What changed your group's mind between your first impression and your final verdict, and which one condition would you most want to see in place?"),
 ]
 
 
@@ -143,7 +145,7 @@ def next_stage(path: str, title: str, ready: bool, waiting: str) -> None:
     st.divider()
     if ready:
         st.success("You have done everything you need to on this page.")
-        st.page_link(path, label=f"Next: {title}", icon=":material/arrow_forward:")
+        st.page_link(path, label=f"Continue to {title}", icon=":material/arrow_forward:")
         st.caption("You can also move on by clicking the next stage in the navigation bar at the top of the page.")
     else:
         st.caption(waiting)

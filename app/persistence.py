@@ -49,18 +49,23 @@ def progress_keys() -> list[str]:
         "initial_reason",
         # Stage 1
         "baseline_guess",
+        "auc_pairs",
+        "auc_shown",
+        "auc_check",
+        # Stage 2
         "capacity_choice",
         "capacity_recorded",
         "tradeoff_choice",
-        # Stage 2
+        # Stage 3. Keys named after a stage (stage2_verdict, stage4_statements) keep the numbering
+        # from before "Who would we phone?" became its own page, so saved progress still loads.
         "known_answers",
         "v2_shown",
         "stage2_verdict",
-        # Stage 3
-        "interventions",
         # Stage 4
-        "stage4_statements",
+        "interventions",
         # Stage 5
+        "stage4_statements",
+        # Stage 6
         "final_verdict",
         "final_reason",
         "conditions",

@@ -33,16 +33,16 @@ def gather(state, features: dict) -> dict:
     if not state.get("initial_verdict"):
         missing.append("Stage 0: your first impression")
     if not state.get("tradeoff_choice"):
-        missing.append("Stage 1: the call capacity trade-off")
+        missing.append("Stage 2: the call capacity trade-off")
     if leakage_total < len(explain.LEAKAGE_QUESTIONS):
-        missing.append("Stage 2: the 'could the model use this?' questions")
+        missing.append("Stage 3: the 'could the model use this?' questions")
     if not state.get("stage2_verdict"):
-        missing.append("Stage 2: your view after seeing v2")
+        missing.append("Stage 3: your view after seeing v2")
     done = [k for k in compulsory if k in uses]
     if len(done) < len(compulsory):
-        missing.append(f"Stage 3: {len(done)} of {len(compulsory)} compulsory uses recorded")
+        missing.append(f"Stage 4: {len(done)} of {len(compulsory)} compulsory uses recorded")
     if statements is None:
-        missing.append("Stage 4: the explanation statements")
+        missing.append("Stage 5: the explanation statements")
 
     return {
         "initial_verdict": state.get("initial_verdict"),

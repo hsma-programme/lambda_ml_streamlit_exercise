@@ -1,4 +1,5 @@
 """Plotly charts. Palette checked with the dataviz skill's validator (see PROGRESS.md)."""
+import numpy as np
 import plotly.graph_objects as go
 
 from metrics import GROUPS
@@ -13,6 +14,8 @@ _STYLE = {
     "not_called_not": ("#8a95a5", "circle-open"),
 }
 NAVY = "#091747"
+# The pair a group has drawn in the AUC exercise (the slides' amber, reused).
+_HIGHLIGHT = _STYLE["called_not"][0]
 _COLS = 40
 
 
@@ -42,6 +45,62 @@ def icon_array(outcomes: dict, title: str | None = None) -> go.Figure:
         xaxis=dict(visible=False, range=[-1, _COLS]),
         yaxis=dict(visible=False, scaleanchor="x", range=[-25, 1]),
         legend=dict(orientation="v", yanchor="top", y=-0.02, x=0),
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(family="Lexend, sans-serif", color=NAVY),
+    )
+    return fig
+
+
+def risk_strip(p, y, pair: tuple[int, int] | None = None, title: str | None = None) -> go.Figure:
+    """Every test patient as a dot on predicted risk, one row for readmitted and one for not.
+
+    AUC is how often a dot from the top row sits to the right of a dot from the bottom row.
+    `pair` (readmitted index, not-readmitted index) is highlighted and joined by a line."""
+    p = np.asarray(p, dtype=float) * 100
+    y = np.asarray(y, dtype=int)
+    # Fixed jitter, so the dots don't jump about on every rerun.
+    jitter = np.random.default_rng(0).uniform(-0.28, 0.28, len(y))
+    fig = go.Figure()
+    for row, label, colour, symbol in (
+        (1, "Was readmitted", NAVY, "circle"),
+        (0, "Wasn't readmitted", _STYLE["not_called_not"][0], "circle-open"),
+    ):
+        mask = y == row
+        fig.add_trace(
+            go.Scatter(
+                x=p[mask],
+                y=row + jitter[mask],
+                mode="markers",
+                name=f"{label} ({mask.sum():,})",
+                marker=dict(color=colour, symbol=symbol, size=5, opacity=0.55),
+                hovertemplate=f"{label}: predicted risk %{{x:.1f}}%<extra></extra>",
+            )
+        )
+    if pair is not None:
+        i, j = pair
+        right = p[i] > p[j]
+        fig.add_trace(
+            go.Scatter(
+                x=[p[i], p[j]],
+                y=[1, 0],
+                mode="lines+markers+text",
+                line=dict(color=_HIGHLIGHT, width=2, dash="dot"),
+                marker=dict(color=_HIGHLIGHT, size=16, line=dict(width=2, color="white")),
+                text=[f"{p[i]:.1f}%", f"{p[j]:.1f}%"],
+                textposition=["top center", "bottom center"],
+                textfont=dict(color=_HIGHLIGHT, size=14),
+                name="Your pair: " + ("right way round" if right else "wrong way round"),
+                hovertemplate="Your pair: predicted risk %{x:.1f}%<extra></extra>",
+            )
+        )
+    fig.update_layout(
+        title=title,
+        height=280,
+        margin=dict(l=0, r=10, t=40 if title else 10, b=0),
+        xaxis=dict(title="Predicted risk of readmission (%)", range=[-3, 103], ticksuffix="%"),
+        yaxis=dict(tickvals=[1, 0], ticktext=["Was<br>readmitted", "Wasn't<br>readmitted"], range=[-0.75, 1.75]),
+        legend=dict(orientation="h", yanchor="top", y=-0.3, x=0),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         font=dict(family="Lexend, sans-serif", color=NAVY),

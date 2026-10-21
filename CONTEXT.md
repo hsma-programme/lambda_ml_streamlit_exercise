@@ -33,7 +33,7 @@ According to the session brief, it covers:
 - **performance metrics: accuracy, precision, recall**
 - tree-based models vs neural networks
 
-You can assume learners have heard of precision and recall. This section's deck now also introduces, briefly and on the DNA example, the accuracy trap with a rare outcome, AUC in plain words, and a capacity-based cut-off with a per-1,000 confusion grid (see section 3). You cannot assume they know sensitivity/specificity or calibration, so introduce these gently if they're used at all.
+You can assume learners have heard of precision and recall. This section's deck now also introduces, briefly and on the DNA example, the accuracy trap with a rare outcome, AUC in plain words, and a capacity-based cut-off with a per-1,000 confusion grid (see section 3). **Don't rely on the AUC slide:** the course lead found groups reached the app without understanding AUC, so Stage 1 now teaches it itself (2026-10-21). You cannot assume they know sensitivity/specificity or calibration, so introduce these gently if they're used at all.
 
 ### This section's deck
 The Quarto revealjs deck lives at `C:\Users\Sammi\lambda_ml_explainability_ethics_slides`. Its order (from `slides.qmd`) is:

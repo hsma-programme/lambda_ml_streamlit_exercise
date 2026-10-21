@@ -7,7 +7,7 @@ VERDICTS = ["Approve", "Approve with conditions", "Reject"]
 meta = ui.load_meta()
 v1 = meta["models"]["v1"]
 
-ui.stage_header("Model sign-off: ReadmitRisk v1", minutes="briefing")
+ui.stage_header("0. Briefing: Model sign-off for ReadmitRisk v1", minutes="briefing")
 ui.task_box(
     "You are the sign-off panel for a new risk model that our own analytics team has built. "
     "Read the team's summary, then "
@@ -30,17 +30,16 @@ with left:
 readmission within 30 days of leaving hospital.
 
 - **{v1['accuracy_at_50pct']:.1%} accurate**
-- **AUC {v1['auc_test']:.2f}**
+- **AUC {v1['auc_test']:.2f}** (on a scale from 0.5, no better than a coin toss, to 1.0, a perfect model)
 - Tested on {meta['n_test']:,} patients the model had not seen during training
 
 *"We propose using it to identify patients for a post-discharge support call."*
 """
     )
-    with st.expander("What does AUC mean?"):
+    with st.expander("What is AUC?", expanded=True):
         st.markdown(
-            "Pick one patient who *was* readmitted and one who *wasn't*. AUC is how often "
-            "the model gives the readmitted patient the higher risk score. 0.5 is a coin "
-            "toss and 1.0 is perfect."
+            "Another way of scoring a model, which you'll often see quoted alongside accuracy. "
+            "You'll try out what it measures in Stage 1."
         )
     st.caption(f"Accuracy is quoted at the usual 50% cut-off: a patient is flagged if the model gives them a risk of 50% or more.")
 
@@ -101,7 +100,7 @@ else:
 
 ui.next_stage(
     "app_pages/is_it_any_good.py",
-    "1. Is it any good?",
+    "1. Performance: Is it any good?",
     ui.get_decision("initial_verdict") is not None,
     "Record your first impression, and a button to the next stage will appear here.",
 )

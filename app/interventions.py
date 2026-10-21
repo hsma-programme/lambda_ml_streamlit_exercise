@@ -168,7 +168,7 @@ INTERVENTIONS = [
         "timing": (
             "To change *when* someone goes home, the prediction has to exist before the discharge decision. "
             "The model as built is run as the patient leaves, which is too late. We could rebuild it to predict "
-            "the day before discharge. It could then only use what is known by then (just as Stage 2 showed that "
+            "the day before discharge. It could then only use what is known by then (just as Stage 3 showed that "
             "the moment the model is run decides what counts), so it would need to be re-tested, and "
             "performance is likely to be lower."
         ),

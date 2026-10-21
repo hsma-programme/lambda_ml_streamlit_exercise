@@ -23,6 +23,31 @@ Chunk 2–6 items are carried into the design: [PLAN.md](PLAN.md) was updated on
 
 These are review findings and implementation concerns, not changes to completion status. See [PLAN-CRITIQUE.md](PLAN-CRITIQUE.md) for the reasoning and [final-things-to-check.md](final-things-to-check.md) for delivery verification.
 
+## AUC taught in the app (2026-10-21)
+
+Groups were reaching the app without understanding AUC, despite the one slide on it. Rather than give it its own page (an extra hop, and it would separate AUC from the accuracy discussion it contrasts with), it now sits in Stage 1:
+
+- [app/app_pages/briefing.py](app/app_pages/briefing.py): the AUC line gives only its anchors (0.5 = coin toss, 1.0 = perfect); the expander points to Stage 1. The first impression stays "on the pitch alone".
+- [app/app_pages/is_it_any_good.py](app/app_pages/is_it_any_good.py): a new section, "Another number you'll hear: AUC", sits between the accuracy trap and the cut-off. It has:
+  - **Pick a random pair** (then **Pick another pair**): draws one readmitted and one non-readmitted test patient, shows their v1 risks, says whether they are the right way round, and keeps a running tally.
+  - **Show me one it gets wrong:** picks a misordered pair and keeps it out of the tally.
+  - A dot chart of every test patient by risk, with the chosen pair highlighted.
+  - The reveal (99% of 952,679 pairs = AUC 0.99).
+  - A factual quick check (AUC 0.5 is coin-toss ranking, not "right about half the patients").
+  - A bridge sentence: AUC is about ordering, not where to draw the line.
+- [app/app_pages/too_good.py](app/app_pages/too_good.py): after the v2 metrics, v1 and v2 dot charts side by side (70% vs 99% right way round), plus a published-models benchmark. The benchmark is deliberately held back until here so earlier pages don't give away that 0.99 is suspicious.
+- [app/metrics.py](app/metrics.py) `n_pairs`, `draw_pair`, `misordered_pair`; [app/charts.py](app/charts.py) `risk_strip`; [app/persistence.py](app/persistence.py) saves `auc_pairs`, `auc_shown` and `auc_check`.
+- Timings: Stage 1 goes from 7 to 9 minutes, so the route is now about 42 minutes (`ui.STAGE_MINUTES` and the README table).
+
+**Follow-up the same day: Stage 1 split in two.** With AUC added, the cut-off section came a long way down Stage 1 and felt disconnected, so it became its own page:
+- **1. Is it any good?** (4 minutes, [is_it_any_good.py](app/app_pages/is_it_any_good.py)): accuracy and AUC. Everything below the baseline guess stays hidden until the group guesses. Moving on needs at least one pair picked.
+- **2. Who would we phone?** (5 minutes, new [who_would_we_phone.py](app/app_pages/who_would_we_phone.py)): capacity, cut-off, the grid, precision and recall, and the trade-off decision.
+- The later stages are renumbered 3 to 6 across the pages, nav, memo, `STAGE_MINUTES` (keys now `stage1` to `stage6`), `DISCUSSION` (a new prompt for Stage 2), README, ADDITIONAL-NOTES.md and the checklist. The total is still about 42 minutes.
+- Saved-progress keys named after stages (`stage2_verdict`, `stage4_statements`) keep their old names, so existing saved progress still loads. A comment in `persistence.py` says so.
+- Verified with `AppTest` through `streamlit_app.py`: guess, then pair, unlocks Stage 2; recording the trade-off unlocks Stage 3; capacity carries into Stage 3; the sign-off missing-decisions list uses the new numbers. Not checked: whether seven nav items wrap at laptop width.
+
+Verified with `AppTest`: Briefing anchors; three pairs give a tally "of 3"; a wrong pair shows "Wrong way round" without changing the tally; the quick check gives a warning or success; the Stage 2 v2 block renders the comparison and benchmark. **Not verified:** how the dot charts look (no image export here), the layout at narrow widths, and the benchmark citation against the paper itself (see final-things-to-check.md).
+
 ## Saved progress in the browser (2026-10-15)
 
 Prompted by the plan to host on Streamlit Community Cloud for two or three groups. Community Cloud has **no persistent server storage** (the container's disk is wiped on restart), so progress is kept in each browser's `localStorage`, following the approach in `C:\geographic_or_ds_playgroundpp\persistence.py`.

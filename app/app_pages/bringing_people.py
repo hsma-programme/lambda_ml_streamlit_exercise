@@ -21,10 +21,10 @@ PATIENT_LABELS = {
 }
 
 ui.stage_header(
-    "4. Bringing people with you",
+    "5. Communication: Bringing people with you",
     "To use a model, other people have to understand it well enough to trust it where it deserves trust, "
     "and to question it where it doesn't.",
-    minutes="stage4",
+    minutes="stage5",
 )
 ui.task_box(
     "Look at how the model reached its prediction for one patient, then decide which statements your group "
@@ -217,12 +217,12 @@ st.markdown(
 - **It is not proof of readiness.** A model can be explained and still be inaccurate, badly calibrated or unsafe
   in your hospital.
 - **It is a way to ask better questions.** It helps you spot things that look wrong, as the leaked
-  information did in Stage 2.
+  information did in Stage 3.
 """
 )
 ui.next_stage(
     "app_pages/sign_off.py",
-    "5. Sign-off",
+    "6. Sign-off: Do we put it into use?",
     st.session_state.get("stage4_statements") is not None,
     "Check your answers to the statements above, and a button to the next stage will appear here.",
 )

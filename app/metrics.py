@@ -17,6 +17,31 @@ def baseline_accuracy(y) -> float:
     return 1 - float(np.mean(y))
 
 
+def n_pairs(y) -> int:
+    """Number of (readmitted, not readmitted) pairs: what AUC averages over."""
+    y = np.asarray(y, dtype=int)
+    return int((y == 1).sum() * (y == 0).sum())
+
+
+def draw_pair(p, y, rng) -> tuple[int, int]:
+    """One random readmitted patient and one random patient who wasn't, as row indices.
+
+    Their order by predicted risk is one draw from what AUC measures."""
+    y = np.asarray(y, dtype=int)
+    return int(rng.choice(np.flatnonzero(y == 1))), int(rng.choice(np.flatnonzero(y == 0)))
+
+
+def misordered_pair(p, y, rng) -> tuple[int, int]:
+    """A random pair the model gets the wrong way round: the readmitted patient has the lower risk."""
+    p = np.asarray(p, dtype=float)
+    y = np.asarray(y, dtype=int)
+    pos, neg = np.flatnonzero(y == 1), np.flatnonzero(y == 0)
+    # Readmitted patients who are out-ranked by at least one patient who wasn't readmitted.
+    candidates = pos[p[pos] < p[neg].max()]
+    i = int(rng.choice(candidates))
+    return i, int(rng.choice(neg[p[neg] > p[i]]))
+
+
 def call_outcomes(p, y, calls_per_1000: int) -> dict:
     """Phone the highest-risk patients, up to a fixed capacity, and count outcomes per 1,000.
 

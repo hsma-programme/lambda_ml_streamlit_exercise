@@ -74,11 +74,12 @@ persistence.load_into_session(progress_store)
 
 pages = [
     st.Page("app_pages/briefing.py", title="0. Briefing", icon=":material/assignment:", default=True),
-    st.Page("app_pages/is_it_any_good.py", title="1. Is it any good?", icon=":material/query_stats:"),
-    st.Page("app_pages/too_good.py", title="2. Too good to be true?", icon=":material/search_check:"),
-    st.Page("app_pages/what_will_we_do.py", title="3. What will we do with it?", icon=":material/call:"),
-    st.Page("app_pages/bringing_people.py", title="4. Bringing people with you", icon=":material/groups:"),
-    st.Page("app_pages/sign_off.py", title="5. Sign-off", icon=":material/task_alt:"),
+    st.Page("app_pages/is_it_any_good.py", title="1. Performance", icon=":material/query_stats:"),
+    st.Page("app_pages/who_would_we_phone.py", title="2. Tradeoffs", icon=":material/format_list_numbered:"),
+    st.Page("app_pages/too_good.py", title="3. Issues", icon=":material/search_check:"),
+    st.Page("app_pages/what_will_we_do.py", title="4. Usage", icon=":material/call:"),
+    st.Page("app_pages/bringing_people.py", title="5. Communication", icon=":material/groups:"),
+    st.Page("app_pages/sign_off.py", title="6. Sign-off", icon=":material/task_alt:"),
 ]
 pg = st.navigation(pages, position="top")
 

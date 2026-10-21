@@ -5,10 +5,10 @@ import interventions as iv
 import ui
 
 ui.stage_header(
-    "3. What will we do with it?",
+    "4. Usage: What will we do with it?",
     "A list of patients is only useful if someone acts on it. What we do with the list changes everything "
     "about how it should be governed.",
-    minutes="stage3",
+    minutes="stage4",
 )
 ui.task_box(
     "For each proposed use of the list, answer three **separate** questions: would we support it, what harms "
@@ -178,7 +178,7 @@ st.markdown(
 
 ui.next_stage(
     "app_pages/bringing_people.py",
-    "4. Bringing people with you",
+    "5. Communication: Bringing people with you",
     all(i["key"] in records for i in compulsory),
     f"Record your answers for the {len(compulsory)} compulsory uses above, and a button to the next stage will appear here.",
 )

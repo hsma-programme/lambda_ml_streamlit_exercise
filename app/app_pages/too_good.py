@@ -17,7 +17,7 @@ preds = ui.load_predictions()
 imp_v1 = shap_summary["mean_abs_shap_pp"]["v1"]
 imp_v2 = shap_summary["mean_abs_shap_pp"]["v2"]
 
-ui.stage_header("2. Too good to be true?", "What is the model actually relying on?", minutes="stage2")
+ui.stage_header("3. Issues: Too good to be true?", "What is the model actually relying on?", minutes="stage3")
 ui.task_box(
     "Look at what ReadmitRisk v1 leans on most, and decide for each factor whether we would "
     "really know it at the moment a patient leaves hospital."
@@ -111,6 +111,21 @@ if all_answered:
             delta_color="off",
         )
 
+        # The same picture as the AUC pairs in Stage 1, now for both models.
+        y = preds["readmitted_30d"].to_numpy()
+        s1, s2 = st.columns(2, gap="large")
+        s1.plotly_chart(charts.risk_strip(preds["p_v1"], y, title="v1 (with leaked information)"), width="stretch")
+        s2.plotly_chart(charts.risk_strip(preds["p_v2"], y, title="v2 (discharge-time information only)"), width="stretch")
+        st.markdown(
+            f"Pick a pair of patients, one readmitted and one not, as you did in Stage 1: v2 puts them the right way round "
+            f"**{v2['auc_test']:.0%}** of the time, against **{v1['auc_test']:.0%}** for v1. The two rows now overlap a lot."
+        )
+        st.caption(
+            "For comparison, published models that predict readmission usually score somewhere around 0.6 to 0.75, "
+            "and a widely cited review (Kansagara and colleagues, JAMA, 2011) found most of them performed poorly. "
+            "v2 is in that range. An AUC of 0.99 for something as uncertain as readmission should have been a warning sign on its own."
+        )
+
         cap = ui.capacity()
         o1 = metrics.call_outcomes(preds["p_v1"], preds["readmitted_30d"], cap)
         o2 = metrics.call_outcomes(preds["p_v2"], preds["readmitted_30d"], cap)
@@ -160,7 +175,7 @@ if all_answered:
 
 ui.next_stage(
     "app_pages/what_will_we_do.py",
-    "3. What will we do with it?",
+    "4. Usage: What will we do with it?",
     ui.get_decision("stage2_verdict") is not None,
     "Record your group's view above, and a button to the next stage will appear here.",
 )

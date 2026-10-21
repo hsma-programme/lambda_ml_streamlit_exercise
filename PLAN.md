@@ -26,7 +26,7 @@ The session brief asks for an exercise where learners "interpret outputs from a 
 - Delivery: **in-browser via stlite**, with everything heavy precomputed. The shipped app imports only streamlit, pandas, numpy and plotly.
 - Format: **30–40 minutes in small groups**, then a facilitator debrief.
 
-**Metrics teaching:** the earlier deck teaches accuracy, precision and recall. The SHAP section of the slides now briefly introduces the accuracy trap, AUC in plain words, and a capacity-based cut-off with a per-1,000 confusion grid on the DNA example (see CONTEXT.md section 3). Stage 1 therefore **practises and transfers** these ideas to a new scenario rather than introducing them.
+**Metrics teaching:** the earlier deck teaches accuracy, precision and recall. The SHAP section of the slides now briefly introduces the accuracy trap, AUC in plain words, and a capacity-based cut-off with a per-1,000 confusion grid on the DNA example (see CONTEXT.md section 3). Stage 1 therefore **practises and transfers** these ideas to a new scenario rather than introducing them. **Exception (2026-10-21): AUC.** In practice groups reached the app without a working grasp of AUC, so the Briefing gives only its anchors (0.5 = coin toss, 1.0 = perfect) and Stage 1 teaches it from scratch with a pick-a-pair exercise. The app no longer relies on the slide for AUC.
 
 ## Repo layout (`C:\Users\Sammi\lambda_ml_streamlit_exercise`)
 ```
