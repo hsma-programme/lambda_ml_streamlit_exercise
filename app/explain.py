@@ -14,16 +14,17 @@ STATEMENT_SUPPORTED = {
     # "relied": True,
 }
 
-# The Stage 2 "could the model use this on a real patient?" questions, one of each kind:
-# known before admission, built up during the stay (so available at discharge), and recorded
-# only after discharge.
+# The Stage 2 "would the model get the same information in real use?" questions: one recorded only after
+# discharge, and two available at discharge that are worth checking rather than assuming (the
+# discharge prescription, and a stay that is only complete once the patient leaves).
 LEAKAGE_QUESTIONS = [
     "gp_contacts_since_discharge",  # after discharge: No
-    "age",  # known before admission: Yes
+    "number_of_medications",  # written on the discharge prescription: Yes
     "length_of_stay_days",  # built up during the stay, available at discharge: Yes
     # Reserve questions, removed to fit the 35-minute route. Reinstate by uncommenting:
     # "outpatient_followup_attended",  # after discharge: No (the appointment itself is weeks later)
     # "emergency_admissions_prev_12m",  # known before admission: Yes
+    # "age",  # known before admission: Yes (replaced: too obviously yes)
 ]
 
 YES_NO = {0: "No", 1: "Yes"}

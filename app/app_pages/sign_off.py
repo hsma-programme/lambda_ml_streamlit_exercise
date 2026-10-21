@@ -42,7 +42,7 @@ with left:
     )
 with right:
     leak = (
-        f"{g['leakage_right']} of {g['leakage_total']} 'could the model use this?' questions right"
+        f"{g['leakage_right']} of {g['leakage_total']} 'same information in real use?' questions right"
         if g["leakage_total"]
         else "not recorded"
     )

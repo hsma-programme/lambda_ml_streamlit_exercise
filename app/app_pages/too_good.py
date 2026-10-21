@@ -5,8 +5,22 @@ import explain
 import ui
 
 VERDICTS = ["Approve", "Approve with conditions", "Reject"]
-YES = "Yes: the model would have this when it is run on a real patient"
-NO = "No: this wouldn't exist yet when the model is run on a real patient"
+# Both must keep starting "Yes" / "No": the memo scores answers on that.
+YES = "Yes: at discharge we'd have the same information the model learnt from"
+NO = "No: at discharge this would be missing, or would mean something different"
+
+# Option -> how the (unmarked) response opens. Community nursing isn't listed first, so the
+# question doesn't point at it. Every response then leads to the top of the chart.
+CHART_QUESTIONS = {
+    "Why does deprivation matter so little?": (
+        "A fair question, and fairness comes back later in the exercise. For now, it's also worth looking at "
+        "the top of the chart. "
+    ),
+    "Why is community nursing the biggest factor, far ahead of age or long-term conditions?": "A good question to ask. ",
+    "Nothing stands out: these all sound like sensible things to predict readmission": (
+        "Worth a second look at the top of the chart. "
+    ),
+}
 
 meta = ui.load_meta()
 features = ui.load_features()
@@ -18,71 +32,115 @@ imp_v2 = shap_summary["mean_abs_shap_pp"]["v2"]
 ui.stage_header("2. Issues: Too good to be true?", "What is the model actually relying on?", minutes="stage2")
 ui.task_box(
     "Look at what ReadmitRisk v1 leans on most, and decide for each factor whether we would "
-    "really know it at the moment a patient leaves hospital."
+    "really have the same information at the moment a patient leaves hospital."
 )
 
 st.subheader("What the model relies on")
-st.plotly_chart(charts.importance_bar(imp_v1, features, top=8), width="stretch")
+st.plotly_chart(charts.importance_bar(imp_v1, features, top=10), width="stretch")
 st.caption(
     "Each bar is the average amount that factor moves a patient's predicted risk up or down, "
     "in percentage points. It shows what the model *relied on*, not what would happen if we changed something."
 )
 
-st.subheader("When do we need the prediction?")
-t1, t2, t3 = st.columns(3)
-with t1.container(border=True):
-    st.markdown("**Admission**\n\nThe patient comes in.")
-with t2.container(border=True):
-    st.markdown("**Discharge**\n\n**This is the moment we need the prediction**, to decide who to phone.")
-with t3.container(border=True):
-    st.markdown("**30 days later**\n\nWe find out who was readmitted.")
-
-st.subheader("Could the model use this on a real patient?")
-st.markdown(
-    "This is the model's training data: **an extract produced 30 days after each patient left hospital**. "
-    "In real use, the model would be run on a patient as they leave hospital, to decide who to phone. "
-    "For each of these factors from the chart, could the model actually be given that "
-    "information at that point?"
+# Not marked: the point is to notice the imbalance before being asked about timing.
+if st.session_state.get("chart_question"):
+    st.session_state.setdefault("chart_question_widget", st.session_state["chart_question"])
+chart_q = st.radio(
+    "Is there anything about this chart you'd want to ask the analytics team about?",
+    list(CHART_QUESTIONS),
+    index=None,
+    key="chart_question_widget",
 )
-with st.expander("Need a hint?"):
-    st.markdown(
-        "Ask: *if I were looking at this patient's record on the day they went home, could I fill this in?* "
-        "Each factor says what period it **covers**. Compare that with the moment we need the prediction. "
-        "The extract was produced a month later, so a column being in the data doesn't mean it was "
-        "available when the patient left."
+if chart_q:
+    st.session_state["chart_question"] = chart_q
+    top_key, top_pp = next(iter(imp_v1.items()))
+    ratio = top_pp / imp_v1["age"]
+    st.info(
+        CHART_QUESTIONS[chart_q]
+        + f"{features[top_key]['display']} moves predicted risk about {ratio:.0f} times as much as age. When one factor "
+        "dominates far beyond what clinical experience would suggest, ask where its data comes from and when it is "
+        "recorded. That is what the next questions do."
     )
-# The questions asked are listed in explain.LEAKAGE_QUESTIONS (one of each kind; the reserve
-# questions are kept there as comments).
-top6 = explain.LEAKAGE_QUESTIONS
-# Widget keys are dropped when the page isn't rendered, so keep answers under a plain key.
-stored = st.session_state.setdefault("known_answers", {})
-answers = {}
-for key in top6:
-    f = features[key]
-    options = [YES, NO]
-    ans = st.radio(
-        f"**{f['display']}**: {f['description']} *(Covers: {f['covers']}.)*",
-        options,
-        index=options.index(stored[key]) if key in stored else None,
-        horizontal=True,
-        key=f"known_{key}",
-    )
-    if ans is not None:
-        stored[key] = ans
-    answers[key] = ans
-    ui.factual_check(ans, YES if f["known_at_discharge"] else NO, f["why"])
 
 # Kept as nested blocks rather than st.stop(), so the progress save at the end of the entry
 # script still runs while this stage is unfinished.
+answers = {key: None for key in explain.LEAKAGE_QUESTIONS}
+if chart_q:
+    st.subheader("When do we need the prediction?")
+    st.markdown(
+        "Before judging each factor, pin down **when the model would actually be used**. A factor is only "
+        "any use if, at that moment, we'd have the same information the model learnt from."
+    )
+    # A timeline, not buttons: arrows between the steps, and the moment of prediction highlighted
+    # (styles.css shades the .st-key-timeline_discharge box).
+    t1, a1, t2, a2, t3 = st.columns([1, 0.12, 1, 0.12, 1], vertical_alignment="center")
+    with t1.container(border=True):
+        st.markdown("**:material/local_hospital: Admission**\n\nThe patient comes in.")
+    a1.markdown(":material/arrow_forward:")
+    with t2.container(border=True, key="timeline_discharge"):
+        st.markdown(
+            "**:material/home: Discharge**\n\n**The model is run here**, as the patient leaves, to decide who to phone."
+        )
+    a2.markdown(":material/arrow_forward:")
+    with t3.container(border=True):
+        st.markdown("**:material/event: 30 days later**\n\nWe find out who was readmitted.")
+
+    st.subheader("Would the model get the same information in real use?")
+    st.markdown(
+        "In real use, the model would be run on a patient as they leave hospital, to decide who to phone. "
+        "For each factor below, could we give it the same information at that point as it had in its training data? "
+        "The analytics team's data dictionary says where each one comes from."
+    )
+    with st.expander("The analytics team's data dictionary", icon=":material/menu_book:"):
+        st.markdown(
+            "**ReadmitRisk training extract.** One row per discharge. Each patient's row was extracted "
+            "**30 days after their discharge date**, once it was known whether they had been readmitted."
+        )
+        st.table(
+            {
+                "Factor": [f["display"] for f in features.values()],
+                "Description": [f["description"] for f in features.values()],
+                "Source": [f["source"] for f in features.values()],
+            }
+        )
+    with st.expander("Need a hint?"):
+        st.markdown(
+            "Ask: *if I were looking at this patient's record on the day they went home, could I fill this in "
+            "the same way the training data did?* Check each factor's **source** in the data dictionary, then "
+            "compare it with when the extract was run. A field can have the same name at discharge and still "
+            "hold different information."
+        )
+    # The questions asked are listed in explain.LEAKAGE_QUESTIONS (the reserve questions are
+    # kept there as comments).
+    # Widget keys are dropped when the page isn't rendered, so keep answers under a plain key.
+    stored = st.session_state.setdefault("known_answers", {})
+    for key in explain.LEAKAGE_QUESTIONS:
+        f = features[key]
+        options = [YES, NO]
+        ans = st.radio(
+            f"**{f['display']}**: {f['description']}",
+            options,
+            # Answers saved under older wording of the options are ignored.
+            index=options.index(stored[key]) if stored.get(key) in options else None,
+            horizontal=True,
+            key=f"known_{key}",
+        )
+        if ans is not None:
+            stored[key] = ans
+        answers[key] = ans
+        ui.factual_check(ans, YES if f["known_at_discharge"] else NO, f["why"])
+
 all_answered = all(a is not None for a in answers.values())
 if all_answered:
     st.divider()
     st.subheader("What this is called: data leakage")
     st.markdown(
         "The model is using **information it wouldn't have at the moment you actually need the prediction**. "
-        "Here, the extract was pulled 30 days *after* discharge, so it includes what happened next: GP contacts, "
-        "whether a follow-up was attended and nursing visits. Those are partly a *consequence* of being readmitted, "
-        "so they give the answer away. That is why v1 looked so good. It is an easy mistake for a careful team to make, "
+        "Here, each row was extracted 30 days *after* discharge, and columns such as 'GP contacts (last 30 days)' "
+        "were counted back from that date. So in the training data they describe what happened *after* the "
+        "patient went home: GP contacts, nursing visits and whether a follow-up was attended. Those are partly a "
+        "*consequence* of becoming unwell again, so they give the answer away. At discharge the same fields would "
+        "hold different information. That is why v1 looked so good. It is an easy mistake for a careful team to make, "
         "and catching it is exactly what a sign-off review is for."
     )
 

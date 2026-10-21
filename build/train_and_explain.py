@@ -29,7 +29,11 @@ ROOT = Path(__file__).parent
 SRC = ROOT / "out" / "discharges.csv"
 OUT = ROOT.parent / "app" / "data"
 
-# group -> (display name, known at discharge?, plain-English description)
+# group -> (display name, same information available at discharge?, plain-English description)
+# The leaked columns are named as they would be in a real extract: "last 30 days" is counted back
+# from the extract date, so in training it covers the month AFTER discharge. At discharge the same
+# field could be filled in, but would cover the 30 days before (mostly in hospital), so it would be
+# different information from what the model learnt from.
 FEATURES = {
     "age": ("Age", True, "Patient's age in years."),
     "sex": ("Sex", True, "Recorded sex (male = 1)."),
@@ -42,40 +46,44 @@ FEATURES = {
     "lives_alone": ("Lives alone", True, "Whether the patient lives alone."),
     "discharge_specialty": ("Discharge specialty", True, "The specialty the patient was discharged from."),
     "discharge_day": ("Discharge day", True, "Day of the week of discharge."),
-    "gp_contacts_since_discharge": ("GP contacts", False, "Number of contacts with the patient's GP practice."),
+    "gp_contacts_since_discharge": ("GP contacts (last 30 days)", False, "Number of contacts with the patient's GP practice in the last 30 days."),
     "outpatient_followup_attended": ("Outpatient follow-up attended", False, "Whether the patient attended an outpatient follow-up appointment."),
-    "community_nursing_visits_since_discharge": ("Community nursing visits", False, "Number of community nursing visits to the patient."),
+    "community_nursing_visits_since_discharge": ("Community nursing visits (last 30 days)", False, "Number of community nursing visits to the patient in the last 30 days."),
 }
-# The period each column covers, shown with the description like a data dictionary entry.
-# It is a fact about the column, not an answer: learners still have to work out that a
-# window starting on the day of discharge isn't available at the moment of discharge.
-COVERS = {
-    "age": "the patient's age at admission",
-    "sex": "the patient's record",
-    "deprivation_decile": "the patient's home address",
-    "long_term_conditions": "the patient's record up to admission",
-    "emergency_admissions_prev_12m": "the 12 months before this admission",
-    "length_of_stay_days": "this admission",
-    "number_of_medications": "the medicines prescribed on discharge",
-    "discharge_destination": "the plan made for discharge",
-    "lives_alone": "the patient's circumstances during the admission",
-    "discharge_specialty": "this admission",
-    "discharge_day": "the day of discharge",
-    "gp_contacts_since_discharge": "the 30 days beginning on the day of discharge",
-    "outpatient_followup_attended": "the follow-up appointment itself, which is a few weeks after discharge",
-    "community_nursing_visits_since_discharge": "the 30 days beginning on the day of discharge",
+# Where each column comes from, written as the analytics team's data dictionary would put it.
+# It is a fact about the column, not an answer: learners have to connect "before the extract
+# date" with when the extract was run (30 days after discharge, stated in the dictionary's
+# header on the page) to see that some columns aren't available at the moment of discharge.
+SOURCE = {
+    "age": "Patient administration system. Age on the admission date.",
+    "sex": "Patient administration system.",
+    "deprivation_decile": "Derived from the home postcode on the patient administration system.",
+    "long_term_conditions": "Linked GP record. Conditions coded up to the admission date.",
+    "emergency_admissions_prev_12m": "Hospital admissions data. The 12 months before the admission date.",
+    "length_of_stay_days": "Patient administration system. Admission date to discharge date.",
+    "number_of_medications": "Electronic prescribing. The discharge prescription.",
+    "discharge_destination": "Patient administration system. The discharge record.",
+    "lives_alone": "Social history taken during the admission.",
+    "discharge_specialty": "Patient administration system. The discharge record.",
+    "discharge_day": "Patient administration system. Day of the week of the discharge date.",
+    "gp_contacts_since_discharge": "Linked GP record. Contacts in the 30 days before the extract date.",
+    "outpatient_followup_attended": "Outpatient system. Status of the first follow-up appointment, as at the extract date.",
+    "community_nursing_visits_since_discharge": "Community services record. Visits in the 30 days before the extract date.",
 }
 
-# Shown to learners only AFTER they answer "known at the moment of discharge?", so the
+# Shown to learners only AFTER they answer "would the model get the same information in real use?", so the
 # display names and descriptions above must not give the answer away.
 WHY = {
-    "gp_contacts_since_discharge": "This counts GP contacts in the 30 days after the patient left hospital, so it doesn't exist at discharge. Patients who go on to be readmitted tend to have more of them.",
+    "gp_contacts_since_discharge": "At discharge you could fill in a 'last 30 days' count, but it would cover the 30 days before the patient left, mostly spent in hospital. In the training data the 30 days were counted back from the extract date, so they cover the month after discharge, when patients who are getting worse see their GP more. Same name, different information.",
     "outpatient_followup_attended": "Whether a follow-up was attended can only be recorded once the appointment date has passed, which is after discharge.",
-    "community_nursing_visits_since_discharge": "This counts visits made after the patient left hospital, so it can't be known at discharge. Readmitted patients tend to have had more.",
+    "community_nursing_visits_since_discharge": "In the training data the 'last 30 days' are the month after discharge, so this counts visits made after the patient went home, which readmitted patients tend to have more of. At discharge the same field would count something else.",
 }
 WHY["length_of_stay_days"] = (
     "A stay isn't over until the patient leaves, so you couldn't know this at admission. But the model is run "
     "as the patient leaves, and by then we do have it. The moment the model is run decides what counts."
+)
+WHY["number_of_medications"] = (
+    "The discharge prescription is written before the patient leaves, so we have it at the moment of discharge."
 )
 WHY_DEFAULT = "This is recorded during the admission, so we have it at the moment of discharge."
 CATEGORICAL = ["discharge_destination", "discharge_specialty", "discharge_day"]
@@ -189,7 +197,7 @@ def main():
     (OUT / "friday.json").write_text(json.dumps(friday, indent=2))
 
     (OUT / "features.json").write_text(json.dumps(
-        {k: {"display": d, "known_at_discharge": kd, "description": desc, "covers": COVERS[k], "why": WHY.get(k, WHY_DEFAULT)}
+        {k: {"display": d, "known_at_discharge": kd, "description": desc, "source": SOURCE[k], "why": WHY.get(k, WHY_DEFAULT)}
          for k, (d, kd, desc) in FEATURES.items()}, indent=2))
     (OUT / "shap_summary.json").write_text(json.dumps({"base_value_pp": shap_base, "mean_abs_shap_pp": importance}, indent=2))
     (OUT / "meta.json").write_text(json.dumps(meta, indent=2))

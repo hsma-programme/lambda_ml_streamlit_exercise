@@ -33,7 +33,7 @@ def gather(state, features: dict) -> dict:
     if not state.get("initial_verdict"):
         missing.append("Stage 0: your first impression")
     if leakage_total < len(explain.LEAKAGE_QUESTIONS):
-        missing.append("Stage 2: the 'could the model use this?' questions")
+        missing.append("Stage 2: the 'same information in real use?' questions")
     if not state.get("stage2_verdict"):
         missing.append("Stage 2: your view after seeing v2")
     if not state.get("tradeoff_choice"):

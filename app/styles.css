@@ -59,6 +59,12 @@ h1 {
     background-color: #e9eef7;
 }
 
+/* Stage 2 timeline: the moment the model is run. */
+.st-key-timeline_discharge {
+    background-color: #e9eef7;
+    border: 2px solid #091747 !important;
+}
+
 .block-container {
     width: 100%;
     padding: 4rem 2rem 2rem;

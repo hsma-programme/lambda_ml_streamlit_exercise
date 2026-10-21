@@ -8,18 +8,19 @@ For open design questions, see [ONGOING-QUESTIONS.md](ONGOING-QUESTIONS.md). For
 
 The full build was estimated at roughly 47 to 53 minutes for novices (unpiloted). These items were removed or demoted to get to about 39 to 43 minutes plus debrief (recommended duration 40 minutes). All of them are still in the code.
 
-### Stage 2: "Could the model use this on a real patient?" questions
+### Stage 2: "Would the model get the same information in real use?" questions
 
-Three questions are asked now. Two were removed.
+Three questions are asked now. Three are in reserve.
 
 | Removed question | Kind | Right answer | Why it was useful |
 |---|---|---|---|
-| Outpatient follow-up attended | After discharge | No | A subtler leak: the follow-up is *booked* around discharge, but whether it was *attended* is only known weeks later. Its "Covers" note says the appointment itself is a few weeks after discharge. |
+| Outpatient follow-up attended | After discharge | No | A subtler leak: the follow-up is *booked* around discharge, but whether it was *attended* is only known weeks later. Its data-dictionary source says "status of the first follow-up appointment, as at the extract date". |
 | Emergency admissions in previous 12 months | Known before admission | Yes | A second plain "yes", useful for balancing the list so "yes to everything" doesn't score well. |
+| Age | Known before admission | Yes | Asked until 2026-10-21, then replaced by number of medications because it was too obviously yes. |
 
-**Questions asked now:** GP contacts (after discharge: no), age (known before admission: yes), length of stay (built up during the stay, available at discharge: yes).
+**Questions asked now:** GP contacts (after discharge: no), number of medications (the discharge prescription: yes), length of stay (built up during the stay, available at discharge: yes).
 
-**Where it lives:** `LEAKAGE_QUESTIONS` in [app/explain.py](app/explain.py). Uncomment the two commented entries to reinstate. The Stage 2 page, the sign-off missing-decisions list and the memo all read from this list, so nothing else needs changing.
+**Where it lives:** `LEAKAGE_QUESTIONS` in [app/explain.py](app/explain.py). Uncomment the commented entries to reinstate. The Stage 2 page, the sign-off missing-decisions list and the memo all read from this list, so nothing else needs changing.
 
 **Also not asked:** community nursing visits (still on the importance chart as the top bar). It was dropped earlier because it duplicates GP contacts.
 

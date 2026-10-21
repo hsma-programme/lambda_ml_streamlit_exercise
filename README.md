@@ -68,7 +68,7 @@ Cut in this order, so the main lessons survive:
 - **Press "Start over" (top right) between groups** on a shared laptop, or the next group will see the previous group's answers. It asks for confirmation, then clears everything and returns to the Briefing.
 - **One tab per group.** Two tabs on the same device share one saved copy, and whichever changes last wins.
 - **Open the app a few minutes before the session.** Hosted apps go to sleep when nobody has used them for a while, and take a minute to wake.
-- **Tell them up front** that most of the exercise is judgement and will not be marked. Stage 2's "could the model use this?" questions and Stage 5's statements do have clearer answers, and the app says so.
+- **Tell them up front** that most of the exercise is judgement and will not be marked. Stage 2's "same information in real use?" questions and Stage 5's statements do have clearer answers, and the app says so.
 
 ## Stage by stage
 
@@ -100,11 +100,16 @@ Cut in this order, so the main lessons survive:
 
 **Aim:** data leakage is information the model would not have at the moment you need the prediction, and the moment of prediction decides what counts.
 
+**How the page runs:**
+1. **The chart is the first clue.** v1's top three factors are community nursing visits, GP contacts and outpatient follow-up. Community nursing moves risk about 10 times as much as age. An unmarked question asks what groups would want to ask the analytics team. Whatever they pick, a nudge says to check where a dominant factor's data comes from and when it is recorded. Nothing below appears until they answer.
+2. **The team's data dictionary** (an expander) lists all 14 factors with a realistic source, for example "Linked GP record. Contacts in the 30 days before the extract date". Its header says each row was extracted 30 days after discharge. Groups have to connect the two, which is the reviewer's real job. The leaked factors are named as a real extract would name them, for example "GP contacts (last 30 days)", so nothing in the name gives the timing away.
+3. **The question is "would the model get the same information in real use?"**, not "does it exist?". At discharge you *could* fill in a "last 30 days" count, but it would cover the 30 days before discharge, mostly in hospital. So "No" means "missing, or would mean something different".
+
 **Answers:**
 
-- **GP contacts** (the 30 days beginning on the day of discharge): **No.** This counts GP contacts in the 30 days after the patient left hospital, so it doesn't exist at discharge. Patients who go on to be readmitted tend to have more of them.
-- **Age** (the patient's age at admission): **Yes.** This is recorded during the admission, so we have it at the moment of discharge.
-- **Length of stay (days)** (this admission): **Yes.** A stay isn't over until the patient leaves, so you couldn't know this at admission. But the model is run as the patient leaves, and by then we do have it. The moment the model is run decides what counts.
+- **GP contacts (last 30 days)** (source: linked GP record, the 30 days before the extract date): **No.** In training the 30 days are the month *after* discharge, when patients who are getting worse see their GP more. At discharge the same field would count the month before, mostly in hospital: same name, different information.
+- **Number of medications** (source: the discharge prescription): **Yes.** The discharge prescription is written before the patient leaves. It sounds as if it could be counted later, so groups should check rather than assume.
+- **Length of stay (days)** (admission date to discharge date): **Yes.** A stay isn't over until the patient leaves, so you couldn't know this at admission. But the model is run as the patient leaves, and by then we do have it. The moment the model is run decides what counts.
 
 **The reveal:** the extract was pulled 30 days after discharge. So v1 leans on GP contacts, follow-up attendance and nursing visits, which are partly *consequences* of readmission. Without them, in v2:
 - AUC falls from 0.99 to **0.70**. The page shows v1 and v2 side by side on the same dot chart as Stage 1: v1's two rows barely overlap, and v2's overlap a lot. It then gives a benchmark: published readmission models usually score around 0.6 to 0.75 (Kansagara et al., JAMA 2011). The benchmark is held back until here so the Briefing and Stage 1 don't give away that 0.99 is suspicious;
@@ -113,6 +118,7 @@ Cut in this order, so the main lessons survive:
 The page then says that from here on the exercise uses v2. There is no grid at a chosen capacity here: capacity is chosen in the next stage, on v2.
 
 **Draw out:**
+- How did they spot it? The realistic route is the chart (one factor dominating) plus the data dictionary ("the 30 days before the extract date"). Groups that answered "nothing stands out" are the ones a sign-off review exists for.
 - The length-of-stay answer: it isn't known at admission, but it is at discharge, so *when the model is run* matters.
 - v2 is modest, and that is the honest picture.
 - 0.99 was itself a warning sign. A headline AUC far above what similar published models achieve is a reason to ask how it was tested.
@@ -250,7 +256,7 @@ Some content was taken off the main route to fit 40 minutes. It is still in the 
 
 | Where | What is held in reserve | How to bring it back |
 |---|---|---|
-| Stage 2 | Outpatient follow-up and emergency admissions questions | Uncomment them in `explain.LEAKAGE_QUESTIONS` |
+| Stage 2 | Outpatient follow-up, emergency admissions and age questions | Uncomment them in `explain.LEAKAGE_QUESTIONS` |
 | Stage 4 | Optional uses: follow-up or medication review, transport, pharmacist review, deprioritising | Already in the page's optional section; set `compulsory` in `interventions.py` to promote one |
 | Stage 5 | Two extra statements ("explainable means safe", "what the model relied on") | Uncomment them in `bringing_people.py` and `explain.STATEMENT_SUPPORTED` |
 | Stage 5 | The typical and lowest-risk patients, and the picker | Set `SHOW_OTHER_PATIENTS = True` in `bringing_people.py` |

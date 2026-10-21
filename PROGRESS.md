@@ -53,6 +53,16 @@ Groups were reaching the app without understanding AUC, despite the one slide on
 
 Verified with `AppTest`: Briefing anchors; three pairs give a tally "of 3"; a wrong pair shows "Wrong way round" without changing the tally; the quick check gives a warning or success; the Stage 2 v2 block renders the comparison and benchmark. **Not verified:** how the dot charts look (no image export here), the layout at narrow widths, and the benchmark citation against the paper itself (see final-things-to-check.md).
 
+## Stage 2 leakage made less obvious (2026-10-21)
+
+The page had been handing over the answer: a line saying the extract was made 30 days after discharge, a "Covers: the 30 days beginning on the day of discharge" note in every question, and age as a trivially "yes" question. That made "an easy mistake for a careful team to make" ring hollow.
+- The chart now comes first, showing the top 10 factors, with an unmarked question: "Is there anything about this chart you'd want to ask the analytics team?". A nudge follows whatever the answer: community nursing moves risk about 10 times as much as age, so ask where the data comes from and when it is recorded. The rest of the page waits for an answer, which is saved as `chart_question`.
+- **Reframed the same day:** the question is now "would the model get the same information in real use?", with the options "Yes: at discharge we'd have the same information the model learnt from" and "No: at discharge this would be missing, or would mean something different". GP contacts and community nursing visits are named "(last 30 days)", with the source "the 30 days before the extract date". At discharge such a field *could* be filled in, but with the month before discharge, so "doesn't exist yet" was misleading. Answers saved under the old option wording are ignored.
+- The question labels show only the name and description. The timing is in an expander, "The analytics team's data dictionary": all 14 factors with realistic sources such as "Contacts from the discharge date up to the extract date". Its header says each row was extracted 30 days after discharge. The hint points to it.
+- The framing line about the extract was removed from above the questions. The reveal still explains it.
+- Age was replaced by **number of medications** (the discharge prescription: yes) and moved to the reserve questions.
+- `build/train_and_explain.py`: `COVERS` became `SOURCE` (exported as `source`), and medications has its own explanation. `features.json` was regenerated from those tables only. Descriptions and `known_at_discharge` are unchanged, so no retrain was needed.
+
 ## Saved progress in the browser (2026-10-15)
 
 Prompted by the plan to host on Streamlit Community Cloud for two or three groups. Community Cloud has **no persistent server storage** (the container's disk is wiped on restart), so progress is kept in each browser's `localStorage`, following the approach in `C:\geographic_or_ds_playgroundpp\persistence.py`.
