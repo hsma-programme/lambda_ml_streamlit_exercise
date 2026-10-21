@@ -13,12 +13,13 @@ TRADEOFFS = [
 
 meta = ui.load_meta()
 preds = ui.load_predictions()
+v2 = meta["models"]["v2"]
 
 ui.stage_header(
-    "2. Tradeoffs: Who would we phone?",
-    "AUC told you how well ReadmitRisk v1 puts patients in order. To use that order, someone has to decide "
-    "where to draw the line.",
-    minutes="stage2",
+    "3. Tradeoffs: Who would we phone?",
+    "From here on we use the honest model, v2, which only uses what we know at discharge. AUC tells you how well "
+    "it puts patients in order, but not where to draw the line.",
+    minutes="stage3",
 )
 ui.task_box(
     "Decide how many patients per 1,000 discharges your team could realistically phone, "
@@ -50,7 +51,7 @@ cap = st.slider(
 )
 st.session_state["capacity_choice"] = cap
 
-out = metrics.call_outcomes(preds["p_v1"], preds["readmitted_30d"], cap)
+out = metrics.call_outcomes(preds["p_v2"], preds["readmitted_30d"], cap)
 
 # The cut-off is the key idea: capacity sets it. Show it large, with how far it just moved.
 prev_cutoff = st.session_state.get("_prev_cutoff")
@@ -95,18 +96,20 @@ with left:
 with right:
     st.markdown(
         f"""
-**If we followed the model and phoned the {cap} highest-risk patients** (anyone with a predicted risk of {out['cutoff']:.0%} or more):
+**If we followed v2 and phoned the {cap} highest-risk patients** (anyone with a predicted risk of {out['cutoff']:.0%} or more):
 
 - **Precision:** {out['called_readmitted']} of those {cap} calls would reach someone who was readmitted
   (**{out['precision']:.0%}**). Calling at random would manage about **{out['random_precision']:.0%}**.
 - **Recall:** we would reach **{out['called_readmitted']} of the {out['readmitted_total']}** patients who were readmitted
   (**{out['recall']:.0%}**).
-- **Accuracy** is now {out['accuracy']:.0%}, a different number from the headline in the team's summary.
+- **Accuracy** is now {out['accuracy']:.0%}, a different number from v2's {v2['accuracy_at_50pct']:.0%} at the usual 50% cut-off.
 """
     )
     st.caption(
         f"Counts are scaled from {meta['n_test']:,} test patients to 1,000, so they can be out by a few patients. "
-        "They describe who was readmitted anyway, not readmissions that a call would have prevented."
+        "They describe who was readmitted anyway, not readmissions that a call would have prevented. "
+        "Ranking by risk beats calling at random here, but you would need to test that in your own hospital: "
+        "ranking by risk is not the same as knowing a call will help."
     )
 
 st.divider()
@@ -135,8 +138,8 @@ else:
         st.rerun()
 
 ui.next_stage(
-    "app_pages/too_good.py",
-    "3. Issues: Too good to be true?",
+    "app_pages/what_will_we_do.py",
+    "4. Usage: What will we do with it?",
     ui.get_decision("tradeoff_choice") is not None,
     "Record your group's decision above, and a button to the next stage will appear here.",
 )

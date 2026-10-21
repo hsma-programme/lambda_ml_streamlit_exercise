@@ -32,7 +32,7 @@ Use this checklist before delivering the Model Sign-off exercise. The design con
 - [ ] Use percentage points for SHAP contributions, with red increasing and blue decreasing predicted readmission risk. Explain that the baseline is the explainer's reference expectation.
 - [ ] Check that local waterfalls and global importance are distinguished, and that neither is presented as evidence of causality or fairness.
 - [ ] Check the Stage 1 AUC section against `meta.json`: the pair count (361 × 2,639 = 952,679), v1's 99% and the "about 1% of pairs" wrong-way-round figure. Check that the quick-check answer is unambiguous to a novice.
-- [ ] Verify the Stage 3 benchmark sentence ("published readmission models usually score around 0.6 to 0.75"; Kansagara et al., JAMA 2011;306(15):1688-98) against the paper itself, not secondary summaries. Adjust the range if the paper doesn't support it.
+- [ ] Verify the Stage 2 benchmark sentence ("published readmission models usually score around 0.6 to 0.75"; Kansagara et al., JAMA 2011;306(15):1688-98) against the paper itself, not secondary summaries. Adjust the range if the paper doesn't support it.
 - [ ] Explain calibration in plain English if it appears as a sign-off condition. Avoid implying that good AUC establishes accurate risk percentages or readiness to deploy.
 
 ## Intended use and governance wording

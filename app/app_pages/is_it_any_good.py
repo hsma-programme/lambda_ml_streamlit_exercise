@@ -154,14 +154,14 @@ if guess:
             "puts a readmitted patient above one who wasn't. At 0.5, that ordering is no better than chance.",
         )
         st.markdown(
-            "AUC scores how well the model **orders** patients. It doesn't tell you where to draw the line, "
-            "or how many calls that means. That is the next stage."
+            "AUC scores how well the model **orders** patients, and by that measure v1 is close to perfect. "
+            "Before you trust that, the next stage looks at what the model is relying on."
         )
 
     # Moving on needs the guess (above) and at least one pair, so AUC isn't skipped.
     ui.next_stage(
-        "app_pages/who_would_we_phone.py",
-        "2. Tradeoffs: Who would we phone?",
+        "app_pages/too_good.py",
+        "2. Issues: Too good to be true?",
         bool(pairs),
         "Pick at least one pair above, and a button to the next stage will appear here.",
     )

@@ -217,7 +217,7 @@ st.markdown(
 - **It is not proof of readiness.** A model can be explained and still be inaccurate, badly calibrated or unsafe
   in your hospital.
 - **It is a way to ask better questions.** It helps you spot things that look wrong, as the leaked
-  information did in Stage 3.
+  information did in Stage 2.
 """
 )
 ui.next_stage(

@@ -1,6 +1,6 @@
 # Model sign-off: a readmission-risk exercise
 
-A browser-based group exercise for senior NHS leaders with no ML background. An in-house analytics team has built a model that predicts 30-day readmission, and each group is the panel deciding whether it goes into use. Over about 42 minutes they work through seven stages: a first impression, whether the headline numbers mean what they seem, who the model would have you phone, data leakage, what the list would be used for, explaining a prediction, and a final sign-off with conditions.
+A browser-based group exercise for senior NHS leaders with no ML background. An in-house analytics team has built a model that predicts 30-day readmission, and each group is the panel deciding whether it goes into use. Over about 42 minutes they work through seven stages: a first impression, whether the headline numbers mean what they seem, data leakage, who the honest model would have you phone, what the list would be used for, explaining a prediction, and a final sign-off with conditions.
 
 **All data is synthetic.** There are no real patients, and the analytics team is fictional.
 
@@ -29,8 +29,8 @@ The route takes about 42 minutes, then there is a debrief. The times are estimat
 |---|---|---|
 | 0. Briefing | 3 | 3 min |
 | 1. Performance | 4 | 7 min |
-| 2. Tradeoffs | 5 | 12 min |
-| 3. Issues | 8 | 20 min |
+| 2. Issues | 8 | 15 min |
+| 3. Tradeoffs | 5 | 20 min |
 | 4. Usage | 10 | 30 min |
 | 5. Communication | 7 | 37 min |
 | 6. Sign-off | 5 | 42 min |
@@ -47,7 +47,7 @@ Cut in this order, so the main lessons survive:
 3. **Stage 5:** skip the global tab; stay with the one patient and the four statements.
 4. **Stage 6:** pick the conditions and the verdict, and read the memo rather than discussing the journey.
 
-**Don't cut** the Stage 3 reveal (v1 to v2), or the Friday data in Stage 4. They carry the two main lessons: *leakage*, and *a prediction is not the effect of an action*.
+**Don't cut** the Stage 2 reveal (v1 to v2), or the Friday data in Stage 4. They carry the two main lessons: *leakage*, and *a prediction is not the effect of an action*.
 
 ## Before you run it
 
@@ -68,7 +68,7 @@ Cut in this order, so the main lessons survive:
 - **Press "Start over" (top right) between groups** on a shared laptop, or the next group will see the previous group's answers. It asks for confirmation, then clears everything and returns to the Briefing.
 - **One tab per group.** Two tabs on the same device share one saved copy, and whichever changes last wins.
 - **Open the app a few minutes before the session.** Hosted apps go to sleep when nobody has used them for a while, and take a minute to wake.
-- **Tell them up front** that most of the exercise is judgement and will not be marked. Stage 3's "could the model use this?" questions and Stage 5's statements do have clearer answers, and the app says so.
+- **Tell them up front** that most of the exercise is judgement and will not be marked. Stage 2's "could the model use this?" questions and Stage 5's statements do have clearer answers, and the app says so.
 
 ## Stage by stage
 
@@ -94,28 +94,9 @@ Cut in this order, so the main lessons survive:
 **Draw out:**
 - The 88% belongs to this data, not to do-nothing models in general: it is the share of patients not readmitted.
 - The AUC quick check: an AUC of 0.5 means ranking no better than a coin toss, not "right about half the patients". If groups picked a wrong answer, this is the misreading to correct.
-- AUC says nothing about where to draw the line. That is Stage 2.
+- v1's 0.99 is near-perfect ordering. Stage 2 asks whether that is believable. (Where to draw the line comes in Stage 3, on v2.)
 
-### 2. Tradeoffs: Who would we phone? (about 5 minutes)
-
-**Aim:**
-- The cut-off follows from capacity.
-- Precision and recall trade off against each other.
-
-**Numbers:**
-- **v1 at 100 calls per 1,000 discharges:**
-  - the cut-off is about 72%;
-  - it reaches 97 of 120 readmissions (81%);
-  - 97% of calls reach someone who was readmitted, against about 12% for random calling.
-
-**Draw out:**
-- Moving the slider moves the *cut-off*. The learner doesn't set the cut-off directly.
-- The grid describes who was readmitted anyway, not readmissions a call prevented.
-- The third trade-off option ("we can't settle this until we know whether the calls actually help") is a legitimate stance, and sets up Stage 6.
-
-**Common misreading:** "called" patients are not calls that happened. The grid is a thought experiment on past data.
-
-### 3. Issues: Too good to be true? (about 8 minutes)
+### 2. Issues: Too good to be true? (about 8 minutes)
 
 **Aim:** data leakage is information the model would not have at the moment you need the prediction, and the moment of prediction decides what counts.
 
@@ -127,13 +108,37 @@ Cut in this order, so the main lessons survive:
 
 **The reveal:** the extract was pulled 30 days after discharge. So v1 leans on GP contacts, follow-up attendance and nursing visits, which are partly *consequences* of readmission. Without them, in v2:
 - AUC falls from 0.99 to **0.70**. The page shows v1 and v2 side by side on the same dot chart as Stage 1: v1's two rows barely overlap, and v2's overlap a lot. It then gives a benchmark: published readmission models usually score around 0.6 to 0.75 (Kansagara et al., JAMA 2011). The benchmark is held back until here so the Briefing and Stage 1 don't give away that 0.99 is suspicious;
-- at the 50% cut-off, v2 flags only 16 patients;
-- at 100 calls per 1,000, v2 reaches 33 of 120 readmissions (28%), with 33% precision, against about 12% for random calling.
+- at the 50% cut-off, v2 flags only 16 patients.
+
+The page then says that from here on the exercise uses v2. There is no grid at a chosen capacity here: capacity is chosen in the next stage, on v2.
 
 **Draw out:**
 - The length-of-stay answer: it isn't known at admission, but it is at discharge, so *when the model is run* matters.
-- v2 is modest, and that is the honest picture. Ranking by risk still beats random calling, but that needs testing.
+- v2 is modest, and that is the honest picture.
 - 0.99 was itself a warning sign. A headline AUC far above what similar published models achieve is a reason to ask how it was tested.
+
+### 3. Tradeoffs: Who would we phone? (about 5 minutes)
+
+**Aim:**
+- The cut-off follows from capacity.
+- Precision and recall trade off against each other.
+
+**Numbers:**
+This stage runs on **v2**, the honest model, so the trade-off is a real one. (On v1, almost every call would hit and almost everyone would be reached, so there would be little to decide.)
+
+- **v2 at 100 calls per 1,000 discharges:**
+  - the cut-off is about 23%;
+  - it reaches 33 of 120 readmissions (28%);
+  - 33% of calls reach someone who was readmitted, against about 12% for random calling.
+- Across the slider (20 to 300 calls), the cut-off moves smoothly from about 30% at 50 calls to about 13% at 300 calls. Precision falls from about 38% to 23% as recall rises from 16% to 57%.
+
+**Draw out:**
+- Moving the slider moves the *cut-off*. The learner doesn't set the cut-off directly.
+- Ranking by risk beats random calling here, but that needs testing locally: ranking by risk is not the same as knowing a call helps.
+- The grid describes who was readmitted anyway, not readmissions a call prevented.
+- The third trade-off option ("we can't settle this until we know whether the calls actually help") is a legitimate stance, and sets up Stage 6.
+
+**Common misreading:** "called" patients are not calls that happened. The grid is a thought experiment on past data.
 
 ### 4. Usage: What will we do with it? (about 10 minutes)
 
@@ -245,7 +250,7 @@ Some content was taken off the main route to fit 40 minutes. It is still in the 
 
 | Where | What is held in reserve | How to bring it back |
 |---|---|---|
-| Stage 3 | Outpatient follow-up and emergency admissions questions | Uncomment them in `explain.LEAKAGE_QUESTIONS` |
+| Stage 2 | Outpatient follow-up and emergency admissions questions | Uncomment them in `explain.LEAKAGE_QUESTIONS` |
 | Stage 4 | Optional uses: follow-up or medication review, transport, pharmacist review, deprioritising | Already in the page's optional section; set `compulsory` in `interventions.py` to promote one |
 | Stage 5 | Two extra statements ("explainable means safe", "what the model relied on") | Uncomment them in `bringing_people.py` and `explain.STATEMENT_SUPPORTED` |
 | Stage 5 | The typical and lowest-risk patients, and the picker | Set `SHOW_OTHER_PATIENTS = True` in `bringing_people.py` |

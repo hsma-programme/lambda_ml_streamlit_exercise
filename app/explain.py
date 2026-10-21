@@ -14,7 +14,7 @@ STATEMENT_SUPPORTED = {
     # "relied": True,
 }
 
-# The Stage 3 "could the model use this on a real patient?" questions, one of each kind:
+# The Stage 2 "could the model use this on a real patient?" questions, one of each kind:
 # known before admission, built up during the stay (so available at discharge), and recorded
 # only after discharge.
 LEAKAGE_QUESTIONS = [

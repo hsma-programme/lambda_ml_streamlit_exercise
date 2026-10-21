@@ -32,12 +32,12 @@ def gather(state, features: dict) -> dict:
     missing = []
     if not state.get("initial_verdict"):
         missing.append("Stage 0: your first impression")
-    if not state.get("tradeoff_choice"):
-        missing.append("Stage 2: the call capacity trade-off")
     if leakage_total < len(explain.LEAKAGE_QUESTIONS):
-        missing.append("Stage 3: the 'could the model use this?' questions")
+        missing.append("Stage 2: the 'could the model use this?' questions")
     if not state.get("stage2_verdict"):
-        missing.append("Stage 3: your view after seeing v2")
+        missing.append("Stage 2: your view after seeing v2")
+    if not state.get("tradeoff_choice"):
+        missing.append("Stage 3: the call capacity trade-off")
     done = [k for k in compulsory if k in uses]
     if len(done) < len(compulsory):
         missing.append(f"Stage 4: {len(done)} of {len(compulsory)} compulsory uses recorded")
@@ -91,11 +91,11 @@ def build_memo(g: dict, meta: dict) -> str:
     add(f"- The submitted model (v1) scored AUC {v1['auc_test']:.2f} and {v1['accuracy_at_50pct']:.1%} accuracy on "
         f"held-out patients. Without the information it would not have at discharge (v2), AUC was "
         f"{v2['auc_test']:.2f} and accuracy {v2['accuracy_at_50pct']:.1%}.")
-    add(f"- Call capacity considered: {g['capacity'] or 'not recorded'} per 1,000 discharges. "
-        f"Trade-off our group would accept: {g['tradeoff'] or 'not recorded'}.")
     if g["leakage_total"]:
         add(f"- Data leakage: we identified which factors the model could and could not use at the moment of "
             f"prediction ({g['leakage_right']} of {g['leakage_total']} correct).")
+    add(f"- Call capacity considered, using v2: {g['capacity'] or 'not recorded'} per 1,000 discharges. "
+        f"Trade-off our group would accept: {g['tradeoff'] or 'not recorded'}.")
     if g.get("statements_right") is not None:
         add(f"- Explanation statements: {g['statements_right']} of {g['statements_total']} judged correctly.")
     add("")

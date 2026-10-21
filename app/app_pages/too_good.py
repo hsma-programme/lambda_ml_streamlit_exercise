@@ -1,9 +1,7 @@
-import pandas as pd
 import streamlit as st
 
 import charts
 import explain
-import metrics
 import ui
 
 VERDICTS = ["Approve", "Approve with conditions", "Reject"]
@@ -17,7 +15,7 @@ preds = ui.load_predictions()
 imp_v1 = shap_summary["mean_abs_shap_pp"]["v1"]
 imp_v2 = shap_summary["mean_abs_shap_pp"]["v2"]
 
-ui.stage_header("3. Issues: Too good to be true?", "What is the model actually relying on?", minutes="stage3")
+ui.stage_header("2. Issues: Too good to be true?", "What is the model actually relying on?", minutes="stage2")
 ui.task_box(
     "Look at what ReadmitRisk v1 leans on most, and decide for each factor whether we would "
     "really know it at the moment a patient leaves hospital."
@@ -126,40 +124,12 @@ if all_answered:
             "v2 is in that range. An AUC of 0.99 for something as uncertain as readmission should have been a warning sign on its own."
         )
 
-        cap = ui.capacity()
-        o1 = metrics.call_outcomes(preds["p_v1"], preds["readmitted_30d"], cap)
-        o2 = metrics.call_outcomes(preds["p_v2"], preds["readmitted_30d"], cap)
-        st.markdown(f"**At your chosen capacity of {cap} calls per 1,000 discharges:**")
-        a, b = st.columns(2)
-        with a:
-            st.plotly_chart(charts.icon_array(o1, title="v1 (with leaked information)"), width="stretch")
-        with b:
-            st.plotly_chart(charts.icon_array(o2, title="v2 (discharge-time information only)"), width="stretch")
-        st.markdown(
-            f"- Following v1's recommendations would have reached **{o1['called_readmitted']}** of the "
-            f"{o1['readmitted_total']} patients who were readmitted; following v2's would reach **{o2['called_readmitted']}** ({o2['recall']:.0%}).\n"
-            f"- **{o2['precision']:.0%}** of v2's calls would reach someone who was readmitted, against about "
-            f"**{o2['random_precision']:.0%}** for calling at random."
-        )
         st.info(
-            "v2 is much more modest, and it is the honest picture. It would still beat random calling, but you would need to "
-            "test it against random calling in your own hospital, because ranking by risk is not the same as knowing a "
-            "call will help."
+            "v2 is much more modest, and it is the honest picture. From here on the exercise uses v2. "
+            "Next, you will decide how many patients it should put on the call list."
         )
         with st.expander("What v2 relies on"):
             st.plotly_chart(charts.importance_bar(imp_v2, features, top=8), width="stretch")
-        with st.expander("Show the v1 and v2 counts as a table"):
-            st.dataframe(
-                pd.DataFrame(
-                    {
-                        "Group": [label for _, label in metrics.GROUPS],
-                        "v1 per 1,000": [o1[k] for k, _ in metrics.GROUPS],
-                        "v2 per 1,000": [o2[k] for k, _ in metrics.GROUPS],
-                    }
-                ),
-                hide_index=True,
-                width="stretch",
-            )
 
         st.divider()
         st.subheader("Has this changed your view?")
@@ -174,8 +144,8 @@ if all_answered:
                 st.rerun()
 
 ui.next_stage(
-    "app_pages/what_will_we_do.py",
-    "4. Usage: What will we do with it?",
+    "app_pages/who_would_we_phone.py",
+    "3. Tradeoffs: Who would we phone?",
     ui.get_decision("stage2_verdict") is not None,
     "Record your group's view above, and a button to the next stage will appear here.",
 )

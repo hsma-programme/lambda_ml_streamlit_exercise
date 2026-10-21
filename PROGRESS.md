@@ -46,6 +46,11 @@ Groups were reaching the app without understanding AUC, despite the one slide on
 - Saved-progress keys named after stages (`stage2_verdict`, `stage4_statements`) keep their old names, so existing saved progress still loads. A comment in `persistence.py` says so.
 - Verified with `AppTest` through `streamlit_app.py`: guess, then pair, unlocks Stage 2; recording the trade-off unlocks Stage 3; capacity carries into Stage 3; the sign-off missing-decisions list uses the new numbers. Not checked: whether seven nav items wrap at laptop width.
 
+**Then Stages 2 and 3 swapped (same day): Issues before Tradeoffs.** The cut-off now runs on **v2**. On v1, at 100 calls the precision is 97% and the recall 81%, so there was no real trade-off to make. v1's cut-off also jumps from 99% to 1% across the slider. On v2 (23% cut-off, 33% precision, 28% recall at 100 calls) the dilemma is real and the cut-off moves smoothly. AUC 0.99 now leads straight into "too good to be true?".
+- 2. Issues ([too_good.py](app/app_pages/too_good.py)) lost its v1/v2 grids "at your chosen capacity", because capacity isn't chosen yet. It now ends by saying the exercise uses v2 from here on.
+- 3. Tradeoffs ([who_would_we_phone.py](app/app_pages/who_would_we_phone.py)) uses `p_v2`. Its accuracy line compares with v2's 88% at 50%, and it carries the "test against random calling" point.
+- The nav order, titles, links, `STAGE_MINUTES`, `DISCUSSION`, the memo (missing list and "What we found" order) and cross-references are all updated. The Stage 5 facilitator prompt already used v2's 23% cut-off.
+
 Verified with `AppTest`: Briefing anchors; three pairs give a tally "of 3"; a wrong pair shows "Wrong way round" without changing the tally; the quick check gives a warning or success; the Stage 2 v2 block renders the comparison and benchmark. **Not verified:** how the dot charts look (no image export here), the layout at narrow widths, and the benchmark citation against the paper itself (see final-things-to-check.md).
 
 ## Saved progress in the browser (2026-10-15)
